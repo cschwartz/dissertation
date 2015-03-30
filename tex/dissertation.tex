@@ -1,0 +1,133 @@
+\documentclass[pdf]{diss}
+\usepackage[german,english]{babel}
+\usepackage{setspace} 
+\usepackage[refpage,intoc]{nomencl}
+\usepackage[T1]{fontenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath,amsthm,graphicx,amssymb,times,here} 
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{cite}
+\usepackage{todonotes}
+\usepackage[vlined,algoruled,linesnumbered,commentsnumbered]{algorithm2e}
+\usepackage[export]{splitbib}
+\usepackage[utf8]{inputenc}
+\usepackage[tight,nice]{units}
+\usepackage{xspace}
+\usepackage{hhline}
+\usepackage{todonotes}
+\usepackage{booktabs}
+\usepackage{here}
+\usepackage{tikz}
+\usepackage{rotating}
+%\usepackage{subfigure}
+\usepackage[caption=false]{subfig}
+\setkomafont{captionlabel}{\sl}
+\setkomafont{caption}{\sl}
+\KOMAoption{captions}{centeredbeside}
+%\usepackage{sidecap}
+\setlength\pdfpagewidth{\paperwidth}
+\setlength\pdfpageheight{\paperheight}
+%\usepackage{hyperref}
+\hypersetup{
+	plainpages=false,
+	hypertexnames=false,
+	hidelinks
+}
+
+\include{glossary}
+
+\newcommand{\specialcellbold}[2][c]{%
+  \textbf{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}}
+	
+	\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\begin{category}{Bibliography of the Author}
+	\begin{category}{Book Chapters}
+		\SBentries{Zseby2011a}
+	\end{category}
+	\begin{category}{Journal Papers}
+		\SBentries{Nguyen2013,Schwartz2013a,Hock2011}
+	\end{category}
+	\begin{category}{Conference Papers}		
+	  \SBentries{Schwartz2014a,Hirth2014a,Burger2014a,Schwartz2013b,Schwartz2013c,Schwartz2012a,Hock2010a,Hock2010b,Hock2010c,Hartmann2009a}	
+	\end{category}
+	\begin{category}{Software Demonstrations}		
+	\SBentries{Hock2011a}
+	\end{category}	
+\end{category}
+
+\renewcommand{\SBmisctitle}{General References}
+\SBtitlestyle{dash}
+\SBsubtitlestyle{dash}
+
+\topmargin-6.5mm
+\textheight142mm
+
+\renewcommand{\baselinestretch}{1.25}\normalsize
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{corollary}{Corollary}
+
+\let\oldbls=\baselinestretch
+\newcommand{\leadingzero}[1]{\ifnum #1<10 0\the#1\else\the#1\fi}
+\newcommand{\todayDK}{\leadingzero{\day}.\leadingzero{\month}.\the\year} 
+
+%\date{\todayDK}
+\date{xx.xx.2015}
+\disputation{xx.xx.2015}
+\serialnumber{3/15}
+\issn{xxxx-xxxx}
+\reviewer{Prof. Dr. Franco Davoli}
+\place{Würzburg}
+
+\author{Christian}{Schwartz}
+
+\title{Modeling and Evaluation of Multi-Stakeholder Scenarios in Communication Networks}
+ 
+%\preface{Danksagung}{danksagung}
+
+\selectlanguage{english}
+\AtBeginDocument{\renewcommand{\chapterautorefname}{Chapter}}
+\AtBeginDocument{\renewcommand{\sectionautorefname}{Section}}
+\AtBeginDocument{\renewcommand{\subsectionautorefname}{Section}}
+\AtBeginDocument{\renewcommand{\subsubsectionautorefname}{Section}}
+\AtBeginDocument{\newcommand{\subfigureautorefname}{Figure}}
+
+\newcommand\alg[1]{Algorithm~\ref{alg:#1}}
+\newcommand\fig[1]{Figure~\ref{fig:#1}}
+\newcommand\figs[2]{Figures~\ref{fig:#1}--\ref{fig:#2}}
+\newcommand\twofigs[2]{Figures~\ref{fig:#1} and \ref{fig:#2}}
+\newcommand\sect[1]{Section~\ref{sec:#1}}
+\newcommand\tabl[1]{Table~\ref{tab:#1}}
+\newcommand\tables[2]{Tables~\ref{tab:#1} and \ref{tab:#2}}
+\newcommand\reqn[1]{Equation~(\ref{eqn:#1})}
+
+\begin{document}
+
+\nocite{Nguyen2013,Schwartz2013a,Hock2011,Schwartz2014a,Hirth2014a,Burger2014a,Schwartz2013b,Schwartz2013c,Schwartz2012a,Hock2010a,Hock2010b,Hock2010c,Hartmann2009a,Hock2011a}
+
+\setcounter{tocdepth}{4} 
+
+\clearpage
+
+\include{introduction}
+\include{network}
+\include{application}
+\include{cloud}
+\include{conclusion}
+
+
+\renewcommand{\baselinestretch}{\oldbls}\normalsize
+
+
+\bibliographystyle{IEEEtran}
+\renewcommand{\bibname}{Bibliography and References}
+
+\vspace{-1cm}
+\bibliography{bibtex/references,bibtex/publications}
+
+
+\end{document}
