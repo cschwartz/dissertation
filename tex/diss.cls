@@ -330,10 +330,10 @@
   \ifd@pdf
     \phantomsection
   \fi
-  \addcontentsline{toc}{chapter}{\bibname}
-  \markboth{\bibname}{}
-  {\def\uppercase#1{#1}\d@bibliography{\d@bib}}
-  \cleardoublepage
+%  \addcontentsline{toc}{chapter}{\bibname}
+%  \markboth{\bibname}{}
+%  {\def\uppercase#1{#1}\d@bibliography{\d@bib}}
+%  \cleardoublepage
   \IfFileExists{\jobname.gls}{%
    \input\jobname.gls
    \cleardoublepage

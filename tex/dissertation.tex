@@ -1,4 +1,5 @@
 \documentclass[pdf]{diss}
+\usepackage[defernumbers=true,backend=biber,style=ieee]{biblatex}
 \usepackage[german,english]{babel}
 \usepackage{setspace} 
 \usepackage[refpage,intoc]{nomencl}
@@ -8,10 +9,10 @@
 \usepackage{amsmath,amsthm,graphicx,amssymb,times,here} 
 \usepackage{setspace}
 \usepackage{multirow}
-\usepackage{cite}
+%\usepackage{cite}
 \usepackage{todonotes}
 \usepackage[vlined,algoruled,linesnumbered,commentsnumbered]{algorithm2e}
-\usepackage[export]{splitbib}
+%\usepackage[export]{splitbib}
 \usepackage[utf8]{inputenc}
 \usepackage[tight,nice]{units}
 \usepackage{xspace}
@@ -38,44 +39,41 @@
 
 \include{glossary}
 
-\newcommand{\specialcellbold}[2][c]{%
-  \textbf{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}}
+
+\defbibheading{book_chapter}{\section{Book Chapters}}
+\defbibheading{journal}{\section{Journal Papers}}
+\defbibheading{conference}{\section{Conference Papers}}
+\defbibheading{demo}{\section{Software Demonstrations}}
+
+\addbibresource{bibtex/publications.bib}
+\addbibresource{bibtex/references.bib}
+
+\nocite{Nguyen2013,Schwartz2013a,Hock2011,Schwartz2014a,Hirth2014a,Burger2014a,Schwartz2013b,Schwartz2013c,Schwartz2012a,Hock2010a,Hock2010b,Hock2010c,Hartmann2009a,Hock2011a}
+
+
+%\newcommand{\specialcellbold}[2][c]{%
+%  \textbf{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}}
 	
-	\newcommand{\specialcell}[2][c]{%
-  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+%	\newcommand{\specialcell}[2][c]{%
+%  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 
-\begin{category}{Bibliography of the Author}
-	\begin{category}{Book Chapters}
-		\SBentries{Zseby2011a}
-	\end{category}
-	\begin{category}{Journal Papers}
-		\SBentries{Nguyen2013,Schwartz2013a,Hock2011}
-	\end{category}
-	\begin{category}{Conference Papers}		
-	  \SBentries{Schwartz2014a,Hirth2014a,Burger2014a,Schwartz2013b,Schwartz2013c,Schwartz2012a,Hock2010a,Hock2010b,Hock2010c,Hartmann2009a}	
-	\end{category}
-	\begin{category}{Software Demonstrations}		
-	\SBentries{Hock2011a}
-	\end{category}	
-\end{category}
+%\renewcommand{\SBmisctitle}{General References}
+%\SBtitlestyle{dash}
+%\SBsubtitlestyle{dash}
 
-\renewcommand{\SBmisctitle}{General References}
-\SBtitlestyle{dash}
-\SBsubtitlestyle{dash}
+% \topmargin-6.5mm
+% \textheight142mm
 
-\topmargin-6.5mm
-\textheight142mm
+% \renewcommand{\baselinestretch}{1.25}\normalsize
 
-\renewcommand{\baselinestretch}{1.25}\normalsize
+% \newtheorem*{theorem}{Theorem}
+% \newtheorem*{corollary}{Corollary}
 
-\newtheorem*{theorem}{Theorem}
-\newtheorem*{corollary}{Corollary}
+% \let\oldbls=\baselinestretch
+% \newcommand{\leadingzero}[1]{\ifnum #1<10 0\the#1\else\the#1\fi}
+% \newcommand{\todayDK}{\leadingzero{\day}.\leadingzero{\month}.\the\year}
 
-\let\oldbls=\baselinestretch
-\newcommand{\leadingzero}[1]{\ifnum #1<10 0\the#1\else\the#1\fi}
-\newcommand{\todayDK}{\leadingzero{\day}.\leadingzero{\month}.\the\year} 
-
-%\date{\todayDK}
+% %\date{\todayDK}
 \date{xx.xx.2015}
 \disputation{xx.xx.2015}
 \serialnumber{3/15}
@@ -87,7 +85,7 @@
 
 \title{Modeling and Evaluation of Multi-Stakeholder Scenarios in Communication Networks}
  
-%\preface{Danksagung}{danksagung}
+% %\preface{Danksagung}{danksagung}
 
 \selectlanguage{english}
 \AtBeginDocument{\renewcommand{\chapterautorefname}{Chapter}}
@@ -107,8 +105,6 @@
 
 \begin{document}
 
-\nocite{Nguyen2013,Schwartz2013a,Hock2011,Schwartz2014a,Hirth2014a,Burger2014a,Schwartz2013b,Schwartz2013c,Schwartz2012a,Hock2010a,Hock2010b,Hock2010c,Hartmann2009a,Hock2011a}
-
 \setcounter{tocdepth}{4} 
 
 \clearpage
@@ -120,14 +116,15 @@
 \include{conclusion}
 
 
-\renewcommand{\baselinestretch}{\oldbls}\normalsize
+%\renewcommand{\baselinestretch}{\oldbls}\normalsize
 
+\chapter*{Bibliography and References}
+\printbibliography[title={Book Chapters},keyword=book_chapter]
+\printbibliography[title={Journal},keyword=journal]
+\printbibliography[title={Conference},keyword=conference]
+\printbibliography[title={Software Demonstrations},keyword=demo]
 
-\bibliographystyle{IEEEtran}
-\renewcommand{\bibname}{Bibliography and References}
-
-\vspace{-1cm}
-\bibliography{bibtex/references,bibtex/publications}
+%\vspace{-1cm}
 
 
 \end{document}
