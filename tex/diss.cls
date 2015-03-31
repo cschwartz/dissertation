@@ -203,7 +203,7 @@
             W\"urzburg}\vskip 1mm
        {\sf Institut f\"ur Informatik\\
             Lehrstuhl f\"ur Kommunikationsnetze\\
-            Prof.~Dr.~P.~Tran-Gia}
+            Prof.~Dr.-Ing.~P.~Tran-Gia}
       \end{center}
     }
     \vskip 20mm%
@@ -227,7 +227,7 @@
     {\large\sfb W\"urzburger Beitr\"age zur\\[2mm]
                Leistungsbewertung Verteilter Systeme}\\[4mm]
     {\sfb Herausgeber}\\[2mm]
-    Prof.~Dr.~P.~Tran-Gia\\
+    Prof.~Dr.~Ing.~P.~Tran-Gia\\
     Universit\"at W\"urzburg\\
     Institut f\"ur Informatik\\
     Lehrstuhl f\"ur Kommunikationsnetze\\
@@ -272,7 +272,7 @@
     \noindent
     Eingereicht am: \@date\\
     bei der Fakult\"at f\"ur Mathematik und Informatik\\
-    1. Gutachter: Prof.~Dr.-Ing.~P.~Tran-Gia\\
+    1. Gutachter: Prof.~Dr.-Ing~P.~Tran-Gia\\
     2. Gutachter: \d@reviewer\\
     %3. Gutachter: \d@reviewerint\\
     Tag der m\"undlichen Pr\"ufung: \d@disp
@@ -330,10 +330,16 @@
   \ifd@pdf
     \phantomsection
   \fi
-%  \addcontentsline{toc}{chapter}{\bibname}
-%  \markboth{\bibname}{}
-%  {\def\uppercase#1{#1}\d@bibliography{\d@bib}}
-%  \cleardoublepage
+  \chapter*{Bibliography and References}
+  \addcontentsline{toc}{chapter}{Bibliography and References}
+  \markboth{\bibname}{}
+  \section*{Bibliography of the Author}
+  \printbibliography[heading=book_chapter,type=incollection]
+  \printbibliography[heading=journal,type=article]
+  \printbibliography[heading=conference,type=inproceedings]
+  \printbibliography[heading=demo,filter=demo]
+  \printbibliography[heading=references,notkeyword=publication]
+  \cleardoublepage
   \IfFileExists{\jobname.gls}{%
    \input\jobname.gls
    \cleardoublepage

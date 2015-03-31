@@ -46,12 +46,12 @@
 \defbibheading{demo}{\subsection*{Software Demonstrations}}
 
 \defbibheading{references}{\section*{General References}}
-
+\defbibfilter{demo}{type=misc and subtype=demo}
 
 \addbibresource{bibtex/publications.bib}
 \addbibresource{bibtex/references.bib}
 
-\nocite{Nguyen2013,Schwartz2013a,Hock2011,Schwartz2014a,Hirth2014a,Burger2014a,Schwartz2013b,Schwartz2013c,Schwartz2012a,Hock2010a,Hock2010b,Hock2010c,Hartmann2009a,Hock2011a}
+\nocite{Zseby2011,Nguyen2013,Schwartz2013a,Hock2011,Schwartz2014a,Hirth2014a,Burger2014a,Schwartz2013b,Schwartz2013c,Schwartz2012a,Hock2010a,Hock2010b,Hock2010c,Hartmann2009a,Hock2011a}
 
 
 %\newcommand{\specialcellbold}[2][c]{%
@@ -123,14 +123,7 @@
 
 %\renewcommand{\baselinestretch}{\oldbls}\normalsize
 
-\chapter*{Bibliography and References}
-\addcontentsline{toc}{chapter}{Bibliography and References}
-\section*{Bibliography of the Author}
-\printbibliography[heading=book_chapter,keyword=book_chapter]
-\printbibliography[heading=journal,keyword=journal]
-\printbibliography[heading=conference,keyword=conference]
-\printbibliography[heading=demo,keyword=demo]
-\printbibliography[heading=references,notkeyword=publication]
+
 
 %\vspace{-1cm}
 
