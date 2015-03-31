@@ -40,10 +40,13 @@
 \include{glossary}
 
 
-\defbibheading{book_chapter}{\section{Book Chapters}}
-\defbibheading{journal}{\section{Journal Papers}}
-\defbibheading{conference}{\section{Conference Papers}}
-\defbibheading{demo}{\section{Software Demonstrations}}
+\defbibheading{book_chapter}{\subsection*{Book Chapters}}
+\defbibheading{journal}{\subsection*{Journal Papers}}
+\defbibheading{conference}{\subsection*{Conference Papers}}
+\defbibheading{demo}{\subsection*{Software Demonstrations}}
+
+\defbibheading{references}{\section*{General References}}
+
 
 \addbibresource{bibtex/publications.bib}
 \addbibresource{bibtex/references.bib}
@@ -109,6 +112,8 @@
 
 \clearpage
 
+\cite*{TranGia2005}
+
 \include{introduction}
 \include{network}
 \include{application}
@@ -119,10 +124,13 @@
 %\renewcommand{\baselinestretch}{\oldbls}\normalsize
 
 \chapter*{Bibliography and References}
-\printbibliography[title={Book Chapters},keyword=book_chapter]
-\printbibliography[title={Journal},keyword=journal]
-\printbibliography[title={Conference},keyword=conference]
-\printbibliography[title={Software Demonstrations},keyword=demo]
+\addcontentsline{toc}{chapter}{Bibliography and References}
+\section*{Bibliography of the Author}
+\printbibliography[heading=book_chapter,keyword=book_chapter]
+\printbibliography[heading=journal,keyword=journal]
+\printbibliography[heading=conference,keyword=conference]
+\printbibliography[heading=demo,keyword=demo]
+\printbibliography[heading=references,notkeyword=publication]
 
 %\vspace{-1cm}
 
