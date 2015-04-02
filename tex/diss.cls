@@ -330,6 +330,7 @@
   \ifd@pdf
     \phantomsection
   \fi
+  \printglossaries
   \chapter*{Bibliography and References}
   \addcontentsline{toc}{chapter}{Bibliography and References}
   \markboth{\bibname}{}
@@ -340,15 +341,11 @@
   \printbibliography[heading=demo,filter=demo]
   \printbibliography[heading=references,notkeyword=publication]
   \cleardoublepage
-  \IfFileExists{\jobname.gls}{%
-   \input\jobname.gls
-   \cleardoublepage
-  }{}
-  \IfFileExists{\jobname.ind}{%
-   \addcontentsline{toc}{chapter}{\indexname}
-   {\def\uppercase##1{##1}\printindex}}%
-   {}
-  \newpage
+%  \IfFileExists{\jobname.ind}{%
+%   \addcontentsline{toc}{chapter}{\indexname}
+%   {\def\uppercase##1{##1}\printindex}}%
+%   {}
+%  \newpage
   \thispagestyle{empty}\hbox{}
   \vfill
   \begin{center}

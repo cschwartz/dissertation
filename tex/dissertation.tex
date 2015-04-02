@@ -1,8 +1,7 @@
 \documentclass[pdf]{diss}
-\usepackage[german,english]{babel}
+
 \usepackage{setspace} 
 \usepackage[refpage,intoc]{nomencl}
-\usepackage[T1]{fontenc}
 \usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{amsmath,amsthm,graphicx,amssymb,times,here} 
@@ -12,7 +11,6 @@
 \usepackage{todonotes}
 \usepackage[vlined,algoruled,linesnumbered,commentsnumbered]{algorithm2e}
 %\usepackage[export]{splitbib}
-\usepackage[utf8]{inputenc}
 
 \usepackage{xspace}
 \usepackage{hhline}
@@ -36,8 +34,7 @@
 	hidelinks
 }
 
-\include{packages}
-\include{glossary}
+\input{packages}
 
 
 \defbibheading{book_chapter}{\subsection*{Book Chapters}}
@@ -112,14 +109,11 @@
 
 \clearpage
 
-\cite*{TranGia2005}
-
 \include{introduction}
 \include{network}
 \include{application}
 \include{cloud}
 \include{conclusion}
-
 
 %\renewcommand{\baselinestretch}{\oldbls}\normalsize
 
