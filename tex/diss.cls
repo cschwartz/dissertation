@@ -199,9 +199,9 @@
     \parbox{17mm}{\includegraphics[width=1.5cm]{figures/i3logo}}
     \parbox{75mm}{
       \begin{center}\vfill\vskip 1mm%
-       {\bf Julius-Maximilians-Universit\"at %\vskip 1mm%
+       {\bfseries Julius-Maximilians-Universit\"at %\vskip 1mm%
             W\"urzburg}\vskip 1mm
-       {\sf Institut f\"ur Informatik\\
+       {\sffamily Institut f\"ur Informatik\\
             Lehrstuhl f\"ur Kommunikationsnetze\\
             Prof.~Dr.-Ing.~P.~Tran-Gia}
       \end{center}
@@ -209,9 +209,9 @@
     \vskip 20mm%
     \vfill
     \begin{center}\sffamily%
-       {\LARGE\sfb \d@titlei \par}%
+       {\LARGE\sffamily\bfseries \d@titlei \par}%
        \vskip 10mm%
-       {\Large\sfb \d@author\ \@author}
+       {\Large\sffamily\bfseries \d@author\ \@author}
        \vskip 20mm%
        \vfill%
        {\Large W\"urzburger Beitr\"age zur\vskip1mm%
@@ -224,9 +224,9 @@
     \null
     \vfill
     \noindent
-    {\large\sfb W\"urzburger Beitr\"age zur\\[2mm]
+    {\large\sffamily\bfseries W\"urzburger Beitr\"age zur\\[2mm]
                Leistungsbewertung Verteilter Systeme}\\[4mm]
-    {\sfb Herausgeber}\\[2mm]
+    {\sffamily\bfseries Herausgeber}\\[2mm]
     Prof.~Dr.~Ing.~P.~Tran-Gia\\
     Universit\"at W\"urzburg\\
     Institut f\"ur Informatik\\
@@ -236,17 +236,17 @@
     Tel.:\hspace{1.8mm}+49-931-31-86630\\
     Fax.: +49-931-31-86632\\
     email: trangia@informatik.uni-wuerzburg.de\\[4mm]
-    {\sfb Satz}\\[2mm]
+    {\sffamily\bfseries Satz}\\[2mm]
     Reproduktionsf\"ahige Vorlage vom Autor.\\
     Gesetzt in \LaTeX\ Computer Modern 9pt.\\[4mm]
-    {\sfb ISSN \d@issn}
+    {\sffamily\bfseries ISSN \d@issn}
     \clearpage
     \clearpage
     \thispagestyle{empty}
     \null
     \vskip 20mm%
     \begin{center}%
-      {\LARGE\sfb \d@titleii \par}%
+      {\LARGE\sffamily\bfseries \d@titleii \par}%
       \vskip 10mm%
       {\normalsize
        Dissertation zur Erlangung des\\
@@ -256,7 +256,7 @@
        vorgelegt von
       }
       \vskip 10mm%
-      {\Large\sfb \d@author\ \@author}
+      {\Large\sffamily\bfseries \d@author\ \@author}
       \vskip 5mm%
       {\normalsize
        aus\\[3mm]
