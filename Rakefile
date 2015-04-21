@@ -15,13 +15,13 @@ end
 
 task :pdf do
   Dir.chdir(tex_subdir) do
-  	sh "latexmk -pdf #{ tex_root }.tex"
+  	sh "latexmk -pdf -f #{ tex_root }.tex"
   end
 end
 
 task dev: [:clean] do
 	Dir.chdir(tex_subdir) do
-  	sh "latexmk -pvc -pdf #{ tex_root }.tex"
+  	sh "latexmk -pvc -f -pdf #{ tex_root }.tex"
   end
 end
 
