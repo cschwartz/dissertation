@@ -7,6 +7,7 @@ task default: :all
 task :clean do
   Dir.chdir(tex_subdir) do
     sh 'latexmk -C'
+    rm_rf `biber --cache`
     FileList.new(junk_files).each do |f|
     	rm f
     end
