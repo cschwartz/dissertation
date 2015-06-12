@@ -19,8 +19,14 @@ Furthermore, functionality such as billing, authentication and location manageme
 
 In UMTS networks, the radio resources in the RAN between base station and UE are controlled and managed by the \gls{RRC} protocol~\cite{3GPP_RRC_Spec}.
 The protocol offers services such as broadcast of network information, maintenance of a connection between the \gls{UE} and \gls{RAN}, establishment of point-to-point radio bearers for data transmission, \gls{QoS} control, and reporting and cell selection management.
+The protocol is divided into different parts: services for upper layers, communication with lower layers, protocol states, \gls{RRC} procedures, and error control.
+In particular, \gls{RRC} also participates in the co-ordination of other resource management operations such as channel measurements and handovers.
+All \gls{RRC} procedures rely on protocol states which are defined to trigger action should be applied and which information must be signaled. 
+The state are defined per \gls{UE} and for the connection between the \gls{UE} and the \gls{NodeB} station.
+Typically there are five \gls{RRC} states characterizing a connection between \gls{UE} and \gls{NodeB}: \gls{idle}, \gls{URAPCH}, \gls{CELLPCH}, \gls{DCH}, and \gls{FACH}.
+Whether a specific \gls{RRC} state is used in a specific mobile network depends on the configuration of the network by the provider.
+In the following we concentrate on the most commonly observed~\cite{Qian2010} \gls{RRC} states \gls{idle}, \gls{DCH}, and \gls{FACH}.
 
-%In particular, RRC also participates in the co-ordination of other resource management operations such as channel measurements and handovers.
 \subsection{Measurements of \headershortacr{RRC} Parameters and Optimisation of Resource Consumption}\label{sec:network:background:measurement_optimisation}
 
 \subsection{Smartphone Energy Consumption and \headershortacr{QoE}}\label{sec:network:background:energy_consumption_qoe}
