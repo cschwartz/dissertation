@@ -23,9 +23,26 @@ The protocol is divided into different parts: services for upper layers, communi
 In particular, \gls{RRC} also participates in the co-ordination of other resource management operations such as channel measurements and handovers.
 All \gls{RRC} procedures rely on protocol states which are defined to trigger action should be applied and which information must be signaled. 
 The state are defined per \gls{UE} and for the connection between the \gls{UE} and the \gls{NodeB} station.
-Typically there are five \gls{RRC} states characterizing a connection between \gls{UE} and \gls{NodeB}: \gls{idle}, \gls{URAPCH}, \gls{CELLPCH}, \gls{DCH}, and \gls{FACH}.
+Typically there are five \gls{RRC} states characterizing a connection between \gls{UE} and \gls{NodeB}: \texttt{idle}, \texttt{URA\_PCH}, \texttt{CELL\_PCH}, \texttt{RRC\_DCH}, and \texttt{RRC\_FACH}.
 Whether a specific \gls{RRC} state is used in a specific mobile network depends on the configuration of the network by the provider.
-In the following we concentrate on the most commonly observed~\cite{Qian2010} \gls{RRC} states \gls{idle}, \gls{DCH}, and \gls{FACH}.
+In the following we concentrate on the most commonly observed~\cite{Qian2010a} \gls{RRC} states \gls{RRC_idle}, \gls{RRC_DCH}, and \gls{RRC_FACH}.
+
+\begin{figure}
+	\begin{subfigure}[b]{.5\textwidth}
+	\centering
+	\includegraphics{network/background/figures//three_states}
+	\caption{Three State Scenario}\label{fig:network:background:rrc_state_machines:three_states}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+	\centering
+	\includegraphics{network/background/figures//two_states}
+	\caption{Two State Scenario}\label{fig:network:background:rrc_state_machines:two_states}
+	\end{subfigure}
+	\caption{\headershortacr{RRC} State Machine Diagrams}\label{fig:network:background:rrc_state_machines}
+\end{figure}
+
+The state machine as defined by tge \gls{RRC} protocol is given in \reffig{fig:network:background:rrc_state_machines}.
+We first discuss 
 
 \subsection{Measurements of \headershortacr{RRC} Parameters and Optimisation of Resource Consumption}\label{sec:network:background:measurement_optimisation}
 
