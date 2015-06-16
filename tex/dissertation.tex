@@ -27,11 +27,11 @@
 \setlength\pdfpagewidth{\paperwidth}
 \setlength\pdfpageheight{\paperheight}
 %\usepackage{hyperref}
-\hypersetup{
-	plainpages=false,
-	hypertexnames=false,
-	hidelinks
-}
+% \hypersetup{
+% 	plainpages=false,
+% 	hypertexnames=false,
+% 	hidelinks
+% }
 
 \input{packages}
 \input{macros}
@@ -87,20 +87,6 @@
 % %\preface{Danksagung}{danksagung}
 
 \selectlanguage{english}
-\AtBeginDocument{\renewcommand{\chapterautorefname}{Chapter}}
-\AtBeginDocument{\renewcommand{\sectionautorefname}{Section}}
-\AtBeginDocument{\renewcommand{\subsectionautorefname}{Section}}
-\AtBeginDocument{\renewcommand{\subsubsectionautorefname}{Section}}
-\AtBeginDocument{\newcommand{\subfigureautorefname}{Figure}}
-
-\newcommand\alg[1]{Algorithm~\ref{alg:#1}}
-\newcommand\fig[1]{Figure~\ref{fig:#1}}
-\newcommand\figs[2]{Figures~\ref{fig:#1}--\ref{fig:#2}}
-\newcommand\twofigs[2]{Figures~\ref{fig:#1} and \ref{fig:#2}}
-\newcommand\sect[1]{Section~\ref{sec:#1}}
-\newcommand\tabl[1]{Table~\ref{tab:#1}}
-\newcommand\tables[2]{Tables~\ref{tab:#1} and \ref{tab:#2}}
-\newcommand\reqn[1]{Equation~(\ref{eqn:#1})}
 
 \begin{document}
 
@@ -115,10 +101,6 @@
 \include{conclusion}
 
 %\renewcommand{\baselinestretch}{\oldbls}\normalsize
-
-
-
 %\vspace{-1cm}
-
 
 \end{document}

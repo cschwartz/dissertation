@@ -27,23 +27,35 @@ Typically there are five \gls{RRC} states characterizing a connection between \g
 Whether a specific \gls{RRC} state is used in a specific mobile network depends on the configuration of the network by the provider.
 In the following we concentrate on the most commonly observed~\cite{Qian2010a} \gls{RRC} states \gls{RRC_idle}, \gls{RRC_DCH}, and \gls{RRC_FACH}.
 
-\begin{figure}
-	\begin{subfigure}[b]{.5\textwidth}
-	\centering
-	\includegraphics{network/background/figures//three_states}
-	\caption{Three State Scenario}\label{fig:network:background:rrc_state_machines:three_states}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.5\textwidth}
-	\centering
-	\includegraphics{network/background/figures//two_states}
-	\caption{Two State Scenario}\label{fig:network:background:rrc_state_machines:two_states}
-	\end{subfigure}
-	\caption{\headershortacr{RRC} State Machine Diagrams}\label{fig:network:background:rrc_state_machines}
-\end{figure}
+If the \gls{UE} is switched on and no connection to the mobile network is established, the \gls{UE} is in \gls{RRC_idle} state.
+If the \gls{UE} wants to send data, radio resources are allocated by the \gls{NodeB} for the handset and the \gls{UE} will go transition to either the \gls{RRC_FACH} or the \gls{RRC_DCH} state. 
+Then, a corresponding channel for data transmission is assigned to the \gls{UE}.
+The \gls{RRC_FACH} and the \gls{RRC_DCH} state can be distinguished in that way that in \gls{RRC_DCH} state a high-power dedicated channel for high speed transmission is allocated whereas in \gls{RRC_FACH} state a shared access channel for general sporadic data transmission is used.
+Thus, \gls{RRC_FACH} consumes significantly less power than the \gls{RRC_DCH} state. 
 
-The state machine as defined by tge \gls{RRC} protocol is given in \reffig{fig:network:background:rrc_state_machines}.
-We first discuss 
+The possible transitions between the different states are defined by the network operator and the \gls{RRC} protocol stack.
+Typically, the following state transitions are included: 
+\gls{RRC_idle} \(\rightarrow\) \gls{RRC_FACH},
+\gls{RRC_FACH} \(\rightarrow\) \gls{RRC_DCH} to switch from lower radio resource utilization and low \gls{UE} energy consumption to another state using more resources and energy, and 
+\gls{RRC_DCH} \(\rightarrow\) \gls{RRC_FACH}, 
+\gls{RRC_FACH} \(\rightarrow\) \gls{RRC_idle},
+\gls{RRC_DCH} \(\rightarrow\) \gls{RRC_idle} to switch to lower resource usage and energy consumption.
+According to~\cite{Perala2009,Qian2010a}, the transitions are triggered by user activity and radio link control buffer level. 
+A transition from \gls{RRC_DCH} to \gls{RRC_FACH} usually occurs when the buffer is empty and a threshold for a release timer is exceeded, resulting into the corresponding \gls{RRC} protocol message flow.
+A transition in the reverse direction is triggered if the buffer level exceeds a specified threshold value for a predefined time period.
+The \gls{UE} will transition into \gls{RRC_idle} state if the \gls{RNC} detects overload in the network or no data was sent by the \gls{UE} for a specified time.
 
 \subsection{Measurements of \headershortacr{RRC} Parameters and Optimisation of Resource Consumption}\label{sec:network:background:measurement_optimisation}
+
+In the literature, the configuration of the inactivity timers used for the \gls{RRC} protocols have been investigated in detail.
+In~\cite{Perala2009} a measurement tool for \gls{RRC} protocol states is presented. 
+It is used to determine \gls{RRC} state transition parameters, channel setup delays, and paging delay by measuring the one-way round trip time of data packets.
+The results are validated by monitoring the energy consumption in different \gls{RRC} states.
+One outcome is that \gls{UMTS} network configurations vary significantly by network operator.
+\gls{RRC_DCH} release timer as well as the inactivity timer value triggering transition to \gls{RRC_idle} state were measured.
+The values range from \SI{1.2}{\second} for the \gls{RRC_DCH} release timer to more than one minute for the \gls{RRC_idle} timer.
+Similar results are presented in~\cite{Qian2010a}.
+Here, the observed values vary between \SI{5}{\second} and \SI{12}{\second}. 
+Additionally, they also determined the exact \gls{RRC} state transitions for two networks such as \gls{RRC_idle} \(\rightarrow\) \gls{RRC_FACH} \(\rightarrow\) \gls{RRC_DCH} or  \gls{RRC_idle} \(\rightarrow\) \gls{RRC_DCH} directly without transitioning through the \gls{RRC_FACH} state.
 
 \subsection{Smartphone Energy Consumption and \headershortacr{QoE}}\label{sec:network:background:energy_consumption_qoe}
