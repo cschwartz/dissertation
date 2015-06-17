@@ -10,6 +10,9 @@
 
 \usepackage{subcaption}
 
-\usepackage[defernumbers=true,backend=biber,style=ieee]{biblatex}
+\usepackage[defernumbers=true,backend=biber,style=ieee,citestyle=numeric-comp]{biblatex}
 \usepackage[binary-units=true]{siunitx}
 \usepackage{csquotes}
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate]{label=\emph{\alph*})}

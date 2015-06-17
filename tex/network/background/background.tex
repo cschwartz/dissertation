@@ -56,6 +56,26 @@ One outcome is that \gls{UMTS} network configurations vary significantly by netw
 The values range from \SI{1.2}{\second} for the \gls{RRC_DCH} release timer to more than one minute for the \gls{RRC_idle} timer.
 Similar results are presented in~\cite{Qian2010a}.
 Here, the observed values vary between \SI{5}{\second} and \SI{12}{\second}. 
-Additionally, they also determined the exact \gls{RRC} state transitions for two networks such as \gls{RRC_idle} \(\rightarrow\) \gls{RRC_FACH} \(\rightarrow\) \gls{RRC_DCH} or  \gls{RRC_idle} \(\rightarrow\) \gls{RRC_DCH} directly without transitioning through the \gls{RRC_FACH} state.
+Additionally, they also determined the exact \gls{RRC} state transitions for two networks such as \gls{RRC_idle} \(\rightarrow\) \gls{RRC_FACH} \(\rightarrow\) \gls{RRC_DCH} or \gls{RRC_idle} \(\rightarrow\) \gls{RRC_DCH} directly without transitioning through the \gls{RRC_FACH} state.
 
-\subsection{Smartphone Energy Consumption and \headershortacr{QoE}}\label{sec:network:background:energy_consumption_qoe}
+Furthermore, there are papers that propose optimizing strategies that take the \gls{RRC} states into account. 
+In~\cite{Qian2011} the impact of different application traffic patterns is studied to reveal resource usage in mobile networks.
+By identifying packet bursts, they infer the \gls{RRC} states of the \gls{UE}.
+Radio resources are quantified by channel occupation time and energy consumption.
+They propose an algorithm that tries to optimize application traffic patterns by e.g. piggybacking, batching up data, or decreasing the update rate of an application.
+The algorithm is evaluated for six applications, two news applications, Pandora streaming application, Google search, Tune-In radio and Mobelix. 
+In~\cite{Qian2010Top} also \gls{RRC} states are studied for network optimization.
+The authors optimize the inactivity timers to allow a better resource utilization. 
+They propose a application-to-network interface to avoid unnecessary timer periods after data transmission.
+
+\subsection{Smartphone Power Consumption and \headershortacr{QoE}}\label{sec:network:background:energy_consumption_qoe}
+
+Power consumption of the \gls{UE} varies according to the devices current \gls{RRC} state.
+The power consumption caused by \gls{RRC_DCH} mode was measured at about \SIrange{600}{800}{\milli\watt}~\cite{Qian2011,Qian2010a}.
+In \gls{RRC_FACH} mode, the consumption was measured at about \SIrange{400}{460}{\milli\watt} depending on the \gls{UE} and the network operator~\cite{Qian2010a}.
+A precise measurement of the power consumption of different \gls{RRC} states is performed in~\cite{Qian2010a,Balasubramanian2009,Lee2004}. 
+The authors report, that the energy drain depends on two factors: 
+\begin{enumerate*}
+\item user interactions and applications 
+\item platform hardware and software.
+\end{enumerate*}
