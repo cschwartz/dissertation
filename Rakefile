@@ -1,9 +1,23 @@
 tex_subdir = 'tex'
-junk_files = ['*.log', '*.bbl', '*.blg', '*.run.xml']
 tex_root = 'dissertation'
 
-graffle_files = Rake::FileList.new('figures/**/*.graffle')
-plot_files = Rake::FileList.new('figures/**/*.R').exclude('figures/**/plot_settings.R')
+JUNK_FILES = FileList.new(['tex/**/*.log', 'tex/**/*.bbl', 'tex/**/*.blg', 'tex/**/*.run.xml'])
+
+GRAFFLE_FILES = Rake::FileList.new('figures/**/*.graffle')
+PLOT_FILES = Rake::FileList.new('figures/**/*.R').exclude('figures/**/plot_settings.R')
+
+GENERATED_FIGURE_FILES = Rake::FileList.new('tex/**/figures/*.pdf').exclude('tex/figures/*.pdf')
+
+OMNIGRAFFLE =  "OmniGraffle Professional 5"
+
+FIGURE_PROCESSING_RULES = {
+  '.graffle' => -> (source, destination) {  convert_graffle_to_pdf(source, destination) },
+  '.R' => ->(source, destination) { convert_r_to_pdf(source, destination) }
+}
+
+ALL_FIGURE_FILES = GRAFFLE_FILES + PLOT_FILES
+
+FIGURE_PATHMAP = "%{^figures,tex}d/figures/%n.pdf"
 
 task default: :all
 
@@ -11,62 +25,61 @@ task :install_dependencies do
 end
 
 task :clean do
+  rm_rf `biber --cache`
+
   Dir.chdir(tex_subdir) do
     sh 'latexmk -C'
-    rm_rf `biber --cache`
-    FileList.new(junk_files).each do |f|
-    	rm f
-    end
   end
+
+  rm JUNK_FILES
+
+  rm GENERATED_FIGURE_FILES
 end
 
-task pdf: [:generate_plots, :convert_graffle_to_pdf] do
+task pdf: [:process_graphics] do
   Dir.chdir(tex_subdir) do
   	sh "latexmk -interaction=nonstopmode -pdf #{ tex_root }.tex"
   end
 end
 
-task dev: [:clean, :generate_plots, :convert_graffle_to_pdf] do
+task dev: [:process_graphics] do
 	Dir.chdir(tex_subdir) do
   	sh "latexmk -pvc -interaction=nonstopmode -pdf #{ tex_root }.tex"
   end
 end
 
-task :convert_graffle_to_pdf => graffle_files.ext('.pdf')
+task :process_graphics => ALL_FIGURE_FILES.pathmap(FIGURE_PATHMAP)
 
-task :generate_plots => plot_files.ext('.pdf')
+task all: [:process_graphics, :pdf]
 
-task all: [:install_dependencies, :clean, :convert_graffle_to_pdf, :pdf]
-
-rule '.pdf' => '.graffle' do |t|
-  destination = t.name.pathmap("%{^figures,tex}d/figures/%n.pdf")
-  convert_graffle_to_pdf t.source, destination if is_osx?
+rule '.pdf' => -> (f) {source_path(f)} do |t|
+  ensure_destination_path_exists(t.name)
+  extension = File.extname(t.source)
+  FIGURE_PROCESSING_RULES[extension].call(t.source, t.name)
 end
 
-rule '.pdf' => '.R' do |t|
-  ensure_destination_path_exists(t.source)
-  plot_script(t.source)
+def source_path(pdf_file)
+  base_path = pdf_file.pathmap("%{^tex,figures}d%").gsub(/figures$/,'')
+  source_file_name = pdf_file.pathmap("%n")
+  ALL_FIGURE_FILES.detect { |f| f.ext == File.join(base_path, source_file_name) }
 end
 
-def plot_script(source)
-  destination =  source.pathmap("%{^figures,tex}X.pdf")
-  mkdir_p File.dirname(destination)
-  absolute_destination = File.absolute_path(destination)
-  sh %Q|Rscript --quiet -e "source('figures/plot_settings.R')" -e "source('#{ source }', chdir=T)" #{ absolute_destination }|
-end
-
-def ensure_destination_path_exists(source)
-  destination =  source.pathmap("%{^figures,tex}X.pdf")
-  mkdir_p File.dirname(destination)
+def ensure_destination_path_exists(destination)
+  destination_path = destination.pathmap("%d")
+  mkdir_p File.dirname(destination_path)
 end
 
 def is_osx?
   RUBY_PLATFORM.include? 'darwin'
 end
 
-def convert_graffle_to_pdf(source, destination)
-  omnigraffle =  "OmniGraffle Professional 5"
+def convert_r_to_pdf(source, destination)
+  mkdir_p File.dirname(destination)
+  absolute_destination = File.absolute_path(destination)
+  sh %Q|Rscript --quiet -e "source('figures/plot_settings.R')" -e "source('#{ source }', chdir=T)" #{ absolute_destination }|
+end
 
+def convert_graffle_to_pdf(source, destination)
   conversion_script = <<EOF
 on run argv
   -- Current working directory
@@ -80,7 +93,7 @@ on run argv
   tell application "Finder"
     set GraffleFile to POSIX file FileName as alias
   end tell
-  tell application "#{omnigraffle}"
+  tell application "#{OMNIGRAFFLE}"
     open GraffleFile
     set canvas of front window to canvas 1 of front document
     tell front document
@@ -91,7 +104,7 @@ on run argv
   --return PDFFileName
 end run
 on isOpen(aDoc)
-  tell application "#{omnigraffle}"
+  tell application "#{OMNIGRAFFLE}"
     repeat with doc in documents
       if («class ppth» of doc as string) = aDoc then return true
     end repeat

@@ -53,4 +53,5 @@ save.full.row.plot <- function(plot, filename = commandArgs(TRUE)[1]) {
   plot <- adjust.legend.spacing(plot)
   print(filename)
   ggsave(filename, plot=plot,height = rowHeight, width = pageWidth, units = units)
+  embed_fonts(filename, outfile=filename)
 }

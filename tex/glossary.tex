@@ -2,28 +2,28 @@
 	name={\ensuremath{\mathbb{N}_0}},
 	description={The set of positive integers including \(0\)}
 }
+
 \newglossaryentry{NodeB}{
 	name={NodeB},
 	description={Base station in an \acrshort{UMTS} mobile network}
 }
 
-\newacronym{UE}{UE}{User Equipment}
-\newacronym{RAN}{RAN}{Radio Access Network}
-\newacronym{CN}{CN}{Core Network}
+\newglossaryentry{LTE}{
+	name={LTE},
+	description={Long Term Evolution. Fourth generation mobile communication standard developed by the \acrshort{3GPP}}
+}
 
-\newacronym{M2M}{M2M}{Machine to Machine}
-\newacronym{PSTN}{PSTN}{Public Switched Telephone Network}
-\newacronym{QoS}{QoS}{Quality of Service}
+\newglossaryentry{TDCH}{
+	name={\ensuremath{T_{\text{DCH}}}},
+	description={Activity timer. \acrshort{UE} is demoted from \acrshort{RRC_DCH} state if no packets are sent or received for \ensuremath{T_{\text{DCH}}} seconds}
+}
 
-\newacronym{RNC}{RNC}{Radio Network Controller}
+\newglossaryentry{PacketIAT}{
+	name={\ensuremath{A}},
+	description={Random variable describing the time between the sending or receiving of two packets at the \acrshort{UE}}
+}
 
-\newacronym{RRC}{RRC}{Radio Resource Control}
-
-\newacronym{RRC_idle}{\texttt{idle}}{idle mode}
-\newacronym{RRC_FACH}{\texttt{CELL\_FACH}}{Forward access channel}
-\newacronym{RRC_DCH}{\texttt{CELL\_DCH}}{Dedicated channel}
-
-
-\newacronym{UMTS}{UMTS}{Universal Mobile Telecommunications System}
-\newacronym{QoE}{QoE}{Quality of Experience}
-\newacronym{3G}{3G}{Third Generation}
+\newglossaryentry{RRCState}{
+	name={\ensuremath{S}},
+	description={Random variable describing the \acrshort{RRC} state of an \gls{UE}}
+}
