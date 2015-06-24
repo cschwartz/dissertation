@@ -14,4 +14,4 @@ p <- ggplot(data, aes(x = tdch,
        color = label.application, 
        linetype = label.evaluation.type )
 
-save.full.row.plot(p) 
+save.full.row.plot(p)
