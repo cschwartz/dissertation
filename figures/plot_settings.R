@@ -26,6 +26,8 @@ label.signalling.intensity <- 'Signalling Intensity SI'
 label.application <- 'Application'
 label.evaluation.type <- 'Evaluation Type'
 label.cA <- expression(c[A])
+label.interarrival.time <- expression(paste('Packet Interarrival Time ', A, ' (s)'))
+label.interarrival.time.cdf <- expression(P(A <= a))
 
 plot_options = theme(
   plot.margin = unit(c(0.2, 0, 0, 0), "cm"),
