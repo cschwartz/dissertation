@@ -3,10 +3,178 @@
 \subsection{Performance Evaluation}\label{sec:network:network_traces:performance_evaluation}
 %TODO: Needs a new title
 \subsubsection*{Measurement Procedure and Setup}\label{sec:network:network_traces:performance_evaluation:measurement}
+To investigate the behaviour of the application under study, we capture traffic during a typical use of the application on a \emph{Samsung Galaxy SII} smartphone.
+The smartphone runs the Android operating system and is connected to the \gls{3G} network of a major German network operator.
+To obtain the network packet traces we use the \texttt{tcpdump} application.
+This application requires \emph{root} privileges which are obtained by rooting the device and installing the custom \emph{cyanogenmod} ROM \footnote{http://www.cyanogenmod.org}.
+Once \texttt{tcpdump} is installed and running, we start the application under study and capture packet traces while the application is running.
+Then, the \emph{android debugging bridge} is used to copy the traces to a workstation.
+The traces contain \gls{IP} packets as well as Linux Cooked Captures.
+We only require the \gls{IP} packets, thus we filtered the traces for \gls{IP} packets which are used during the following analysis.
+
 \subsubsection*{Inferring Network State}\label{sec:network:network_traces:performance_evaluation:inferring_network_state}
+In this section we study the influence of the application traffic on \gls{RRC} state transitions and signalling messages.
+Since \gls{RRC} state transitions can not be captured using commonly available tools, we introduce an algorithm to infer \gls{RRC} state transitions from \gls{IP} packet traces.
+Using this algorithm we analyse the \gls{RRC} state transition frequency and signalling message load for the two state model and three state model.
+
+Traffic below the network layer can not be measured without specific equipment, which is often out of reach for developers interested in assessing the impact of their applications on the network.
+Based on the two state and three state models introduced in \refsec{sec:network:background:umts_rrc} we process \texttt{tcpdump} captures of the application traffic.
+However, it should be noted that this method is not restricted to a specific network model, but can be extended to any other network model, as well.
+Using these captures, we extract the timestamps when \gls{IP} packets are sent or received.
+Furthermore, we require the timer values of the transition from \gls{RRC_DCH} state to \gls{RRC_FACH} state, \gls{TDCH}, and the timer for the transition between \gls{RRC_FACH} and \gls{RRC_idle} states, \gls{TFACH}.
+Based on these informations \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} infers the timestamps of state transitions according to the \gls{3GPP} specification \cite{3GPP_RRC_Spec} for the three state model.
+This algorithm can be simplified to also work for the two state model. 
+Alternatively, a method to post process the results of the algorithm to obtain results for the two state model is given at the end of this section.
+The algorithm first computes the inter-arrival times of all packets.
+Then, each timestamp is considered.
+If the \gls{UE} is currently in \gls{RRC_idle} state, a state transition to \gls{RRC_DCH} occurs at the moment the packet is sent or received.
+If the inter-arrival time exceeds the \gls{TDCH} timer the \gls{UE} transitions to \gls{RRC_FACH} \gls{TDCH} seconds after the packet was sent or received.
+Similarly, if the inter-arrival time exceeds both the \gls{TDCH} and \gls{TFACH} timers, a state transition to \gls{RRC_idle} occurs \gls{TDCH} seconds after the state transition to \gls{RRC_FACH}.
+
+\begin{algorithm}
+  \begin{algorithmic}
+    \Require{Packet arrival timestamps \emph{ts}\\
+    \gls{RRC_DCH} to \gls{RRC_FACH} timer \gls{TDCH}\\
+    \gls{RRC_FACH} to \gls{RRC_idle} timer \gls{TFACH}}
+    \Ensure{Times of state transition \emph{state\_time}\\
+    New states after state transitions \emph{state}}
+    \State \texttt{interarrival(i)} $\leftarrow$ \emph{ts}(i+1) - \emph{ts}(i)
+    \State \texttt{index} $\leftarrow 0$
+    \ForAll{ts(i)}
+      \If{\texttt{state(index)} = \gls{RRC_idle}}
+        \State \texttt{index} $\leftarrow$ \texttt{index} + 1
+        \State \texttt{state(index)} $\leftarrow$ \gls{RRC_DCH}
+        \State \texttt{state\_time(index)} $\leftarrow$ ts(i)
+      \EndIf
+      \If{\texttt{interarrival}(i-1) $> \gls{TDCH}$}
+        \State \texttt{index} $\leftarrow$ \texttt{index} + 1
+        \State \texttt{state(index)} $\leftarrow$ \gls{RRC_FACH}
+        \State \texttt{state\_time(index)} $\leftarrow$ ts(i) $+ \gls{TDCH}$
+      \EndIf
+      \If{\texttt{interarrival}(i-1) $> \gls{TDCH} + \gls{TFACH}$}
+        \State \texttt{index} $\leftarrow$ \texttt{index} + 1
+        \State \texttt{state(index)} $\leftarrow$ \gls{RRC_idle}
+        \State \texttt{state\_time(index)} $\leftarrow$ ts(i) $+ \gls{TDCH} + \gls{TFACH}$
+      \EndIf
+    \EndFor
+  \end{algorithmic}
+  \caption{Inferring \headershortacr{RRC} State Transitions Based on \headershortacr{IP} timestamps}
+  \label{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm}
+\end{algorithm}
+
+\gls{UE} vendors always search for ways to decrease energy consumption of their devices.
+A straightforward way to achieve this, if only the wellbeing of the \gls{UE} is considered, is to transition from \gls{RRC_DCH} state to \gls{RRC_idle} as soon as no additional data is ready for sending.
+While this transition is not directly available in the 3GPP specification for the \gls{RRC} protocol \cite{3GPP_RRC_Spec}, a \gls{UE} may reset the connection, effectively transitioning from any state to \gls{RRC_idle}.
+This behaviour can be modelled using the two state model introduced in \refsec{sec:network:background:umts_rrc}.
+
+State transitions for the two state model can be calculate using a similar algorithm.
+Alternatively, the behaviour of the two state model can be emulated using \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} if \gls{TFACH} is set to \SI{0}{\second} and all state transitions to \gls{RRC_FACH} are removed in a post processing step.
+
 \subsubsection*{Calculating Signalling Frequency and Power Consumption}\label{sec:network:network_traces:calculating_metrics}
 
+\begin{table}\centering
+\centering
+\begin{tabular}{c|ccc}
+    from/to & \gls{RRC_idle} & \gls{RRC_FACH} & \gls{RRC_DCH}\\
+    \hline
+    \gls{RRC_idle} & -- & 28 & 32\\
+    \gls{RRC_FACH} & 22 & -- & 6\\
+    \gls{RRC_DCH} & 25 & 5 & --    
+	\end{tabular}
+  \caption{Number of Signalling Messages per \headershortacr{RRC} state transition perceived at the \headershortacr{RNC} (Taken From \cite{3GPP_RRC_Spec})}
+  \label{tab:network:network_traces:calculating_metrics:signalling_messages}
+\end{table}
+
+In reality, the number of state transitions is not the metric of most importance if network signalling load should be evaluated.
+Each state transition results in a number of \gls{RRC} messages between the \gls{UE} and different network components.
+For this study we consider the number of messages observed at the \gls{RNC}, which can be found in \cite{3GPP_RRC_Spec} and is summarized in \reftab{tab:network:network_traces:calculating_metrics:signalling_messages}.
+It can be seen that transitions from or to the \gls{RRC_Idle} state are especially expensive in terms of number of messages sent or received.
+This is due to the fact that upon entering or leaving the \gls{RRC_Idle} state authentication has to be performed. 
+Note that for the two state model only transitions from or to the \gls{RRC_Idle} state occur.
+This results in the fact that for the same network packet trace the number of signalling messages occurring in the two state model is generally higher than in the three state model.
+To obtain the total number of signalling messages, we weight the number of state transitions with the number of messages sent per state transitions.
+Then, we average the number of state transitions over the measurement duration to obtain a metric for the signalling load at the \gls{RNC}.
+The inference algorithm does not differentiate between state changes caused by upstream or downstream traffic.
+State changes caused by downstream traffic usually generate some additional signalling messages, as paging is involved.
+The inference algorithm can be easily enhanced to support this behaviour.
+However, the results discussed in the next section would only change quantitatively.
+Furthermore, the inference of signalling messages can be easily adapted to new networking models or signalling numbers.
+
+\begin{table}
+  \centering
+  \begin{tabular}{c|c}
+    \gls{RRC} State & Power Consumption\\
+    \hline
+    \gls{RRC_idle} & \SI{0}{\milli\watt}\\
+    \gls{RRC_FACH} & \SI{650}{\milli\watt}\\
+    \gls{RRC_DCH} & \SI{800}{\milli\watt}
+  \end{tabular}
+  \caption{Power Consumption of the \headershortacr{UE} Radio Interface Depending on Current \headershortacr{RRC} State (Taken From \cite{Qian2011})}
+  \label{tab:network:network_traces:calculating_metrics:power_consumption}	
+\end{table}
+
+From a users point of view, the signalling message frequency is of little importantance.
+The user is interested in a low power consumption because this increases the battery life of the device.
+To calculate the battery life, we use the time when state transitions occurred, and the information about the state the transition was to, to calculate the relative amount of time that was spent in each state.
+Given the relative time spent in each state, we use \reftab{tab:network:network_traces:calculating_metrics:power_consumption} (taken from \cite{Qian2011}) to compute the power consumption of the radio interface during the measurement phase.
+We focus on the power consumption of the radio interface, as it is possible to measure the aggregated power consumption using out of the box instrumentation techniques provided by the hardware vendor.
+
 \subsection{Numerical Results of Measurement Study}\label{sec:network:network_traces:numerical_results}
+\begin{table}
+  \centering
+  \begin{tabular}{c|c|c|c}
+    Application&Traffic characteristic&Application use&Required bandwidth\\
+    \hline
+    Angry Birds & Interactive & Foreground & Low bandwidth \\
+    Aupeo & Interactive & Background & High bandwidth\\
+    Twitter & Periodic, low frequency & Background & Low bandwidth\\
+    Skype & Periodic, high frequency& Background & Low bandwidth
+  \end{tabular}
+  \caption{Qualitative Characterization of Applications Under Study}
+  \label{tab:network:network_traces:numerical_results:app_characterization}
+\end{table}
+
+For this study we chose four specific applications in order to cover a broad spectrum of traffic characteristics, as described in \reftab{tab:network:network_traces:numerical_results:app_characterization}.
+First, we discuss said characteristics for these applications.
+We differentiate between applications, where the user interaction causes the generation of traffic, and such, where the application periodically sends or receives traffic.
+Finally, we consider the amount of bandwidth used by the application.
+
+\textbf{Angry Birds} for Android is a popular \emph{interactive} free-to-play game and runs in the \emph{foreground}.
+To finance the game, an advertisement is shown once the player starts or restarts a level.
+Advertisements are downloaded on demand by the application, but require \emph{low bandwidth}.
+Thus, the time between two advertisements depends on the frequency of the player advancing to the next level or deciding to restart the current one.
+
+\textbf{Aupeo} is an Internet radio application, allowing a user to listen to content from personalised radio stations, while running in the \emph{background}.
+Content is not streamed but downloaded at the beginning of the track.
+The exact duration depends on the radio stations chosen by the user and is thus \emph{interactive}.
+This results in large times of inactivity during the playback of the track itself.
+Due to the fact that audio files are downloaded, there is a \emph{high bandwidth} requirement.
+
+The \textbf{Twitter} client is used to send and receive new short messages from the user's Twitter account.
+Transferring these messages requires relatively \emph{low bandwidth}.
+To this end, the user can specify an update frequency when to pull new messages in the \emph{background}.
+Thus, the downloads occur with a \emph{periodic behaviour of low frequency}, where
+the client sends an \gls{HTTPS} request to the Twitter server and in return receives new Tweets for the user's account.
+We do not consider an active user who is publishing new Tweets.
+Such behaviour would manifest as additional traffic to the periodic one generated by the status updates.
+Due to the fact that publishing updates occurs relatively infrequent, and updating the feed occurs more often, the traffic generated by publishing updates is dominated by that occurring due to updates, and thus can be neglected.
+
+Finally, we consider the \textbf{Skype} application.
+We do not consider any \gls{VoIP} calls, but the application's idle behaviour, i.e. when the application is running in the \emph{background}.
+During this time, the application sends keep-alive messages to the network.
+These keep-alive messages are sent with a \emph{high frequency} and require \emph{low bandwidth}.
+
+In addition to the applications considered, there exist other categories of applications which are running in the \emph{foreground} and \emph{interactively} require a \emph{high bandwidth}.
+One example for such an application is Skype while taking a \gls{VoIP} call.
+These applications are not considered in this study, because this kind of behaviour causes the \gls{UE} to be always online.
+This results the minimal amount of signalling messages to be sent and a maximal power consumption at the \gls{UE}, independent of network model or used parameters.
+Other combinations of traffic criteria also exist.
+However, from both a signalling load as well as a power consumption point of view, they can be mapped to one of the discussed cases.
+For example, if an application is sending periodic updates with low bandwidth without user interaction, then the fact that the application is running in the foreground or the background is without consequence for the generated signalling load or power consumption.
+However, these cases should be considered when optimisation strategies for message sending are under study.
+For example background applications could allow for the batching of messages, because the transmission is usually not urgent, while foreground applications do not allow for such behaviour because it would decrease \gls{QoE}.
+
+
 \subsubsection*{Characterization of Traffic Patterns for Selected Applications}\label{sec:network:network_traces:numerical_results:traffic_characterization}
 \subsubsection*{Influence of Application Characteristics on Optimisation with Network Timers}\label{sec:network:network_traces:numerical_results:application_influence}
 \subsubsection*{3-State Model: Signalling Frequency vs. Power Consumption}\label{sec:network:network_traces:numerical_results:three_states}

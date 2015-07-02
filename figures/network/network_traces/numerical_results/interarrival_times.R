@@ -4,7 +4,7 @@ data$application <- factor(data$application, labels = c('Angry Birds', 'Aupeo', 
 
 p <- ggplot(data, aes(x = interarrival.time, 
                       color = application)) + 
-  stat_ecdf() +
+  stat_ecdf(n = 100) +
   scale_x_log10() +
   scale_color_manual(values = color.palette) +
   labs(x = label.interarrival.time, 

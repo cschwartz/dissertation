@@ -11,30 +11,17 @@ In real \gls{UMTS} networks very small packets might be treated differently for 
 Furthermore, \gls{RRC} state transitions are complex procedures depending on implementation details of the \gls{UE}, the specific \gls{UMTS} release, and the configurations by the network operator.
 In order to keep our model simply, but realistic, we reduce the set of standardized \gls{RRC} states and the state transition triggers in the following ways. 
 
-\begin{figure}
-	\begin{subfigure}[b]{.5\textwidth}
-	\centering
-	\includegraphics{network/background/figures/two_states}
-	\caption{Two State Scenario}\label{fig:network:performance_model:system_description:rrc_state_machines:two_states}
-	\end{subfigure}	\begin{subfigure}[b]{.5\textwidth}
-	\centering
-	\includegraphics{network/background/figures/three_states}
-	\caption{Three State Scenario}\label{fig:network:performance_model:system_description:rrc_state_machines:three_states}
-	\end{subfigure}
-	\caption{\headershortacr{RRC} State Machine Diagrams}\label{fig:network:performance_model:system_description:rrc_state_machines}
-\end{figure}
-
-In a first step we consider only a basic scenario with two \gls{RRC} states: \gls{RRC_idle} and \gls{RRC_DCH} as shown in \reffig{fig:network:performance_model:system_description:rrc_state_machines:two_states}.
+In a first step we consider only a basic scenario with two \gls{RRC} states: \gls{RRC_idle} and \gls{RRC_DCH} as shown in \reffig{fig:network:background:rrc_state_machines:two_states}.
 The \gls{UE} switches to \gls{RRC_DCH} to transmit or receive data and after an inactivity period of duration \gls{TDCH} it switches back to \gls{RRC_idle}. 
 The motivation for the two states \gls{RRC} scenario is twofold.
 First, it serves for illustration purposes.
 We derive the model step-by-step in this simple scenario to explain the ideas behind the equations.
-Then, the ideas can be easily transferred to the more complex three states scenario (cf. \refsec{sec:network:performance_model:system_description:three_states}).
+Then, the ideas can be easily transferred to the more complex three states scenario in \refsec{sec:network:performance_model:system_description:three_states}.
 Second, the scenario is of practical relevance since proprietary implementations of the fast dormancy concept \cite{NSN2011} exist, where the \gls{UE} decides to switch to \gls{RRC_idle} shortly after the transmission of a packet without using any other \gls{RRC} state.
 Furthermore, this model is very similar to the one found in \gls{LTE} systems.
 In \gls{LTE}, only a distinction between connected and disconnected states can be found, which maps to the \gls{RRC_idle} and \gls{RRC_DCH} states discussed in this model.
 
-In our model we aggregate both packets sent and received by the \gls{UE} in in the packet arrival process, which is assumed to be a renewal process, i.e. a process  with identical and independently distributed inter-arrival times, described by the random variable \(\PacketIAT\) as shown in~\reffig{fig:network:performance_model:system_description:rrc_state_machines:two_states}.
+In our model we aggregate both packets sent and received by the \gls{UE} in in the packet arrival process, which is assumed to be a renewal process, i.e. a process  with identical and independently distributed inter-arrival times, described by the random variable \(\PacketIAT\) as shown in~\reffig{fig:network:background:rrc_state_machines:two_states}.
 Thus, the probability that the time between two consecutive packets is at most \(t\) is \(P(\PacketIAT \leq t) = \PacketIAT(t)\).
 We challenge this assumption by studying measurements of packet traces in \refsec{sec:network:performance_model:validations}.
 
@@ -150,12 +137,12 @@ holds.
 \subsubsection*{Extension for Three \headershortacr{RRC} States}\label{sec:network:performance_model:system_description:three_states}
 In this section, we consider three states: \gls{RRC_idle}, \gls{RRC_DCH}, and \gls{RRC_FACH}.
 Again, we assume that the \gls{UE} switches from \gls{RRC_idle} to \gls{RRC_DCH} whenever it transmits or receives data.
-After an inactivity of \(\gls{TDCH}\) the \gls{UE} switches to \gls{RRC_FACH}, and after an additional inactivity of \(\gls{TFACH}\), it switches to \gls{RRC_idle}, as depicted in \reffig{fig:network:performance_model:system_description:rrc_state_machines:three_states}.
+After an inactivity of \(\gls{TDCH}\) the \gls{UE} switches to \gls{RRC_FACH}, and after an additional inactivity of \(\gls{TFACH}\), it switches to \gls{RRC_idle}, as depicted in \reffig{fig:network:background:rrc_state_machines:three_states}.
 This scenario usually occurs when the network controls the \gls{RRC} state of the \gls{UE} without proprietary connection tear-down mechanisms implemented on the \gls{UE}.
 In today's network some operator transition the \gls{UE} to a state with a paging channel \texttt{URA\_PCH} instead of the \gls{RRC_idle}, but the resource consumptions in both states are very similar and we therefore neglect the \texttt{URA\_PCH} state for simplicity reasons.
 
 \paragraph*{State Distribution}
-The state distribution \(P(\RRCState=\RRCStateRealization)\) for the three states $\RRCStateRealization\in\{\gls{RRC_idle},\gls{RRC_FACH},\gls{RRC_DCH}\}$ can be derived in the same way as for the scenario with two states.
+The state distribution \(P(\RRCState=\RRCStateRealization)\) for the three states \(\RRCStateRealization\in\{\gls{RRC_idle},\gls{RRC_FACH},\gls{RRC_DCH}\}\) can be derived in the same way as for the scenario with two states.
 Therefore, we present only the conditional probabilities, which differ from the two state case, and use \refeq{eq:network:performance_model:system_description:state_distribution} for the calculation of the distribution.
 First, we consider \(\RRCState=\gls{RRC_idle}\): 
 \begin{equation} 
@@ -205,7 +192,7 @@ Therefore, we have
 \begin{equation}
 E[\fStateTransitionsFACHToDCH]=\frac{\PacketIAT(\gls{TDCH}+\gls{TFACH})-\PacketIAT(\gls{TDCH})}{E[\PacketIAT]}.
 \end{equation}
-Other state transitions do not occur in our scenario, as shown in \reffig{fig:network:performance_model:system_description:rrc_state_machines:three_states}).
+Other state transitions do not occur in our scenario, as shown in \reffig{fig:network:background:rrc_state_machines:three_states}).
 
 \subsubsection*{Modeling Signaling Intensity and Power Drain of the \headershortacr{UE}}\label{sec:network:performance_model:system_description:metrics}
 
