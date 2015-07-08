@@ -38,13 +38,13 @@ end
 
 task pdf: [:process_graphics] do
   Dir.chdir(tex_subdir) do
-  	sh "latexmk -interaction=nonstopmode -pdf #{ tex_root }.tex"
+    sh "latexmk -interaction=nonstopmode -pdf #{ tex_root }.tex"
   end
 end
 
 task dev: [:process_graphics] do
 	Dir.chdir(tex_subdir) do
-  	sh "latexmk -pvc -interaction=nonstopmode -pdf #{ tex_root }.tex"
+    sh "latexmk -pvc -interaction=nonstopmode -pdf #{ tex_root }.tex"
   end
 end
 
@@ -59,7 +59,7 @@ rule '.pdf' => -> (f) {source_path(f)} do |t|
 end
 
 def source_path(pdf_file)
-  base_path = pdf_file.pathmap("%{^tex,figures}d%").gsub(/figures$/,'')
+  base_path = pdf_file.pathmap('%{^tex,figures}d%').gsub(/figures$/,'')
   source_file_name = pdf_file.pathmap("%n")
   ALL_FIGURE_FILES.detect { |f| f.ext == File.join(base_path, source_file_name) }
 end
@@ -87,9 +87,9 @@ on run argv
   -- Relative paths
   set FileName to PWD & "/" & item 1 of argv
   set PDFFileName to PWD & "/" & item 2 of argv
-  
+
   set alreadyOpen to isOpen(FileName)
-  
+
   tell application "Finder"
     set GraffleFile to POSIX file FileName as alias
   end tell

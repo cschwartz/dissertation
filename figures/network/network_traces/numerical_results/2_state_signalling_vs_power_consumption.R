@@ -1,0 +1,17 @@
+data <- read.csv('2_state_signalling_vs_power_consumption.csv', sep=',', comment.char='#')
+
+data$application <- factor(data$application, labels = c('Angry Birds', 'Aupeo', 'Twitter', 'Skype'))
+
+p <- ggplot(data, aes(x = signalling.intensity,
+                      y = power.drain,
+                      shape = application,
+                      color = tdch)) + 
+  geom_point() +
+  geom_point(data = subset(data, tdch == 11), color = color.highlight) +
+  scale_color_continuous(low = color.palette[1], high = color.palette[2]) +
+  labs(x = label.signalling.intensity, 
+       y = label.power.drain,
+       shape = label.application,
+       color =  label.tdch)
+
+save.full.row.plot(p)

@@ -14,6 +14,7 @@ ggsave <- ggplot2::ggsave; body(ggsave) <- body(ggplot2::ggsave)[-2]
 color.palette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 color.low <- color.palette[1]
 color.high <- color.palette[2]
+color.highlight <- 'black'
 
 linetypes.for <- function(values) {
   seq(1, length(unique(values)))
@@ -28,14 +29,18 @@ label.evaluation.type <- 'Evaluation Type'
 label.cA <- expression(c[A])
 label.interarrival.time <- expression(paste('Packet Interarrival Time ', A, ' (s)'))
 label.interarrival.time.cdf <- expression(P(A <= a))
-
+label.lag <- 'Lag Length'
+label.interarrival.sample.autocorrelation <- 'Sample Autocorrelation\n of Interarrival Times'
+label.page.load.time <- 'Page Load Time (s)'
+label.qoe <- 'Mean Opinion Score' 
+     
 plot_options = theme(
   plot.margin = unit(c(0.2, 0, 0, 0), "cm"),
   legend.position = "bottom",
   legend.direction = "horizontal",
   #legend.box = "vertical",
   legend.key.height = unit(0.4, "cm"),
-  legend.margin = unit(-0.8, "cm"),
+  legend.margin = unit(-0.6, "cm"),
   text         = element_text(family="CM Roman", size = 8),
   axis.title.x = element_text(family="CM Roman", size = 8),
   axis.title.y = element_text(family="CM Roman", size = 8)
