@@ -7,8 +7,6 @@ library('gtable')
 library('Rmisc')
 library('extrafont')
 
-loadfonts()
-
 ggsave <- ggplot2::ggsave; body(ggsave) <- body(ggplot2::ggsave)[-2]
 
 color.palette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
@@ -41,9 +39,9 @@ plot_options = theme(
   #legend.box = "vertical",
   legend.key.height = unit(0.4, "cm"),
   legend.margin = unit(-0.6, "cm"),
-  text         = element_text(family="CM Roman", size = 8),
-  axis.title.x = element_text(family="CM Roman", size = 8),
-  axis.title.y = element_text(family="CM Roman", size = 8)
+  text         = element_text(family="Linux Libertine Display", size = 8),
+  axis.title.x = element_text(family="Linux Libertine Display", size = 8),
+  axis.title.y = element_text(family="Linux Libertine Display", size = 8)
 )
 
 units <- "cm"

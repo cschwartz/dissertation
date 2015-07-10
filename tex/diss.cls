@@ -238,7 +238,7 @@
     email: trangia@informatik.uni-wuerzburg.de\\[4mm]
     {\sffamily\bfseries Satz}\\[2mm]
     Reproduktionsf\"ahige Vorlage vom Autor.\\
-    Gesetzt in \LaTeX\ Computer Modern 9pt.\\[4mm]
+    Gesetzt in \LaTeX\ Linux Libertine 10pt.\\[4mm]
     {\sffamily\bfseries ISSN \d@issn}
     \clearpage
     \clearpage

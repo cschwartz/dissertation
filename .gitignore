@@ -167,3 +167,6 @@ sympy-plots-for-*.tex/
 *.sbb
 
 tex/dissertation.pdf
+
+#R 
+**/.Rhistory

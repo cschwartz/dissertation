@@ -12,6 +12,8 @@ p <- ggplot(data, aes(x = signalling.intensity,
   labs(x = label.signalling.intensity, 
        y = label.power.drain, 
        color = label.tdch,
-       shape = label.application )
+       shape = label.application ) +
+  guides(shape = guide_legend(order = 1),
+         colour = guide_colorbar(order = 2))
 
 save.full.row.plot(p)
