@@ -5,7 +5,8 @@ library('grid')
 require('gridExtra')
 library('gtable')
 library('Rmisc')
-library('extrafont')
+library('sysfonts')
+library('Cairo')
 
 ggsave <- ggplot2::ggsave; body(ggsave) <- body(ggplot2::ggsave)[-2]
 
@@ -39,9 +40,9 @@ plot_options = theme(
   #legend.box = "vertical",
   legend.key.height = unit(0.4, "cm"),
   legend.margin = unit(-0.6, "cm"),
-  text         = element_text(family="Linux Libertine Display", size = 8),
-  axis.title.x = element_text(family="Linux Libertine Display", size = 8),
-  axis.title.y = element_text(family="Linux Libertine Display", size = 8)
+  text         = element_text(family="Linux Biolinum O", size = 8),
+  axis.title.x = element_text(family="Linux Biolinum O", size = 8),
+  axis.title.y = element_text(family="Linux Biolinum O", size = 8)
 )
 
 units <- "cm"
@@ -65,8 +66,8 @@ adjust.legend.spacing <- function(plot, spacing = unit(-.4, 'lines')) {
 
 save.full.row.plot <- function(plot, filename = commandArgs(TRUE)[1]) {
   plot <- plot + plot_options + theme(legend.box = "vertical")
-  plot <- adjust.legend.spacing(plot)
+  #plot <- adjust.legend.spacing(plot)
   print(filename)
-  ggsave(filename, plot=plot,height = rowHeight, width = pageWidth, units = units)
-  embed_fonts(filename, outfile=filename)
+  ggsave(filename, plot=plot,height = rowHeight, width = pageWidth, units = units, device=cairo_pdf)
+  #embed_fonts(filename, outfile=filename)
 }
