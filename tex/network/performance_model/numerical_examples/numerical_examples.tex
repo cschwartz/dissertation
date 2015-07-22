@@ -1,6 +1,7 @@
 \subsection{Numerical Examples and Their Implications}\label{sec:network:performance_model:numerical_examples}
-
-%TODO: Introduction
+First, we validate our performance model by comparing the analytical results with simulations based on measured
+packet traces of two real smartphone applications .
+Then, we investigate the impact of traffic patterns on signalling load and power drain and derive high-level implications of the model.
 
 \subsubsection*{Model Validations}\label{sec:network:performance_model:validations}
 
@@ -16,7 +17,7 @@ In order to produce analytical results that correspond to the real applications,
 In \reffig{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation} we compare the accuracy of the results  obtained by the presented method to the values obtained from simulations for the two measured applications and both considered metrics.
 We observe that the accuracy for both power drain \(\gls{PD}\) and \(\gls{SI}\) is very high.
 In \reffig{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:signalling_intensity} the results for both the Mail and Twitter application obtained by the model completely align with the signalling intensity obtained by the simulation.
-The comparison of analytical results for the power drain to the simulation in \reffig{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:power_drain} leads to the same conclusions as for the signaling intensity.
+The comparison of analytical results for the power drain to the simulation in \reffig{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:power_drain} leads to the same conclusions as for the signalling intensity.
 
 \begin{figure}
 	\begin{subfigure}[b]{\textwidth}
@@ -34,16 +35,16 @@ The comparison of analytical results for the power drain to the simulation in \r
 	\caption{Comparison of the Performance Model with \glsentryshort{3G} Simulation for the Three State Scenario}\label{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation}
 \end{figure}
 
-\subsubsection*{Impact of Traffic Patterns on Signaling Intensity}\label{sec:network:performance_model:signaling_intensity}
-First, we focus on the signaling intensity \(\gls{SI}\) of traffic patterns and check the impact of the average inter-packet time \(E[\PacketIAT]\) and the timer configuration. The signaling intensity \(\gls{SI}\), i.e., the average number of state transitions required for the transmission of a single packet, is an abstract measure for the signaling load produced by a specific traffic pattern.
+\subsubsection*{Impact of Traffic Patterns on Signaling Intensity}\label{sec:network:performance_model:signalling_intensity}
+First, we focus on the signalling intensity \(\gls{SI}\) of traffic patterns and check the impact of the average inter-packet time \(E[\PacketIAT]\) and the timer configuration. The signalling intensity \(\gls{SI}\), i.e., the average number of state transitions required for the transmission of a single packet, is an abstract measure for the signalling load produced by a specific traffic pattern.
 
-\paragraph*{Impact of the Average Inter-Packet Time \(E[\PacketIAT]\)}\label{sec:network:performance_model:signaling_intensity:ea}
+\paragraph*{Impact of the Average Inter-Packet Time \(E[\PacketIAT]\)}\label{sec:network:performance_model:signalling_intensity:ea}
 Some applications, for example those downloading or streaming of videos, send and receive large amounts of data within short time frames.
 In contrast, other applications such as social network clients send and receive small amounts of data every few minutes over the time span of some hours or days.
 
 In this section we study the impact of average inter-packet times \(E[\PacketIAT]\) and the burstiness of the traffic pattern, i.e., the coefficient of variation 
 \[c_{\PacketIAT} = \frac{\sqrt{\mathrm{Var}[\PacketIAT]}}{\mathrm{E}[\PacketIAT]}\]
- on the signaling load.
+ on the signalling load.
 For that purpose, we use the simple two state scenario, set the timer \(\gls{TDCH}=\SI{10}{\second}\), consider only the first and the second moment of the inter-packet time \(\PacketIAT\), and assume that \(\PacketIAT\) follows a lognormal distribution, where both moments can be varied independently.
 
 \begin{figure}
@@ -53,12 +54,12 @@ For that purpose, we use the simple two state scenario, set the timer \(\gls{TDC
 	\label{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:2state_ea_si}
 \end{figure}
 
-In \reffig{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:2state_ea_si}, we vary the average inter-packet time \(E[\PacketIAT]\) in six orders of magnitude and investigate the resulting signaling intensity \(\gls{SI}\) for different coefficients of variation \(c_{\PacketIAT}\).
+In \reffig{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:2state_ea_si}, we vary the average inter-packet time \(E[\PacketIAT]\) in six orders of magnitude and investigate the resulting signalling intensity \(\gls{SI}\) for different coefficients of variation \(c_{\PacketIAT}\).
 We observe that \(c_{\PacketIAT}\) has no impact on \(\gls{SI}\) for very small inter-packet times \(E[\PacketIAT]<\SI{1e-1}{\second}\).
 Here, the \gls{UE} stays in state \gls{RRC_DCH} for the complete time since no inter-packet times \(\PacketIAT>\gls{TDCH}\) occur.
 In addition, the impact of \(c_{\PacketIAT}\) is small for very large values of \(E[\PacketIAT]>\SI{1e3}{\second}\).
-In this case, the \gls{UE} switches to state \gls{RRC_DCH} and back to state \gls{RRC_idle} for the transmission of every packet. Therefore, the signaling intensity \(\gls{SI}\) approaches the value 2.
-For values in between these two extremes, the coefficient of variation \(c_{\PacketIAT}\) has a considerable impact on the signaling intensity \(\gls{SI}\).
+In this case, the \gls{UE} switches to state \gls{RRC_DCH} and back to state \gls{RRC_idle} for the transmission of every packet. Therefore, the signalling intensity \(\gls{SI}\) approaches the value 2.
+For values in between these two extremes, the coefficient of variation \(c_{\PacketIAT}\) has a considerable impact on the signalling intensity \(\gls{SI}\).
 More periodic traffic, i.e. smaller values of \(c_{\PacketIAT}\), results in an increase of \(\gls{SI}\)from 0 to 2 very sharp at the value \(E[\PacketIAT]=\gls{TDCH}\), while this increase is more smooth for larger values of \(c_{\PacketIAT}\).
 This is due to the fact, that for nearly periodic traffic it is crucial whether the timer value \(\gls{TDCH}\) is smaller or larger than \(E[\PacketIAT]\). 
 For larger values of \(c_{\PacketIAT}\) this dependency is weaker.
@@ -78,13 +79,13 @@ Therefore, the order of magnitude of \(E[\PacketIAT]=\SI{4}{\second}\) is of pra
 \end{figure}
 
 
-The signaling intensity \(\gls{SI}\) is shown in \reffig{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:2state_tdch_si} with respect to the timer value \(\gls{TDCH}\) and the burstiness \(c_{\PacketIAT}\) of the traffic pattern.
-Obviously, larger timers lead to less frequent state transitions and therefore to less signaling load.
+The signalling intensity \(\gls{SI}\) is shown in \reffig{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:2state_tdch_si} with respect to the timer value \(\gls{TDCH}\) and the burstiness \(c_{\PacketIAT}\) of the traffic pattern.
+Obviously, larger timers lead to less frequent state transitions and therefore to less signalling load.
 We observe in addition that the impact of the timer is crucial for nearly periodic traffic.
 If the average inter-packet time for nearly periodic traffic is larger than the timer, then every packet transmission involves a state transitions from \gls{RRC_idle} to \gls{RRC_DCH} and a transition back.
 In contrast, no transitions are required if the average inter-packet time is shorter than the timer.
 With increasing values of \(c_{\PacketIAT}\) the impact of the timer is reduced.
-This means that for bursty traffic patterns the timer value is of less importance with respect to the generated signaling load.
+This means that for bursty traffic patterns the timer value is of less importance with respect to the generated signalling load.
 
 \subsubsection*{Impact of Traffic Patterns on Power Drain of the \headershortacr{UE}}\label{sec:network:performance_model:power_drain}
 In this section we study the impact of the traffic patterns on the power drain \(\gls{PD}\) of the \gls{UE}.
@@ -99,11 +100,11 @@ This metric quantifies how resource-efficient specific traffic patterns and time
 
 For the power drain in the different \gls{RRC} states, we use the radio network power measured in a commercial UMTS network \cite{Qian2010a}: \(\gls{PD}_{\gls{RRC_DCH}} = \SI{800}{\milli\watt}\), \(\gls{PD}_{\gls{RRC_FACH}} = \SI{460}{\milli\watt}\), and \(\gls{PD}_{\gls{RRC_idle}} = \SI{0}{\milli\watt}\).
 We investigate the impact of the average inter-packet time, the impact of the timer configuration and validate our model with simulations. 
-In \refsec{sec:network:performance_model:signaling_intensity:ea} we have seen that no state transitions occur for very small and very large average inter-packet times \(E[\PacketIAT]\).
+In \refsec{sec:network:performance_model:signalling_intensity:ea} we have seen that no state transitions occur for very small and very large average inter-packet times \(E[\PacketIAT]\).
 This was due to the fact, that for very small values the \gls{UE} is continuously in state \gls{RRC_idle} and for large values it switches to state \gls{RRC_DCH} for every packet.
 Thus, traffic patterns with very small and very large inter-packet times \(E[\PacketIAT]\) have also no impact on the power drain of the \gls{UE} regardless of the burstyness represented by the coefficient of variation \(c_{\PacketIAT}\).
 
-To study the impact of the timer configuration \(\gls{TDCH}\), we use the same setting as for the signaling load: lognormal distribution of inter-packet time \(\PacketIAT\), \(E[\PacketIAT] = \SI{4}{\second}\) in the two state scenario.
+To study the impact of the timer configuration \(\gls{TDCH}\), we use the same setting as for the signalling load: lognormal distribution of inter-packet time \(\PacketIAT\), \(E[\PacketIAT] = \SI{4}{\second}\) in the two state scenario.
 The numerical values shown in \reffig{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:2state_tdch_pd} indicate that longer timeouts lead to a higher power drain \(\gls{PD}\).
 This is reasonable since the UE stays longer in the power intensive \gls{RRC_DCH} state in these cases.
 However, we observe that the burstiness of the traffic pattern has also a considerable impact on the power drain \gls{PD}. 
@@ -121,5 +122,5 @@ In \reffig{fig:network:performance_model:numerical_examples:validations:analytic
 	\label{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:2state_pd_vs_si_vs_tdch}
 \end{figure}
 
-We see that optimizations may decrease signaling by large amounts while only having very little impact on power consumption for one specific kind of traffic.
-The same timer setting could increase the power consumption for another kind of traffic while only offering little benefit with regard to the generated signaling intensity.
+We see that optimizations may decrease signalling by large amounts while only having very little impact on power consumption for one specific kind of traffic.
+The same timer setting could increase the power consumption for another kind of traffic while only offering little benefit with regard to the generated signalling intensity.

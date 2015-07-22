@@ -8,7 +8,7 @@ p <- ggplot(data, aes(x = tdch,
   geom_line() +
   scale_color_manual(values = color.palette) +
   labs(x = label.tdch, 
-       y = label.signalling.intensity, 
+       y = label.signalling.frequency, 
        color = label.application )
 
 save.full.row.plot(p)

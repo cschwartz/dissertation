@@ -23,6 +23,7 @@ label.tdch <- expression(T[DCH])
 label.ea <- expression('E[A]')
 label.power.drain <- 'Power Drain PD'
 label.signalling.intensity <- 'Signalling Intensity SI'
+label.signalling.frequency <- 'Signalling Frequency SF'
 label.application <- 'Application'
 label.evaluation.type <- 'Evaluation Type'
 label.cA <- expression(c[A])

@@ -1,6 +1,11 @@
+require 'yaml'
+require 'colorize'
+
+config = YAML.load_file('config.yml')
+
 tex_subdir = 'tex'
 tex_root = 'dissertation'
-
+  
 JUNK_FILES = FileList.new(['tex/**/*.log', 'tex/**/*.bbl', 'tex/**/*.blg', 'tex/**/*.run.xml'])
 
 GRAFFLE_FILES = Rake::FileList.new('figures/**/*.graffle')
@@ -51,6 +56,19 @@ end
 task :process_graphics => ALL_FIGURE_FILES.pathmap(FIGURE_PATHMAP)
 
 task all: [:process_graphics, :pdf]
+
+task :check_for_typos do
+  config["typos"].each do |typo_candidate|
+    puts "Checking for '#{typo_candidate}'"
+    Dir['**/*.tex'].each do |f|
+      ack_result = `ack --output '$.: $_' \"#{typo_candidate}\" #{f}`
+      unless ack_result.empty?
+        puts f
+        puts ack_result.gsub(typo_candidate, typo_candidate.red)
+      end
+    end
+  end
+end
 
 rule '.pdf' => -> (f) {source_path(f)} do |t|
   ensure_destination_path_exists(t.name)

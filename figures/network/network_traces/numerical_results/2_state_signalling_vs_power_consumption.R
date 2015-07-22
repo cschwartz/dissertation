@@ -9,7 +9,7 @@ p <- ggplot(data, aes(x = signalling.intensity,
   geom_point() +
   geom_point(data = subset(data, tdch == 11), color = color.highlight) +
   scale_color_continuous(low = color.palette[1], high = color.palette[2]) +
-  labs(x = label.signalling.intensity, 
+  labs(x = label.signalling.frequency, 
        y = label.power.drain,
        shape = label.application,
        color =  label.tdch) +
