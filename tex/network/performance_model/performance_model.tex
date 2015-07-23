@@ -1,4 +1,10 @@
 \section{A Performance Model for \glsentryshort{3G} \glsentryshort{RRC} States}\label{sec:network:performance_model}
-%TODO introduction
-\input{network/performance_model/system_description/analytical_model}
+The algorithm introduced in \refsec{sec:network:network_traces} can be used to infer the signalling frequency, power drain and \gls{QoE} of existing or prototyped applications.
+However, in order to study the general impact of traffic, methods to derive said metrics from analytical traffic distributions are of interest.
+
+In \refsec{sec:network:performance_model:analytical_model} we introduce an model allowing us to 
+analyse both theoretical and empirical traffic models.
+Then, in \refsec{sec:network:performance_model:numerical_examples} we use the model to study the impact of traffic characteristic on metrics such as signalling intensity and power drain.
+
+\input{network/performance_model/analytical_model/analytical_model}
 \input{network/performance_model/numerical_examples/numerical_examples}
