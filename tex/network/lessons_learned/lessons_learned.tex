@@ -1,1 +1,25 @@
 \section{Lessons Learned}\label{sec:network:lessons_learned}
+In this chapter we studied the impact of smartphone application traffic on mobile communication networks.
+We considered three stakeholders of interest interacting in the mobile network.
+The mobile network operator is interested in preventing so called signalling storms, where network components performance is degraded due to high signalling load.
+The hardware vendor is interested in satisfying customers by providing a long battery lifetime, i.e. reducing power drain.
+The application developer is interested in increasing \gls{QoE} for the applications user.
+Each of the stakeholders can influence the mobile network, by manipulating parameters under its control.
+The network operator can manipulate \gls{RRC} timers, increasing the time a smartphone stays connected to the network if no data is sent or received and thus decreasing the number of connections being established or severed. 
+The hardware vendor can implement proprietary \gls{RRC} protocol extensions, skipping power intensive connection states in order to reduce power drain.
+The application developer can shorten update interval, in order to provide more up to date events and increase \gls{QoE}.
+However, each of the parameters under control of the individual stakeholders influence the \glspl{KPI} of the other stakeholders.
+
+This chapter provides a two-pronged approach to analysing the impact of changes by individual stakeholders on the overall network.
+
+First, we provided an algorithm to derive \gls{RRC} state transitions from traffic measurements from already deployed or prototyped applications.
+While proprietary mechanisms exist to directly measure \gls{RRC} state transitions, due to the high price they are usually out of reach for application developers, preventing them from evaluating the impact of their applications on the network.
+Based on this algorithm we analyse four popular smartphone applications, and find that while it is possible to find a viable trade-off between signalling load and power drain for single applications, no such trade-off exists if multiple applications operating in the network at the same time are considered.
+Furthermore, we show that network timer optimization, a practice where network operators manipulate \gls{RRC} timers in order to reduce signalling load, insentiences users to enable proprietary fast dormancy algorithms, resulting in a net increase of signalling load.
+We also show, that while longer \gls{RRC} timers may have an adverse effect on power drain due to the smartphone being longer connected to the network, it results in an increase of Web \gls{QoE}, as this results in web pages being able to be loaded faster if the smartphone is already connected to the network.
+
+Second, we propose an analytical model to derive the \glspl{KPI} from analytical or empirical traffic distributions, in order to evaluate the impact of applications that do not yet exist or classes of applications defined by a common traffic characteristics.
+% results from 2.2
+
+Concluding from this chapter, we see that
+%network timer optimization funktioniert nicht, wir brauchen interfaces, kooperation, etc

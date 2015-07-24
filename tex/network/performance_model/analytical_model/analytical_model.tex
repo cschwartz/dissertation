@@ -13,7 +13,7 @@ However, the direction of packets, i.e. them originating from the \gls{UE} or th
 Due to the high impact of \gls{RRC} states on traffic patterns, we do not consider packet sizes in this model.
 In real \gls{UMTS} networks very small packets might be treated differently for \gls{RRC} states, but we neglect this both for simplicity reasons and because the impact of packet sizes is highly network operator specific~\cite{Qian2010a}.
 Furthermore, \gls{RRC} state transitions are complex procedures depending on implementation details of the \gls{UE}, the specific \gls{UMTS} release, and the configurations by the network operator.
-In order to keep our model simply, but realistic, we reduce the set of standardized \gls{RRC} states and the state transition triggers in the following ways. 
+In order to keep our model simple, but realistic, we reduce the set of standardized \gls{RRC} states and the state transition triggers in the following ways. 
 
 In a first step we consider only a basic scenario with two \gls{RRC} states: \gls{RRC_idle} and \gls{RRC_DCH} as shown in \reffig{fig:network:background:rrc_state_machines:two_states}.
 The \gls{UE} switches to \gls{RRC_DCH} to transmit or receive data and after an inactivity period of duration \gls{TDCH} it switches back to \gls{RRC_idle}. 
@@ -25,7 +25,7 @@ Second, the scenario is of practical relevance since proprietary implementations
 Furthermore, this model is very similar to the one found in \gls{LTE} systems.
 In \gls{LTE}, only a distinction between connected and disconnected states can be found, which maps to the \gls{RRC_idle} and \gls{RRC_DCH} states discussed in this model.
 
-In our model we aggregate both packets sent and received by the \gls{UE} in in the packet arrival process, which is assumed to be a renewal process, i.e. a process  with identical and independently distributed inter-arrival times, described by the random variable \(\PacketIAT\) as shown in~\reffig{fig:network:background:rrc_state_machines:two_states}.
+In our model we aggregate both packets sent and received by the \gls{UE} in the packet arrival process, which is assumed to be a renewal process, i.e. a process  with identical and independently distributed inter-arrival times, described by the random variable \(\PacketIAT\) as shown in~\reffig{fig:network:background:rrc_state_machines:two_states}.
 Thus, the probability that the time between two consecutive packets is at most \(t\) is \(P(\PacketIAT \leq t) = \PacketIAT(t)\).
 We challenge this assumption by studying measurements of packet traces in \refsec{sec:network:performance_model:validations}.
 
@@ -77,10 +77,10 @@ Due to
 we have 
 \(\NormalisationConstant=1/E[\PacketIAT]\)
 , which leads to
-\begin{equation}
+\begin{equation*}
 \ObservationIntervalDensity(\ObservationIntervalLength)=\frac{a(\ObservationIntervalLength) \cdot \ObservationIntervalLength}{E[\PacketIAT]}.
 \label{eq:network:performance_model:system_description:state_distribution:observation_density}
-\end{equation}
+\end{equation*}
 
 Next, we derive the conditional probability
 \(P(\RRCState=\RRCStateRealization) \vert \PacketIAT = \ObservationIntervalLength)\)
@@ -99,7 +99,7 @@ P(\RRCState=\gls{RRC_idle}\vert \PacketIAT = \ObservationIntervalLength)=
 
 Similarly, we obtain \(P(\RRCState = \gls{RRC_DCH})\) as:
 \begin{equation}
-P(\RRCState=\gls{RRC_idle} \vert \PacketIAT = \ObservationIntervalLength)=
+P(\RRCState=\gls{RRC_DCH} \vert \PacketIAT = \ObservationIntervalLength)=
 \begin{cases} 
 	1,  & \mbox{if } \ObservationIntervalLength \leq \gls{TDCH} \\ 
     \frac{\gls{TDCH}}{\ObservationIntervalLength}, & \mbox{otherwise.}	 
@@ -122,18 +122,18 @@ Furthermore, the probability that time between two consecutive packets exceeds t
 \begin{equation} 
 P(\PacketIAT > \gls{TDCH}) = 1 - P(\PacketIAT \leq \gls{TDCH}) = 1 - \PacketIAT(\gls{TDCH}).
 \end{equation} 
-The number of state transitions \(\NStateTransitionsIdleToDCH\) during \(\ObservationInterval)\) directly corresponds to the number of inter-packet times exceeding \(\gls{TDCH}\) since an active connection is torn down after an inactivity period of \(\gls{TDCH}\).
+The number of state transitions \(\NStateTransitionsIdleToDCH\) during \(\ObservationInterval\) directly corresponds to the number of inter-packet times exceeding \(\gls{TDCH}\) since an active connection is torn down after an inactivity period of \(\gls{TDCH}\).
 Thus, the expected number is 
-\begin{align}
+\begin{align*}
 \begin{split}
 E[\NStateTransitionsIdleToDCH] & = E[\NObservedPackets] \cdot P(\PacketIAT > \gls{TDCH})\\
 	& = \frac{\ObservationInterval}{E[\PacketIAT]}\cdot (1-\PacketIAT(\gls{TDCH})). 
 \end{split}
-\end{align} 
+\end{align*} 
 Hence, the expected frequency of state transitions is 
-\begin{equation}
+\begin{equation*}
 E[\NStateTransitionsIdleToDCH]=\frac{1-\PacketIAT(\gls{TDCH})}{E[\PacketIAT]}.
-\end{equation}
+\end{equation*}
 The same holds also for the state transitions from \gls{RRC_DCH} to \gls{RRC_idle} and hence 
 \(E[\fStateTransitionsDCHToIdle]=E[\fStateTransitionsDCHToIdle]\)
 holds.
@@ -149,16 +149,16 @@ In today's network some operator transition the \gls{UE} to a state with a pagin
 The state distribution \(P(\RRCState=\RRCStateRealization)\) for the three states \(\RRCStateRealization\in\{\gls{RRC_idle},\gls{RRC_FACH},\gls{RRC_DCH}\}\) can be derived in the same way as for the scenario with two states.
 Therefore, we present only the conditional probabilities, which differ from the two state case, and use \refeq{eq:network:performance_model:system_description:state_distribution} for the calculation of the distribution.
 First, we consider \(\RRCState=\gls{RRC_idle}\): 
-\begin{equation} 
+\begin{equation*} 
 P(\RRCState=\gls{RRC_idle} \vert \PacketIAT = \ObservationIntervalLength) =
 \begin{cases} 
 	0,  & \mbox{if } \ObservationIntervalLength \leq \gls{TDCH}+\gls{TFACH} \\ 
 	\frac{\ObservationIntervalLength - (\gls{TDCH}+\gls{TFACH})}{\ObservationIntervalLength}, 
 	    & \mbox{otherwise.}
 \end{cases}
-\end{equation}
+\end{equation*}
 For the case of \(\RRCState=\gls{RRC_FACH}\), we have:
-\begin{equation} 
+\begin{equation*} 
 P(\RRCState=\gls{RRC_FACH} \vert \PacketIAT = \ObservationIntervalLength) =
 \begin{cases} 
 	0,  & \mbox{if } \ObservationIntervalLength \leq \gls{TDCH} \\ 
@@ -167,7 +167,7 @@ P(\RRCState=\gls{RRC_FACH} \vert \PacketIAT = \ObservationIntervalLength) =
 	\frac{\gls{TFACH}}{\ObservationIntervalLength} 
 	    & \mbox{if } \ObservationIntervalLength > \gls{TDCH}+\gls{TFACH} 
 \end{cases}
-\end{equation}
+\end{equation*}
 
 The probability for the \gls{RRC_DCH} state \(P(\RRCState=\gls{RRC_DCH} \vert \PacketIAT = \ObservationIntervalLength)\) does not differ from the two state scenario, i.e. \refeq{eq:network:performance_model:system_description:state_distribution:conditional_probability_dch}.
 
@@ -182,23 +182,23 @@ Other transitions do not occur.
 We first calculate the frequency of state transitions from \gls{RRC_DCH} to \gls{RRC_FACH}.
 This transition happens every time when the inter-packet time \(\PacketIAT\) exceeds the timer \(\gls{TDCH}\).
 Therefore, the derivation is the same as presented above:
-\begin{equation}
+\begin{equation*}
 E[\fStateTransitionsDCHToFACH]=\frac{1-\PacketIAT(\gls{TDCH})}{E[\PacketIAT]}.
 \end{equation}
-\begin{equation}
+\begin{equation*}
 E[\fStateTransitionsFACHToIdle]=\frac{1-\PacketIAT(\gls{TDCH}+\gls{TFACH})}{E[\PacketIAT]}.
-\end{equation}
+\end{equation*}
 Furthermore, all state transitions from \gls{RRC_FACH} to \gls{RRC_idle} correspond to a switch from \gls{RRC_idle} to \gls{RRC_DCH} and therefore 
 \(E[\fStateTransitionsIdleToDCH]=E[\fStateTransitionsFACHToIdle].\)
 Finally, we calculate \(E[\fStateTransitionsFACHToDCH].\)
 These state transitions occur, if \(\gls{TDCH}<\PacketIAT \leq \gls{TDCH}+\gls{TFACH}\).
 Therefore, we have 
-\begin{equation}
+\begin{equation*}
 E[\fStateTransitionsFACHToDCH]=\frac{\PacketIAT(\gls{TDCH}+\gls{TFACH})-\PacketIAT(\gls{TDCH})}{E[\PacketIAT]}.
-\end{equation}
+\end{equation*}
 Other state transitions do not occur in our scenario, as shown in \reffig{fig:network:background:rrc_state_machines:three_states}).
 
-\subsubsection*{Modeling Signaling Intensity and Power Drain of the \headershortacr{UE}}\label{sec:network:performance_model:analytical_model:metrics}
+\subsubsection*{Modelling Signalling Intensity and Power Drain of the \headershortacr{UE}}\label{sec:network:performance_model:analytical_model:metrics}
 
 \newcommand{\fStateTransitions}{E[f_{ST}]}
 
@@ -212,7 +212,7 @@ In order to quantify signalling load on an abstract level, we define the \gls{SI
 where \(\fStateTransitions\) is the sum of all state transitions.
 Consequently, \(\gls{SI} \in ]0,2]\) for the two state scenario since every packet can at most cause two state transitions, in the three state scenario \(\gls{SI} \in]0,3]\) holds.
 This metric is intended to quantify the relation between transmitted data packets and the involved \gls{RRC} state transitions, which all incur mobile network signalling.
-The metric can be extended to capture more details, such as the number and type of signalling messages exchanged for a specific state transition.
+The metric can be extended to capture more details, such as the number and type of signalling messages exchanged for a specific state transition, as discussed in \refsec{sec:network:network_traces:calculating_metrics}.
 Since we will use this metric for more qualitative analysis of source traffic produced by smart-phone applications, we stick to the definition above allowing for an illustrative understanding of the numerical results.
 
 Next, we model the \gls{PD} of the \gls{UE} due to the \gls{UMTS} transmission unit. 

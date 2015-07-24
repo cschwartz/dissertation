@@ -2025,7 +2025,7 @@ Establishment}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{1.25, 59.376876831054688}, {28, 9}}</string>
+			<string>{{9.25, 60.125}, {28, 9}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -2534,7 +2534,7 @@ Establishment}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-07-16 10:07:34 +0000</string>
+	<string>2015-07-24 10:17:10 +0000</string>
 	<key>Modifier</key>
 	<string>Christian Schwartz</string>
 	<key>NotesVisible</key>

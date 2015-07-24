@@ -50,7 +50,7 @@ For that purpose, we use the simple two state scenario, set the timer \(\gls{TDC
 \begin{figure}
 	\centering
 	\includegraphics{network/performance_model/numerical_examples/figures/2state_ea_si}
-	\caption{Signaling intensity for different traffic patterns considering the two state model with \(\gls{TDCH}=\SI{10}{\second}\) for different traffic patterns}
+	\caption{Signaling Intensity for Different Traffic Patterns Considering the Two State Model with \(\gls{TDCH}=\SI{10}{\second}\) for Different Traffic Patterns}
 	\label{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:2state_ea_si}
 \end{figure}
 
@@ -98,7 +98,7 @@ This metric quantifies how resource-efficient specific traffic patterns and time
 	\label{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:2state_tdch_pd}
 \end{figure}
 
-For the power drain in the different \gls{RRC} states, we use the radio network power measured in a commercial UMTS network \cite{Qian2010a}: \(\gls{PD}_{\gls{RRC_DCH}} = \SI{800}{\milli\watt}\), \(\gls{PD}_{\gls{RRC_FACH}} = \SI{460}{\milli\watt}\), and \(\gls{PD}_{\gls{RRC_idle}} = \SI{0}{\milli\watt}\).
+For the power drain in the different \gls{RRC} states, we use the same radio network power drain  used in \refsec{sec:network:network_traces:calculating_metrics}.
 We investigate the impact of the average inter-packet time, the impact of the timer configuration and validate our model with simulations. 
 In \refsec{sec:network:performance_model:signalling_intensity:ea} we have seen that no state transitions occur for very small and very large average inter-packet times \(E[\PacketIAT]\).
 This was due to the fact, that for very small values the \gls{UE} is continuously in state \gls{RRC_idle} and for large values it switches to state \gls{RRC_DCH} for every packet.
