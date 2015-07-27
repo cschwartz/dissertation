@@ -1,25 +1,44 @@
 \section{Lessons Learned}\label{sec:network:lessons_learned}
 In this chapter we studied the impact of smartphone application traffic on mobile communication networks.
-We considered three stakeholders of interest interacting in the mobile network.
-The mobile network operator is interested in preventing so called signalling storms, where network components performance is degraded due to high signalling load.
-The hardware vendor is interested in satisfying customers by providing a long battery lifetime, i.e. reducing power drain.
-The application developer is interested in increasing \gls{QoE} for the applications user.
-Each of the stakeholders can influence the mobile network, by manipulating parameters under its control.
-The network operator can manipulate \gls{RRC} timers, increasing the time a smartphone stays connected to the network if no data is sent or received and thus decreasing the number of connections being established or severed. 
+We considered three stakeholders interacting in the mobile network.
+The \emph{mobile network operator} is interested in preventing so called signalling storms, where network components performance is degraded due to high signalling load.
+The \emph{hardware vendor} is interested in satisfying customers by providing a long battery lifetime for the \gls{UE}, i.e. reducing power drain.
+The \emph{application developer} is interested in increasing \gls{QoE} for the applications user.
+Each of the stakeholders can influence the mobile network, by manipulating the parameters under its control.
+The network operator can manipulate \gls{RRC} timers, increasing the time a smartphone stays connected to the network if no data is sent or received, decreasing the number of connections being established or severed and thus the signalling load in the network. 
 The hardware vendor can implement proprietary \gls{RRC} protocol extensions, skipping power intensive connection states in order to reduce power drain.
-The application developer can shorten update interval, in order to provide more up to date events and increase \gls{QoE}.
+The application developer can shorten update intervals, in order to provide more up to date events and increase \gls{QoE}.
 However, each of the parameters under control of the individual stakeholders influence the \glspl{KPI} of the other stakeholders.
 
 This chapter provides a two-pronged approach to analysing the impact of changes by individual stakeholders on the overall network.
 
-First, we provided an algorithm to derive \gls{RRC} state transitions from traffic measurements from already deployed or prototyped applications.
+First, we provided an algorithm to derive \gls{RRC} state transitions from traffic measurements of already deployed or prototyped applications.
 While proprietary mechanisms exist to directly measure \gls{RRC} state transitions, due to the high price they are usually out of reach for application developers, preventing them from evaluating the impact of their applications on the network.
 Based on this algorithm we analyse four popular smartphone applications, and find that while it is possible to find a viable trade-off between signalling load and power drain for single applications, no such trade-off exists if multiple applications operating in the network at the same time are considered.
-Furthermore, we show that network timer optimization, a practice where network operators manipulate \gls{RRC} timers in order to reduce signalling load, insentiences users to enable proprietary fast dormancy algorithms, resulting in a net increase of signalling load.
+Furthermore, we show that network timer optimization, a practice where network operators manipulate \gls{RRC} timers in order to reduce signalling load, incentivises users to enable proprietary fast dormancy algorithms, resulting in a net increase of signalling load.
 We also show, that while longer \gls{RRC} timers may have an adverse effect on power drain due to the smartphone being longer connected to the network, it results in an increase of Web \gls{QoE}, as this results in web pages being able to be loaded faster if the smartphone is already connected to the network.
 
 Second, we propose an analytical model to derive the \glspl{KPI} from analytical or empirical traffic distributions, in order to evaluate the impact of applications that do not yet exist or classes of applications defined by a common traffic characteristics.
-% results from 2.2
+Our results show that different access patterns have a considerable impact on the required resources of the mobile phone and the network.
+We identified bursty traffic pattern as particularly resource-efficient with respect to energy consumption and
+signalling load.
+In contrast, nearly periodic traffic is likely to cause signalling overload due to frequent connection reestablishments, especially when the connection timeout is slightly below the inter-packet time.
 
-Concluding from this chapter, we see that
-%network timer optimization funktioniert nicht, wir brauchen interfaces, kooperation, etc
+Concluding from this chapter, we see that in mobile networks many different players, metrics, and trade-offs exist.
+We highlighted one examples of such a trade-off, i.e. signalling load vs. power drain and discussed the influence of the current optimization parameters, the network timers, on another.
+However, many additional trade-offs exist.
+For example, the mobile operator has to balance the use of radio resources with the number of generated signalling frequencies.
+Furthermore, application providers seek to improve the user experience which usually result in a higher frequency of network polls, creating additional signalling traffic.
+The high number of trade-offs and involved actors in this optimization problem indicate that the current
+optimization technique used by operators is no longer sufficient.
+
+Approaches like \emph{Economic Traffic Management}~\cite{spirou2009} or \emph{Design for Tussle}~\cite{trilogy2008} could be applied to find
+an acceptable trade-off for all parties.
+In Economic Traffic Management all participating entities share information in order to enable collaboration.
+This collaboration allows for a joint optimisation of the trade-off.
+Design for Tussle aims to resolve tussles at run time, instead instead of design time.
+This prevents the case that one actor has full control over the optimisation problem, which would likely result in the actor choosing a trade off only in its favour, ignoring all other participants.
+One example of an actor providing information for another in order to optimise the total system would be \gls{UE} vendor providing interfaces for application developers to use when sending data.
+These interfaces would schedule data to be transmitted in such a way that signalling load and power drain would be reduced, if the application’s requirements allow for it.
+Until such interfaces exist, application developers could take the effect of the traffic their applications
+produce both on the UE and the network into account, for example using the algorithms proposed in this chapter. 

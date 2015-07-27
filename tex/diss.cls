@@ -335,10 +335,10 @@
   \addcontentsline{toc}{chapter}{Bibliography and References}
   \markboth{\bibname}{}
   \section*{Bibliography of the Author}
-  \printbibliography[heading=book_chapter,type=incollection]
-  \printbibliography[heading=journal,type=article]
-  \printbibliography[heading=conference,type=inproceedings]
-  \printbibliography[heading=demo,filter=demo]
+  \printbibliography[heading=book_chapter,type=incollection,keyword=publication]
+  \printbibliography[heading=journal,type=article,keyword=publication]
+  \printbibliography[heading=conference,type=inproceedings,keyword=publication]
+  \printbibliography[heading=demo,filter=demo,keyword=publication]
   \printbibliography[heading=references,notkeyword=publication]
   \cleardoublepage
 %  \IfFileExists{\jobname.ind}{%
