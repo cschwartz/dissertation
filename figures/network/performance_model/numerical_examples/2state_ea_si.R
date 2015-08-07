@@ -1,28 +1,16 @@
+source('../../../plot_settings.R')
 data <- read.csv('2state_ea_si.csv', sep=',', comment.char='#')
 
 data$cA <- factor(data$cA)
-
-fancy_scientific <- function(l) {
-  # turn in to character string in scientific notation
-  l <- format(l, scientific = TRUE)
-  # quote the part before the exponent to keep all the digits
-  l <- gsub("^(.*)e", "'\\1'e", l)
-  # turn the 'e+' into plotmath format
-  l <- gsub("e", "%*%10^", l)
-  # return this as an expression
-  parse(text=l)
-}
-
 
 p <- ggplot(data, aes(x = EA, 
                       y = SI, 
                       color = cA)) + 
   geom_line() +
-  scale_x_log10() +
+  scale_x_log10(labels = notation.si) +
   scale_color_manual(values = color.palette) +
   labs(x = label.ea, 
        y = label.signalling.intensity, 
-       color = label.cA ) +
-  scale_y_continuous(labels = fancy_scientific)
+       color = label.cA )
 
 save.full.row.plot(p)

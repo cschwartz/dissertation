@@ -1,14 +1,16 @@
-\subsection{Numerical Results of Measurement Study}\label{sec:network:network_traces:numerical_results}
+\subsection{Impact of Application Traffic Patterns}\label{sec:network:network_traces:numerical_results}
 In the measurement study, we apply the methods introduced in \refsec{sec:network:network_traces:performance_evaluation} to four popular smartphone
 applications to infer signalling traffic and energy consumption.
 First, we characterize the applications in terms of traffic patterns, application usage, as well as bandwidth requirements.
-Then, we study the \gls{SF} and power consumption caused by these applications, if inactivity timers such as \gls{TDCH} or \gls{TFACH} are modified.
+Then, we study the \gls{SF} and power consumption caused by these applications if inactivity timers such as \gls{TDCH} or \gls{TFACH} are modified.
 Finally, we analyse the influence of network parameters on web \gls{QoE} in terms of \gls{MOS} depending on page load times which are influenced by the network settings.
 
 \subsubsection*{Characterization of Traffic Patterns for Selected Applications}\label{sec:network:network_traces:numerical_results:traffic_characterization}
 
 \begin{table}
   \centering
+  \caption{Qualitative Characterization of Applications Under Study}
+  \label{tab:network:network_traces:numerical_results:app_characterization}
   \begin{tabular}{cccc}
   	\bottomrule
     Application&Traffic&Application&Required\\
@@ -20,8 +22,6 @@ Finally, we analyse the influence of network parameters on web \gls{QoE} in term
     Skype & Periodic, High frequency& Background & Low Bandwidth\\
     \bottomrule
   \end{tabular}
-  \caption{Qualitative Characterization of Applications Under Study}
-  \label{tab:network:network_traces:numerical_results:app_characterization}
 \end{table}
 
 For this study we chose four specific applications in order to cover a broad spectrum of traffic characteristics, as described in \reftab{tab:network:network_traces:numerical_results:app_characterization}.
@@ -57,12 +57,12 @@ These keep-alive messages are sent with a \emph{high frequency} and require \emp
 In addition to the applications considered, there exist other categories of applications which are running in the \emph{foreground} and \emph{interactively} require a \emph{high bandwidth}.
 One example for such an application is Skype while taking a \gls{VoIP} call.
 These applications are not considered in this study, because this kind of behaviour causes the \gls{UE} to be always online.
-This results the minimal amount of signalling messages to be sent and a maximal power drain at the \gls{UE}, independent of network model or used parameters.
+This results in the minimal amount of signalling messages to be sent and a maximal power drain at the \gls{UE}, independent of network model or used parameters.
 Other combinations of traffic criteria also exist.
-However, from both a signalling frequency as well as a power drain point of view, they can be mapped to one of the discussed cases.
+However, from both, a signalling frequency as well as a power drain point of view, they can be mapped to one of the discussed cases.
 For example, if an application is sending periodic updates with low bandwidth without user interaction, then the fact that the application is running in the foreground or the background is without consequence for the generated signalling frequency or power drain.
 However, these cases should be considered when optimisation strategies for message sending are under study.
-For example background applications could allow for the batching of messages, because the transmission is usually not urgent, while foreground applications do not allow for such behaviour because it would decrease \gls{QoE}.
+Background applications, for instance, could allow for the batching of messages, because the transmission is usually not urgent, while foreground applications do not allow for such behaviour because it would delay the user interactions and consequently decrease \gls{QoE}.
 
 Next, we describe the applications under study in more detail.
 For each application we show the \gls{CDF} of the interarrival times in \reffig{fig:network:network_traces:numerical_results:traffic:interarrival_times} and give information about the mean values and standard deviation of both interarrival times and bandwidth in \reftab{tab:network:network_traces:numerical_results:traffic_statistics}, respectively.
@@ -75,6 +75,8 @@ For each application we show the \gls{CDF} of the interarrival times in \reffig{
 
 \begin{table}
   \centering
+  \caption{Mean and Standard Deviation of Interarrival Time and Bandwidth for Considered Applications}
+  \label{tab:network:network_traces:numerical_results:traffic_statistics}
   \begin{tabular}{lcccc}
   	\toprule
     Application&\multicolumn{2}{c}{Interarrival Time (\si{\second})}&\multicolumn{2}{c}{Bandwidth (\si{\kilo\bit\per\second})}\\
@@ -87,32 +89,31 @@ For each application we show the \gls{CDF} of the interarrival times in \reffig{
     Skype& 0.55 &1.95 & 1.30 & 1.84\\
     \bottomrule
   \end{tabular}
-  \caption{Mean and Standard Deviation of Interarrival Time and Bandwidth for Considered Applications}
-  \label{tab:network:network_traces:numerical_results:traffic_statistics}
 \end{table}
 
-We begin with the Angry Birds application.
-We see that there are no distinct peaks in interarrival time, which would hint at periodic behaviour.
+\paragraph*{Angry Birds}
+We see that there are no distinct peaks in interarrival time, which would indicate a periodic behaviour.
 Furthermore, we see that \SI{5}{\percent} of all interarrival times are greater than \SI{1}{\second}.
 As we consider only \gls{TDCH} values above \SI{1}{\second}, those are candidates for triggering state transitions.
 The mean interarrival time is \SI{0.66}{\second}, with a relatively high standard deviation of \SI{15.90}{\second}.
-This is caused by the low interarrival times in one advertisement request and the relatively large interarrival times between two advertisements.
+This is caused by the low interarrival times in one advertisement request at the beginning of each new level and the relatively large interarrival times between two advertisements.
 Mean bandwidth is relatively low with \SI{4.42}{\kilo\bit\per\second} and a high standard deviation of \SI{4.5}{\kilo\bit\per\second}.
 These differences can be explained by considering the behaviour of the application.
 During long phases of use no traffic is sent, and after a level is restarted, a new advertisement has to be obtained, causing the transmission of data.
+Note, that no level data is downloaded during gameplay at all, as the complete game is downloaded during the installation process.
 
-Next, we study the behaviour of the Aupeo application.
-We see that the application generates packets with relatively small interarrival times.
-This finding is backed up by the small mean interarrival time of \SI{0.06}{\second}.
+\paragraph*{Aupeo}
+We see that the application generates packets with relatively small interarrival times with a small mean interarrival time of \SI{0.06}{\second}.
 The high standard deviation of \SI{3.06}{\second} is caused by the wait between two tracks.
 Furthermore, we see a high mean bandwidth of \SI{129.76}{\kilo\bit\per\second}, and a standard deviation of \SI{482.63}{\kilo\bit\per\second}.
 This is caused by the difference in traffic activity between times when tracks are either downloaded or not.
 
-For Twitter we see that \SI{90}{\percent} of all transmissions occur with an interarrival time of less than \SI{1}{\second}.
+\paragraph*{Twitter}
+We see that \SI{90}{\percent} of all transmissions occur with an interarrival time of less than \SI{1}{\second}.
 Also, we can observe a high mean interarrival time of \SI{8.91}{\second} and a high standard deviation of \SI{44.49}{\second}.
 Additionally, the mean bandwidth is low with only \SI{0.27}{\kilo\bit\per\second} and a low standard deviation of \SI{0.04}{\kilo\bit\per\second} due to the fact that Twitter text messages are only \(140\) characters in length and thus only a low volume of traffic needs to be transmitted.
 
-Finally, we consider the Skype application.
+\paragraph*{Skype}
 Similar to the Twitter application, we see that \SI{90}{\%} of all packets occur with an interarrival time of less than \SI{1}{\second}.
 However, in contrast to Twitter, we see a low mean interarrival time of \SI{0.55}{\second} with a standard deviation of \SI{1.95}{\second}.
 Further, we observe a relatively low mean bandwidth of \SI{1.30}{\kilo\bit\per\second} and a standard deviation of \SI{1.8}{\kilo\bit\per\second}.
@@ -131,18 +132,19 @@ This is one of the reasons that the applications under consideration will displa
 This section studies the impact of traffic generated by applications on both the network and the
 \gls{QoE} of the user.
 We consider two metrics.
-First, we consider the frequency of signalling messages perceived at network components such as an \gls{RNC}.
+First, we consider the frequency of signalling messages induced at network components such as an \gls{RNC}.
 In light of network outages caused by so called signalling storms, a large number of signalling messages leading to overload at network equipment, it is in the interest of a network operator to reduce the number of signalling messages arriving at the \gls{RNC}.
 One possible way to reduce the signalling frequency \gls{SF} is to modify network timer values, i.e., \gls{TDCH} and \gls{TFACH}.
+
 As discussed in \refsec{sec:network:background:energy_consumption_qoe}, the \gls{QoE} a user perceives while using his device is influenced by the battery life of the \gls{UE}.
-Thus, the second metric considered is the influence of the used network model and associated timer settings on the device’s power drain.
+Thus, the second metric considered is the device’s power drain which is influenced by the used network model and associated timer settings.
 As described in \refsec{sec:network:network_traces:calculating_metrics}, based on a measurement trace for an application we use \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} to infer the state transitions occurring during the use of the application.
 Then, we calculate the relative time spent in each state and use \reftab{tab:network:network_traces:calculating_metrics:power_consumption} to compute the mean power
 consumption of the radio interface during the measurement.
 We study both metrics, first on its own and then aggregated for both network models introduced in \refsec{sec:network:background:umts_rrc}.
 
-In this section we first consider the three state model, which describes the default behaviour in \gls{3G} networks. 
-Then, we describe the influence of the two state model which models a network behaviour similar to that if proprietary fast dormancy algorithms are used.
+In this section we first consider the Three State Model, which describes the default behaviour in \gls{3G} networks. 
+Then, we describe the influence of the Two State Model which models a network behaviour similar to that if proprietary fast dormancy algorithms are used.
 These algorithms have been identified as one of the causes of a signalling storm~\cite{NSN2011}.
 Finally, we summarize the results and discuss the possible ramifications of using network timer values to reduce the signalling frequency.
 
@@ -154,7 +156,7 @@ First, we investigate the signalling frequency generated by the studied applicat
 	\includegraphics{network/network_traces/numerical_results/figures/3_state_tdch_vs_frequency}
 	\caption{Signalling Message Frequency for Varying \gls{TDCH} Timers for the Three State Model}\label{fig:network:network_traces:numerical_results:three_states:three_states:signalling}
 \end{figure}
-For all studies of the three state model, the \gls{TFACH} timeout is set to \(\gls{TFACH} = 2\cdot  \gls{TDCH}\), a realistic value as shown in \cite{Qian2011}.
+For all studies of the Three State Model, the \gls{TFACH} timeout is set to \(\gls{TFACH} = 2\cdot  \gls{TDCH}\), a realistic value as shown in \cite{Qian2011}.
 We see that for \gls{TDCH} timers shorter than \SI{6}{\second} the Skype application in \gls{RRC_idle} mode generates the highest signalling frequency.
 The Angry Birds application generates the second highest frequency of signalling messages, followed by the Aupeo application.
 The Twitter application generates the smallest signalling frequency.
@@ -175,17 +177,17 @@ From a signalling frequency perspective, a value of \SI{20}{\second} would proba
 
 Based on this finding, we see that increasing the \gls{TDCH} timer decreases the signalling frequency \gls{SF} at the \gls{RNC}.
 However, the actual signalling frequency depends on the application running at the \gls{UE}.
-From a network operator's point of view, the three state model should always be preferred to the two state model because it generates less signalling messages per second, thus decreasing the load at the \gls{RNC}.
+From a network operator's point of view, the Three State Model should always be preferred to the Two State Model because it generates less signalling messages per second, thus decreasing the load at the \gls{RNC}.
 This view does however not consider the additional radio resources which are kept in use for a longer time if larger \gls{TDCH} values are used.
 Additionally, it should be noted that the choice of the network model is sometimes outside of the domain of the network operator.
-Proprietary Fast Dormancy algorithms, as the considered two state model, are enabled on the \gls{UE} by the user.
+Proprietary Fast Dormancy algorithms, as the considered Two State Model, are enabled on the \gls{UE} by the user.
 
 \begin{figure}
 	\centering
 	\includegraphics{network/network_traces/numerical_results/figures/3_state_tdch_vs_power_drain}
 	\caption{Power Drain \gls{PD} for Varying \gls{TDCH} Timers for the Three State Model}\label{fig:network:network_traces:numerical_results:three_states:power_drain}
 \end{figure}
-In \reffig{fig:network:network_traces:numerical_results:three_states:power_drain} we consider the power drain if the network uses the three state model, i.e. if the Fast Dormancy mode of the \gls{UE} is disabled.
+In \reffig{fig:network:network_traces:numerical_results:three_states:power_drain} we consider the power drain if the network uses the Three State Model, i.e. if the Fast Dormancy mode of the \gls{UE} is disabled.
 The figure shows the mean power drain \gls{PD} of the device with regard to the \gls{TDCH} timeout.
 Possible values range between \SI{0}{\milli\watt} if the \gls{UE} was in \gls{RRC_idle} state during the whole measurement and \SI{800}{\milli\watt} if the \gls{UE} was in \gls{RRC_DCH} state during the complete measurement.
 We see that the least power over all considered \gls{TDCH} values is consumed by the Twitter application.
@@ -208,7 +210,7 @@ Finally, we aggregate both metrics in in \reffig{fig:network:network_traces:nume
 The X-axis of the figure gives the signalling frequency.
 On the Y-axis we show the power drain \gls{PD}.
 Different \gls{TDCH} values are shown by different colors as specified by the colorbar.
-First we consider Angry Birds.
+First, we consider Angry Birds.
 We observe that as the signalling frequency approaches zero, the power drain rapidly increases, even if only small gains in signalling frequency reduction can be achieved.
 The Aupeo application presents a completely different picture.
 Here, we can see multiple almost horizontal lines of markers.
@@ -219,49 +221,47 @@ These points of discontinuity would present themself to be suitable targets of o
 Next, we consider the Twitter application.
 It displays a similar behaviour as the Aupeo application, with multiple points of discontinuity.
 Note that Twitter exhibits a different point of discontinuity, and the \gls{TDCH} value of \SI{10}{\second}, which provided good results for Aupeo is not optimal for Twitter.
-Finally, Skype shows a completely different picture.
+Finally, Skype again shows a completely different picture then all the other considered applications.
 First, note that due to the large signalling frequency \gls{SF} of Skype for small values of \gls{TDCH}, \(\gls{TDCH} = \SI{1}{\second}\) is not displayed in the figure.
 Furthermore, as the \gls{TDCH} timer increases above \SI{20}{\second} the signalling frequency \gls{SF} does not decrease any further, and the power drain \gls{PD} remains at the maximum value.
 We observe that there is no common optimal value for all applications which would result in an acceptable trade off.
 
 
 \paragraph*{Two State Model: Signalling Frequency vs. Power Drain}\label{sec:network:network_traces:numerical_results:two_states}
-Now, we study the consequences of the application traffic in a network using the two state model.
-The two state model occurs in reality if Fast Dormancy implementations are considered.
+Now, we study the consequences of the application traffic in a network using the Two State Model.
+The Two State Model occurs in reality if Fast Dormancy implementations are considered.
 Here, the \gls{UE} disconnects from the network if for a certain time no traffic is sent or received in order to reduce power drain.
 \begin{figure}
 	\centering
 	\includegraphics{network/network_traces/numerical_results/figures/2_state_tdch_vs_frequency}
 	\caption{Signalling Message Frequency for Varying \gls{TDCH} Timers for the Two State Model}\label{fig:network:network_traces:numerical_results:two_states:signalling}
 \end{figure}
-As for the three state model, \reffig{fig:network:network_traces:numerical_results:two_states:signalling} shows the signalling frequency \gls{SF} with regard to the setting of the \gls{TDCH} timer.
-We see the same general behaviour as with the three state model, however the signalling frequency generated by each of the applications for the two state model are usually higher.
-For example, even for relatively high \gls{TDCH} timeout values of \SI{10}{\second}, the Angry Birds application causes \SI{270}{\percent} of the signalling frequency \gls{SF} as in a network using the three state model.
+As for the Three State Model, \reffig{fig:network:network_traces:numerical_results:two_states:signalling} shows the signalling frequency \gls{SF} with regard to the setting of the \gls{TDCH} timer.
+We see the same general behaviour as with the Three State Model, however the signalling frequency generated by each of the applications for the Two State Model are usually higher.
+For example, even for relatively high \gls{TDCH} timeout values of \SI{10}{\second}, the Angry Birds application causes \SI{270}{\percent} of the signalling frequency \gls{SF} as in a network using the Three State Model.
 
 \begin{figure}
 	\centering
 	\includegraphics{network/network_traces/numerical_results/figures/2_state_tdch_vs_power_drain}
 	\caption{Power Drain for Varying \gls{TDCH} Timers for the Two State Model}\label{fig:network:network_traces:numerical_results:two_states:power_drain}
 \end{figure}
-Next, we consider the changes in the power drain of the \gls{UE} if the user decides to enable Fast Dormancy, i.e. switch to a two state model, in \reffig{fig:network:network_traces:numerical_results:two_states:power_drain}.
-As with the signalling frequency, we only see a quantitative differences to the three state model.
-Again, we compare the differences between two state model and three state model on the example of the Angry Birds application.
-For the same considered \gls{TDCH} timeout of \SI{10}{\second}, we see a decrease of \SI{81}{\percent} in power drain \gls{PD} when compared with the three state model.
+Next, we consider the changes in the power drain of the \gls{UE} if the user decides to enable Fast Dormancy, i.e. switch to a Two State Model, in \reffig{fig:network:network_traces:numerical_results:two_states:power_drain}.
+As with the signalling frequency, we only see a quantitative difference to the Three State Model.
+Again, we compare the differences between Two State Model and Three State Model on the example of the Angry Birds application.
+For the same considered \gls{TDCH} timeout of \SI{10}{\second}, we see a decrease of \SI{81}{\percent} in power drain \gls{PD} when compared with the Three State Model.
 
 \begin{figure}
-	\begin{subfigure}[b]{\textwidth}
 	\centering
 	\includegraphics{network/network_traces/numerical_results/figures/2_state_signalling_vs_power_consumption}
 	\caption{Influence of Manipulating \gls{TDCH} Timer on Signalling Intensity and Power Consumption for the Two State Model. Filled Marker Highlights \(\gls{TDCH} = \SI{11}{\second}\)}\label{fig:network:network_traces:numerical_results:two_states:trade_off}
-	\end{subfigure}
 \end{figure}
-Finally, we compare the influence of changes of thr \gls{TDCH} timeout on both signalling frequency \gls{SF} and power drain \gls{PD} for the two state model in \reffig{fig:network:network_traces:numerical_results:two_states:trade_off}.
-As for the three state model, we see that there is no trade-off between power drain and signalling frequency which would be acceptable for all application.
-Even for single applications \gls{TDCH} values such as \SI{10}{\second} which was an acceptable trade off Angry Birds is no longer a good choice in the two state model.
+Finally, we compare the influence of changes of thr \gls{TDCH} timeout on both signalling frequency \gls{SF} and power drain \gls{PD} for the Two State Model in \reffig{fig:network:network_traces:numerical_results:two_states:trade_off}.
+As for the Three State Model, we see that there is no trade-off between power drain and signalling frequency which would be acceptable for all application.
+Even for single applications \gls{TDCH} values such as \SI{10}{\second} which was an acceptable trade off Angry Birds is no longer a good choice in the Two State Model.
 
 \subsubsection*{Consequences of Trade-Off: Signalling Frequency vs. Power Consumption}\label{sec:network:network_traces:numerical_results:trade_off}
 
-To illustrate the ramifications of the behaviour discussed in the previous section, we compare the influence of the \gls{TDCH} timer on an application with different traffic characteristics, for example the Aupeo application as shown in \reffig{fig:network:network_traces:numerical_results:consequences:aupeo}.
+In order to illustrate the impact of the behaviour discussed in the previous section, we compare the influence of the \gls{TDCH} timer on an application with different traffic characteristics, for example the Aupeo application as shown in \reffig{fig:network:network_traces:numerical_results:consequences:aupeo}.
 \begin{figure}
 	\begin{subfigure}[b]{.5\textwidth}
 	\centering
@@ -291,9 +291,11 @@ A reduction of signalling frequency and power drain is possible, if the applicat
 In \cite{Qian2011} the authors suggest methods to achieve this optimisation, for example batch transfer of advertisements for applications like Angry Birds or decreasing the refresh rate in applications like Skype.
 However, at the moment application developers are neither receiving incentives to optimise applications in this way, nor do hardware vendors provide interfaces to facilitate such optimisation.
 Such interfaces would allow application developers to schedule their data transmissions in such a way that both signalling and battery drain would be reduced.
-Additionally, these interfaces would need to allow the application developer to specify if sending the transmission is urgent because the application is being actively used by the user and requires the feedback of the transmission, or if the data is being sent as a regular update while the application is running in the background and can be scheduled for later transmission as suggested by \cite{calder2010, vergara2012}.
+Additionally, these interfaces would need to allow the application developer to specify whether sending the transmission is urgent.
+One example of such urgency would be if the application is being actively used by the user and requires the feedback of the transmission.
+If the data is being sent as a regular update while the application is running in the background it could be scheduled for later transmission as suggested by \cite{calder2010, vergara2012}.
 
-\subsection{Impact of Network Configuration and Background Traffic on Web QoE}\label{sec:network:network_traces:numerical_results:web_qoe}
+\subsection{Influence of Network Configuration and Background Traffic on Web QoE}\label{sec:network:network_traces:numerical_results:web_qoe}
 So far we have discussed only power drain as a \gls{QoE} influence factor.
 For applications like web browsing, one relevant QoE influence factor are page load times.
 Therefore, we consider a web QoE model which quantifies the impact of page load times on mean opinion scores \cite{egger2012a}.
@@ -310,6 +312,7 @@ This promotion time depends on the current state and is according to \cite{Qian2
 For this study, we assume that the user randomly chooses a time to begin downloading an image.
 The time until the image is displayed consists of the time to load the page \(t_p\), as well as the time to go online \(t_o\), where \(t_o\) is the mean time to go online, given as 
 \[t_o = p_{\gls{RRC_idle}} \cdot \SI{2.5}{\second} + p_{\gls{RRC_FACH}} \cdot \SI{1.5}{\second}.\]
+In reality, an additional delay is added due to the latency of the physical display, however as this happens in a smaller timescale we neglect it in this model.
 Thus, the total time \(t\) that is required to download the image is given by \(t = t_o + t_p\).
 
 The authors of \cite{egger2012a} give a function to calculate the \gls{MOS} based on the required page load time as \(QoE(t) = a\cdot \ln t + b\), were \(a\) and \(b\) depend on the type of content being downloaded.
@@ -335,7 +338,7 @@ This allows us to give an expected \gls{MOS} for downloading pictures while a ba
 	\caption{Perceived \gls{QoE} for Loading a Page with Existing Background Traffic}\label{fig:network:network_traces:numerical_results:web_qoe}
 \end{figure}
 
-Using this methodology we study the influence of background traffic on the \gls{QoE} for two background applications with different traffic characteristics.
+Using this methodology, we study the influence of background traffic on the \gls{QoE} for two background applications with different traffic characteristics.
 In \reffig{fig:network:network_traces:numerical_results:web_qoe:twitter} we assume that the user is running the Twitter application as a background process.
 The application is set to update the users status feed every \SI{300}{\second}.
 In \reffig{fig:network:network_traces:numerical_results:web_qoe:skype} the user is running the Skype application as a background application.
@@ -352,6 +355,8 @@ This behaviour is due to the fact that the Twitter application periodically send
 Then, no further activity occurs until the next refresh occurs.
 In this time, the \gls{UE} transitions to \gls{RRC_idle} state.
 This traffic characteristic causes a high probability of a user encountering the device in a \gls{RRC_idle} state.
+Additionally, the traffic characteristics of the background application show, that different \gls{TDCH} settings impact the web \gls{QoE} only marginally, resulting in the lines in the graph being grouped close together.
+
 In contrast, downloading pictures with the Skype application generating background traffic, causes different \gls{MOS} values.
 For a page load time of \SI{0.2}{\second} the \gls{MOS} value with \(\gls{TDCH} = \SI{1}{\second}\) is \(3.49\) with \(\gls{TDCH} = \SI{4}{\second}\) we get \(3.99\) for \(\gls{TDCH} = \SI{8}{\second}\) we get a \gls{MOS} value of \(4.44\) and finally for \(\gls{TDCH} = \SI{16}{\second}\) we get \(4.99\) respectively.
 For increasing page load times, the \gls{MOS} decreases.

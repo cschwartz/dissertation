@@ -1,4 +1,4 @@
-\subsection{Numerical Examples and Their Implications}\label{sec:network:performance_model:numerical_examples}
+\subsection{Impact of Analytic Traffic Characteristics}\label{sec:network:performance_model:numerical_examples}
 First, we validate our performance model by comparing the analytical results with simulations based on measured
 packet traces of two real smartphone applications .
 Then, we investigate the impact of traffic patterns on signalling load and power drain and derive high-level implications of the model.
@@ -60,7 +60,7 @@ Here, the \gls{UE} stays in state \gls{RRC_DCH} for the complete time since no i
 In addition, the impact of \(c_{\PacketIAT}\) is small for very large values of \(E[\PacketIAT]>\SI{1e3}{\second}\).
 In this case, the \gls{UE} switches to state \gls{RRC_DCH} and back to state \gls{RRC_idle} for the transmission of every packet. Therefore, the signalling intensity \(\gls{SI}\) approaches the value 2.
 For values in between these two extremes, the coefficient of variation \(c_{\PacketIAT}\) has a considerable impact on the signalling intensity \(\gls{SI}\).
-More periodic traffic, i.e. smaller values of \(c_{\PacketIAT}\), results in an increase of \(\gls{SI}\)from 0 to 2 very sharp at the value \(E[\PacketIAT]=\gls{TDCH}\), while this increase is more smooth for larger values of \(c_{\PacketIAT}\).
+More periodic traffic, i.e. smaller values of \(c_{\PacketIAT}\), results in an increase of \(\gls{SI}\) from 0 to 2 very sharp at the value \(E[\PacketIAT]=\gls{TDCH}\), while this increase is more smooth for larger values of \(c_{\PacketIAT}\).
 This is due to the fact, that for nearly periodic traffic it is crucial whether the timer value \(\gls{TDCH}\) is smaller or larger than \(E[\PacketIAT]\). 
 For larger values of \(c_{\PacketIAT}\) this dependency is weaker.
 

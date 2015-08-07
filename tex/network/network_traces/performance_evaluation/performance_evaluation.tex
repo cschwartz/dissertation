@@ -1,11 +1,11 @@
-\subsection{Performance Evaluation}\label{sec:network:network_traces:performance_evaluation}
+\subsection{Inferring State Transitions and Deriving Metrics}\label{sec:network:network_traces:performance_evaluation}
 \gls{RRC} state transitions are triggered by the \gls{UE}’s firmware.
 While solutions exist to capture RRC state transitions on specific hardware~\cite{zayas2010} they are not available for all modern smartphone platforms.
-Other options to measure the required information include using costly hardware and use specific \glspl{UE}, usually not available to researchers and developers.
-This prevents the application developers from evaluating the effect of their applications on the overall health
+Other options to measure the required information include using costly hardware and use specific \glspl{UE}, usually not available to researchers and application developers.
+This prevents the developers from evaluating the effect of their applications on the overall health
 of the network.
 Consequently, they can not take measures to prevent the harmful behaviour of their applications.
-However, it is possible to infer the \gls{RRC} state transitions for a given packet trace if the network model is known.
+However, it is possible to infer the \gls{RRC} state transitions for a given packet trace if the network configuration is known.
 
 First, we describe the setup used to capture network packet traces for arbitrary apps.
 Then, we give an algorithm to infer the \gls{RRC} state transitions for a given packet trace.
@@ -20,17 +20,17 @@ To obtain the network packet traces we use the \texttt{tcpdump} application.
 This application requires \emph{root} privileges which are obtained by rooting the device and installing the custom \emph{cyanogenmod} ROM \footnote{http://www.cyanogenmod.org}.
 Once \texttt{tcpdump} is installed and running, we start the application under study and capture packet traces while the application is running.
 Then, the \emph{android debugging bridge} is used to copy the traces to a workstation.
-The traces contain \gls{IP} packets as well as Linux Cooked Captures.
-We only require the \gls{IP} packets, thus we filtered the traces for \gls{IP} packets which are used during the following analysis.
+The traces contain \gls{IP} packets embedded in Linux Cooked Captures.
+We require the \gls{IP} packets, thus we extracted the \gls{IP} packets which are used during the following analysis.
 
 \subsubsection*{Inferring Network State}\label{sec:network:network_traces:performance_evaluation:inferring_network_state}
 In this section we study the influence of the application traffic on \gls{RRC} state transitions and signalling messages.
 Since \gls{RRC} state transitions can not be captured using commonly available tools, we introduce an algorithm to infer \gls{RRC} state transitions from \gls{IP} packet traces.
 Using this algorithm we analyse the \gls{RRC} state transition frequency and signalling message load for the two state model and three state model.
 
-Traffic below the network layer can not be measured without specific equipment, which is often out of reach for developers interested in assessing the impact of their applications on the network.
-Based on the two state and three state models introduced in \refsec{sec:network:background:umts_rrc} we process \texttt{tcpdump} captures of the application traffic.
-However, it should be noted that this method is not restricted to a specific network model, but can be extended to any other network model, as well.
+Traffic below the network layer can not be measured without specific equipment which interfaces with the proprietary firmware of the \gls{UE} and is often out of reach for developers interested in assessing the impact of their applications on the network.
+Based on the Two State and Three State models introduced in \refsec{sec:network:background:umts_rrc}, we process \texttt{tcpdump} captures of the application traffic.
+However, it should be noted that this method is not restricted to a specific network model, but can be extended to any other network model as well.
 Using these captures, we extract the timestamps when \gls{IP} packets are sent or received.
 Furthermore, we require the timer values of the transition from \gls{RRC_DCH} state to \gls{RRC_FACH} state, \gls{TDCH}, and the timer for the transition between \gls{RRC_FACH} and \gls{RRC_idle} states, \gls{TFACH}.
 Based on these informations \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} infers the timestamps of state transitions according to the \gls{3GPP} specification \cite{3GPP_RRC_Spec} for the three state model.
@@ -40,7 +40,7 @@ The algorithm first computes the inter-arrival times of all packets.
 Then, each timestamp is considered.
 If the \gls{UE} is currently in \gls{RRC_idle} state, a state transition to \gls{RRC_DCH} occurs at the moment the packet is sent or received.
 If the inter-arrival time exceeds the \gls{TDCH} timer the \gls{UE} transitions to \gls{RRC_FACH} \gls{TDCH} seconds after the packet was sent or received.
-Similarly, if the inter-arrival time exceeds both the \gls{TDCH} and \gls{TFACH} timers, a state transition to \gls{RRC_idle} occurs \gls{TDCH} seconds after the state transition to \gls{RRC_FACH}.
+Similarly, if the inter-arrival time exceeds both the \gls{TDCH} and \gls{TFACH} timers a state transition to \gls{RRC_idle} occurs \gls{TDCH} seconds after the state transition to \gls{RRC_FACH}.
 
 \begin{algorithm}
   \begin{algorithmic}
@@ -78,13 +78,15 @@ A straightforward way to achieve this, if only the wellbeing of the \gls{UE} is 
 While this transition is not directly available in the 3GPP specification for the \gls{RRC} protocol \cite{3GPP_RRC_Spec}, a \gls{UE} may reset the connection, effectively transitioning from any state to \gls{RRC_idle}.
 This behaviour can be modelled using the two state model introduced in \refsec{sec:network:background:umts_rrc}.
 
-State transitions for the two state model can be calculate using a similar algorithm.
+State transitions for the two state model can be calculated using a similar algorithm.
 Alternatively, the behaviour of the two state model can be emulated using \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} if \gls{TFACH} is set to \SI{0}{\second} and all state transitions to \gls{RRC_FACH} are removed in a post processing step.
 
 \subsubsection*{Calculating Signalling Frequency and Power Consumption}\label{sec:network:network_traces:calculating_metrics}
 
-\begin{table}\centering
+\begin{table}
 \centering
+  \caption{Number of Signalling Messages per \headershortacr{RRC} state transition perceived at the \headershortacr{RNC} (Taken From \cite{3GPP_RRC_Spec})}
+  \label{tab:network:network_traces:calculating_metrics:signalling_messages}
 \begin{tabular}{cccc}
 	\toprule
     from/to & \gls{RRC_idle} & \gls{RRC_FACH} & \gls{RRC_DCH}\\
@@ -94,15 +96,13 @@ Alternatively, the behaviour of the two state model can be emulated using \refal
     \gls{RRC_DCH} & 25 & 5 & --\\
     \bottomrule    
 	\end{tabular}
-  \caption{Number of Signalling Messages per \headershortacr{RRC} state transition perceived at the \headershortacr{RNC} (Taken From \cite{3GPP_RRC_Spec})}
-  \label{tab:network:network_traces:calculating_metrics:signalling_messages}
 \end{table}
 
 In reality, the number of state transitions is not the metric of most importance if network signalling is to be evaluated.
 Each state transition results in a number of \gls{RRC} messages between the \gls{UE} and different network components.
 For this study we consider the number of messages observed at the \gls{RNC}, which can be found in \cite{3GPP_RRC_Spec} and is summarized in \reftab{tab:network:network_traces:calculating_metrics:signalling_messages}.
 It can be seen that transitions from or to the \gls{RRC_idle} state are especially expensive in terms of number of messages sent or received.
-This is due to the fact that upon entering or leaving the \gls{RRC_idle} state authentication has to be performed. 
+This is due to the fact that upon entering or leaving the \gls{RRC_idle} state, authentication has to be performed. 
 Note that for the two state model only transitions from or to the \gls{RRC_idle} state occur.
 This results in the fact that for the same network packet trace the number of signalling messages occurring in the two state model is generally higher than in the three state model.
 To obtain the total number of signalling messages, we weight the number of state transitions with the number of messages sent per state transitions.
@@ -111,10 +111,12 @@ The inference algorithm does not differentiate between state changes caused by u
 State changes caused by downstream traffic usually generate some additional signalling messages, as paging is involved.
 The inference algorithm can be easily enhanced to support this behaviour.
 However, the results discussed in the next section would only change quantitatively.
-Furthermore, the inference of signalling messages can be easily adapted to new networking models or signalling numbers.
+Furthermore, the algorithm can be easily adapted to new networking models or signalling numbers.
 
 \begin{table}
   \centering
+  \caption{Power Consumption of the \headershortacr{UE} Radio Interface Depending on Current \headershortacr{RRC} State (Taken From \cite{Qian2011})}
+  \label{tab:network:network_traces:calculating_metrics:power_consumption}  
   \begin{tabular}{cc}
   	\toprule
     \gls{RRC} State & Power Consumption\\
@@ -124,8 +126,6 @@ Furthermore, the inference of signalling messages can be easily adapted to new n
     \gls{RRC_DCH} & \SI{800}{\milli\watt}\\
     \bottomrule
   \end{tabular}
-  \caption{Power Consumption of the \headershortacr{UE} Radio Interface Depending on Current \headershortacr{RRC} State (Taken From \cite{Qian2011})}
-  \label{tab:network:network_traces:calculating_metrics:power_consumption}	
 \end{table}
 
 From a users point of view, the signalling message frequency is of little importantance.

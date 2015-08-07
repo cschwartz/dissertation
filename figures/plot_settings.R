@@ -72,3 +72,9 @@ save.full.row.plot <- function(plot, filename = commandArgs(TRUE)[1]) {
   ggsave(filename, plot=plot,height = rowHeight, width = pageWidth, units = units, device=cairo_pdf)
   #embed_fonts(filename, outfile=filename)
 }
+
+notation.si <- function(label) {
+  label <- format(label, scientific = TRUE)
+  label <- gsub("e", "%*%10^", label)
+  parse(text=label)
+}
