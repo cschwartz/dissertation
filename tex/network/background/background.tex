@@ -17,16 +17,16 @@ The \gls{RAN} is used to establish connectivity between the \gls{UE} and the \gl
 
 \glspl{UE} are devices used by end users, i.e. smartphones, tablets or data card enabled notebooks, but can also include \gls{M2M} devices.
 The \gls{RAN} is, amongst other tasks, responsible for \gls{RRC}, packet scheduling and handover control.
-It includes network entities such as the \gls{NodeB} and the \gls{RNC}.
+It includes the \glspl{NodeB} and the \gls{RNC}.
 The \gls{CN} provides the backbone network of the \gls{UMTS} network and provides connectivity to the Internet and the \gls{PSTN}.
-Furthermore, functionality such as billing, authentication, and location management is provided by the \gls{CN}.
+Furthermore, the \gls{CN} provides billing, authentication, and location management functionalities.
 
 \paragraph*{\headershortacr{RRC} Protocol} In \gls{UMTS} networks, the radio resources in the \gls{RAN} between base station and UE are controlled and managed by the \gls{RRC} protocol~\cite{3GPP_RRC_Spec}.
 The protocol is responsible for controll band signalling between the \glspl{UE} and the \gls{RAN}.
 It is used to establish, maintain, and tear down connections between \gls{UE} and \gls{RAN}.
 Furthermore, the \gls{RRC} protocol performs broadcasting of network information, \gls{QoS} control, and reporting and cell selection management, which are out of scope for this text.
 The protocol is divided into different parts: services for upper layers, communication with lower layers, protocol states, \gls{RRC} procedures, and error control.
-In particular, the \gls{RRC} protocol also participates in the co-ordination of other resource management operations such as channel measurements and handovers.
+In particular, the \gls{RRC} protocol also participates in the co-ordination of other resource management operations, channel measurements, and handovers.
 All \gls{RRC} procedures rely on protocol states. 
 The state are defined per \gls{UE} and for the connection between the \gls{UE} and the \gls{NodeB} station.
 Depending on the \gls{RRC} state and network activity from, or targeted at, the \gls{UE} protocol actions can be triggered and transitions to other \gls{RRC} states may occur.
@@ -101,7 +101,7 @@ The \gls{RRC_DCH} release timer as well as the inactivity timer value triggering
 The values range from \SI{1.2}{\second} for the \gls{RRC_DCH} release timer to more than one minute for the \gls{RRC_idle} timer.
 Similar results are presented in~\cite{Qian2010a}.
 Here, the observed values vary between \SI{5}{\second} and \SI{12}{\second}. 
-Additionally, they also determined the exact \gls{RRC} state transitions for two networks such as \gls{RRC_idle} \(\rightarrow\) \gls{RRC_FACH} \(\rightarrow\) \gls{RRC_DCH} or \gls{RRC_idle} \(\rightarrow\) \gls{RRC_DCH} directly without transitioning through the \gls{RRC_FACH} state.
+Additionally, they also determined the exact \gls{RRC} state transitions for two networks, i.e. \gls{RRC_idle} \(\rightarrow\) \gls{RRC_FACH} \(\rightarrow\) \gls{RRC_DCH} or \gls{RRC_idle} \(\rightarrow\) \gls{RRC_DCH} directly without transitioning through the \gls{RRC_FACH} state.
 The \gls{3GPP} has released a technical report \cite{3GPP_22801} about the adverse impact of mobile data applications.
 This report states that frequent connection re-establishments due to small data packets caused by e.g. status updates of social network or instant messaging apps can lead to problems of increased signalling.
 This highlights the importance of this topic.
