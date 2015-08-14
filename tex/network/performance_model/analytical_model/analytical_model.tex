@@ -1,10 +1,10 @@
 \subsection{Analytical Model}\label{sec:network:performance_model:analytical_model}
-This section introduces a performance model for quantifying energy consumption against signalling load.
-The model allows researchers and application developers to evaluate analytical and empirical traffic distributions, deriving metrics for signalling and power consumption in order to predict the impact of yet unimplemented applications or planned network configurations.
+This section introduces a performance model for quantifying power drain against signalling load.
+The model allows researchers and application developers to evaluate analytical and empirical traffic distributions, deriving metrics for signalling and power drain in order to predict the impact of yet unimplemented applications or planned network configurations.
 
 After presenting the system description, we derive the state distribution and the average frequency of state transitions for a Two State Model, e.g. for proprietary fast dormancy implementations of smart-phone vendors~\cite{NSN2011}. 
 Afterwards, we extend the model to include \gls{RRC_FACH} for regular \gls{3G} networks.
-Finally, we define simple metrics for signalling load and power consumption.
+Finally, we define simple metrics for signalling load and power drain.
 
 \newcommand{\PacketIAT}{A}
 
@@ -36,7 +36,7 @@ The packet arrivals determine the \gls{RRC} state of the \gls{UE} and the corres
 \begin{figure}
   \centering
   \includegraphics{network/performance_model/analytical_model/figures/arrival_process}
-  \caption{Relation of Packet Arival Process \(\PacketIAT\), State Process, and Signaling Process in the Two State Scenario}
+  \caption{Relation of packet arival process \(\PacketIAT\), state process, and signalling process in the Two State Model}
   \label{fig:network:performance_model:system_description:arrival_process}
 \end{figure}
 

@@ -11,7 +11,7 @@ The \gls{RAN} is used to establish connectivity between the \gls{UE} and the \gl
 \begin{figure}
 	\centering
 	\includegraphics{network/background/figures/mobile_network_overview}
-	\caption{Overview of Mobile Network}
+	\caption{Overview of a mobile network}
 	\label{fig:network:background:mobile_network_overview}
 \end{figure}
 
@@ -46,10 +46,10 @@ Thus, \gls{RRC_FACH} consumes significantly less power than the \gls{RRC_DCH} st
 The possible transitions between the different states are defined by the network operator and the \gls{RRC} protocol stack.
 Typically, the following state transitions are included: 
 \gls{RRC_idle} \(\rightarrow\) \gls{RRC_FACH},
-\gls{RRC_FACH} \(\rightarrow\) \gls{RRC_DCH} to switch from lower radio resource utilization and low \gls{UE} energy consumption to another state using more resources and energy, and 
+\gls{RRC_FACH} \(\rightarrow\) \gls{RRC_DCH} to switch from lower radio resource utilization and low \gls{UE} power drain to another state using more resources and power, and 
 \gls{RRC_DCH} \(\rightarrow\) \gls{RRC_FACH}, 
 \gls{RRC_FACH} \(\rightarrow\) \gls{RRC_idle},
-\gls{RRC_DCH} \(\rightarrow\) \gls{RRC_idle} to switch to lower resource usage and energy consumption.
+\gls{RRC_DCH} \(\rightarrow\) \gls{RRC_idle} to switch to lower resource usage and power drain.
 According to~\cite{Perala2009,Qian2010a}, the transitions are triggered by user activity and radio link control buffer level at the base station. 
 A transition from \gls{RRC_DCH} to \gls{RRC_FACH} usually occurs when the buffer is empty and a threshold for a release timer is exceeded, resulting into the corresponding \gls{RRC} protocol message flow.
 A transition in the reverse direction is triggered if the buffer level exceeds a specified threshold value for a predefined time period.
@@ -59,14 +59,14 @@ The \gls{UE} will transition into \gls{RRC_idle} state if the \gls{RNC} detects 
 	\begin{subfigure}[b]{.5\textwidth}
 	\centering
 	\includegraphics{network/background/figures/three_states}
-	\caption{Three State Scenario}\label{fig:network:background:rrc_state_machines:three_states}
+	\caption{Three State Model}\label{fig:network:background:rrc_state_machines:three_states}
 	\end{subfigure}
 	\begin{subfigure}[b]{.5\textwidth}
 	\centering
 	\includegraphics{network/background/figures/two_states}
-	\caption{Two State Scenario}\label{fig:network:background:rrc_state_machines:two_states}
+	\caption{Two State Model}\label{fig:network:background:rrc_state_machines:two_states}
 	\end{subfigure}
-	\caption{\headershortacr{RRC} State Machine Diagrams}\label{fig:network:background:rrc_state_machines}
+	\caption{\headershortacr{RRC} state machine diagrams}\label{fig:network:background:rrc_state_machines}
 \end{figure}
 
 \paragraph*{Network Models} We consider two different state transition models, depicted in \reffig{fig:network:background:rrc_state_machines}, based on the \gls{RRC} protocol.
@@ -87,7 +87,7 @@ In contrast to the Three State Model, there is no transition to the \gls{RRC_FAC
 If a device disconnects from the network by transitioning to the \gls{RRC_idle} state, it has to be reauthenticated before another transition to the \gls{RRC_DCH} state can occur.
 This results in additional signalling traffic and causes more load on the network \cite{NSN2011} due to frequent re-establishments of the RRC connection.
 These proprietary Fast Dormancy algorithms do not adhere to the \gls{RRC} specification \cite{GSM2010}, but nonetheless exist in the real world and have been identified as possible causes for signalling storms.
-The major reason for Fast Dormancy implementations is the decrease in power consumption on the \gls{UE}, since the transmission unit of the \gls{UE} consumes only \SIrange{1}{2}{\percent} of the energy in \gls{RRC_idle} state compared to the \gls{RRC_DCH} state.
+The major reason for Fast Dormancy implementations is the decrease in power drain on the \gls{UE}, since the transmission unit of the \gls{UE} consumes only \SIrange{1}{2}{\percent} of the power in \gls{RRC_idle} state compared to the \gls{RRC_DCH} state.
 Thus, both models warrant further investigation.
 
 \subsection{Measurements of \headershortacr{RRC} Parameters and Optimisation of Resource Consumption}\label{sec:network:background:measurement_optimisation}
@@ -95,7 +95,7 @@ Thus, both models warrant further investigation.
 In the literature the configuration of the inactivity timers used for the \gls{RRC} protocols have been investigated in detail.
 In~\cite{Perala2009} a measurement tool for \gls{RRC} protocol states is presented. 
 It is used to determine \gls{RRC} state transition parameters, channel setup delays, and paging delay by measuring the one-way round trip time of data packets.
-The results are validated by monitoring the energy consumption in different \gls{RRC} states.
+The results are validated by monitoring the power drain in different \gls{RRC} states.
 One outcome is that \gls{UMTS} network configurations vary significantly by network operator.
 The \gls{RRC_DCH} release timer as well as the inactivity timer value triggering transition to \gls{RRC_idle} state were measured.
 The values range from \SI{1.2}{\second} for the \gls{RRC_DCH} release timer to more than one minute for the \gls{RRC_idle} timer.
@@ -106,23 +106,23 @@ The \gls{3GPP} has released a technical report \cite{3GPP_22801} about the adver
 This report states that frequent connection re-establishments due to small data packets caused by e.g. status updates of social network or instant messaging apps can lead to problems of increased signalling.
 This highlights the importance of this topic.
 
-Furthermore, there are papers that propose optimizing strategies that take the \gls{RRC} states into account. 
+Furthermore, there are papers that propose optimising strategies that take the \gls{RRC} states into account. 
 In~\cite{Qian2011} the impact of different application traffic patterns is studied to reveal resource usage in mobile networks.
 By identifying packet bursts, they infer the \gls{RRC} states of the \gls{UE}.
-Radio resources are quantified by channel occupation time and energy consumption.
-They propose an algorithm that tries to optimize application traffic patterns by e.g. piggybacking, batching up data, or decreasing the update rate of an application.
+Radio resources are quantified by channel occupation time and power drain.
+They propose an algorithm that tries to optimise application traffic patterns by e.g. piggybacking, batching up data, or decreasing the update rate of an application.
 The algorithm is evaluated for six applications: two news applications, Pandora streaming application, Google search, Tune-In radio and Mobelix. 
-In~\cite{Qian2010b} \gls{RRC} states are studied for network optimization.
-The authors optimize the inactivity timers to allow a better resource utilization. 
+In~\cite{Qian2010b} \gls{RRC} states are studied for network optimisation.
+The authors optimise the inactivity timers to allow a better resource utilization. 
 They propose an application-to-network interface to avoid unnecessary timer periods after data transmission.
 
 \subsection{Smartphone Power Consumption and \headershortacr{QoE}}\label{sec:network:background:energy_consumption_qoe}
-As discussed at the beginning of this chapter, power consumption of the \gls{UE} and the \gls{QoE} for the end user are important \glspl{KPI} for the hardware vendor and the application developer respectively.
-Power consumption of the \gls{UE} varies according to the devices' current \gls{RRC} state.
-The power consumption caused by \gls{RRC_DCH} mode was measured at about \SIrange{600}{800}{\milli\watt}~\cite{Qian2011,Qian2010a}.
+As discussed at the beginning of this chapter, power drain of the \gls{UE} and the \gls{QoE} for the end user are important \glspl{KPI} for the hardware vendor and the application developer respectively.
+Power drain of the \gls{UE} varies according to the devices' current \gls{RRC} state.
+The power drain caused by \gls{RRC_DCH} mode was measured at about \SIrange{600}{800}{\milli\watt}~\cite{Qian2011,Qian2010a}.
 In \gls{RRC_FACH} mode, the power drain of an \emph{HTC TyTN II} was measured at about \SIrange{400}{460}{\milli\watt} depending on the \gls{UE} and the network operator~\cite{Qian2010a}.
-A precise measurement of the power consumption of different \gls{RRC} states is performed in~\cite{Qian2010a,Balasubramanian2009,Lee2004}. 
-The authors report that the energy drain depends on two factors: 
+A precise measurement of the power drain of different \gls{RRC} states is performed in~\cite{Qian2010a,Balasubramanian2009,Lee2004}. 
+The authors report that the drain drain depends on two factors: 
 \begin{enumerate*}
 \item user interactions and applications, 
 \item platform hardware and software.

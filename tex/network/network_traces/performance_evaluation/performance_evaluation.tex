@@ -69,11 +69,11 @@ Similarly, if the inter-arrival time exceeds both the \gls{TDCH} and \gls{TFACH}
       \EndIf
     \EndFor
   \end{algorithmic}
-  \caption{Inferring \headershortacr{RRC} State Transitions Based on \headershortacr{IP} timestamps}
+  \caption{Inferring \headershortacr{RRC} state transitions based on \headershortacr{IP} timestamps}
   \label{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm}
 \end{algorithm}
 
-\gls{UE} vendors always search for ways to decrease energy consumption of their devices.
+\gls{UE} vendors always search for ways to decrease power consumption of their devices.
 A straightforward way to achieve this, if only the wellbeing of the \gls{UE} is considered, is to transition from \gls{RRC_DCH} state to \gls{RRC_idle} as soon as no additional data is ready for sending.
 While this transition is not directly available in the 3GPP specification for the \gls{RRC} protocol \cite{3GPP_RRC_Spec}, a \gls{UE} may reset the connection, effectively transitioning from any state to \gls{RRC_idle}.
 This behaviour can be modelled using the two state model introduced in \refsec{sec:network:background:umts_rrc}.
@@ -85,7 +85,7 @@ Alternatively, the behaviour of the two state model can be emulated using \refal
 
 \begin{table}
 \centering
-  \caption{Number of Signalling Messages per \headershortacr{RRC} state transition perceived at the \headershortacr{RNC} (Taken From \cite{3GPP_RRC_Spec})}
+  \caption{Number of signalling messages per \headershortacr{RRC} state transition perceived at the \headershortacr{RNC} (Taken From \cite{3GPP_RRC_Spec})}
   \label{tab:network:network_traces:calculating_metrics:signalling_messages}
 \begin{tabular}{cccc}
 	\toprule
@@ -115,7 +115,7 @@ Furthermore, the algorithm can be easily adapted to new networking models or sig
 
 \begin{table}
   \centering
-  \caption{Power Consumption of the \headershortacr{UE} Radio Interface Depending on Current \headershortacr{RRC} State (Taken From \cite{Qian2011})}
+  \caption{Power consumption of the \headershortacr{UE} radio interface depending on current \headershortacr{RRC} state (taken from \cite{Qian2011})}
   \label{tab:network:network_traces:calculating_metrics:power_consumption}  
   \begin{tabular}{cc}
   	\toprule

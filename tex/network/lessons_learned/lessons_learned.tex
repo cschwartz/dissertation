@@ -1,7 +1,7 @@
 \section{Lessons Learned}\label{sec:network:lessons_learned}
 In this chapter we studied the impact of smartphone application traffic on mobile communication networks.
 We considered three stakeholders interacting in the mobile network.
-The \emph{mobile network operator} is interested in preventing so called signalling storms, where network components performance is degraded due to high signalling load.
+The \emph{mobile network operator} is interested in preventing so called signalling storms, where network components performance is degraded due to high signalling load caused by applications generating network traffic from users' \glspl{UE}.
 The \emph{hardware vendor} is interested in satisfying customers by providing a long battery lifetime for the \gls{UE}, i.e. reducing power drain.
 The \emph{application developer} is interested in increasing \gls{QoE} for the applications user.
 Each of the stakeholders can influence the mobile network, by manipulating the parameters under its control.
@@ -14,30 +14,36 @@ This chapter provides a two-pronged approach to analysing the impact of changes 
 
 First, we provided an algorithm to derive \gls{RRC} state transitions from traffic measurements of already deployed or prototyped applications.
 While proprietary mechanisms exist to directly measure \gls{RRC} state transitions, due to the high price they are usually out of reach for application developers, preventing them from evaluating the impact of their applications on the network.
-Based on this algorithm we analyse four popular smartphone applications, and find that while it is possible to find a viable trade-off between signalling load and power drain for single applications, no such trade-off exists if multiple applications operating in the network at the same time are considered.
-Furthermore, we show that network timer optimization, a practice where network operators manipulate \gls{RRC} timers in order to reduce signalling load, incentivises users to enable proprietary fast dormancy algorithms, resulting in a net increase of signalling load.
-We also show, that while longer \gls{RRC} timers may have an adverse effect on power drain due to the smartphone being longer connected to the network, it results in an increase of Web \gls{QoE}, as this results in web pages being able to be loaded faster if the smartphone is already connected to the network.
+Based on this algorithm we analyse four popular smartphone applications, and find that while it is possible to find a viable tradeoff between signalling load and power drain for single applications, no such tradeoff exists if multiple applications operating in the network at the same time are considered.
+For example, for the considered \emph{Twitter} application, increasing the network timer \gls{TDCH} from \SI{10}{\second} to \SI{11}{\second} would result in a decrease of signalling by \SI{40}{\percent}, while only resulting in an increase of power drain of \SI{6}{\percent}.
+However, if the \emph{Aupeo} application is running in the same network optimised for the Twitter application, this change results in no reduction of signalling load and an increased power drain of \SI{5}{\percent}. 
+
+Furthermore, we show that network timer optimisation, a practice where network operators manipulate \gls{RRC} timers in order to reduce signalling load, incentivises users to enable proprietary fast dormancy algorithms, resulting in a net increase of signalling load.
+For example, if a network operator increases the \gls{TDCH} network timer from \SI{4}{\second} to \SI{8}{\second}, in order to reduce the the signalling frequency caused by the Angry Birds application by \SI{67}{\percent}, this results in an increased power drain at the user's \gls{UE} of \SI{341}{\percent}.
+If the user enables the fast dormancy option of the \gls{UE}, the power drain is decreased by \SI{27}{\percent}, however this increases the signalling frequency above the original value before the reconfiguration of the network operator.
+%We also show that while longer \gls{RRC} timers may have an adverse effect on power drain due to the smartphone being longer connected to the network, it results in an increase of Web \gls{QoE}, as this results in web pages being able to be loaded faster if the smartphone is already connected to the network.
 
 Second, we propose an analytical model to derive the \glspl{KPI} from analytical or empirical traffic distributions, in order to evaluate the impact of applications that do not yet exist or classes of applications defined by a common traffic characteristics.
 Our results show that different access patterns have a considerable impact on the required resources of the mobile phone and the network.
-We identified bursty traffic pattern as particularly resource-efficient with respect to energy consumption and
-signalling load.
+We identified bursty traffic pattern as particularly resource-efficient with respect to power drain and signalling load.
 In contrast, nearly periodic traffic is likely to cause signalling overload due to frequent connection reestablishments, especially when the connection timeout is slightly below the inter-packet time.
+This can be observed on the example of a \gls{TDCH} timer of \SI{10}{\second}.
+Here, the coefficient of variation has no impact on the signalling load for very small inter-packet times \(E[\PacketIAT]<\SI{1e-1}{\second}\) or very large inter-packet times \(E[\PacketIAT]>\SI{1e3}{\second}\).
+For example, for a mean interarrival time of \(E[\PacketIAT] = 11.5\) seconds, an increase of coefficient of variation from \(0.5\) to \(5.0\) can decrease the signalling load by \SI{53}{\percent}.
 
-Concluding from this chapter, we see that in mobile networks many different players, metrics, and trade-offs exist.
-We highlighted one examples of such a trade-off, i.e. signalling load vs. power drain and discussed the influence of the current optimization parameters, the network timers, on another.
-However, many additional trade-offs exist.
+Concluding from this chapter, we see that in mobile networks many different players, metrics, and tradeoffs exist.
+We highlighted one examples of such a tradeoff, i.e. signalling load vs. power drain and discussed the influence of the current optimisation parameters, the network timers, on another.
+However, many additional tradeoffs exist.
 For example, the mobile operator has to balance the use of radio resources with the number of generated signalling frequencies.
 Furthermore, application providers seek to improve the user experience which usually result in a higher frequency of network polls, creating additional signalling traffic.
-The high number of trade-offs and involved actors in this optimization problem indicate that the current
-optimization technique used by operators is no longer sufficient.
+The high number of tradeoffs and involved actors in this optimisation problem indicate that the current optimisation technique used by operators is no longer sufficient.
 
 Approaches like \emph{Economic Traffic Management}~\cite{spirou2009} or \emph{Design for Tussle}~\cite{trilogy2008} could be applied to find
-an acceptable trade-off for all parties.
+an acceptable tradeoff for all parties.
 In Economic Traffic Management all participating entities share information in order to enable collaboration.
-This collaboration allows for a joint optimisation of the trade-off.
+This collaboration allows for a joint optimisation of the tradeoff.
 Design for Tussle aims to resolve tussles at run time, instead instead of design time.
-This prevents the case that one actor has full control over the optimisation problem, which would likely result in the actor choosing a trade off only in its favour, ignoring all other participants.
+This prevents the case that one actor has full control over the optimisation problem, which would likely result in the actor choosing a tradeoff only in its favour, ignoring all other participants.
 One example of an actor providing information for another in order to optimise the total system would be \gls{UE} vendor providing interfaces for application developers to use when sending data.
 These interfaces would schedule data to be transmitted in such a way that signalling load and power drain would be reduced, if the application’s requirements allow for it.
 Until such interfaces exist, application developers could take the effect of the traffic their applications
