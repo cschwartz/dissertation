@@ -149,7 +149,7 @@ In today's network some operator transition the \gls{UE} to a state with a pagin
 
 \paragraph*{State Distribution}
 The state distribution \(P(\RRCState=\RRCStateRealization)\) for the three states \(\RRCStateRealization\in\{\gls{RRC_idle},\gls{RRC_FACH},\gls{RRC_DCH}\}\) can be derived in the same way as for the scenario with two states.
-Therefore, we present only the conditional probabilities, which differ from the two state case, and use \refeq{eq:network:performance_model:system_description:state_distribution} for the calculation of the distribution.
+Therefore, we present only the conditional probabilities, which differ from the Two State Model, and use \refeq{eq:network:performance_model:system_description:state_distribution} for the calculation of the distribution.
 First, we consider \(\RRCState=\gls{RRC_idle}\): 
 \begin{equation*} 
 P(\RRCState=\gls{RRC_idle} \vert \PacketIAT = \ObservationIntervalLength) =
@@ -171,7 +171,7 @@ P(\RRCState=\gls{RRC_FACH} \vert \PacketIAT = \ObservationIntervalLength) =
 \end{cases}
 \end{equation*}
 
-The probability for the \gls{RRC_DCH} state \(P(\RRCState=\gls{RRC_DCH} \vert \PacketIAT = \ObservationIntervalLength)\) does not differ from the two state scenario, i.e. \refeq{eq:network:performance_model:system_description:state_distribution:conditional_probability_dch}.
+The probability for the \gls{RRC_DCH} state \(P(\RRCState=\gls{RRC_DCH} \vert \PacketIAT = \ObservationIntervalLength)\) does not differ from the Two State Model, i.e. \refeq{eq:network:performance_model:system_description:state_distribution:conditional_probability_dch}.
 
 \paragraph*{Average Frequency of State Transitions}
 
@@ -179,7 +179,8 @@ The probability for the \gls{RRC_DCH} state \(P(\RRCState=\gls{RRC_DCH} \vert \P
 \newcommand{\fStateTransitionsFACHToIdle}{f_{\gls{RRC_FACH}\rightarrow\gls{RRC_idle}}}
 \newcommand{\fStateTransitionsFACHToDCH}{f_{\gls{RRC_FACH}\rightarrow\gls{RRC_DCH}}}
 
-In contrast to the two state scenario, we have to consider a larger number of state transitions. These are the transitions from \gls{RRC_idle} to \gls{RRC_DCH}, from \gls{RRC_DCH} to \gls{RRC_FACH}, from \gls{RRC_FACH} to \gls{RRC_DCH}, and from \gls{RRC_FACH} to \gls{RRC_idle}.
+In contrast to the Two State Model, we have to consider a larger number of state transitions.
+These are the transitions from \gls{RRC_idle} to \gls{RRC_DCH}, from \gls{RRC_DCH} to \gls{RRC_FACH}, from \gls{RRC_FACH} to \gls{RRC_DCH}, and from \gls{RRC_FACH} to \gls{RRC_idle}.
 Other transitions do not occur.
 We first calculate the frequency of state transitions from \gls{RRC_DCH} to \gls{RRC_FACH}.
 This transition happens every time when the inter-packet time \(\PacketIAT\) exceeds the timer \(\gls{TDCH}\).
@@ -212,7 +213,7 @@ In order to quantify signalling load on an abstract level, we define the \gls{SI
 \label{eq::sigIntensity}
 \end{equation}
 where \(\fStateTransitions\) is the sum of all state transitions.
-Consequently, \(\gls{SI} \in ]0,2]\) for the two state scenario since every packet can at most cause two state transitions, in the three state scenario \(\gls{SI} \in]0,3]\) holds.
+Consequently, \(\gls{SI} \in ]0,2]\) for the Two State Model since every packet can at most cause two state transitions, in the Three State Model \(\gls{SI} \in]0,3]\) holds.
 This metric is intended to quantify the relation between transmitted data packets and the involved \gls{RRC} state transitions, which all incur mobile network signalling.
 The metric can be extended to capture more details, e.g. the number and type of signalling messages exchanged for a specific state transition, as discussed in \refsec{sec:network:network_traces:calculating_metrics}.
 Since we will use this metric for more qualitative analysis of source traffic produced by smart-phone applications, we stick to the definition above allowing for an illustrative understanding of the numerical results.
@@ -224,5 +225,5 @@ We obtain
 \gls{PD} = \sum_{\RRCStateRealization\in\RRCState} \gls{PD}_{\RRCStateRealization} \cdot P(\RRCState=\RRCStateRealization)
 \label{eq::powerdrain}
 \end{equation}
-with \(\RRCState = \{\gls{RRC_idle},\gls{RRC_DCH}\}\) or \(\RRCState = \{\gls{RRC_idle},\gls{RRC_FACH},\gls{RRC_DCH}\}\) depending on wether the two state scenario or the three state scenario is considered.
+with \(\RRCState = \{\gls{RRC_idle},\gls{RRC_DCH}\}\) or \(\RRCState = \{\gls{RRC_idle},\gls{RRC_FACH},\gls{RRC_DCH}\}\) depending on wether the Two State Model or the Three State Model is considered.
 This is a user-centric metric and gives insights into how efficient the transmission process uses the battery. 

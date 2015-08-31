@@ -26,16 +26,16 @@ We require the \gls{IP} packets, thus we extracted the \gls{IP} packets which ar
 \subsubsection*{Inferring Network State}\label{sec:network:network_traces:performance_evaluation:inferring_network_state}
 In this section we study the influence of the application traffic on \gls{RRC} state transitions and signalling messages.
 Since \gls{RRC} state transitions can not be captured using commonly available tools, we introduce an algorithm to infer \gls{RRC} state transitions from \gls{IP} packet traces.
-Using this algorithm we analyse the \gls{RRC} state transition frequency and signalling message load for the two state model and three state model.
+Using this algorithm we analyse the \gls{RRC} state transition frequency and signalling message load for the Two State Model and Three State Model.
 
 Traffic below the network layer can not be measured without specific equipment which interfaces with the proprietary firmware of the \gls{UE} and is often out of reach for developers interested in assessing the impact of their applications on the network.
 Based on the Two State and Three State models introduced in \refsec{sec:network:background:umts_rrc}, we process \texttt{tcpdump} captures of the application traffic.
 However, it should be noted that this method is not restricted to a specific network model, but can be extended to any other network model as well.
 Using these captures, we extract the timestamps when \gls{IP} packets are sent or received.
 Furthermore, we require the timer values of the transition from \gls{RRC_DCH} state to \gls{RRC_FACH} state, \gls{TDCH}, and the timer for the transition between \gls{RRC_FACH} and \gls{RRC_idle} states, \gls{TFACH}.
-Based on these informations \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} infers the timestamps of state transitions according to the \gls{3GPP} specification \cite{3GPP_RRC_Spec} for the three state model.
-This algorithm can be simplified to also work for the two state model. 
-Alternatively, a method to post process the results of the algorithm to obtain results for the two state model is given at the end of this section.
+Based on these informations \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} infers the timestamps of state transitions according to the \gls{3GPP} specification \cite{3GPP_RRC_Spec} for the Three State Model.
+This algorithm can be simplified to also work for the Two State Model. 
+Alternatively, a method to post process the results of the algorithm to obtain results for the Two State Model is given at the end of this section.
 The algorithm first computes the inter-arrival times of all packets.
 Then, each timestamp is considered.
 If the \gls{UE} is currently in \gls{RRC_idle} state, a state transition to \gls{RRC_DCH} occurs at the moment the packet is sent or received.
@@ -76,10 +76,10 @@ Similarly, if the inter-arrival time exceeds both the \gls{TDCH} and \gls{TFACH}
 \gls{UE} vendors always search for ways to decrease power drain of their devices.
 A straightforward way to achieve this, if only the wellbeing of the \gls{UE} is considered, is to transition from \gls{RRC_DCH} state to \gls{RRC_idle} as soon as no additional data is ready for sending.
 While this transition is not directly available in the 3GPP specification for the \gls{RRC} protocol \cite{3GPP_RRC_Spec}, a \gls{UE} may reset the connection, effectively transitioning from any state to \gls{RRC_idle}.
-This behaviour can be modelled using the two state model introduced in \refsec{sec:network:background:umts_rrc}.
+This behaviour can be modelled using the Two State Model introduced in \refsec{sec:network:background:umts_rrc}.
 
-State transitions for the two state model can be calculated using a similar algorithm.
-Alternatively, the behaviour of the two state model can be emulated using \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} if \gls{TFACH} is set to \SI{0}{\second} and all state transitions to \gls{RRC_FACH} are removed in a post processing step.
+State transitions for the Two State Model can be calculated using a similar algorithm.
+Alternatively, the behaviour of the Two State Model can be emulated using \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} if \gls{TFACH} is set to \SI{0}{\second} and all state transitions to \gls{RRC_FACH} are removed in a post processing step.
 
 \subsubsection*{Calculating Signalling Frequency and Power Consumption}\label{sec:network:network_traces:calculating_metrics}
 
@@ -103,8 +103,8 @@ Each state transition results in a number of \gls{RRC} messages between the \gls
 For this study we consider the number of messages observed at the \gls{RNC}, which can be found in \cite{3GPP_RRC_Spec} and is summarized in \reftab{tab:network:network_traces:calculating_metrics:signalling_messages}.
 It can be seen that transitions from or to the \gls{RRC_idle} state are especially expensive in terms of number of messages sent or received.
 This is due to the fact that upon entering or leaving the \gls{RRC_idle} state, authentication has to be performed. 
-Note that for the two state model only transitions from or to the \gls{RRC_idle} state occur.
-This results in the fact that for the same network packet trace the number of signalling messages occurring in the two state model is generally higher than in the three state model.
+Note that for the Two State Model only transitions from or to the \gls{RRC_idle} state occur.
+This results in the fact that for the same network packet trace the number of signalling messages occurring in the Two State Model is generally higher than in the Three State Model.
 To obtain the total number of signalling messages, we weight the number of state transitions with the number of messages sent per state transitions.
 Then, we average the number of state transitions over the measurement duration to obtain a metric for the signalling load at the \gls{RNC}, i.e. the \gls{SF}.
 The inference algorithm does not differentiate between state changes caused by upstream or downstream traffic.
