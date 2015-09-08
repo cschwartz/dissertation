@@ -1,7 +1,12 @@
 data <- read.csv('bandwidths.csv')
 
-bandwidth.plot <- ggplot(melted.bandwidth, aes(x = value / 1024 / 1024, color = variable, linetype=Type)) +
+p <- ggplot(data, aes(x = bandwidth / 1024 / 1024, color = direction, linetype=type)) +
   stat_ecdf() +
-  scale_x_continuous(name = label.bandwidth, limits = c(0, 20)) +
-  scale_y_continuous(name = label.cdf.bandwidth) +
-  scale_colour_manual(name = "Bandwidth", values = colorPalette)
+  scale_x_continuous(limits = c(0, 20)) +
+  scale_colour_manual(values = color.palette) +
+  labs(x = label.bandwidth, 
+       y = label.cdf.bandwidth, 
+       color = label.direction,
+       linetype = label.type)
+
+save.full.row.plot(p)

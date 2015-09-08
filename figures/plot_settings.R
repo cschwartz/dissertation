@@ -32,8 +32,16 @@ label.interarrival.time.cdf <- expression(P(A <= a))
 label.lag <- 'Lag Length'
 label.interarrival.sample.autocorrelation <- 'Sample Autocorrelation\n of Interarrival Times'
 label.page.load.time <- 'Page Load Time (s)'
-label.qoe <- 'Mean Opinion Score' 
-     
+label.qoe <- 'Mean Opinion Score'
+label.bandwidth <- 'Bandwidth b (MBit/s)'
+label.cdf.bandwidth <- expression(P(B <= b))
+label.direction <- 'Bandwidth'
+label.type <- 'Type'
+label.server.preparation.time <- 'Time t (s)'
+label.cdf.server.preparation.time <- expression(P(T <= t))
+label.image.size <- 'Size s (MiB)'
+label.cdf.image.size <- expression(P(S <= s))
+
 plot_options = theme(
   plot.margin = unit(c(0.2, 0, 0, 0), "cm"),
   legend.position = "bottom",
