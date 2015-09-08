@@ -509,7 +509,7 @@
 			<key>FontInfo</key>
 			<dict>
 				<key>Font</key>
-				<string>LinBiolinumO</string>
+				<string>Helvetica</string>
 				<key>Size</key>
 				<real>8</real>
 			</dict>
@@ -858,7 +858,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-08-07 11:00:14 +0000</string>
+	<string>2015-09-01 13:10:58 +0000</string>
 	<key>Modifier</key>
 	<string>Christian Schwartz</string>
 	<key>NotesVisible</key>

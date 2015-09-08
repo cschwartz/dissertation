@@ -25,7 +25,7 @@ label.power.drain <- 'Power Drain PD'
 label.signalling.intensity <- 'Signalling Intensity SI'
 label.signalling.frequency <- 'Signalling Frequency SF'
 label.application <- 'Application'
-label.evaluation.type <- 'Evaluation Type'
+label.evaluation.type <- 'Model'
 label.cA <- expression(c[A])
 label.interarrival.time <- expression(paste('Packet Interarrival Time ', A, ' (s)'))
 label.interarrival.time.cdf <- expression(P(A <= a))

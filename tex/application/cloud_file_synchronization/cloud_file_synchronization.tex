@@ -1,18 +1,31 @@
-\section{Cloud File Synchronization Services}
+\section{Cloud File Synchronisation Services}\label{sec:application:cloud_file_synchronisation}
 \cite{Schwartz2014a}
 
-\subsection{System Model}
-\subsubsection*{Use Case: Photo Uploading}
-\subsubsection*{Cloud Storage Model and Performance Metrics}
-\subsubsection*{Scheduling Algorithms}
+\newcommand{\dropbox}{\emph{DropBox}\xspace}
+\newcommand{\imageFileSize}{\ensuremath{S_I}\xspace}
+\newcommand{\imageArrivalRate}{\ensuremath{\lambda_I}\xspace}
+\newcommand{\panTransferRate}{\ensuremath{B_{P}}\xspace}
+\newcommand{\interarrivaltime}{\ensuremath{t_I}\xspace}
+\newcommand{\clientpreparationtime}{\ensuremath{C}\xspace}
+\newcommand{\uploadbandwidth}{\ensuremath{B_U}\xspace}
+\newcommand{\idleThreshold}{\ensuremath{\tau}\xspace}
+\newcommand{\serverpreparationtime}{\ensuremath{S}\xspace}
+\newcommand{\downloadbandwidth}{\ensuremath{B_D}\xspace}
+\newcommand{\startupDelay}{\ensuremath{\sigma}\xspace}
+\newcommand{\sojournTime}{\ensuremath{\Sigma}\xspace}
+\newcommand{\relativeDisconnectedTime}{\ensuremath{\Delta}\xspace}
+\newcommand{\connectionCount}{\ensuremath{K}\xspace}
+\newcommand{\algointerval}{\emph{Interval}\xspace}
+\newcommand{\algosize}{\emph{Size}\xspace}
+\newcommand{\algoimmediate}{\emph{Immediate}\xspace}
 
-\subsection{Measurement}
-\subsubsection*{Bandwidth and Preparation Times}
-\subsubsection*{Image File Sizes}
 
-\subsection{Numerical Evaluation}
-\subsubsection*{Waiting Time}
-\subsubsection*{Relative Disconnection Time}
-\subsubsection*{Connection Count}
-\subsubsection*{Mechanism Comparison}
-\subsubsection*{Trade-off Analysis}
+\input{application/cloud_file_synchronization/system_model/system_model}
+\input{application/cloud_file_synchronization/application_measurements/application_measurements}
+
+\subsection{Numerical Evaluation}\label{sec:application:cloud_file_synchronisation:numerical_evaluation}
+\subsubsection*{Waiting Time}\label{sec:application:cloud_file_synchronisation:numerical_evaluation:waiting_time}
+\subsubsection*{Relative Disconnection Time}\label{sec:application:cloud_file_synchronisation:numerical_evaluation:relative_disconnection_time}
+\subsubsection*{Connection Count}\label{sec:application:cloud_file_synchronisation:numerical_evaluation:connection_count}
+\subsubsection*{Mechanism Comparison}\label{sec:application:cloud_file_synchronisation:numerical_evaluation:mechanism_comparison}
+\subsubsection*{Trade-off Analysis}\label{sec:application:cloud_file_synchronisation:numerical_evaluation:trade_off_analysis}

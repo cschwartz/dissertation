@@ -1,6 +1,6 @@
 data <- read.csv('3state_tdch_pd_analytic_simulative.csv', sep=',', comment.char='#')
 
-data$evaluation.type <- factor(data$evaluation.type, labels = c('Model', 'Simulation'))
+data$evaluation.type <- factor(data$evaluation.type, labels = c('Analytic', 'Simulation'))
 data$app <- factor(data$app, labels = c('Mail', 'Twitter'))
 
 p <- ggplot(data, aes(x = tdch, 
