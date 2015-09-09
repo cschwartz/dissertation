@@ -6,6 +6,7 @@ require('gridExtra')
 library('gtable')
 library('Rmisc')
 library('sysfonts')
+library('Hmisc')
 library('Cairo')
 
 ggsave <- ggplot2::ggsave; body(ggsave) <- body(ggplot2::ggsave)[-2]
@@ -41,6 +42,14 @@ label.server.preparation.time <- 'Time t (s)'
 label.cdf.server.preparation.time <- expression(P(T <= t))
 label.image.size <- 'Size s (MiB)'
 label.cdf.image.size <- expression(P(S <= s))
+label.waiting.time <- "Mean Waiting Time (s)"
+label.size.threshold <- "Size Threshold (MB)"
+label.intervall.time <- "Interval (s)"
+label.connection.count <- "Mean Connection Count"
+label.disconnection.time <- "Mean Relative Disconnected Time (%)"
+label.mean.queue.length <- "Mean Queue Length"
+label.mechanism <- "Mechanism"
+label.normalized.threshold <- "Normalized Synchronization Threshold (s)"
 
 plot_options = theme(
   plot.margin = unit(c(0.2, 0, 0, 0), "cm"),
