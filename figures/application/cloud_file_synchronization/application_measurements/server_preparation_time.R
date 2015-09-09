@@ -1,4 +1,4 @@
-data <- read.csv('server_preperation_time.csv')
+data <- read.csv('server_preparation_time.csv')
 
 p <- ggplot(data, aes(x = server.preparation.time, color = type)) +
   stat_ecdf() +

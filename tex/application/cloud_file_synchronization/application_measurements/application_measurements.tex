@@ -1,5 +1,5 @@
 \subsection{Application Measurements}\label{sec:application:cloud_file_synchronisation:application_measurements}
-The model presented in \refsec{model} requires several input parameters which are obtained from measurements and described in this section.
+The model presented in \refsec{sec:application:cloud_file_synchronisation:system_model} requires several input parameters which are obtained from measurements and described in this section.
 In \refsec{sec:application:cloud_file_synchronisation:application_measurements:bandwidth_preparation_times} we first give an overview over the measurement setup implemented in the distributed testbed PlanetLab~\cite{Chun2003}.
 Then we present measurement results as well as fitted distributions for both up and download bandwidth as well as for the time used by the cloud service to prepare data prior to the download.
 Finally, in \refsec{sec:application:cloud_file_synchronisation:application_measurements:image_file_sizes} we derive a image file size distribution by analysing a large set of digital photos.
@@ -70,7 +70,7 @@ The resulting parameters for the upload bandwidth \uploadbandwidth and download 
 Next, we consider the client and server preparation times.
 As our intent is to evaluate the performance of different scheduling mechanisms for the upload phase, we require only the amount of time \clientpreparationtime used for computing hashes of the files considered for upload without considering the time used by the scheduling mechanism.
 To obtain an approximation, we use the \emph{minimum} of all observed upload preparation phases \(\clientpreparationtime = \SI{1.32}{\second}\).
-For the server preparation time \serverpreparationtime we obtain a fit, finding that a Log-normal distribution provides the best result of the considered distributions, as shown in \reffig{plot_server_preparation_time}.
+For the server preparation time \serverpreparationtime we obtain a fit, finding that a Log-normal distribution provides the best result of the considered distributions, as shown in \reffig{fig:application:cloud_file_synchronisation:application_measurements:bandwidth_preparation_times:measurement_setup:server_preparation_time}.
 The parameters of the resulting distribution are given in \reftab{tab:application:cloud_file_synchronisation:application_measurements:bandwidth_preparation_times:measurement_setup:fit}.
 
 \begin{figure}
