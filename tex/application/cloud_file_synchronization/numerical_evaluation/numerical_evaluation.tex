@@ -17,12 +17,12 @@ For most of the derived mean values, the confidence intervals are not visible du
 \begin{figure}
 	\begin{subfigure}[b]{\textwidth}
 	\centering
-	\includegraphics{application/cloud_file_synchronization/numerical_evaluation/figures/waiting_time_interval}
+	\includegraphics{application/cloud_file_synchronization/numerical_evaluation/figures/interval_delay}
 	\caption{Algorithm \algointerval for different interval lengths}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:interval}
 	\end{subfigure} 
 	\begin{subfigure}[b]{\textwidth}
 	\centering
-	\includegraphics{application/cloud_file_synchronization/numerical_evaluation/figures/waiting_time_size}
+	\includegraphics{application/cloud_file_synchronization/numerical_evaluation/figures/size_delay}
 	\caption{Algorithm \algosize for threshold sizes}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:size}
 	\end{subfigure}
 
@@ -119,7 +119,7 @@ With increasing inter-send intervals the connection count also increases and rea
 %TODO: check SI containing variables
 In order to explain this behaviour we make the following considerations.
 The maximum amount of data \(s_x\) which can be send from the camera to the mobile client during an inter-send interval of length \(x\si{\second}\) is given by 
-\[s_x=\panTransferRate \cdot x\si{\second} = x\SI{1/2}{\mega\byte}.\]
+\[s_x=\panTransferRate \cdot x\si{\second} = x \cdot \SI{1/2}{\mega\byte}.\]
 The average time \(t_x\) to upload \(s_x\) can now be calculated as 
 \[t_x = \nicefrac{s_x}{E\left[\uploadbandwidth\right]} = x\SI{0.5 / 8.0}{\second} = x\SI{1 / 16}{\second}.\]
 For inter-send intervals between \SI{8}{\second} and \SI{32}{\second}, \(t_x\) results in \SI{0.5}{\second}, \SI{1}{\second}, and \SI{2}{\second} respectively.
@@ -144,8 +144,8 @@ With increasing sending thresholds, the number of disconnects and re-connections
 The maximum average connection count is reached when using a \SI{16}{\mega\byte} threshold, which corresponds to \(s_x\) for an inter-sending interval of \SI{32}{\second}.
 For larger thresholds, the maximum number of batches is the limiting factor for the connection count.
 This can especially be observed for very large thresholds.
-Considering a threshold of \SI{128}{\mega\byte}, we can assume that almost each batch is transferred in an individual connection, as it takes $\nicefrac{\SI{128}{\mega\byte}}{\panTransferRate} = \SI{248}{\second}$ to transfer the require data from the camera to the mobile client, but only $\nicefrac{\unit[128]{MB}}{E\left[\uploadbandwidth\right]} = \unit[16]{s}$ on average to upload the data from the mobile client to the cloud.
-Consequently, the transferred file size can be estimated as the product of sending threshold and number of connections $\unit[128]{MB} \cdot 25 = \unit[3.2]{GB},$ which approximately matches the product of number of considered files and the average file size.
+Considering a threshold of \SI{128}{\mega\byte}, we can assume that almost each batch is transferred in an individual connection, as it takes $\nicefrac{\SI{128}{\mega\byte}}{\panTransferRate} = \SI{248}{\second}$ to transfer the require data from the camera to the mobile client, but only \(\nicefrac{\SI{128}{\mega\byte}}{E\left[\uploadbandwidth\right]} = \SI{16}{\second}\) on average to upload the data from the mobile client to the cloud.
+Consequently, the transferred file size can be estimated as the product of sending threshold and number of connections \(\SI{128}{\mega\byte} \cdot 25 = \SI{3.2}{\giga\byte}\), which approximately matches the product of number of considered files and the average file size.
 
 \subsubsection*{Mechanism Comparison}\label{sec:application:cloud_file_synchronisation:numerical_evaluation:mechanism_comparison}
 \subsubsection*{Trade-off Analysis}\label{sec:application:cloud_file_synchronisation:numerical_evaluation:trade_off_analysis}
