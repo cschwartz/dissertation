@@ -1,0 +1,13 @@
+"","mechanism","buffer.lower","buffer.size","bitrate","user.model","wasted.data","power","value"
+"50","Streaming","4","16","10","Uniform",98.3649,2.7328,TRUE
+"51","Streaming","4","16","2","Uniform",20.0974,1.5733,TRUE
+"53","Streaming","4","16","6","Uniform",59.4435,2.153,TRUE
+"56","Streaming","4","32","10","Uniform",176.5865,2.5964,TRUE
+"57","Streaming","4","32","2","Uniform",35.4334,1.065,TRUE
+"59","Streaming","4","32","6","Uniform",106.3101,1.8307,TRUE
+"62","Streaming","4","4","10","Uniform",59.3029,2.8303,TRUE
+"63","Streaming","4","4","2","Uniform",12.7578,1.933,TRUE
+"65","Streaming","4","4","6","Uniform",35.515,2.391,TRUE
+"68","Streaming","4","8","10","Uniform",79.5572,2.8304,FALSE
+"69","Streaming","4","8","2","Uniform",16.2932,1.9332,FALSE
+"71","Streaming","4","8","6","Uniform",47.2224,2.3841,TRUE

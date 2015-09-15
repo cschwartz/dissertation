@@ -5,7 +5,7 @@ config = YAML.load_file('config.yml')
 
 tex_subdir = 'tex'
 tex_root = 'dissertation'
-  
+
 JUNK_FILES = FileList.new(['tex/**/*.log', 'tex/**/*.bbl', 'tex/**/*.blg', 'tex/**/*.run.xml'])
 
 GRAFFLE_FILES = Rake::FileList.new('figures/**/*.graffle')
