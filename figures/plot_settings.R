@@ -7,7 +7,7 @@ library('gtable')
 library('Rmisc')
 library('sysfonts')
 library('Hmisc')
-library('Cairo')
+#library('Cairo')
 
 ggsave <- ggplot2::ggsave; body(ggsave) <- body(ggplot2::ggsave)[-2]
 
@@ -50,6 +50,18 @@ label.disconnection.time <- "Mean Relative Disconnected Time (%)"
 label.mean.queue.length <- "Mean Queue Length"
 label.mechanism <- "Mechanism"
 label.normalized.threshold <- "Normalized Synchronization Threshold (s)"
+label.number.of.stalling.events <- 'Number of Stalling Events'
+label.qoe.model <- 'QoE Model'
+label.stalling.duration <- 'Stalling Duration Per Event (s)'
+label.time <- 'Time (s)'
+label.buffer <- 'Buffer (s)'
+label.bitrate <- 'Video Bitrate (Mbit/s)'
+label.energy <- 'Energy Consumption (kJ)'
+label.wasted.traffic <- 'Wasted Traffic (Mbit)'
+label.user.model <- 'User Model'
+label.connections <- 'Connection Count'
+label.buffer.lower <- expression(Theta)
+label.buffer.size <- expression(theta)
 
 plot_options = theme(
   plot.margin = unit(c(0.2, 0, 0, 0), "cm"),
