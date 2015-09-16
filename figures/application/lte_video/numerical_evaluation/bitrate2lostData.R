@@ -10,10 +10,9 @@ p <- ggplot(data,
   scale_x_continuous(breaks = as.integer(unique(data$bitrate))) +
   scale_y_log10() +
   scale_colour_manual(values = color.palette) +
-  labs(x = label.bitrate, 
-       y = label.wasted.traffic, 
+  labs(x = label.bitrate,
+       y = label.wasted.traffic,
        colour = label.mechanism,
        linetype = label.user.model)
 
-print(p)
-#save.full.row.plot(p)
+save.full.row.plot(p)

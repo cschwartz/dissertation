@@ -3,13 +3,16 @@ data.pareto <- read.csv('connections2lostData_pareto.csv')
 
 data$buffer.size <- factor(data$buffer.size)
 data$buffer.lower <- factor(data$buffer.lower)
-data$bitrate <- factor(data$bitrate)
+data$bitrate <- factor(data$bitrate, levels = c('2','6', '10'))
+data.pareto$bitrate <- factor(data.pareto$bitrate, levels = c('2','6', '10'))
+
+annotation_data <- data.frame(bitrate = factor(c(6, 10), levels = c(6, 10)), wasted.data = c(35.5150, 59.3029), connections = 1, xtextpos = c(40.0, 65), ytextpos = c(15, 35), text = "Pareto Optimum")
 
 p <- ggplot(data) +
-  geom_line(data = data.pareto, aes(x = connections,
-                                    y = wasted.data)) +
-  geom_point(aes(x = connections,
-                 y = wastedTraffic,
+  geom_line(data = data.pareto, aes(x = wasted.data,
+                                    y = connections)) +
+  geom_point(aes(x = wasted.data,
+                 y = connections,
                  color = buffer.lower,
                  shape = buffer.size)) +
   facet_grid(. ~ bitrate, scale = "free") +

@@ -1,0 +1,8 @@
+"","mechanism","buffer.lower","buffer.size","bitrate","connections","power","value"
+"9","Streaming","16","32","2",42,1.0525,TRUE
+"32","Streaming","32","32","10",10,2.584,TRUE
+"33","Streaming","32","32","2",42,1.0525,TRUE
+"35","Streaming","32","32","6",26,1.8183,TRUE
+"39","Streaming","32","4","2",1,1.9211,TRUE
+"41","Streaming","32","4","6",1,2.3589,TRUE
+"44","Streaming","32","8","10",1,2.7967,TRUE

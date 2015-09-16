@@ -13,6 +13,6 @@ p <- ggplot(data,
   scale_x_continuous(breaks = seq(0, 6)) +
   labs(x = label.number.of.stalling.events, 
        y = label.qoe.model, 
-       color = label.stalling.duration) +
+       color = label.stalling.duration)
   
 save.full.row.plot(p)
