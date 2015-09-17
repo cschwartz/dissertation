@@ -1,0 +1,39 @@
+  \begin{tikzpicture}
+    [bend angle=30,
+      drx_state/.style={fill=skyblue!60, rounded corners=1ex},
+      rrc_state/.style={fill=grey!60, rounded corners=1ex},
+      timer/.style={orange, ->, >=stealth', semithick, auto, line width=2pt},
+      data/.style={bluishgreen, ->, >=stealth', semithick, auto, line width=2pt}
+    ]
+
+    \draw[rrc_state] (0, 2.5) rectangle (8, 6);
+    \draw (4, 2.5) node[above] {\rrcconnected};
+
+    \draw[drx_state] (0.5, 3) rectangle (3.5, 4);
+    \draw (2, 3.5) node[align=center] {Continiuous\\Reception};
+
+    \draw[drx_state] (4.5, 3) rectangle (7.5, 4);
+    \draw (6, 3.5) node[align=center] {Long\\DRX};
+
+    \draw[drx_state, rounded corners=1ex] (2.5, 4.5) rectangle (5.5, 5.5);
+    \draw (4, 5) node[align=center] {Short\\DRX};
+
+    \draw[rrc_state] (0,0) rectangle (8, 2);
+    \draw (4, 0) node[above] {\rrcidle};
+
+    \draw[drx_state] (2, 0.5) rectangle (6, 1.5);
+    \draw (4, 1) node {DRX};
+
+    \draw[data] (3, 2) to node[left] {} (3, 2.5);
+    \draw[timer] (5, 2.5) to node[right, black] {\tidle} (5, 2);
+
+    \draw[data] (4.5, 3.5) to node {} (3.5, 3.5);
+
+    \draw[timer, bend left] (1.75, 4) to node[black] {\tdrxinactivity} (2.5, 5.25);
+    \draw[data, bend right] (2.5, 4.75) to node {} (2.25, 4);
+
+    \draw[timer, bend left] (5.5, 5) to node[black] {\tshortdrx} (6, 4);
+
+    \draw[data] (1.5, 6.5) to node[black, above] {Data} (3.5, 6.5);
+    \draw[timer] (4.5, 6.5) to node[black, above] {Timer} (6.5, 6.5);
+  \end{tikzpicture}

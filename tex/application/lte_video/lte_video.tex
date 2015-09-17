@@ -1,5 +1,49 @@
 \section{Trade-Offs for Multiple Stakeholders in LTE}\label{sec:application:lte_video}
-\cite{Schwartz2013b}
+
+\newcommand{\bandwidth}{\ensuremath{b_W}\xspace}
+\newcommand{\bitrate}{\ensuremath{b_R}\xspace}
+\newcommand{\timeplayedback}{\ensuremath{t_p}}
+
+\newcommand{\download}{Download\xspace}
+\newcommand{\live}{Live\xspace}
+\newcommand{\serviceprovisioning}{Provisioning\xspace}
+\newcommand{\streaming}{Streaming\xspace}
+
+\newcommand{\streamingstart}{\ensuremath{\sigma}\xspace}
+\newcommand{\bufferlower}{\ensuremath{\theta}\xspace}
+\newcommand{\buffersize}{\ensuremath{\Theta}\xspace}
+
+\newcommand{\ton}{\(T_{\texttt{ON}}\)\xspace}
+\newcommand{\tdrxinactivity}{\(T_{\texttt{I}}\)\xspace}
+
+\newcommand{\shortdrx}{\texttt{Short DRX}\xspace}
+\newcommand{\tshortdrx}{\(T_{\texttt{S}}\)\xspace}
+\newcommand{\longdrx}{\texttt{Long DRX}\xspace}
+\newcommand{\tlongdrx}{\(T_{\texttt{L}}\)\xspace}
+\newcommand{\rrcconnected}{\texttt{RRC Connected}\xspace}
+\newcommand{\tidle}{\(T_{\texttt{Idle}}\)\xspace}
+\newcommand{\tonidle}{\(T^{\texttt{Idle}}_{\texttt{ON}}\)\xspace}
+\newcommand{\rrcidle}{\texttt{RRC Idle}\xspace}
+\newcommand{\tdrxidle}{\(T^{\texttt{Idle}}_{\texttt{\gls{DRX}}}\)\xspace}
+\newcommand{\promotiondelay}{\(D_P\)\xspace}
+
+\newcommand{\bandwidthdown}{b_d\xspace}
+\newcommand{\timedownloaded}{\ensuremath{t_d}}
+
+\newcommand{\power}{P\xspace}
+\newcommand{\energyconsumption}{\ensuremath{E}\xspace}
+\newcommand{\connectioncount}{\ensuremath{C}\xspace}
+
+\newcommand{\factordown}{\ensuremath{\alpha}\xspace}
+\newcommand{\powerbaseline}{\ensuremath{\beta}\xspace}
+
+\newcommand{\userabortrv}{\ensuremath{A}\xspace}
+\newcommand{\userabortpdf}{\ensuremath{a}\xspace}
+\newcommand{\meanwastedtraffic}{\ensuremath{W}\xspace}
+
+\newcommand{\timeunwatched}{\ensuremath{t_u}}
+
+
 
 \input{application/lte_video/system_model/system_model}
 \input{application/lte_video/numerical_evaluation/numerical_evaluation}
