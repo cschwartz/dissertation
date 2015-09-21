@@ -1,5 +1,32 @@
 \subsection{Trade-Offs}\label{sec:application:lte_video:trade_offs}
+As shown in \refsec{sec:application:lte_video:system_model:model_assumptions:metrics}, the different video transmission mechanisms influence the performance of all considered metrics to no small degree. 
+In this section, we discuss the relationship of the metrics to each other.
+
+First, we provide an overview over high-level available trade-offs available when selecting one of the introduced transmission mechanisms.
+Then, we study specific trade-offs for the \streaming mechanisms regarding the considered metrics in more detail.
+
+
 \subsubsection*{Transmission Mechanism Selection}\label{sec:application:lte_video:trade_offs:mechanism_selection}
+
+\begin{table}
+  \centering
+  \begin{tabular}{lcccc}
+    \toprule
+    Metric /& \multirow{2}{*}{Download} & \multirow{2}{*}{Live} & \multirow{2}{*}{Provisioning} & \multirow{2}{*}{Streaming}\\
+    \midrule
+    Stakeholder & & & &\\
+    Energy /       & \multirow{2}{*}{++}       & \multirow{2}{*}{--}   & \multirow{2}{*}{-} & \multirow{2}{*}{+}\\
+    User & & & &\\
+    Wasted Traffic / & \multirow{2}{*}{--} & \multirow{2}{*}{++} & \multirow{2}{*}{-} & \multirow{2}{*}{+} \\
+    Video Provider & & & &\\
+    Signalling /& \multirow{2}{*}{++} & \multirow{2}{*}{++} & \multirow{2}{*}{++} & Parameter\\
+    \gls{ISP} & & & &Dependant\\
+    \bottomrule
+  \end{tabular}
+  \caption{Impact of transmission mechanisms on metrics and stakeholder}
+  \label{tab:lessons_learned}
+\end{table}
+
 \subsubsection*{Influence of Buffer Threshold Selection}\label{sec:application:lte_video:trade_offs:buffer_threshold_influence}
 
 \begin{figure}
