@@ -65,6 +65,7 @@ label.buffer.size <- expression(theta)
 label.abort.time <- 'Abort Time t (s)'
 label.pdf.abort.time <- 'PDF A(t)'
 label.user.model <- 'User Model'
+label.playback.status <- 'Playback Status'
 
 plot_options = theme(
   plot.margin = unit(c(0.2, 0, 0, 0), "cm"),
