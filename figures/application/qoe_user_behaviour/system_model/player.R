@@ -1,5 +1,3 @@
-require(ggplot2)
-
 data <- data.frame(phase.start = c(0, 1, 3, 4, 8, 8.5),
                    phase.end = c(1, 3, 4, 6, 8.5, 9.16),
                    buffer.start = c(0, 1, 3, 1, 3, 2), 
@@ -13,16 +11,18 @@ p <- ggplot(data, aes(x = phase.start, xend = phase.end,
                       color = status)) + 
   geom_segment() +
   geom_point() +
-  annotate("text", x = 1.9, y = 2, label = 'lambda') + 
-  annotate("text", x = 4.7, y = 2, label = 'mu - lambda') +   
-  annotate("text", x = 9.5, y = 2.5, label = 'mu - lambda') + 
-  annotate("text", x = 9.5, y = 1, label = 'mu') +     
+  annotate("text", x = 1.7, y = 2, label = 'lambda', parse = T, size = annotation.font.size) + 
+  annotate("text", x = 3.85, y = 2, label = 'mu - lambda', parse = T, size = annotation.font.size) +   
+  annotate("text", x = 8.65, y = 2.5, label = 'mu - lambda', parse = T, size = annotation.font.size) + 
+  annotate("text", x = 9, y = 1, label = 'mu', parse = T, size = annotation.font.size) +     
+  annotate("text", x = 7, y = 3, label = '...', parse = T, size = annotation.font.size) +    
   scale_x_continuous(breaks = c(0, 1, 3, 4, 8, 8.5, 9.16),
                      labels = c(expression(t[0]), expression(t[1]), expression(t[2]), expression(t[3]), expression(t[2 * N]), expression(t[Z]), expression(t[E]))) + 
   scale_y_discrete(breaks = c(1, 3), labels = c('p', 'q')) +
   scale_colour_manual(values = color.palette) + 
   labs(x = label.time,
        y = label.buffer,
-       color = label.playback.status)
+       color = label.playback.status) +
+  coord_cartesian(ylim = c(0, 3.5)) 
 
 save.full.row.plot(p)

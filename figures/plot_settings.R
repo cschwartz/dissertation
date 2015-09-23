@@ -67,6 +67,9 @@ label.pdf.abort.time <- 'PDF A(t)'
 label.user.model <- 'User Model'
 label.playback.status <- 'Playback Status'
 
+font.size <- 8
+annotation.font.size <- (4/15) * font.size
+
 plot_options = theme(
   plot.margin = unit(c(0.2, 0, 0, 0), "cm"),
   legend.position = "bottom",
@@ -74,9 +77,9 @@ plot_options = theme(
   #legend.box = "vertical",
   legend.key.height = unit(0.4, "cm"),
   legend.margin = unit(-0.6, "cm"),
-  text         = element_text(family="Linux Biolinum O", size = 8),
-  axis.title.x = element_text(family="Linux Biolinum O", size = 8),
-  axis.title.y = element_text(family="Linux Biolinum O", size = 8)
+  text         = element_text(family="Linux Biolinum O", size = font.size),
+  axis.title.x = element_text(family="Linux Biolinum O", size = font.size),
+  axis.title.y = element_text(family="Linux Biolinum O", size = font.size)
 )
 
 units <- "cm"

@@ -71,7 +71,7 @@ t_3-t_1=(t_3-t_2)+(t_2-t_1)=\frac{\mu d}{(\mu-\lambda)\lambda}.
 The stalling ratio \stallingRatio follows as
 \begin{equation}
 \stallingRatio = \frac{t_2-t_1}{t_3-t_1} = 1-a,
-\label{eq:R}
+\label{eq:application:qoe_user_behaviour:system_model:steady_state:stalling_ratio}
 \end{equation}
 yielding the same result as in \refeq{eq:application:qoe_user_behaviour:system_model:mm1pq:stalling_ratio_queuing}.
 
@@ -97,7 +97,7 @@ While \(N^*\) relates the stalls to the video duration, the stalling frequency \
 It holds \(F=\frac{1}{t_3-t_1}=a N^*\) which is also can be obtained as \(F=x(0,p-1) \lambda\) to weight the state probability of player state change \(x(0,p-1)\) with the network arrival rate \(\lambda\). 
 From an end user's point of view, the metric $N^*$ is of higher importance. 
 
-Beside the network bandwidth \(lambda\) and the video bitrate \(\mu\), the metric \(N^*\) of stalling events depends only on the video buffer size \(d=p-q\), but not on the concrete values of \(p\) and \(q\) in the steady state.
+Beside the network bandwidth \(\lambda\) and the video bitrate \(\mu\), the metric \(N^*\) of stalling events depends only on the video buffer size \(d=p-q\), but not on the concrete values of \(p\) and \(q\) in the steady state.
 
 
 \subsubsection*{Mean Value Analysis of Finite Videos and User Aborts}\label{sec:application:qoe_user_behaviour:system_model:finite_video}
@@ -110,7 +110,15 @@ We do not consider the time until the initial playback, i.e. the time between \(
 First, we consider the case where the user plays back the complete video.
 Given the network bandwidth \networkBandwidth and a video of \numberFrames Frames, the required download time for the complete video is \(\videoDownloadTime = \frac{Z}{\lambda}\).
 Within \videoDownloadTime there are \(N\) phases of stalling and playback and each phase is of duration \(t_3 - t_1\).
-\begin{equation}
+\[
 N = \left\lfloor \frac{t_Z-t_1+t_0}{t_3-t_1} \right\rfloor 
-\label{eq:Nfinite}
-\end{equation} 
+\]
+
+Next, we consider the case where the user aborts playback of the video after \(T\) seconds of video have been watched.
+Here, the number of stalling phases is given as 
+\[
+N = \left \lfloor{T / (t_3 - t_2)}\right \rfloor,
+\]
+rounding down as we do not consider the initial delay before playback as stalling.
+Again, we can obtain the number of stalling events normalized by video length as
+\(N^*=\frac{N}{T}\).
