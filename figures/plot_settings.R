@@ -7,7 +7,9 @@ library('gtable')
 library('Rmisc')
 library('sysfonts')
 library('Hmisc')
-#library('Cairo')
+library('reshape2')
+library('dplyr')
+library('Cairo')
 
 ggsave <- ggplot2::ggsave; body(ggsave) <- body(ggplot2::ggsave)[-2]
 
@@ -66,7 +68,11 @@ label.abort.time <- 'Abort Time t (s)'
 label.pdf.abort.time <- 'PDF A(t)'
 label.user.model <- 'User Model'
 label.playback.status <- 'Playback Status'
-
+label.finite <- 'Video Browsing'
+label.infinite <- 'Steady State'
+label.offered.load <- 'Offered Load (Erl)'
+label.alpha <- expression(paste("Duration Parameter ", alpha)) 
+label.beta <- expression(paste("Interruption Parameter ", beta)) 
 font.size <- 8
 annotation.font.size <- (4/15) * font.size
 
