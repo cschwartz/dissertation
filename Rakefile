@@ -9,7 +9,9 @@ tex_root = 'dissertation'
 JUNK_FILES = FileList.new(['tex/**/*.log', 'tex/**/*.bbl', 'tex/**/*.blg', 'tex/**/*.run.xml'])
 
 GRAFFLE_FILES = Rake::FileList.new('figures/**/*.graffle')
-PLOT_FILES = Rake::FileList.new('figures/**/*.R').exclude('figures/**/plot_settings.R')
+PLOT_FILES = Rake::FileList.new('figures/**/*.R').exclude('figures/**/plot_settings.R').exclude { |f| 
+  File.basename(f).start_with? '_'
+}
 
 GENERATED_FIGURE_FILES = Rake::FileList.new('tex/**/figures/*.pdf').exclude('tex/figures/*.pdf')
 

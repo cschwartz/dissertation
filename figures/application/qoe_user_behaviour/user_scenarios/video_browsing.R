@@ -1,4 +1,4 @@
-source('qoe_model.R')
+source('_qoe_model.R')
 
 variables <- expand.grid(alpha = 0.15, 
                          beta = 0.2,
