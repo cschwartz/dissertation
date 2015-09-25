@@ -1,3 +1,39 @@
 \section{Background and Related Work}\label{sec:application:background}
+
+\subsection{Mobile Networks}
+
+%file storage
+Methods for reducing energy consumptions in \gls{LTE} Machine to Machine scenarios are considered in\scite{tirronen2012}.
+The authors consider trade-offs between responsiveness and energy consumption by means of prolonging the discontinuous reception cycles in the \gls{LTE} standard.
+While our work also suggest mechanisms to decrease energy consumption, no modifications in the \gls{LTE} standard are required.
+
+%lte journal
+The authors of \citep{siekkinen2013} perform a measurement of power consumption and \gls{ran} signalling during playback of a \youtube video.
+They employ a proxy server in order to ensure that traffic is sent in bursts, thus decreasing power consumption at the cost of additional signalling traffic.
+
 \subsection{Video Streaming Mechanisms}\label{sec:application:background:video_streaming_mechanisms}
-\subsection{Video Quality of Experience}\label{sec:application:background:video_qoe}
+
+%lte journal
+In order to match the demand of video transmission over the Internet, multiple solutions exist \citep{begen2011}.
+The most basic approach, \download, obtains the complete video at once, playing back any available content as required.
+Due to the nature of \live video transmissions it is only possible to send the currently available content.
+Furthermore, introducing delay into the live-stream should be avoided as it reduces the timeliness of the video.
+There exist different approaches for \streaming video content to a user.
+In server based solutions, the streaming server controls the transmission of content.
+One example of such a server based approach is the \gls{rtsp} which was widely discussed as a standardized solution for mobile video streaming \citep{elsen2001}.
+
+In the more recent past, client based approaches were discussed.
+Here the client controls the download and playback of content.
+The authors of \citep{oyman2012} study the \gls{qoe} of \gls{has} approaches, if the content is consumed via \gls{lte} networks.
+They highlight the differences to existing server-side approaches and suggest the study of cross-layer optimization approaches in order to improve the \gls{qoe}.
+One approach to deliver \gls{has} is \dash, which enables video streaming over \http \citep{sodagar2011}.
+Considering both the video content as well as the available resources by using a proxy has been suggested to improve the users \gls{qoe} \citep{essaili2013}.
+In \citep{xin2012} the authors suggest the use of a caching strategy, downloading video content according to a user viewing history and network conditions.
+
+\subsection{Application Quality of Experience}\label{sec:application:background:application_qoe}
+
+%file storage
+A general study of the \gls{QoE} influence factors of file storage servies is undertaken\scite{qian2011}.
+Here, the authors provide a model allowing for the evaluation of cloud service providers according to a variety of metrics, including bandwidth, latency, and response time.
+In\scite{amrehm2013} the authors study the main impact factors on \gls{QoE} of Dropbox users.
+They find that the main impact factor is the waiting time for file synchronization.

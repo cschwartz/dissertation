@@ -1,4 +1,27 @@
 \subsection{System Model}\label{sec:application:cloud_file_synchronisation:system_model}
+
+The authors of~\cite{Drago2012} provide a first study of the \dropbox architecture, which is schematically depicted in \reffig{fig:application:cloud_file_synchronisation:system_model:dropbox_architecture} and used as a basis for the model under study in the remainder of this section.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{application/cloud_file_synchronization/system_model/figures/dropbox_architecture}
+  \caption{\dropbox file storage and retrieval process}
+  \label{fig:application:cloud_file_synchronisation:system_model:dropbox_architecture}
+\end{figure}
+
+The \dropbox infrastructure consists of two main components:
+\begin{enumerate*}
+\item a storage cloud based on Amazon's Elastic Compute Cloud and Simple Storage Service, and 
+\item (2) control servers directly maintained by \dropbox Inc. 
+\end{enumerate*}
+
+The control servers store meta information about the current state of the files in the \dropbox folders and trigger synchronization processes on the clients.
+
+A file synchronization can basically be described in five steps.
+As soon as the new file is added to the \dropbox folder of the uploading client, a preprocessing step is triggered and the meta information for the file are generated, respectively updated.
+This information is then synchronized with the control servers~(1) and the file itself is uploaded to the storage cloud~(2).
+After the file has completely been transferred to the storage cloud, all connected clients are notified about the update~(3) and start downloading the new file~(4).
+
 \subsubsection*{Use Case: Photo Uploading}\label{sec:application:cloud_file_synchronisation:use_case}
 In this section we consider the synchronization of images from a digital camera to a mobile \gls{UE} via a cloud storage provider.
 Real world examples of this scenario are, e.g., taking photos of a live event and transferring them to a picture agency, or shooting private holiday images. 
@@ -21,7 +44,7 @@ Here, an optimisation problem arises to find a practical solution for all three 
 In order to analyse this problem, we use a simulation model of the file synchronization process, which is described in the following.
 
 \subsubsection*{Cloud Storage Model and Performance Metrics}\label{sec:application:cloud_file_synchronisation:system_model:model_metrics}
-The proposed simulation model is schematically depicted in \reffig{fig:application:cloud_file_synchronisation:system_model:model_metrics:model} and based on the findings of~\cite{drago2012} described in~\refsec{sec:application:background}.
+The proposed simulation model is schematically depicted in \reffig{fig:application:cloud_file_synchronisation:system_model:model_metrics:model} and based on the findings of~\cite{Drago2012} described in~\refsec{sec:application:background}.
 
 \begin{figure}
 \centering
