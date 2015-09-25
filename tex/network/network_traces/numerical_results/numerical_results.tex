@@ -56,13 +56,13 @@ These keep-alive messages are sent with a \emph{high frequency} and require \emp
 
 In addition to the applications considered, there exist other categories of applications which are running in the \emph{foreground} and \emph{interactively} require a \emph{high bandwidth}.
 One example for such an application is Skype while taking a \gls{VoIP} call.
-These applications are not considered in this study, because this kind of behaviour causes the \gls{UE} to be always online.
+These applications are not considered in this study, as this kind of behaviour causes the \gls{UE} to be always online.
 This results in the minimal amount of signalling messages to be sent and a maximal power drain at the \gls{UE}, independent of network model or used parameters.
 Other combinations of traffic criteria also exist.
 However, from both, a signalling frequency as well as a power drain point of view, they can be mapped to one of the discussed cases.
 For example, if an application is sending periodic updates with low bandwidth without user interaction, then the fact that the application is running in the foreground or the background is without consequence for the generated signalling frequency or power drain.
 However, these cases should be considered when optimisation strategies for message sending are under study.
-Background applications, for instance, could allow for the batching of messages, because the transmission is usually not urgent, while foreground applications do not allow for such behaviour because it would delay the user interactions and consequently decrease \gls{QoE}.
+Background applications, for instance, could allow for the batching of messages, due to the fact that the transmission is usually not urgent, while foreground applications do not allow for such behaviour as it would delay the user interactions and consequently decrease \gls{QoE}.
 
 Next, we describe the applications under study in more detail.
 For each application we show the \gls{CDF} of the interarrival times in \reffig{fig:network:network_traces:numerical_results:traffic:interarrival_times} and give information about the mean values and standard deviation of both interarrival times and bandwidth in \reftab{tab:network:network_traces:numerical_results:traffic_statistics}, respectively.
@@ -177,7 +177,7 @@ From a signalling frequency perspective, a value of \SI{20}{\second} would proba
 
 Based on this finding, we see that increasing the \gls{TDCH} timer decreases the signalling frequency \gls{SF} at the \gls{RNC}.
 However, the actual signalling frequency depends on the application running at the \gls{UE}.
-From a network operator's point of view, the Three State Model should always be preferred to the Two State Model because it generates less signalling messages per second, thus decreasing the load at the \gls{RNC}.
+From a network operator's point of view, the Three State Model should always be preferred to the Two State Model as it generates less signalling messages per second, thus decreasing the load at the \gls{RNC}.
 This view does however not consider the additional radio resources which are kept in use for a longer time if larger \gls{TDCH} values are used.
 Additionally, it should be noted that the choice of the network model is sometimes outside of the domain of the network operator.
 Proprietary Fast Dormancy algorithms, as the considered Two State Model, are enabled on the \gls{UE} by the user.
@@ -194,7 +194,7 @@ We see that the least power over all considered \gls{TDCH} values is consumed by
 The second least power drain is required by Aupeo, followed by Angry Birds.
 Finally, the most power is consumed by Skype.
 Here we see that the maximum value of \SI{800}{\milli\watt} is reached at a \gls{TDCH} timeout of \SI{20}{\second}.
-This is because, due to the periodic traffic behaviour of Skype, the device is always in \gls{RRC_DCH} state.
+Due to the periodic traffic behaviour of Skype, the device is always in \gls{RRC_DCH} state.
 Again, we see that the traffic characteristics of the applications impact the power drain.
 Applications with more network activity are forced to stay in more power consuming states for a longer time.
 We see that for very small network timers, the power drain is minimal.
@@ -346,7 +346,7 @@ This application sends keep alive messages every \SI{20}{\second}.
 For each application, we assume the Three State Model with \gls{TDCH} settings of \SIlist{1;4;8;16}{\second}.
 We always set \(\gls{TFACH} = 2\cdot \gls{TDCH}\).
 In both figures we show the assumed page load time, as provided by the network, on the X-axis for values from \SIrange{0.2}{25}{\second}.
-We assume \SI{0.1}{\second} as a lower bound because page load times lower than \SI{0.1}{\second} seconds are not distinguishable \cite{egger2012b} by humans.
+We assume \SI{0.1}{\second} as a lower bound, as page load times lower than \SI{0.1}{\second} seconds are not distinguishable \cite{egger2012b} by humans.
 The calculated \gls{MOS} values are given on the Y-Axis.
 
 The picture downloads with the background traffic generated by the Twitter application result in \gls{MOS} values beginning at \(3.15\) for \(\gls{TDCH} = \SI{1}{\second}\), \(3.18\) for \(\gls{TDCH} = \SI{4}{\second}\), \(3.21\) for \(\gls{TDCH} = \SI{8}{\second}\), and \(3.27\) for \(\gls{TDCH} = \SI{16}{\second}\) respectively.
@@ -360,7 +360,7 @@ Additionally, the traffic characteristics of the background application show tha
 In contrast, downloading pictures with the Skype application generating background traffic, causes different \gls{MOS} values.
 For a page load time of \SI{0.2}{\second} the \gls{MOS} value with \(\gls{TDCH} = \SI{1}{\second}\) is \(3.49\) with \(\gls{TDCH} = \SI{4}{\second}\) we get \(3.99\) for \(\gls{TDCH} = \SI{8}{\second}\) we get a \gls{MOS} value of \(4.44\) and finally for \(\gls{TDCH} = \SI{16}{\second}\) we get \(4.99\) respectively.
 For increasing page load times, the \gls{MOS} decreases.
-This increased \gls{MOS} values occur because of the high frequency of traffic sent by the Skype application.
+This increased \gls{MOS} values occur due to the high frequency of traffic sent by the Skype application.
 Here, every \SI{20}{\second} traffic is sent.
 This means that even for relatively low values of \(\gls{TDCH}\) the user has a high probability of encountering a state where no promotion delay is required before the actual page load time can begin.
 

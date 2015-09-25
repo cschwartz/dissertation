@@ -20,7 +20,7 @@ Furthermore, we assume that all videos are played back with a constant bitrate \
 Thus, each second of the video, independently of its content, requires the same number of bits.
 
 We consider video transmission between a server and a user equipped with an \gls{LTE} enabled smartphone.
-The available bandwidth of a \gls{UE} depends on many factors, such as location, number of users in the cell, activity of other users, and line of sight.
+The available bandwidth of a \gls{UE} depends on many factors, e.g. location, number of users in the cell, activity of other users, and line of sight.
 To simplify the evaluation scenarios we assume that a constant maximum bandwidth \(\bandwidth\) is provided to the user.
 We assume that the bottleneck of the connection is the air interface, thus the full bandwidth \(\bandwidth\) available is used for the video download.
 We consider scenarios where the available bandwidth of the \gls{UE} is higher than the video bitrate in order to prevent stalling.
@@ -69,7 +69,7 @@ This is repeated until the download is completed.
 
 A video provider will also consider its bandwidth to be a resource to be conserved.
 However, when comparing the bandwidth available in \gls{LTE} with that of a wired network, we can assume the air interface to be the bottleneck.
-Furthermore, not considering bandwidth as an optimization target of the video provider simplifies the study as it removes one additional metric.
+Furthermore, not considering bandwidth as an optimisation target of the video provider simplifies the study as it removes one additional metric.
 
 \subsubsection*{LTE Network Model}\label{sec:application:lte_video:system_model:lte_network_model}
 In order to quantify the energy consumption during wireless transmission, we model the \gls{LTE} \gls{RRC} behaviour defined in~\cite{3GPP_RRC_Spec}.
@@ -131,9 +131,9 @@ We only consider the energy consumption due to wireless transmission, as it is a
 The video playback itself is unaffected by the choice of transmission mechanism.
 Thus the selected transmission mechanism only influences the energy consumption of the wireless transmission.
 In~\cite{Huang2012} the authors provided measurements for the energy consumption of each state, reproduced in \reftab{tab:application:lte_video:system_model:model_assumptions:metrics:power_parameters}, if the \gls{UE} is receiving no data.
-Furthermore, an approximation of the power consumption at time \(t\) if a download occurs is given as 
+Furthermore, an approximation of the power drain at time \(t\) if a download occurs is given as 
 \[\power(t) =\factordown \cdot \bandwidthdown(t) + \powerbaseline.\]
-In order to compute the overall energy consumption \(\energyconsumption\) during the transmission and playback of the video, we add the power consumed in each state in which the \gls{UE} is not receiving and the power consumed during receiving while considering the used bandwidth at each moment.
+In order to compute the overall energy consumption \(\energyconsumption\) during the transmission and playback of the video, we aggreggate the power consumed in each state in which the \gls{UE} is not receiving and the power consumed during receiving while considering the used bandwidth at each moment.
 
 \begin{table}
   \begin{center}
@@ -157,7 +157,7 @@ In order to compute the overall energy consumption \(\energyconsumption\) during
 \end{table}
 
 If a user stops watching a video currently being downloaded before its end, this leads to \emph{wasted traffic}, a metric that impacts the video provider, but is influenced by the user aborting the video.
-Because this decision can not be influenced by the video provider, a user model has to be assumed by the video provider in order to provide a performance analysis of the different video delivery mechanisms.
+This decision can not be influenced by the video provider, thus a user model has to be assumed by the video provider in order to provide a performance analysis of the different video delivery mechanisms.
 
 Considering that transmitting data to a smartphone costs both money and traffic, a transmission mechanism should attempt to reduce the amount of video which has been transmitted but is not yet watched at any time \(t\) as 
 \[\timeunwatched(t) = \timedownloaded(t) - \timeplayedback(t)\]
@@ -177,7 +177,7 @@ High values of \meanwastedtraffic indicate that server and network resources are
 
 We consider three types of user behaviour, shown in \reffig{fig:application:lte_video:system_model:model_assumptions:metrics:abort_distributions}, each modeled by a random variable describing the abort time, i.e. the time when the user stops watching a video.
 First we consider a \emph{uniform} distributed user abort model, where the user can abort the video at any time.
-Due to the uniform distribution of the abort time and the length of the video, that is \SI{1600}{\second}, the mean time of stop occurs at \SI{800}{\second}.
+Due to the uniform distribution of the abort time and the length of the video, i.e. \SI{1600}{\second}, the mean time of stop occurs at \SI{800}{\second}.
 
 Second, we consider a type of user that watches a part of the video before deciding if the video is stopped. 
 After the main part of the video has been watched, the user is again more likely to abort.
@@ -187,11 +187,11 @@ We use the same mean and specify a standard deviation of \SI{400}{\second}.
 Finally, we assume that the user is more likely to abort the video at the beginning.
 We model this user behaviour using a \emph{truncated lognormal distribution} with the same mean and a standard deviation of \SI{0.8}{\second} for the normal distribution at the basis of the lognormal distribution.
 
-Note that the wasted traffic \meanwastedtraffic is influenced by the user abort model because wasted traffic only occurs if a user aborts a video.
+Note that the wasted traffic \meanwastedtraffic is influenced by the user abort model, due to the fact that wasted traffic only occurs if a user aborts a video.
 Even though this may only affect a subset of all watched videos, it still consumes unnecessary resources and should be considered by the video provider.
 However, the download of videos always consumes energy and the largest amount of energy is consumed if the user does not abort the video.
-Thus, we optimize for the worst case energy consumption.
-Any other optimization target would offer incentives to users to abort watching the video early, resulting in additional wasted traffic for the provider.
+Thus, we optimise for the worst case energy consumption.
+Any other optimisation target would offer incentives to users to abort watching the video early, resulting in additional wasted traffic for the provider.
 
 
 A large portion of signalling messages caused by data transmission are generated if the \gls{UE} switches between connected and disconnected state~\cite{3GPP_RRC_Spec}.

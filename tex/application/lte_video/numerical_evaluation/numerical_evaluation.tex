@@ -51,12 +51,12 @@ Thus, we consider only the cases where a user stops the playback before the vide
 In \reffig{fig:application:lte_video:numerical_evaluation:energy_consumption:bitrate2lostData} we study the wasted traffic for different video bitrates.
 We consider the different transmission mechanisms introduced in \refsec{fig:application:lte_video:system_model:video_model} as well as the previously introduced user models.
 We observe that the choice of user model has no significant impact on the wasted traffic.
-For the \download mechanism, the amount of wasted traffic increases up to a video bitrate of \SI{6}{\mega\bit\per\second}, then the wasted traffic decreases because only video data which has been prebuffered can be lost if the user aborts the video.
+For the \download mechanism, the amount of wasted traffic increases up to a video bitrate of \SI{6}{\mega\bit\per\second}, then the wasted traffic decreases as only video data which has been prebuffered can be lost if the user aborts the video.
 As we assume a available bandwidth of \SI{12.74}{\mega\bit\per\second}, the bandwidth available for prebuffering decreases as the bitrate increases, resulting in lower amounts of wasted traffic for high video bitrates.
 For the \live mechanism, we see that the wasted traffic for all user models is very low, but wasted traffic exists.
 This is due to the traffic already sent by the server while the \gls{UE} is still waiting for promotion from \rrcidle to \rrcconnected, i.e. a short prebuffering phase exists.
 As the bandwidth increases with the video bitrate, the wasted traffic increases as well.
-Next, we consider the \serviceprovisioning approach and see an increase of wasted traffic as the video bitrate increases because the bandwidth used for continuous download is a factor of the video bitrate.
+Next, we consider the \serviceprovisioning approach and see an increase of wasted traffic as the video bitrate increases, due to the fact thatthe bandwidth used for continuous download is a factor of the video bitrate.
 A higher video bitrate results in the download of the video being completed earlier, which leads to more wasted traffic.
 Similar results can be seen for the \streaming mechanism, which results in more wasted traffic than the \live mechanism, but significantly less traffic than the \serviceprovisioning mechanism.
 This is due to the fact that if the user aborts, at least the amount of video given by the \emph{stop threshold} \bufferlower and at most the complete buffer, given by the \emph{stop threshold} and the \emph{threshold size} are lost.
@@ -64,7 +64,7 @@ We have observed that the choice of user model results in no qualitative changes
 As we have seen, the \download and \streaming mechanisms provide best results with regard to energy consumption.
 However with regard to wasted traffic, the \live and \streaming mechanisms are most suited.
 Thus, the \streaming mechanism seems to be a good compromise.
-The network operator can select a trade-off between energy consumption and wasted traffic as discussed in the next section.
+The network operator can select a trade\off between energy consumption and wasted traffic as discussed in the next section.
 From now on, we only consider the uniformly distributed user model.
 
 \subsubsection*{Connection Count}\label{sec:application:lte_video:connection_count}
@@ -78,8 +78,8 @@ Thus, we quantify the impact of the selected video transmission mechanism on the
 \end{figure}
 
 In \reffig{fig:application:lte_video:numerical_evaluation:energy_consumption:bitrate2connections} we study the impact of the different transmission mechanisms on the number of connections per transmission and thus the amount of generated signalling.
-We observe, that for the transmission mechanisms download, live, provisioning the number of connections is constantly one, independent of the selected bitrate \bitrate.
-This is due to the fact, that in these transmission mechanisms the video is transmitted in one chunk.
+We observe that for the transmission mechanisms download, live, provisioning the number of connections is constantly one, independent of the selected bitrate \bitrate.
+This is due to the fact that in these transmission mechanisms the video is transmitted in one chunk.
 For streaming, the number of connections decreases as the video bitrate increases.
 Here, a connection occurs each time the buffer is refilled.
 For larger bitrates, refilling the buffer requires a longer transmission.
@@ -93,9 +93,9 @@ As the maximum time of video transmission is upper bounded by the video length, 
 \end{figure}
 
 Next, we consider the impact of the lower buffer threshold \bufferlower and buffer size \buffersize on the number of connections \connectioncount caused by the video transmission.
-In \reffig{fig:application:lte_video:numerical_evaluation:energy_consumption:bitrate2connections_parameters} we observe, that while the buffer size has a significant impact on the number of connections during a video transmission, the lower buffer threshold has almost no impact.
+In \reffig{fig:application:lte_video:numerical_evaluation:energy_consumption:bitrate2connections_parameters} we observe that while the buffer size has a significant impact on the number of connections during a video transmission, the lower buffer threshold has almost no impact.
 For buffer sizes of \SIrange{4}{8}{\second}, no signalling occurs.
-This is due to the fact, that as discussed in \refsec{sec:application:lte_video:system_model:lte_network_model} the connection timeout in \gls{UE} is configured as \SI{11.576}{\second}.
+This is due to the fact that as discussed in \refsec{sec:application:lte_video:system_model:lte_network_model} the connection timeout in \gls{UE} is configured as \SI{11.576}{\second}.
 Thus, for this low buffer sizes the \gls{UE} does not disconnect from the network.
 Furthermore, we observe that as the buffer size increases, the number of connections decreases.
 Refilling larger buffers requires, similar to larger bitrates, longer transmission times.

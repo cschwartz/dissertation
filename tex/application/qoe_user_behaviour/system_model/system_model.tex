@@ -53,7 +53,7 @@ Thus, in this section we derive a mean value analysis of the proposed video play
   \label{fig:application:qoe_user_behaviour:system_model:steady_state:player}
 \end{figure}
 
-Assume, that the initial download begins at \(t_0\) and new frames arrive with rate \networkBandwidth at the client.
+Assuming that the initial download begins at \(t_0\) and new frames arrive with rate \networkBandwidth at the client.
 The number of frames in the buffer exceeds \(q\) the first time at \(t_1\).
 At time \(t_2\), the threshold of \(p\) is reached for the first time and playback begins.
 While the download of new frames continues with rate \networkBandwidth, frames are played out with rate \playbackRate, resulting in a buffer change with rate \(\networkBandwidth - \playbackRate\).
@@ -116,7 +116,7 @@ Beside the network bandwidth \(\lambda\) and the video bitrate \(\mu\), the metr
 \subsubsection*{Mean Value Analysis of Finite Videos and User Aborts}\label{sec:application:qoe_user_behaviour:system_model:finite_video}
 
 As we will see later in \refsec{sec:application:qoe_user_behaviour:typical_user_scenarios}, the steady state analysis is sufficient to dimension the buffer. 
-However, in practice, playback is finite, either because the video is of finite length \(T\), or because a user aborts playback after a number of \(T\) seconds.
+However, in practice, playback is finite, as either the video is of finite length \(T\), or due to the fact that a user aborts playback after a number of \(T\) seconds.
 This behaviour is shown in \reffig{fig:application:qoe_user_behaviour:system_model:steady_state:player}.
 
 We do not consider the time until the initial playback, i.e. the time between \(t_0\) and \(t_2\) as stalling, since it has a much lower impact on the perceived quality than stalling \cite{Garcia2014} and it only depends on the network bandwidth \networkBandwidth and thus is not subject to optimisation.

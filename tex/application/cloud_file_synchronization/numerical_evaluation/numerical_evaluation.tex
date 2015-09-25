@@ -82,13 +82,13 @@ Both figures include the \algoimmediate algorithm as a reference.
 We first study \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:disconnected:disconnected:interval}.
 Similar to \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:interval}, we observe no significant differences between the \algointerval and \algoimmediate algorithm for inter-send intervals smaller than \SI{8}{\second}, as both algorithms show the same behaviour here.
 For values larger than \SI{8}{\second}, the \algointerval algorithm starts sending files in batches and no longer on a per file base.
-However, still no clear effect is visible, because the inter-sending interval and the mean image inter-arrival time of files is still smaller than the disconnection timeout of \SI{11}{\second}.
+However, still no clear effect is visible, as the inter-sending interval and the mean image inter-arrival time of files is still smaller than the disconnection timeout of \SI{11}{\second}.
 This results in an almost permanent Internet connection similar to the \algoimmediate algorithm.
 For inter-send interval above \SI{16}{\second}, the \algointerval algorithm starts saving connection time and the relative disconnected time increases, resulting in additional power savings.
 
 \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:disconnected:disconnected:size} shows the relative disconnected time for variable thresholds for the \algosize algorithm.
 We see again that the \algosize and \algoimmediate algorithms do not differ for thresholds smaller than \SI{4}{\mega\byte}, similar to the results in \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:size}.
-Afterwards, we observe an increase in saved connection time for larger thresholds, because here files are sent in batches and the mobile client disconnects between the sending intervals, again enabling power saving potential for the mobile network client.
+Afterwards, we observe an increase in saved connection time for larger thresholds, due to the fact that here files are sent in batches and the mobile client disconnects between the sending intervals, again enabling power saving potential for the mobile network client.
 
 \subsubsection*{Connection Count}\label{sec:application:cloud_file_synchronisation:numerical_evaluation:connection_count}
 
@@ -133,7 +133,7 @@ For inter-send intervals larger then \SI{32}{\second}, the connection count decr
 To explain this effect, we have to consider the maximum number of file batches transferred during the synchronization process.
 If every file is transferred individually \(1000\) connections would be required, if all files are transferred in one single batch, only one connection would be established during the synchronization process.
 Depending on the chosen inter-send intervals, the average sizes of the batches varies, as larger intervals result in larger batches.
-The overall number of batches is limited, because we only consider a finite amount of \(1000\) images.
+The overall number of batches is limited, as we only consider a finite amount of \(1000\) images.
 Consequently, the maximum number of connections is limited, too.
 However, this comes only into effect if large batch are used during the synchronization process.
 
@@ -165,7 +165,7 @@ In conjunction with a disconnection time-out of \(\idleThreshold = \SI{11.576}{\
 
 However, even if the mean upload times in both cases are equal, the variance of the upload time distributions vary.
 The \algosize algorithm assures that always the same amount of data is uploaded, therefore the variance of the upload time distribution is only influenced by the variance of the upload bandwidth.
-In the case of the \algointerval algorithm, the amount of uploaded data varies, because of the different image sizes.
+In the case of the \algointerval algorithm, the amount of uploaded data varies, due to the different image sizes.
 Therefore, the variance of the upload time distribution in this case is dependent on the variance of the upload bandwidth and the variance of the image size.
 This increased variance leads in some cases to longer upload times avoiding a disconnect between two upload batches.
 However, this effect only comes into account if the sum of the upload time and the disconnection time-out is close to the inter-send interval.
