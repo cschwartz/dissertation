@@ -1,4 +1,17 @@
 \subsection{System Model}\label{sec:application:qoe_user_behaviour:system_model}
+We provide a system model for video playback, in order to study the stalling behavior of \gls{HTTP} video streaming.
+We consider the playback of a video consisting of multiple frames.
+The frames are downloaded in-order and arrive at the client with rate \(\lambda\) while the playback time is given by the video framerate \(\mu\), resulting in an offered load of \(a = \frac{\lambda}{\mu}\). Here, \(a\) quantifies the available network bandwidth normalized by the video framerate.
+
+In order to reduce the number of stalling events during playback, the video player uses a playback buffer.
+Video playback stops, if less than \(q\) frames are currently available for playback and is only resumed if the buffer contains \(p = q + d\) frames. 
+The normalized buffer size \(d^*\), in video seconds, relates the buffer size \(d\), which is given in frames, to the video framerate \(\mu\), i.e. \(d^*=\frac{d}{\mu}\).
+
+Next, we introduce metrics used to evaluate the influence of the playback buffer parameter selection.
+The relative amount of time spent in stalling compared to the total duration of the playback process including stalling is given by the stalling ratio \stallingRatio and the number of stalling events normalized by the video length \(N^*\).
+For the case of finite videos we furthermore consider the stalling duration \stallingDuration which gives the sum of times spent in stalling states during the complete video playback. 
+
+
 \subsubsection*{\(M/M/1\) Queue with \(pq\)-Policy}\label{sec:application:qoe_user_behaviour:system_model:mm1pq}
 The state of the video playback is characterized by the tuple \((i, j)\), where \(i \in \{0, 1\}\) is the playback state of the client, i.e. the video is not played back if \(i\) is \(0\) and the video is played back if $i$ is $1$ and $j \geq 0$ gives the number of unplayed frames currently available at the client.
 Furthermore, we give the probability of the playback being in state \((i, j)\) as \(x(i, j)\).

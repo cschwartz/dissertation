@@ -1,5 +1,5 @@
 q1 <- function(L, N, alpha, beta, a = 3.5, b = 1.5) {
-  unclamped <- a * exp((alpha *L + beta) * N) + b
+  unclamped <- a * exp((-alpha *L + -beta) * N) + b
   pmin(5, pmax(1, unclamped))
 }
 

@@ -70,9 +70,13 @@ label.user.model <- 'User Model'
 label.playback.status <- 'Playback Status'
 label.finite <- 'Video Browsing'
 label.infinite <- 'Steady State'
-label.offered.load <- 'Offered Load (Erl)'
+label.offered.load <- 'Offered Load'
 label.alpha <- expression(paste("Duration Parameter ", alpha)) 
 label.beta <- expression(paste("Interruption Parameter ", beta)) 
+label.prebuffering.sensitivity <- expression(paste("Prebuffering Parameter ", gamma))
+label.normalized.video.buffer <- expression(paste('Normalized Video Buffer ', d, ' (s)'))
+
+
 font.size <- 8
 annotation.font.size <- (4/15) * font.size
 

@@ -24,7 +24,7 @@ Therefore, we will also use the term \emph{duration parameter} and \emph{interru
 \label{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:parameterized_model}
 \end{equation}
 
-The model function \(Q_1\) in \refeq{eq:stalling} has the same form as \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:original_model} and follows the IQX hypothesis, but allows to investigate different user profiles.
+The model function \(Q_1\) in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:parameterized_model} has the same form as \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:original_model} and follows the IQX hypothesis, but allows to investigate different user profiles.
 For example, some users may suffer stronger from interruptions which is then adjusted by a higher value of \(\beta\).
 Thus, a user profile can be expressed in terms of different values of the duration parameter \(\alpha\) and the interruption parameter \(\beta\)
 
@@ -32,7 +32,7 @@ Thus, a user profile can be expressed in terms of different values of the durati
 Another impairment on \gls{HTTP} streaming \gls{QoE} are initial delays before the video playout can start for the first time.
 The impact of initial delays \(T_0\) is modeled by the function, model parameters are obtained from subjective tests \cite{Hossfeld2012c}. 
 \begin{equation}
-g(T_0)=-0.963 \: \mathrm{log10}(T_0 + 5.381) + 5
+g(T_0)=-0.963 \mathrm{log10}(T_0 + 5.381) + 5
 \label{eq:application:qoe_user_behaviour:typical_user_scenarios:initial_delay:original_model}
 \end{equation}
 
