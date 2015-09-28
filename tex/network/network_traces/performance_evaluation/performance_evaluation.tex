@@ -115,7 +115,7 @@ Furthermore, the algorithm can be easily adapted to new networking models or sig
 
 \begin{table}
   \centering
-  \caption{Power consumption of the \headershortacr{UE} radio interface depending on current \headershortacr{RRC} state (taken from \cite{Qian2011})}
+  \caption{Power consumption of the \headershortacr{UE} radio interface depending on current \headershortacr{RRC} state (taken from \cite{Qian2011a})}
   \label{tab:network:network_traces:calculating_metrics:power_consumption}  
   \begin{tabular}{cc}
   	\toprule
@@ -131,5 +131,5 @@ Furthermore, the algorithm can be easily adapted to new networking models or sig
 From a users point of view, the signalling message frequency is of little importantance.
 The user is interested in a low power drain as this increases the battery life of the device.
 To calculate the battery life, we use the time when state transitions occurred, and the information about the state the transition was to, to calculate the relative amount of time that was spent in each state.
-Given the relative time spent in each state, we use \reftab{tab:network:network_traces:calculating_metrics:power_consumption}, taken from \cite{Qian2011}, to compute the \gls{PD} of the radio interface during the measurement phase.
+Given the relative time spent in each state, we use \reftab{tab:network:network_traces:calculating_metrics:power_consumption}, taken from \cite{Qian2011a}, to compute the \gls{PD} of the radio interface during the measurement phase.
 We focus on the power drain of the radio interface, as it is possible to measure the aggregated power drain using out of the box instrumentation techniques provided by the hardware vendor.

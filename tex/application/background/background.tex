@@ -2,38 +2,72 @@
 
 \subsection{Mobile Networks}
 
-%file storage
-Methods for reducing energy consumptions in \gls{LTE} Machine to Machine scenarios are considered in\scite{tirronen2012}.
+%evtl in chapter 2 verschieben?
+Methods for reducing energy consumptions in \gls{LTE} Machine to Machine scenarios are considered in \cite{Tirronen2012}.
 The authors consider trade-offs between responsiveness and energy consumption by means of prolonging the discontinuous reception cycles in the \gls{LTE} standard.
-While our work also suggest mechanisms to decrease energy consumption, no modifications in the \gls{LTE} standard are required.
 
-%lte journal
-The authors of \citep{siekkinen2013} perform a measurement of power consumption and \gls{ran} signalling during playback of a \youtube video.
+The authors of~\cite{Siekkinen2013} perform a measurement of power consumption and \gls{RAN} signalling during playback of a YouTube video in \gls{3G} and \gls{LTE} \glspl{UE}.
 They employ a proxy server in order to ensure that traffic is sent in bursts, thus decreasing power consumption at the cost of additional signalling traffic.
 
 \subsection{Video Streaming Mechanisms}\label{sec:application:background:video_streaming_mechanisms}
 
-%lte journal
-In order to match the demand of video transmission over the Internet, multiple solutions exist \citep{begen2011}.
+In order to match the demand of video transmission over the Internet, multiple solutions exist~\cite{Begen2011}.
 The most basic approach, \download, obtains the complete video at once, playing back any available content as required.
 Due to the nature of \live video transmissions it is only possible to send the currently available content.
 Furthermore, introducing delay into the live-stream should be avoided as it reduces the timeliness of the video.
 There exist different approaches for \streaming video content to a user.
 In server based solutions, the streaming server controls the transmission of content.
-One example of such a server based approach is the \gls{rtsp} which was widely discussed as a standardized solution for mobile video streaming \citep{elsen2001}.
+One example of such a server based approach is the \gls{RTSP} which was widely discussed as a standardized solution for mobile video streaming~\cite{Elsen2001}.
 
 In the more recent past, client based approaches were discussed.
 Here the client controls the download and playback of content.
-The authors of \citep{oyman2012} study the \gls{qoe} of \gls{has} approaches, if the content is consumed via \gls{lte} networks.
-They highlight the differences to existing server-side approaches and suggest the study of cross-layer optimization approaches in order to improve the \gls{qoe}.
-One approach to deliver \gls{has} is \dash, which enables video streaming over \http \citep{sodagar2011}.
-Considering both the video content as well as the available resources by using a proxy has been suggested to improve the users \gls{qoe} \citep{essaili2013}.
-In \citep{xin2012} the authors suggest the use of a caching strategy, downloading video content according to a user viewing history and network conditions.
+The authors of~\cite{Oyman2012} study the \gls{QoE} of \gls{HAS} approaches, if the content is consumed via \gls{LTE} networks.
+They highlight the differences to existing server-side approaches and suggest the study of cross-layer optimization approaches in order to improve the \gls{QoE}.
+One approach to deliver \gls{HAS} is \gls{DASH}, which enables video streaming over \gls{HTTP}~\cite{Sodagar2011}.
+Considering both the video content as well as the available resources by using a proxy has been suggested to improve the users \gls{QoE}~\cite{Essaili2013}.
+In~\cite{Xin2012} the authors suggest the use of a caching strategy, downloading video content according to a user viewing history and network conditions.
 
-\subsection{Application Quality of Experience}\label{sec:application:background:application_qoe}
+\subsection{Video Quality of Experience}\label{sec:application:background:application_qoe}
+The increasing popularity of video streaming has driven intensive research activities on how to optimize the video delivery to the end user concerning \gls{QoE}.
+In particular, \gls{HTTP} streaming is deployed by large video service delivery platforms like YouTube or Netflix and represents the major video delivery solution, especially for video-on-demand.
+\gls{HTTP} video streaming is a combination of download and concurrent playback.
+Video data is transmitted to the client via \gls{HTTP} and stored in an application buffer.
+After the download of a sufficient amount of data \(p\), which is in the order of a few video seconds, e.g. for YouTube, the video play out starts at the client.
+As soon as the video buffer falls below a certain threshold \(q\), the video stalls \cite{Hossfeld2013c}.
+We refer to this threshold policy as \(pq\)-policy and model the video buffer at the client side by a queueing model with \(pq\)-policy in \refsec{application:qoe_user_behaviour}.
 
-%file storage
-A general study of the \gls{QoE} influence factors of file storage servies is undertaken\scite{qian2011}.
-Here, the authors provide a model allowing for the evaluation of cloud service providers according to a variety of metrics, including bandwidth, latency, and response time.
-In\scite{amrehm2013} the authors study the main impact factors on \gls{QoE} of Dropbox users.
-They find that the main impact factor is the waiting time for file synchronization.
+Various resource management mechanisms to improve \gls{QoE} for YouTube have been proposed in literature, e.g. in Wifi mesh networks~\cite{Wamser2013} or using \gls{SDN}~\cite{Zinner2014}. \gls{SDN} enhances the interaction between networks and applications and allows a more dynamic and demand-based allocation of network resources which is demonstrated for YouTube video streaming.
+To overcome resource limitations in the content delivery infrastructure, \cite{Zink2008} proposes client-based local caching, \gls{P2P}-based distribution, and proxy caching which reduces network traffic significantly and can therefore avoid \gls{QoE} degradations. 
+
+Recently, big service providers like YouTube rely on \gls{HAS} which adapts the video to the current network conditions. The video adaptation may be realized by changing the frame rate, resolution, or quantization of the video. Although the adaptation results in lower quality, the major benefits compared to classical \gls{HTTP} video streaming is the reduction of stalling events.
+\cite{Seufert2014} surveys \gls{QoE} for \gls{HTTP} adaptive streaming and gives an overview of the recent developments. 
+Besides improved quality adaptation mechanisms \cite{Sieber2013}, other approaches aim for example at optimising the segmentation of the videos \cite{Lievens2013}.
+
+Subjective studies showed that users prefer initial delays instead of stalling events~\cite{Hossfeld2012c}.
+An analytical framework for the dimensioning of appropriate video buffers for \gls{TCP} streaming shows that the initial buffering delay and the size of the buffer should be as small as possible, yet large enough to avoid buffer underflows~\cite{Yan2011}. 
+A concrete approach \cite{Hossfeld2012b} determines the optimal, i.e. minimal, initial delay at the client. During this time, the the video buffer is filled such that no stalling occurs.
+Two buffer size adaptation policies are proposed by \cite{Fiedler2014} which are evaluated by means of a fluid model in terms of freezing probability. 
+
+\cite{Luan2010} evaluates the impact of network dynamics and QoS provision on user's video quality. 
+An analytical framework models the playback buffer at the receiver as a \(G/G/1\) queue, however no \(pq\)-policy is considered. 
+Further, video quality is considered in terms of the start-up delay or fluency of video playback. 
+Based on that, adaptive playout buffer management schemes are proposed. 
+
+So far, no queueing system with \(pq\)-policy is applied to analyze \gls{QoE} for \gls{HTTP} video streaming and to dimension video buffers accordingly.
+In queueing theory, the related threshold policy is denoted as \(N\)-policy introduced by~\cite{Yadin1963} with \(N=p\) and \(q=0\); the server stops whenever the system becomes empty and resumes service when the number of waiting customers in the system, i.e. the video buffer in our case, reaches a threshold value \(N\).
+\refsec{sec:application:qoe_user_behaviour:system_model:steady_state} will show, that in in contrast to the transient phase, in the steady state \(q\) has no influence on the performance. 
+
+Various researchers analyzed the \(N\)-policy.
+\cite{Zhang2004} derives the stationary joint distribution of queue length and the server's status for the \(GI/M/1\).
+\cite{Wang2000} obtains the steady state probability distribution of the number of customers in a finite system for the \(M/GI/1\) system with \(N\)-policy.
+A transient solution of the \(M/M/1\) queue under \(pq\)-policy is derived by~\cite{Boehm1993}.
+
+Results from queueing theory may be applied to dimensioning the video buffer for \gls{HTTP} streaming in order to optimize \gls{QoE}. 
+However, the approaches mentioned above are either considering \gls{QoS} parameters only or they apply \gls{QoE} models based on \glspl{MOS} of subjects.
+However, differences in how QoE degradations are observed by individual users are not considered.
+In \refsec{application:qoe_user_behaviour} we propose an analytical model which allows to investigate individual user profiles based on a parametrized QoE model.
+
+Most user studies on \gls{HTTP} video streaming quantify and report \gls{QoE} in terms of \gls{MOS}, e.g. \cite{Hossfeld2013c}.
+However, there is a diversity in user perception which is eliminated by the process of averaging subjective ratings.
+A relationship between the \gls{MOS} and the second moment of the user ratings is formulated as \gls{SOS} hypothesis and a standard deviation for particular \gls{MOS} values is observed up to 0.8 for video \gls{QoE} \cite{Hossfeld2011b}. 
+Thus, user perceptions may fluctuate between good and poor quality under the same conditions. The authors observe different user types, denoted as 'hectic', 'regular', 'insensitive' depending on their sensitivity to \gls{QoE} degradations.
