@@ -1,5 +1,4 @@
 \section{Cloud File Synchronisation Services}\label{sec:application:cloud_file_synchronisation}
-\cite{Schwartz2014a}
 
 \newcommand{\dropbox}{\emph{DropBox}\xspace}
 \newcommand{\imageFileSize}{\ensuremath{S_I}\xspace}
@@ -21,10 +20,22 @@
 \newcommand{\numberOfFiles}{\ensuremath{n}}
 
 %file storage
-A general study of the \gls{QoE} influence factors of file storage servies is undertaken~\cite{Qian2011b}.
+While the previous sections studied video playback, this is far from the only application deployed in current cloud infrastructures.
+Another prominent type of application enabled by the cloud and high speed network connectivity are file synchronisation services.
+They are offered by a multitude of providers, e.g. Google Drive, and Microsoft OneDrive, and the current leader in the field Dropbox.
+A general study of the \gls{QoE} influence factors of file storage servies is undertaken in~\cite{Qian2011b}.
 Here, the authors provide a model allowing for the evaluation of cloud service providers according to a variety of metrics, including bandwidth, latency, and response time.
+Due to its popularity, this section focuses on Dropbox.
 In~\cite{Amrehm2013} the authors study the main impact factors on \gls{QoE} of Dropbox users.
-They find that the main impact factor is the waiting time for file synchronization.
+They find that the main impact factor for user \gls{QoE} is the waiting time for file synchronization.
+Thus, this is the main factor the cloud storage operator will dimension his service for, in order to ensure a high user satisafaction. 
+However, the operator of the file synchronisation service is not the only stakeholde in this scenario.
+As in earlier sections, the signalling traffic imposed by application traffic is of concern to network providers.
+Furthermore, the services users are, as discussed in \refchap{chap:network}, interested in reducing the power drain due to network connectivity in order to increase their devices battery life.
+
+In \refsec{sec:application:cloud_file_synchronisation:system_model} we first propose a model in order to evaluate the Dropbox service, define relevant metrics for each stakeholder as well as different scheduling algorithms used to trigger file synchronisation.
+Then, in \refsec{sec:application:cloud_file_synchronisation:application_measurements} we perform network measurements using the PlanetLab~\cite{Chun2003} research network to be used as input for our model.
+Finally, in \refsec{sec:application:cloud_file_synchronisation:numerical_evaluation} we evaluate our model using a non-stationary discrete event simulation for all considered metrics and scheduling algorithms.
 
 \input{application/cloud_file_synchronization/system_model/system_model}
 \input{application/cloud_file_synchronization/application_measurements/application_measurements}

@@ -1,4 +1,6 @@
 \subsection{\headershortacr{QoE} Study for Typical User Scenarios}\label{sec:application:qoe_user_behaviour:typical_user_scenarios}
+Based on the playback model introduced in \refsec{sec:application:qoe_user_behaviour:system_model} and the parametrised \gls{QoE} user model proposed in \refsec{sec:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe}, this section studies three typical user scenarios.
+We discuss optimal choices for buffer size depending on user preferences and highlight the impact of buffer choices neglecting the user preference.
 
 \subsubsection*{Watch later Scenario}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:watch_later}
 In the \watchLater scenario, a user requests a video, but the user does not expect that the video playout starts immediately. 
@@ -70,7 +72,7 @@ The local minima exist at the buffer size for which the last stalling event has 
 The results for the steady state are also included and we observe that the steady state provides a lower bound for the finite buffer results.
 
 Thus, the steady state can be used to perform worst case buffer dimensioning.
-For very low offered loads \(a\), e.g. \(a = 0.1\), the \gls{QoE}'is very low for both, the steady state and the finite case. 
+For very low offered loads \(a\), e.g. \(a = 0.1\), the \gls{QoE} is very low for both, the steady state and the finite case. 
 Thus, video streaming and especially \videoBrowsing is not desirable in this case. 
 However, for larger buffer sizes, the difference between the local maxima and the steady state increases. 
 Nevertheless, in those cases, the initial delay exceeds tens of seconds.

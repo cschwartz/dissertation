@@ -1,4 +1,9 @@
 \subsection{YouTube QoE Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe}
+This section introduces \gls{QoE} models for YouTube video playback.
+First, we extend the \gls{QoE} mapping function introduced in~\cite{Hossfeld2013c} in order to support user preferences regarding sensitivity to stalling duration and number of stalling events.
+Then, we provide a parameterised mapping function allowing for user preferences regarding initial delay.
+Finally, we combine the proposed mapping functions.
+
 \subsubsection*{Stalling QoE Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling}
 The \gls{QoE} of \gls{HTTP} streaming depends mainly on the actual number of stalling events \(N\) for a video of duration \(T\) and the average length \(L\) of a single stalling event.
 A \gls{QoE} model combining both key influence factors into a single equation \(f(L,N)\) is provided in~\cite{Hossfeld2013c} and found to follow the IQX hypothesis~\cite{Fiedler2010} describing an exponential relationship between the influence factors and \gls{QoE}.

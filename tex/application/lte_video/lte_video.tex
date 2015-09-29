@@ -39,7 +39,15 @@
 \newcommand{\timeunwatched}{\ensuremath{t_u}}
 \newcommand{\videolength}{l\xspace}
 
+The consumption of video content in a mobile scenario is one of the premier use cases for the \gls{LTE} mobile communication technology.
+While the use of \gls{LTE} affords sufficient bandwidth to enable video playback in high definition, it also introduces new challenges for all stakeholders.
+Similarly to the applications discussed in \refchap{chap:network}, signalling traffic induced by the video transmission may pose a challenge for mobile network operators, and power drain remains an open issue for hardware vendors.
+Additionally, mobile playback can cause new problems for video providers.
+Users watching video on the go may be prone to higher rates of interrupted video playback, either due to insufficient network coverage or social interactions.
+If the video transmission mechanism has transmitted too much video content in advance, this transmitted data is ``wasted'', from the perspective of the video provider, as it consumed both network and computation resources but resulted in no benefit for the customer.
 
+First, in \refsec{sec:application:lte_video:system_model} we present models for both video playback and the mobile network.
+Then, in \refsec{sec:application:lte_video:numerical_evaluation} we perform a simulative study using the proposed model in order to evaluate the performance of the studied video transmission mechanisms.
 
 \input{application/lte_video/system_model/system_model}
 \input{application/lte_video/numerical_evaluation/numerical_evaluation}
