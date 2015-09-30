@@ -42,7 +42,7 @@ The first stakeholder, the end user, has two contradicting requirements on the s
 On the one hand side, the images should be synchronised as fast as possible. 
 This requires a fast and permanent Internet connection of the \gls{UE}, which in turn is very power intensive.
 On the other side, the power drain of the mobile device should be minimized to enable a long battery life time.
-The second stakeholder, the mobile network provider, wants to minimize the signallisation overhead in the network~\cite{NSN2011, Huawei2011} caused by short time connections.
+The second stakeholder, the mobile network provider, wants to minimize the signalisation overhead in the network~\cite{NSN2011, Huawei2011} caused by short time connections.
 Here, an optimisation problem arises to find a practical solution for all three requirements. 
 In order to analyse this problem, we use a simulation model of the file synchronization process, which is described in the following.
 
@@ -57,11 +57,11 @@ The proposed simulation model is schematically depicted in \reffig{fig:applicati
 \end{figure}
 
 We assume that the user has taken pictures of varying file size distributed with \imageFileSize.
-These pictures are transfered from the camera to the mobile device using the \gls{PAN} with a constant bandwidth~\panTransferRate.
-Due to the limited bandwidth \panTransferRate of the \gls{PAN} device, the inter-arrival times of images at the \dropbox shared folder of the mobile device can be calcluated by \(\interarrivaltime = \frac{\imageFileSize}{\panTransferRate}\).
+These pictures are transferred from the camera to the mobile device using the \gls{PAN} with a constant bandwidth~\panTransferRate.
+Due to the limited bandwidth \panTransferRate of the \gls{PAN} device, the inter-arrival times of images at the \dropbox shared folder of the mobile device can be calculated by \(\interarrivaltime = \frac{\imageFileSize}{\panTransferRate}\).
 
 As soon as the image is fully copied to the \dropbox folder, the generation of the meta data introduces a preprocessing delay, which we refer to as client preparation time~\clientpreparationtime.
-To evaluate different strategies optimising the overall waiting time, power drain, and signallisation traffic we include a scheduling component.
+To evaluate different strategies optimising the overall waiting time, power drain, and signalisation traffic we include a scheduling component.
 This component implements different algorithms, described in \refsec{sec:application:cloud_file_synchronisation:system_model:algorithms}, which decide when the images currently held available in the scheduling component should be sent to the component responsible for transmission.
 
 Next, we consider the \gls{LTE} \gls{UE} used for image upload.
@@ -84,7 +84,7 @@ Secondly, we study the relative amount of time the \gls{UE} is disconnected \rel
 As the \gls{UE} consumes more power in the connected state, the user is generally interested in scheduling mechanisms which ensure that the device is only connected if required \cite{Ickin2012}.
 This measure also enables a more general evaluation then the actually consumed power, as the concrete power drain differs significantly for each device.
 Finally, we evaluate the number of transitions~\connectionCount between the connected and disconnected states.
-As discussed in \refsec{chap:network}, frequent state transitions put a strain on the network due to increased signallling.
+As discussed in \refsec{chap:network}, frequent state transitions put a strain on the network due to increased signaling.
 Thus, scheduling algorithms with a small number of transitions would be favored by network operators.
 
 \subsubsection*{Scheduling Algorithms}\label{sec:application:cloud_file_synchronisation:system_model:algorithms}

@@ -76,7 +76,7 @@ Similarly, if the inter-arrival time exceeds both the \gls{TDCH} and \gls{TFACH}
 \gls{UE} vendors always search for ways to decrease power drain of their devices.
 A straightforward way to achieve this, if only the wellbeing of the \gls{UE} is considered, is to transition from \gls{RRC_DCH} state to \gls{RRC_idle} as soon as no additional data is ready for sending.
 While this transition is not directly available in the 3GPP specification for the \gls{RRC} protocol \cite{3GPP_RRC_Spec}, a \gls{UE} may reset the connection, effectively transitioning from any state to \gls{RRC_idle}.
-This behaviour can be modelled using the Two State Model introduced in \refsec{sec:network:background:umts_rrc}.
+This behaviour can be modeled using the Two State Model introduced in \refsec{sec:network:background:umts_rrc}.
 
 State transitions for the Two State Model can be calculated using a similar algorithm.
 Alternatively, the behaviour of the Two State Model can be emulated using \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} if \gls{TFACH} is set to \SI{0}{\second} and all state transitions to \gls{RRC_FACH} are removed in a post processing step.

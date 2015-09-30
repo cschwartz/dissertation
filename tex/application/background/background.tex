@@ -1,6 +1,6 @@
 \section{Background and Related Work}\label{sec:application:background}
 This section first introduces the current state of the art of video transmission mechanisms in \refsec{sec:application:background:video_streaming_mechanisms}.
-Then, in \refsec{sec:application:background:application_qoe} we discuss related work reagrding 
+Then, in \refsec{sec:application:background:application_qoe} we discuss related work regarding 
 \gls{QoE} for video playback including \gls{QoE} modeling approaches, user profiles, and management mechanisms.
 
 \subsection{Video Streaming Mechanisms}\label{sec:application:background:video_streaming_mechanisms}
@@ -15,12 +15,12 @@ One example of such a server based approach is the \gls{RTSP} which was widely d
 In the more recent past, client based approaches were discussed.
 Here the client controls the download and playback of content.
 The authors of~\cite{Oyman2012} study the \gls{QoE} of \gls{HAS} approaches, if the content is consumed via \gls{LTE} networks.
-They highlight the differences to existing server-side approaches and suggest the study of cross-layer optimization approaches in order to improve the \gls{QoE}.
+They highlight the differences to existing server-side approaches and suggest the study of cross-layer optimisation approaches in order to improve the \gls{QoE}.
 One approach to deliver \gls{HAS} is \gls{DASH}, which enables video streaming over \gls{HTTP}~\cite{Sodagar2011}.
 Considering both the video content as well as the available resources by using a proxy has been suggested to improve the users \gls{QoE}~\cite{Essaili2013}.
 In~\cite{Xin2012} the authors suggest the use of a caching strategy, downloading video content according to a user viewing history and network conditions.
 
-The increasing popularity of video streaming has driven intensive research activities on how to optimize the video delivery to the end user concerning \gls{QoE}.
+The increasing popularity of video streaming has driven intensive research activities on how to optimise the video delivery to the end user concerning \gls{QoE}.
 In particular, \gls{HTTP} streaming is deployed by large video service delivery platforms, e.g. YouTube or Netflix and represents the major video delivery solution, especially for video-on-demand.
 \gls{HTTP} video streaming is a combination of download and concurrent playback.
 Video data is transmitted to the client via \gls{HTTP} and stored in an application buffer.
@@ -47,14 +47,14 @@ Based on that, adaptive playout buffer management schemes are proposed.
 
 So far, no queueing system with \(pq\)-policy is applied to analyze \gls{QoE} for \gls{HTTP} video streaming and to dimension video buffers accordingly.
 In queueing theory, the related threshold policy is denoted as \(N\)-policy introduced by~\cite{Yadin1963} with \(N=p\) and \(q=0\); the server stops whenever the system becomes empty and resumes service when the number of waiting customers in the system, i.e. the video buffer in our case, reaches a threshold value \(N\).
-\refsec{sec:application:qoe_user_behaviour:system_model:steady_state} will show, that in in contrast to the transient phase, in the steady state \(q\) has no influence on the performance. 
+\refsec{sec:application:qoe_user_behaviour:system_model:steady_state} will show that in in contrast to the transient phase, in the steady state \(q\) has no influence on the performance. 
 
-Various researchers analyzed the \(N\)-policy.
+Various researchers analysed the \(N\)-policy.
 \cite{Zhang2004} derives the stationary joint distribution of queue length and the server's status for the \(GI/M/1\).
 \cite{Wang2000} obtains the steady state probability distribution of the number of customers in a finite system for the \(M/GI/1\) system with \(N\)-policy.
 A transient solution of the \(M/M/1\) queue under \(pq\)-policy is derived by~\cite{Boehm1993}.
 
-Results from queueing theory may be applied to dimensioning the video buffer for \gls{HTTP} streaming in order to optimize \gls{QoE}. 
+Results from queueing theory may be applied to dimensioning the video buffer for \gls{HTTP} streaming in order to optimise \gls{QoE}. 
 However, the approaches mentioned above are either considering \gls{QoS} parameters only or they apply \gls{QoE} models based on \glspl{MOS} of subjects.
 However, differences in how \gls{QoE} degradations are observed by individual users are not considered.
 In \refsec{sec:application:qoe_user_behaviour} we propose an analytical model which allows to investigate individual user profiles based on a parametrized QoE model.

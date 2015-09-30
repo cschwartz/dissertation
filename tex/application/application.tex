@@ -9,19 +9,19 @@ While the previous chapter focussed on the network and the impact of application
 The Internet supports a multitude of different applications, including video streaming services, online gaming, file storage services, cloud office solutions, and uncountable more.
 %cite? cisco vni?
 In this chapter, we focus on two of the most prominent application types: Video streaming and file storage, chosen due to their impact on global traffic and frequency of use.
-In contrast to applications of earlier generations, todays services are not standardised or under control by network operators but rather the result of free enterprise and enterpreneurship.
+In contrast to applications of earlier generations, todays services are not standardised or under control by network operators but rather the result of free enterprise and entrepreneurship.
 While in the last chapter we were able to rely on standard documents to model the systems under study, this option is no longer available when considering applications.
 Thus, we have to perform measurements or rely on studies of other researchers in order to obtain knowledge of both the systems under study as well as the related stakeholders.
 
-Similar to \refchap{chap:network}, we identify a set of involved stakeholders and their respective key performance indicators and derive corrosponding metrics.
+Similar to \refchap{chap:network}, we identify a set of involved stakeholders and their respective key performance indicators and derive corresponding metrics.
 First, we consider the \emph{application provider}. 
 In the case of the video streaming scenario, this role is realised by the video provider.
-We consider the video provider to be interrested in two performance indicators: 
+We consider the video provider to be interested in two performance indicators: 
 \begin{enumerate*}
 \item user satisfaction, realised by a \gls{QoE} metric,
 \item cost reduction in compute and network infrastructure, realised by the amount of traffic transmitted to a user about to abort playback.
 \end{enumerate*}
-In the case of the file synchronisation scenario, we consider the application operator to be interrested in user satisfaction, again realised by as \gls{QoE} metric, the mean time to synchronisation.
+In the case of the file synchronisation scenario, we consider the application operator to be interested in user satisfaction, again realised by as \gls{QoE} metric, the mean time to synchronisation.
 Wasted traffic is not of concern in this scenario, as file synchronisations are usually not aborted.
 Second, we consider the \emph{network operator}.
 As in the last chapter, they are interested in reducing stress on the network infrastructure.
@@ -29,13 +29,13 @@ We measure this key performance indicator by considering the number of connectio
 Similarly to \refchap{chap:network}, we assume that the \emph{user} is interested in both a high \gls{QoE} as well long battery life for his device, represented by the energy consumption metric. 
 
 In the current state of the art, video transmissions are considered from the perspective of the video provider or the user. 
-Neither network operators nor heterogenous user profiles are considered.
-Studies of file synchronisation services do not consider effects of synchronsation scheduling mechanisms on user satisfaction or energy consumption.  
+Neither network operators nor heterogeneous user profiles are considered.
+Studies of file synchronisation services do not consider effects of synchronisation scheduling mechanisms on user satisfaction or energy consumption.  
 
 The contribution of this chapter is threefold:
 \begin{enumerate*}
 \item We provide models for video transmission mechanisms and perform a performance evaluation and tradeoff analysis considering metrics relevant to network operators, users, and video providers.
-\item We provide a \gls{QoE} model for video streaming allowing for the analysis of heterogenous user profiles and use this model in order to evaluate the impact of offered network load on video streaming scenarios.
+\item We provide a \gls{QoE} model for video streaming allowing for the analysis of heterogeneous user profiles and use this model in order to evaluate the impact of offered network load on video streaming scenarios.
 \item We propose a model for cloud file synchronisation and evaluate a set of scheduling mechanisms regarding impact of considered metrics for all stakeholders.
 \end{enumerate*}
 

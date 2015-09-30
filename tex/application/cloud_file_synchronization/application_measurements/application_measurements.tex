@@ -24,7 +24,7 @@ Finally, we retrieve the traffic dump and the recorded timestamps and reset the 
 
 This process is repeated \(8\) times for all available PlanetLab nodes.
 Based on the two recorded timestamps as well as the traffic dump, we calculate the required values for the model as shown in \reffig{fig:application:cloud_file_synchronisation:application_measurements:bandwidth_preparation_times:measurement_setup}.
-The time between the \emph{inital timestamp} and the first packet sent to the \emph{Amazon S3} storage server is considered the client preparation time \clientpreparationtime.
+The time between the \emph{initial timestamp} and the first packet sent to the \emph{Amazon S3} storage server is considered the client preparation time \clientpreparationtime.
 
 
 The upload time \(t_u\) is given by the time between the first and the last packet uploaded to the storage server and is used to calculate the mean upload bandwidth \(\uploadbandwidth = \SI{10}{\mega\bit} / t_u.\)

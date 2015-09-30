@@ -1,5 +1,5 @@
 \subsection{System Model}\label{sec:application:qoe_user_behaviour:system_model}
-In this section provide a system model for video playback, in order to study the stalling behavior of \gls{HTTP} video streaming.
+In this section provide a system model for video playback, in order to study the stalling behaviour of \gls{HTTP} video streaming.
 We consider the playback of a video consisting of multiple frames.
 The frames are downloaded in-order and arrive at the client with rate \(\lambda\) while the playback time is given by the video framerate \(\mu\), resulting in an offered load of \(a = \frac{\lambda}{\mu}\). Here, \(a\) quantifies the available network bandwidth normalized by the video framerate.
 
@@ -13,7 +13,7 @@ For the case of finite videos we furthermore consider the stalling duration \sta
 
 
 \subsubsection*{\(M/M/1\) Queue with \(pq\)-Policy}\label{sec:application:qoe_user_behaviour:system_model:mm1pq}
-The state of the video playback is characterized by the tuple \((i, j)\), where \(i \in \{0, 1\}\) is the playback state of the client, i.e. the video is not played back if \(i\) is \(0\) and the video is played back if $i$ is $1$ and $j \geq 0$ gives the number of unplayed frames currently available at the client.
+The state of the video playback is characterized by the tuple \((i, j)\), where \(i \in \{0, 1\}\) is the playback state of the client, i.e. the video is not played back if \(i\) is \(0\) and the video is played back if \(i\) is \(1\) and \(j \geq 0\) gives the number of unplayed frames currently available at the client.
 Furthermore, we give the probability of the playback being in state \((i, j)\) as \(x(i, j)\).
 
 We obtain the following equilibrium state equations.
