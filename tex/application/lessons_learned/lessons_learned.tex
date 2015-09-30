@@ -31,4 +31,11 @@ Finally, when considering the file synchronisation scenario, we find that of the
 If the application provider allows parameter selection for a given scheduling mechanism to be performed by the user, in order to increase \gls{QoE}, the interval mechanism provides more intuitive configuration.
 This would for example allow the user to increase the inter-send interval from \SI{32}{\second} to \SI{128}{\second} can double the time spent in disconnected state, saving energy and also reduce the connection count by \SI{50}{\percent}, putting less strain on the network.
 
-Conclusion
+Based on the results obtained in this chapter, we observe that additionally to the trade-offs in the network, highlighted in the last chapter, similar trade-offs also exist in the application layer.
+Including the application providers as stakeholders and considering their key performance indicators requires new models but also allows us to better understand the impact of mechanisms implemented in applications.
+Key performance indicators of application providers sometimes overlap with those relevant to users, as application providers try to improve the experience of users in order to reduce churn.
+
+Highlighted by both the video streaming scenario and the file synchronisation scenario is the fact, that oversimplifing the user population as one homogenous group can decrease the overall \gls{QoE}.
+While general \glsQ{QoE} management mechanisms intent to optimise the \gls{MOS}, this only increases the mean \gls{QoE}, which may cause suboptimal results if the population of users present with a large variance in optinion scores.
+Thus, we suggest to either identify and cluster similar user groups or expose trade-offs, within reason, to the user.
+This aproach could be seen as extending the \emph{Economic Traffic Management} approach to the user.
