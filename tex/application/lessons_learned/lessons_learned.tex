@@ -7,14 +7,28 @@ In the \emph{file synchronisation} scenario the application operator is interres
 The \emph{user} is interrested in perceiving a high \gls{QoE} as well as increasing the battery life of the \gls{UE}.
 As in the last chapter, the \emph{network operator} is interrested to quantify the impact of application traffic on its network infrastructure.
 
-Application operator can do
-User may consist of multipe groups
-Consider network operator to be passive, last chapter showed that they should not optimise for single applications
+The application operator has direct control over the application and is thus able to manipulate application behaviour in order to improve their respective key performance indicators.
+For the specific applications we consider adaption of the video transmission mechanisms and parameters for the video streaming scenario and various file upload scheduling mechanisms and parameters for the file synchronisation scenario.
+While in these scenarios have no direct possibility to influence their key performance indicator, the video streaming scenario considers users to be heterogenous, i.e. consisting of different subsets of users with different \gls{QoE} requirements.
+Furthermore, we consider network operator to be passive, as \refchap{chap:network} showed that it is not beneficial for them to optimise their network parameters for specific applications.
 
-lessons learned lte video
+%tbdIn this chapter we discussed the impact of three 
 
-lessons learned qoe user behaviour
+First, we study the impact of different video transmission mechanisms and parameter settings on energy consumption, number of connections established to the mobile network and traffic wastefully transmitted in case the user aborts video playback before completion.
+To this end, we provide both a network model for \gls{LTE} mobile networks as well as playback models for the respective video transmission mechanisms.
+Then, we evaluate the models regarding the relevant metrics for a range of relevant parameters.
+We find, that the live streaming the same content consumes at worst \SI{711}{\percent} more energy than the download mechanism for the lowest possible bitrate, for the highest viable bitrate the ratio decreases, however the live streaming still consumes \SI{117}{\percent} more energy than the download mechanism.
+In contrast, we observe that when considering the wasted traffic relative to the total content size, the download mechanism wastes, even for the best case user scenario, \SI{12300}{\percent} of the data wasted by the live streaming scenario.
+The streaming mechanism only results in wasted traffic of \SI{500}{\percent} the amount lost during live streaming, while only consuming between \SI{39.9}{\percent} and \SI{89.3}{\percent} of the energy of the live mechanism.	
+Overall, we find that the streaming mechanism provides good results for all considered metrics and can be customised by adapting the streaming buffer size to the application operators needs. 
 
-lessons learned cloud file synchronisation
+Next, we consider the impact of both the buffer size of the streaming mechanism and the available network load on different scenarios, such as video streaming or video browsing.
+We find, that buffer sizes smaller than \SI{0.5}{\second} provide inacceptable \gls{QoE} for all considered users regardless of sensitivity to stalling.
+Buffer sizes between \SI{2}{\second} and \SI{4}{\second} however are acceptable to most users regardless of sensitivity.
+When considering the video browsing scenario, we find that even if the length of the watched video is known \gls{QoE} depends on the sensitivity of the user to intial stalling, however we are able to determine local \gls{QoE} optima for all considered values of sensitivity.
+
+Finally, when considering the file synchronisation scenario, we find that of the three considered scheduling mechanisms both the interval and the size based algorithms provide best results.
+If the application provider allows parameter selection for a given scheduling mechanism to be performed by the user, in order to increase \gls{QoE}, the interval mechanism provides more intuitive configuration.
+This would for example allow the user to increase the inter-send interval from \SI{32}{\second} to \SI{128}{\second} can double the time spent in disconnected state, saving energy and also reduce the connection count by \SI{50}{\percent}, putting less strain on the network.
 
 Conclusion
