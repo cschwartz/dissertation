@@ -17,7 +17,6 @@ The \dropbox infrastructure consists of two main components:
 \item a storage cloud based on Amazon's Elastic Compute Cloud and Simple Storage Service, and 
 \item (2) control servers directly maintained by \dropbox Inc. 
 \end{enumerate*}
-
 The control servers store meta information about the current state of the files in the \dropbox folders and trigger synchronization processes on the clients.
 
 A file synchronization can basically be described in five steps.
@@ -62,7 +61,7 @@ Due to the limited bandwidth \panTransferRate of the \gls{PAN} device, the inter
 
 As soon as the image is fully copied to the \dropbox folder, the generation of the meta data introduces a preprocessing delay, which we refer to as client preparation time~\clientpreparationtime.
 To evaluate different strategies optimising the overall waiting time, power drain, and signalisation traffic we include a scheduling component.
-This component implements different algorithms, described in \refsec{sec:application:cloud_file_synchronisation:system_model:algorithms}, which decide when the images currently held available in the scheduling component should be sent to the component responsible for transmission.
+This component implements different algorithms, which trigger sendingthe images currently held available in the scheduling component to the component responsible for transmission.
 
 Next, we consider the \gls{LTE} \gls{UE} used for image upload.
 Due to the specification of the \gls{LTE} standard \cite{3GPP_RRC_Spec}, the upload component can, at any point in time, either be connected to the mobile network or disconnected.
@@ -92,7 +91,7 @@ We use different scheduling strategies in our model to control the uploading of 
 These mechanisms in turn affect the synchronization time, the power drain, and the generated signalling traffic.
 
 The most basic strategy of handing the upload is to immediately send new files, as soon as the meta data is generated.
-We refer to this as \algoimmediate strategy and will use this as base line for all comparisons in the evaluations.
+We refer to this as the \algoimmediate strategy and will use this as base line for all comparisons in the evaluations.
 The other two strategies considered are based on a temporal, respectively a size threshold. 
 Using the \algointerval scheduling, the client checks periodically if new files have been marked for synchronization.
 If new files are present, they are synchronized to \dropbox.

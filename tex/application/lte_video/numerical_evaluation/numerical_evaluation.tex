@@ -8,7 +8,7 @@ Then, in \refsec{sec:application:lte_video:connection_count} we consider the imp
 We consider a video of \(\videolength=\SI{1600}{\second}\) length which is viewed on a \gls{UE} with \gls{LTE} access.
 The median of available downlink throughput in current \gls{LTE} networks is \(\bandwidth = \SI{12.74}{\mega\bit\per\second}\) \cite{Huang2012}.
 A wide set of video bitrates between \SIlist{1;50}{\mega\bit\per\second} is in use~\cite{YouTube2013}.
-In order to prevent stalling, we consider bitrates between \SIrange{1}{50}{\mega\bit\per\second}, staying below the available network bandwidth.
+In order to prevent stalling, we consider bitrates between \SIrange{1}{10}{\mega\bit\per\second}, staying below the available network bandwidth.
 For the \streaming mechanism, a stop threshold of \(\bufferlower = \SI{4}{\second}\) and a threshold size of \(\buffersize = \SI{32}{\second}\) were selected.
 Furthermore, we specify a prebuffering duration of \(\streamingstart = \SI{5}{\second}\).
 
@@ -56,7 +56,7 @@ As we assume a available bandwidth of \SI{12.74}{\mega\bit\per\second}, the band
 For the \live mechanism, we see that the wasted traffic for all user models is very low, but wasted traffic exists.
 This is due to the traffic already sent by the server while the \gls{UE} is still waiting for promotion from \rrcidle to \rrcconnected, i.e. a short prebuffering phase exists.
 As the bandwidth increases with the video bitrate, the wasted traffic increases as well.
-Next, we consider the \serviceprovisioning approach and see an increase of wasted traffic as the video bitrate increases, due to the fact thatthe bandwidth used for continuous download is a factor of the video bitrate.
+Next, we consider the \serviceprovisioning approach and see an increase of wasted traffic as the video bitrate increases, due to the fact that the bandwidth used for continuous download is a factor of the video bitrate.
 A higher video bitrate results in the download of the video being completed earlier, which leads to more wasted traffic.
 Similar results can be seen for the \streaming mechanism, which results in more wasted traffic than the \live mechanism, but significantly less traffic than the \serviceprovisioning mechanism.
 This is due to the fact that if the user aborts, at least the amount of video given by the \emph{stop threshold} \bufferlower and at most the complete buffer, given by the \emph{stop threshold} and the \emph{threshold size} are lost.
@@ -92,10 +92,10 @@ As the maximum time of video transmission is upper bounded by the video length, 
   \label{fig:application:lte_video:numerical_evaluation:energy_consumption:bitrate2connections_parameters}
 \end{figure}
 
-Next, we consider the impact of the lower buffer threshold \bufferlower and buffer size \buffersize on the number of connections \connectioncount caused by the video transmission.
+Next, we consider the impact of the lower buffer threshold \bufferlower and buffer size \buffersize on the number of connections \connectioncount caused by the \streaming mechanism.
 In \reffig{fig:application:lte_video:numerical_evaluation:energy_consumption:bitrate2connections_parameters} we observe that while the buffer size has a significant impact on the number of connections during a video transmission, the lower buffer threshold has almost no impact.
 For buffer sizes of \SIrange{4}{8}{\second}, no signalling occurs.
-This is due to the fact that as discussed in \refsec{sec:application:lte_video:system_model:lte_network_model} the connection timeout in \gls{UE} is configured as \SI{11.576}{\second}.
+This is due to the fact that, as discussed in \refsec{sec:application:lte_video:system_model:lte_network_model}, the connection timeout in \gls{UE} is configured as \SI{11.576}{\second}.
 Thus, for this low buffer sizes the \gls{UE} does not disconnect from the network.
 Furthermore, we observe that as the buffer size increases, the number of connections decreases.
 Refilling larger buffers requires, similar to larger bitrates, longer transmission times.

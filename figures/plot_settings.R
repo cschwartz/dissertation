@@ -37,6 +37,7 @@ label.interarrival.sample.autocorrelation <- 'Sample Autocorrelation\n of Intera
 label.page.load.time <- 'Page Load Time (s)'
 label.qoe <- 'Mean Opinion Score'
 label.bandwidth <- 'Bandwidth b (MBit/s)'
+label.bandwidth.at.time.t <- expression(paste("Bandwidth ", b[d(t)], " (Mbit/s)"))
 label.cdf.bandwidth <- expression(P(B <= b))
 label.direction <- 'Bandwidth'
 label.type <- 'Type'
@@ -54,7 +55,7 @@ label.mechanism <- "Mechanism"
 label.normalized.threshold <- "Normalized Synchronization Threshold (s)"
 label.number.of.stalling.events <- 'Number of Stalling Events'
 label.qoe.model <- 'QoE Model'
-label.stalling.duration <- 'Stalling Duration Per Event (s)'
+label.stalling.duration <- 'Stalling Duration per Event (s)'
 label.time <- 'Time (s)'
 label.buffer <- 'Buffer (s)'
 label.bitrate <- 'Video Bitrate (Mbit/s)'
@@ -74,7 +75,7 @@ label.offered.load <- 'Offered Load'
 label.alpha <- expression(paste("Duration Parameter ", alpha)) 
 label.beta <- expression(paste("Interruption Parameter ", beta)) 
 label.prebuffering.sensitivity <- expression(paste("Prebuffering Parameter ", gamma))
-label.normalized.video.buffer <- expression(paste('Normalized Video Buffer ', d, ' (s)'))
+label.normalized.video.buffer <- expression(paste('Normalized Video Buffer ', d^'*', ' (s)'))
 
 
 font.size <- 8

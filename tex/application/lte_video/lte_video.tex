@@ -11,14 +11,14 @@
 \newcommand{\ton}{\(T_{\texttt{ON}}\)\xspace}
 \newcommand{\tdrxinactivity}{\(T_{\texttt{I}}\)\xspace}
 
-\newcommand{\shortdrx}{\texttt{Short DRX}\xspace}
+\newcommand{\shortdrx}{\texttt{Short} \texttt{DRX}\xspace}
 \newcommand{\tshortdrx}{\(T_{\texttt{S}}\)\xspace}
-\newcommand{\longdrx}{\texttt{Long DRX}\xspace}
+\newcommand{\longdrx}{\texttt{Long} \texttt{DRX}\xspace}
 \newcommand{\tlongdrx}{\(T_{\texttt{L}}\)\xspace}
-\newcommand{\rrcconnected}{\texttt{RRC Connected}\xspace}
+\newcommand{\rrcconnected}{\texttt{RRC\_Connected}\xspace}
 \newcommand{\tidle}{\(T_{\texttt{Idle}}\)\xspace}
 \newcommand{\tonidle}{\(T^{\texttt{Idle}}_{\texttt{ON}}\)\xspace}
-\newcommand{\rrcidle}{\texttt{RRC Idle}\xspace}
+\newcommand{\rrcidle}{\texttt{RRC\_Idle}\xspace}
 \newcommand{\tdrxidle}{\(T^{\texttt{Idle}}_{\texttt{\gls{DRX}}}\)\xspace}
 \newcommand{\promotiondelay}{\(D_P\)\xspace}
 
@@ -44,9 +44,9 @@ While the use of \gls{LTE} affords sufficient bandwidth to enable video playback
 Similarly to the applications discussed in \refchap{chap:network}, signalling traffic induced by the video transmission may pose a challenge for mobile network operators, and power drain remains an open issue for hardware vendors.
 Additionally, mobile playback can cause new problems for video providers.
 Users watching video on the go may be prone to higher rates of interrupted video playback, either due to insufficient network coverage or social interactions.
-If the video transmission mechanism has transmitted too much video content in advance, this transmitted data is ``wasted'', from the perspective of the video provider, as it consumed both network and computation resources but resulted in no benefit for the customer.
+If the video transmission mechanism has transmitted too much video content in advance, this transmitted data is ``wasted'', from the perspective of the video provider, as this consumes both network and computation resources but results in no benefit for the customer.
 
-First, in \refsec{sec:application:lte_video:system_model} we present models for both video playback and the mobile network.
+In \refsec{sec:application:lte_video:system_model} we present models for both video playback and the mobile network.
 Then, in \refsec{sec:application:lte_video:numerical_evaluation} we perform a simulative study using the proposed model in order to evaluate the performance of the studied video transmission mechanisms.
 
 \input{application/lte_video/system_model/system_model}

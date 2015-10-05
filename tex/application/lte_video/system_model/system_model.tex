@@ -1,17 +1,17 @@
 \subsection{System Model}\label{sec:application:lte_video:system_model}
-In this section, we first present modeling assumptions used in the remainder of this section.
+In this section, we present modeling assumptions used in the remainder of this section.
 Then, we propose a system model for both video transmission mechanisms and the considered \gls{LTE} network.
 Finally, we introduce performance metrics for each of the considered stakeholders.
 
 \subsubsection*{Model Assumptions}\label{sec:application:lte_video:system_model:model_assumptions}
 Maintaining a high \gls{QoE} for their viewers is an important goal for operators of video platforms.
 
-The authors of~\cite{Hossfeld2012a} found that the \gls{QoE} is mainly influenced by the number of stalling events and the stalling event duration.
+The authors of~\cite{Hossfeld2012a} find that the \gls{QoE} is mainly influenced by the number of stalling events and the stalling event duration.
 As shown in \reffig{fig:application:lte_video:system_model:stalling2qoe}, the \gls{QoE} model, where 5 is the highest possible \gls{QoE} and 1 the lowest, rapidly decreases if the number or duration of stalling events increases.
 The provided \gls{QoE} model between stalling and \gls{QoE} shows that stalling significantly worsens \gls{QoE}.
 Thus, an operator has to avoid stalling at any cost.
-As a consequence, in this paper, we only consider scenarios where no stalling occur, i.e. the delivery bandwidth is larger than the video bitrate to ensure a smooth video playout.
-Otherwise, the operator will use \gls{QoE} management approaches to overcome resource limitations, e.g. by reducing the application requirements for \gls{DASH} and \gls{SVC}~\cite{Hossfeld2012b} or by prebuffering data~\cite{Hossfeld2013b}.
+As a consequence, we only consider scenarios where no stalling occur, i.e. the delivery bandwidth is larger than the video bitrate to ensure a smooth video playout.
+Furthermore, in \refsec{sec:application:qoe_user_behaviour} we will study the impact of available network load and user preference on \gls{QoE}.
 
 \begin{figure}
   \includegraphics{application/lte_video/system_model/figures/stalling2qoe}
@@ -128,8 +128,10 @@ Furthermore, we denote the length of the video already downloaded at any time \(
 \end{equation}
 
 \subsubsection*{Evaluation Metrics for Smartphone Energy Consumption, Wasted Traffic, and Connection Count}\label{sec:application:lte_video:system_model:model_assumptions:metrics}
+Each of the stakeholders is interested in different \glspl{KPI}, from which we derive a set of metrics to consider during the performance evaluation of the network and video playback model.
 
-We calculate the \emph{energy consumption} of the \gls{UE} due to wireless transmission at any given moment using the \gls{UE}'s current state and the bandwidth in use.
+\paragraph*{Energy Consumption}
+We calculate the power drain of the \gls{UE} due to wireless transmission at any given moment using the \gls{UE}'s current state and the bandwidth in use and aggregate it to the \gls{UE}'s energy consumption during the duration of the video playback.
 We only consider the energy consumption due to wireless transmission, as it is an offset to the energy consumption caused by the playback of the video.
 The video playback itself is unaffected by the choice of transmission mechanism.
 Thus the selected transmission mechanism only influences the energy consumption of the wireless transmission.
@@ -159,6 +161,7 @@ In order to compute the overall energy consumption \(\energyconsumption\) during
   \label{tab:application:lte_video:system_model:model_assumptions:metrics:power_parameters}
 \end{table}
 
+\paragraph*{Wasted Traffic}
 If a user stops watching a video currently being downloaded before its end, this leads to \emph{wasted traffic}, a metric that impacts the video provider, but is influenced by the user aborting the video.
 This decision can not be influenced by the video provider, thus a user model has to be assumed by the video provider in order to provide a performance analysis of the different video delivery mechanisms.
 
@@ -196,6 +199,6 @@ However, the download of videos always consumes energy and the largest amount of
 Thus, we optimise for the worst case energy consumption.
 Any other optimisation target would offer incentives to users to abort watching the video early, resulting in additional wasted traffic for the provider.
 
-
+\paragraph*{Connection Count}
 A large portion of signalling messages caused by data transmission are generated if the \gls{UE} switches between connected and disconnected state~\cite{3GPP_RRC_Spec}.
 Thus, counting the number of connections \connectioncount triggered provides an easy way to quantify the generated signalling during the video transmission.
