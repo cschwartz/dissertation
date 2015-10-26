@@ -1,0 +1,9 @@
+\subsection{Modeling}\label{sec:cloud:data_centers:modeling}
+In this section, we first discuss the default data center model, where a server can either be idle or busy, processing a job. Afterwards, the energy-efficient data center model with the three states is set up.
+
+\subsubsection*{Default Data Center}\label{sec:cloud:data_centers:modeling:default}
+We consider new jobs arriving at a \gls{POD} with exponential \gls{IID} inter-arrival times with rate \(\lambda\) and each server accepts only one job at a time with an exponentially distributed service time with mean \(\frac{1}{\mu}\).
+Then, the system can be modeled using a simple \(M/M/n\) delay system.
+Here, the random variable \(X\) gives the number of jobs in the system and \(x(i)\) is the stationary probability that \(i\) jobs are currently in the system.
+
+\subsubsection*{Energy Efficient Data Center}\label{sec:cloud:data_centers:modeling:energy_efficient}
