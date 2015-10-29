@@ -76,7 +76,10 @@ label.alpha <- expression(paste("Duration Parameter ", alpha))
 label.beta <- expression(paste("Interruption Parameter ", beta)) 
 label.prebuffering.sensitivity <- expression(paste("Prebuffering Parameter ", gamma))
 label.normalized.video.buffer <- expression(paste('Normalized Video Buffer ', d^'*', ' (s)'))
-
+label.power <- 'Power Consumption (kW)'
+label.pareto <- 'Pareto Optimal'
+label.number.servers <- 'Number of Available Servers'
+label.parameter <- 'Parameter'
 
 font.size <- 8
 annotation.font.size <- (4/15) * font.size
