@@ -8,7 +8,7 @@ sampled.non.pareto.rows <- non.pareto.rows[sample(nrow(non.pareto.rows), sample.
 
 sampled.data <- rbind(pareto.rows, sampled.non.pareto.rows)
 
-p <- ggplot(sampled.data, aes(x = mean.waiting, 
+p <- ggplot(sampled.data, aes(x = mean.waiting.ms, 
                       y = mean.energy, 
                       color = is.pareto, 
                       order = as.numeric(is.pareto))) +

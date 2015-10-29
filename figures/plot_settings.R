@@ -80,6 +80,8 @@ label.power <- 'Power Consumption (kW)'
 label.pareto <- 'Pareto Optimal'
 label.number.servers <- 'Number of Available Servers'
 label.parameter <- 'Parameter'
+label.waiting.time.ms <- "Mean Waiting Time (ms)"
+
 
 font.size <- 8
 annotation.font.size <- (4/15) * font.size

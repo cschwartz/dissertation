@@ -2,7 +2,7 @@ data <- read.csv('sorted_results.csv', sep = " ", col.names = c('n', 'theta.1', 
 data <- melt(data, id = c("waiting.mean"))
 data <- subset(data, variable != "energy.mean")
 
-p <- ggplot(data, aes(x = waiting.mean,
+p <- ggplot(data, aes(x = waiting.mean.ms,
                       y = value,
                       color = variable)
                   ) +
