@@ -1,6 +1,6 @@
 \subsection{Problem Formulation}\label{sec:cloud:data_centers:problem_formulation}
 
-A widely used data center architecture is the three-tier architecture shown in \reffig{fig:sec:cloud:data_centers:problem_formulation:3-tier_datacenter}.
+A widely used data center architecture is the three-tier architecture shown in \reffig{fig:cloud:data_centers:problem_formulation:3-tier_datacenter}.
 The upper two layers of the architecture are responsible for distributing the traffic and consist of layer 3 switches where each switch has a backup switch.
 In this paper, we focus on the edge layer and here on a single \gls{POD}.
 A \gls{POD} consists of a number of servers connected over top of rack switches to an aggregation switch.
@@ -9,7 +9,7 @@ A \gls{POD} consists of a number of servers connected over top of rack switches 
   \centering
   \includegraphics{cloud/data_centers/problem_formulation/figures/architecture}
   \caption{Three-tier data center architecture}
-  \label{fig:sec:cloud:data_centers:problem_formulation:3-tier_datacenter}
+  \label{fig:cloud:data_centers:problem_formulation:3-tier_datacenter}
 \end{figure}
 
 
@@ -20,8 +20,8 @@ Once a server finishes processing its current job, it picks another one from the
 
 Our goal is now to evaluate how much power is consumed in a data center and how much can be saved when servers, not processing any job, are switched off.
 Therefore, we developed two different data center models.
-The first model, the \emph{default data center}, consists of two-state servers only which are either \emph{busy} or \emph{idle}, as shown in \reffig{fig:sec:cloud:data_centers:problem_formulation:servers:idle_busy}) 
-For the second model, a more \emph{energy-efficient data center}, a subset of the servers may additionally be switched on and \emph{off} on demand, shown in \reffig{fig:sec:cloud:data_centers:problem_formulation:servers:idle_busy_off} as recommended in~\cite{EPA2007}.
+The first model, the \emph{default data center}, consists of two-state servers only which are either \emph{busy} or \emph{idle}, as shown in \reffig{fig:cloud:data_centers:problem_formulation:servers:idle_busy}) 
+For the second model, a more \emph{energy-efficient data center}, a subset of the servers may additionally be switched on and \emph{off} on demand, shown in \reffig{fig:cloud:data_centers:problem_formulation:idle_busy_off} as recommended in~\cite{EPA2007}.
 
 \begin{figure}
 	\begin{subfigure}[b]{\textwidth}
@@ -35,7 +35,7 @@ For the second model, a more \emph{energy-efficient data center}, a subset of th
 	\caption{3-state model of a reserved server}\label{fig:cloud:data_centers:problem_formulation:idle_busy_off}
 	\end{subfigure}
 
-	\caption{CPower state transition on a per server level}\label{fig:sec:cloud:data_centers:problem_formulation:servers}
+	\caption{Power state transition on a per server level}\label{fig:cloud:data_centers:problem_formulation:servers}
 \end{figure}
 
 \subsection{Default Data Center}\label{sec:cloud:data_centers:problem_formulation:default_data_center}
