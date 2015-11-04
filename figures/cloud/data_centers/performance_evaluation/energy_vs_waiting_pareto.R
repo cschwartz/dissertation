@@ -8,12 +8,12 @@ sampled.non.pareto.rows <- non.pareto.rows[sample(nrow(non.pareto.rows), sample.
 
 sampled.data <- rbind(pareto.rows, sampled.non.pareto.rows)
 
-p <- ggplot(sampled.data, aes(x = mean.waiting.ms, 
+p <- ggplot(sampled.data, aes(x = mean.waiting, 
                       y = mean.energy, 
                       color = is.pareto, 
                       order = as.numeric(is.pareto))) +
     geom_point(size = 1) +
-    scale_x_continuous(name = label.waiting.time, limits = c(0, 20)) +
+    scale_x_continuous(name = label.waiting.time.ms, limits = c(0, 20)) +
     scale_y_continuous(name = label.power, limits = c(50, 100)) +
     scale_colour_manual(name = label.pareto, values = color.palette)
 

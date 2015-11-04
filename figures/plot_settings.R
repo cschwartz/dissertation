@@ -36,8 +36,8 @@ label.lag <- 'Lag Length'
 label.interarrival.sample.autocorrelation <- 'Sample Autocorrelation\n of Interarrival Times'
 label.page.load.time <- 'Page Load Time (s)'
 label.qoe <- 'Mean Opinion Score'
-label.bandwidth <- 'Bandwidth b (MBit/s)'
-label.bandwidth.at.time.t <- expression(paste("Bandwidth ", b[d(t)], " (Mbit/s)"))
+label.bandwidth <- expression(paste('Bandwidth b ', (Mbit^-1/s)))
+label.bandwidth.at.time.t <- expression(paste("Bandwidth ", b[d(t)], " (", Mbit^-1, ")"))
 label.cdf.bandwidth <- expression(P(B <= b))
 label.direction <- 'Bandwidth'
 label.type <- 'Type'
@@ -58,13 +58,14 @@ label.qoe.model <- 'QoE Model'
 label.stalling.duration <- 'Stalling Duration per Event (s)'
 label.time <- 'Time (s)'
 label.buffer <- 'Buffer (s)'
-label.bitrate <- 'Video Bitrate (Mbit/s)'
+label.unplayed.buffer <- expression(paste("Buffer ", t[u](t), " (s)"))
+label.bitrate <- expression(paste('Video Bitrate ', (Mbit^-1)))
 label.energy <- 'Energy Consumption (kJ)'
 label.wasted.traffic <- 'Wasted Traffic (Mbit)'
 label.user.model <- 'User Model'
 label.connections <- 'Connection Count'
-label.buffer.lower <- expression(Theta)
-label.buffer.size <- expression(theta)
+label.buffer.lower <- expression(paste("Stop Threshold ", theta))
+label.buffer.size <- expression(paste("Size Size ", Theta))
 label.abort.time <- 'Abort Time t (s)'
 label.pdf.abort.time <- 'PDF A(t)'
 label.user.model <- 'User Model'

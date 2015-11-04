@@ -16,7 +16,7 @@ Due to well known rating scale effects, the model in \refeq{eq:application:qoe_u
 In contrast, if the video is not stalling, no degradation is observed and users rate the impact of stalling as 'imperceptible', i.e. a value of 5.
 
 It has to be noted that the model function in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:original_model} is based on subjective user studies with videos of duration up to \(T=\SI{30}{\second}\).
-For other video durations, the normalized number \(N^*=\frac{N}{T}\) of stalling events has to be considered which requires to adapt the parameters \(\alpha=0.15\) and \(\beta=0.19\)in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:original_model}, respectively. 
+For other video durations, the normalized number \(N^*=\frac{N}{T}\) of stalling events has to be considered which requires to adapt the parameters \(\alpha=0.15\) and \(\beta=0.19\) in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:original_model}, respectively. 
 
 As the goal of our investigation is the analysis of the impact of different user profiles, we parametrize the function in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:original_model} with parameters \(\alpha\) and \(\beta\) and conduct a parameter study on their impact. 
 For the sake of simplicity, we normalize the QoE value to be in the range \(\left[0;1\right]\)  and use the normalized number of stalling events $N^*$. 
@@ -35,7 +35,7 @@ Thus, a user profile can be expressed in terms of different values of the durati
 
 \subsubsection*{Initial Delay QoE Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:initial_delay}
 Another impairment on \gls{HTTP} streaming \gls{QoE} are initial delays before the video playout can start for the first time.
-The impact of initial delays \(T_0\) is modeled by the function, model parameters are obtained from subjective tests \cite{Hossfeld2012c}. 
+The impact of initial delays \(T_0\) is modeled by the function given in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:initial_delay:original_model}, model parameters are obtained from subjective tests \cite{Hossfeld2012c}. 
 \begin{equation}
 g(T_0)=-0.963 \mathrm{log10}(T_0 + 5.381) + 5
 \label{eq:application:qoe_user_behaviour:typical_user_scenarios:initial_delay:original_model}
@@ -45,7 +45,8 @@ The results in~\cite{Hossfeld2012c} show that the impact of the initial delay is
 Further, it was observed that users have a clear preference of initial delays instead
 of stalling and that service interruptions have to be avoided in any case, even at costs of increased initial delays for filling up the video buffers. 
 
-For the sake of simplicity, we normalize the function in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:initial_delay:original_model} to obtain the \gls{QoE} model \(Q_2\) for initial delays \(T_0\), so that \(Q_2\) returns values in \(\left[0;1\right]\) and that \(Q2(0)=1\) holds.
+For the sake of simplicity, we normalize the function in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:initial_delay:original_model} to obtain the \gls{QoE} model \(Q_2\) for initial delays \(T_0\), so that \(Q_2\) returns values in \(\left[0;1\right]\) and that \(Q_2(0)=1\) holds, by adding the term \(\gamma \mathrm{log10}\left(c\right)\).
+
 The user profile is parametrized with the parameter \(\gamma\) determining the impact of initial delays on the user \gls{QoE}.
 The constant \(c=5.381\) is taken from \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:initial_delay:original_model} defining the shape of the curve. 
 Since the logarithm is not bounded, only positive values are considered to ensure \(Q_2(T_0) \in [0;1]\).
@@ -64,7 +65,7 @@ If additional stalling events occur, this will lower the QoE further.
 Thus, \(Q_2(T_0)\) is the upper bound of \gls{QoE}.
 For \(N^*\) stalling events with an average length \(L\), the \gls{QoE} will be further decreased by \(Q_1(L,N^*)\).
 
-An additive \gls{QoE} model for non-adaptive HTTP streaming which is referred to as buffer-related perceptual indicator is recommended in \cite{ITUT2012}. This model follows the same rationale above, start from the maximum QoE value which is \(1=Q(0,0,0)\), subtract the degradation \(1-Q_2(T_0)\) stemming from initial delay, and from stalling \(1-Q_1(L,N^*)\).
+An additive \gls{QoE} model for non-adaptive HTTP streaming which is referred to as buffer-related perceptual indicator is recommended in \cite{ITUT2012}. This model follows the same rationale above, start from the maximum QoE value which is \(1=Q(0,0,0)\), subtract the degradation from stalling \(1-Q_1(L,N^*)\) and \(1-Q_2(T_0)\) stemming from initial delay.
 
 Then, we arrive at the following additive QoE model \(Q\) used in the following analysis.  
 \begin{eqnarray}
