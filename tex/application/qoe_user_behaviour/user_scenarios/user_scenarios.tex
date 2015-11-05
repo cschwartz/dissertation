@@ -2,9 +2,9 @@
 Based on the playback model introduced in \refsec{sec:application:qoe_user_behaviour:system_model} and the parametrised \gls{QoE} user model proposed in \refsec{sec:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe}, this section studies three typical user scenarios.
 We discuss optimal choices for buffer size depending on user preferences and highlight the impact of buffer choices neglecting the user preference.
 
-\subsubsection*{Watch later Scenario}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:watch_later}
+\subsubsection*{Watch Later Scenario}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:watch_later}
 In the \watchLater scenario, a user requests a video, but the user does not expect that the video playout starts immediately. 
-This may be the case for example when the user wants to watch an HD at a later time and expects low network bandwidth. 
+This may be the case, for example, when the user wants to watch an HD at a later time and expects low network bandwidth later. 
 During that initial delay, the user may opt do something else, e.g. opening another web page in a parallel tab in the browser.
 Thus, \gls{QoE} is not affected by initial delays and we only need to consider \(Q_1\) in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:parameterized_model}.
 
@@ -18,8 +18,8 @@ In the steady state, we have \(L=\frac{d}{\lambda}\) and \(N^*=\frac{\mu-\lambda
 
 Since the \gls{QoE} function in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:stalling_steady_state} is strictly monotonically increasing in the normalized buffer size \(d^*\), the optimum is achieved for 
 \[Q_+=\lim\limits_{d^* \to \infty} Q_1(L,N^*)=e^{-\alpha \frac{1-a}{a}}.\]
-Thus, the QoE value only depends on the parameter \(\alpha\) in the limit.
-To see for which buffer size we are close to the optimum, we consider the relative difference \(\frac{Q_+-Q_1(L,N^*)}{Q_+}\) when it is less than \(\Omega=\SI{5}{\percent}\).
+Thus, the QoE value only depends on the parameter \(\alpha\), i.e. the total stalling duration, in the limit.
+To see for which buffer size we are close to the optimum, we consider the relative difference \(\Omega = \frac{Q_+-Q_1(L,N^*)}{Q_+}\) when it is less than \(\Omega=\SI{5}{\percent}\).
 This is true for any \(d^*> -\beta \frac{1-a}{\log\left(1-\Omega\right)}\). 
 
 For \(\beta \in \{0.05,0.2\}\), a small buffer size of \(d^*>\SI{4}{\second}\) is already sufficient to be close to the optimum \(Q_+\) for any offered network condition \(a\).
@@ -41,13 +41,13 @@ In contrast to the \watchLater scenario, the initial delay impacts the \gls{QoE}
 
 \reffig{fig:application:qoe_user_behaviour:typical_user_scenarios:default:default_scenario} shows \gls{QoE} depending on the buffer size \(d^*\) for the \watchNow scenario and different user profiles in a network situation \(a=0.5\) leading to a stalling ratio \(R=0.5\).
 
-Now, \gls{QoE} optima exist for finite buffer size, if the impact of the initial delay is taken into consideration. 
-We notice that \(\alpha\) does increase the \gls{QoE} but has no significant impact on the optimal buffer size.
-In contrast, for different \(\beta\) we observe different optima for the buffer size.
+\gls{QoE} optima exist for finite buffer size, if the impact of the initial delay is taken into consideration. 
+We notice that for users more sensible to stalling duration, i.e. higher values of \(\alpha\), experience higher \gls{QoE}, but this has no significant impact on the optimal buffer size.
+In contrast, for users sensitive to the number of stalling events, i.e. for higher values of \(\beta\), we observe different optima for the buffer size.
 Therefore, we can neglect the interruption parameter \(\alpha\) when optimising the buffer size with regard to the \gls{QoE}.
 A buffer size less than \SI{0.5}{\second} results in a severe loss of \gls{QoE} for all users.
 A buffer size of \SIrange{2}{4}{\second} offers a good \gls{QoE} for the average user and any sensitive user.
-Increasing the buffer size further decreases the \gls{QoE}.
+Increasing the buffer size further decreases the \gls{QoE} slightly.
 
 \subsubsection*{Video Browsing Scenario}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:browsing}
 
@@ -64,7 +64,7 @@ However, for video browsing, the impact of the initial delay may be more importa
 \end{figure}
 
 In \reffig{fig:application:qoe_user_behaviour:typical_user_scenarios:browsing:video_browsing}, the impact of the buffer size on the \gls{QoE} is depicted for the case that the video is aborted after the first \SI{10}{\second} using a logarithmic x-axes. 
-We consider two different network scenarios with an offered load of \(a = 0.8\) and \(a = 0.9\).
+We consider two different network scenarios with an offered load of \(a = 0.8\) and \(a = 0.95\).
 Multiple local QoE maxima exist independently of \(\gamma\), which appear when the number of stalling events change. 
 For different values of \(\beta\) these maxima occur at the same buffer size.
 Therefore, we can ignore \(\beta\) in this scenario. 

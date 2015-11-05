@@ -1,5 +1,5 @@
 \subsection{System Model}\label{sec:application:cloud_file_synchronisation:system_model}
-This section first provides a general overview over the Dropbox service architecture and introduces the considered usecase.
+This section first provides a general overview over the Dropbox service architecture and introduces the considered use case.
 Then, we propose the cloud storage model and metrics used in this analysis.
 Finally, we discuss a set of scheduling mechanisms used to start the file synchronisation process. 
 
@@ -29,11 +29,11 @@ In this section we consider the synchronization of images from a digital camera 
 Real world examples of this scenario are, e.g., taking photos of a live event and transferring them to a picture agency, or shooting private holiday images. 
 
 The user took a finite set of pictures with a wearable device like Google Glass or a smart camera, e.g. a Nikon Coolpix S800c or SAMSUNG CL80.
-The camera is then connected via a \gls{PAN} with a mobile \gls{UE}, for example a Laptop with a data card or a smartphone, to store the images on the mobile device.
+The camera is then connected via a \gls{PAN} with a mobile \gls{UE}, for example a laptop with a data card or a smartphone, to store the images on the mobile device.
 The \gls{UE} uses broadband wireless Internet access technology and runs software provided by the cloud storage provider in order to synchronise the images with the cloud storage.
 Finally, the scenario includes a remote client, which is connected using a wire line connection and downloads the images from the cloud.
 
-For the evaluation presented in this paper, we consider a specific realization of the use case described above.
+For the evaluation we consider a specific realization of the use case described above.
 For the role of the cloud storage provider we consider \dropbox, Bluetooth is used as the technology for establishing the \gls{PAN}, and \gls{LTE} is used as the wireless broadband access technology.
 
 In the considered scenario the interests of two stakeholders are impacted.
@@ -83,7 +83,7 @@ Secondly, we study the relative amount of time the \gls{UE} is disconnected \rel
 As the \gls{UE} consumes more power in the connected state, the user is generally interested in scheduling mechanisms which ensure that the device is only connected if required \cite{Ickin2012}.
 This measure also enables a more general evaluation then the actually consumed power, as the concrete power drain differs significantly for each device.
 Finally, we evaluate the number of transitions~\connectionCount between the connected and disconnected states.
-As discussed in \refsec{chap:network}, frequent state transitions put a strain on the network due to increased signaling.
+As discussed in \refsec{chap:network}, frequent state transitions stress the network due to increased signaling.
 Thus, scheduling algorithms with a small number of transitions would be favored by network operators.
 
 \subsubsection*{Scheduling Algorithms}\label{sec:application:cloud_file_synchronisation:system_model:algorithms}

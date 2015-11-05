@@ -1,6 +1,6 @@
 \section{Lessons Learned}\label{sec:application:lessons_learned}
-This chapter studied internet video streaming and cloud file synchronisation as two prominent examples of cloud backed network applications.
-During the operation and use of these applications, a number of stakeholders interact, each with different outlooks on what qualifies as optimal performance of the application.
+This chapter studied Internet video streaming and cloud file synchronisation as two prominent examples of modern network applications.
+During the operation and use of these applications, a number of stakeholders interact, each with different preferences and demands on what qualifies as optimal performance of the application.
 The \emph{application provider} controls the application and directly influences the performance of the application for all other stakeholders.
 In case of the \emph{video streaming} scenario, we consider the application provider to be interested in increasing the \gls{QoE} for the application user while also maintaining a low utilisation of network and compute resources, as they would incur additional costs on his part.
 In the \emph{file synchronisation} scenario the application operator is interested in the file synchronisation occurring as soon as possible, as this has been identified as a main impact factor of the users \gls{QoE}.
@@ -17,7 +17,7 @@ While studying both the video streaming and the file synchronisation scenario, w
 First, we study the impact of different video transmission mechanisms and parameter settings on energy consumption, number of connections established to the mobile network and traffic wastefully transmitted in case the user aborts video playback before completion.
 To this end, we provide both a network model for \gls{LTE} mobile networks as well as playback models for the respective video transmission mechanisms.
 Then, we evaluate the models regarding the identified metrics for a range of relevant parameters.
-We find that the live streaming the same content consumes at worst \SI{711}{\percent} more energy than the download mechanism for the lowest possible bitrate. For the highest viable bitrate the ratio decreases, however the live streaming still consumes \SI{117}{\percent} more energy than the download mechanism.
+We find that live streaming the same content consumes at worst \SI{711}{\percent} more energy than the download mechanism for the lowest possible bitrate. For the highest viable bitrate the ratio decreases, however the live streaming still consumes \SI{117}{\percent} more energy than the download mechanism.
 In contrast, we observe that when considering the wasted traffic relative to the total content size, the download mechanism causes, even for the best case user scenario, \SI{12300}{\percent} of the data wasted by the live streaming scenario.
 The streaming mechanism results in only five times the wasted traffic of the amount lost during live streaming, while only consuming between \SI{39.9}{\percent} and \SI{89.3}{\percent} of the energy of the live mechanism.	
 Overall, we find that the streaming mechanism provides good results for all considered metrics and can be customised by adapting the streaming buffer size to the application operators needs. 
@@ -27,7 +27,7 @@ We find that buffer sizes smaller than \SI{0.5}{\second} provide unacceptable \g
 Buffer sizes between \SI{2}{\second} and \SI{4}{\second} however are acceptable to most users regardless of sensitivity.
 When considering the video browsing scenario, we find that even if the length of the watched video is known \gls{QoE} depends on the sensitivity of the user to initial stalling, however we are able to determine local \gls{QoE} optima for all considered values of sensitivity.
 
-Finally, when considering the file synchronisation scenario, we find that of the three considered scheduling mechanisms both the interval and the size based algorithms provide best results.
+Finally, when considering the file synchronisation scenario, we find that of the three considered scheduling mechanisms, both the interval and the size based algorithms, provide best results.
 If the application provider allows parameter selection for a given scheduling mechanism to be performed by the user, in order to increase \gls{QoE}, the interval mechanism provides more intuitive configuration.
 This would for example allow the user to increase the inter-send interval from \SI{32}{\second} to \SI{128}{\second} which can double the time spent in disconnected state, saving energy and also reduce the connection count by \SI{50}{\percent}, putting less strain on the network.
 
@@ -35,7 +35,7 @@ Based on the results obtained in this chapter, we observe that additionally to t
 Including the application providers as stakeholders and considering their key performance indicators requires new models but also allows us to better understand the impact of mechanisms implemented in applications.
 Key performance indicators of application providers sometimes overlap with those relevant to users, as application providers try to improve the experience of users in order to reduce churn.
 
-Highlighted by both the video streaming scenario and the file synchronisation scenario is the fact that oversimplifying the user population as one homogeneous group can decrease the overall \gls{QoE}.
+Highlighted by both, the video streaming scenario and the file synchronisation scenario, is the fact that oversimplifying the user population as one homogeneous group can decrease the overall \gls{QoE}.
 While general \gls{QoE} management mechanisms intent to optimise the \gls{MOS}, this only increases the mean \gls{QoE}, which may cause suboptimal results if the population of users present with a large variance in opinion scores.
 Thus, we suggest to either identify and cluster similar user groups or expose tradeoffs, within reason, to the user.
 This approach could be seen as extending the \emph{Economic Traffic Management} approach to the user.
