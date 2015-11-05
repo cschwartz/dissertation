@@ -99,9 +99,9 @@ x(i,1) = \frac{a}{i}(x(i-1,1)+ x(n+\theta_2,0))
 \end{equation*}
 which we can calculate directly as all probabilities are known in relation to \(K_0\).
 We continue applying \refeq{eq:cloud:data_centers:modeling:energy_efficient:S2_2} and obtain
-\begin{equation*}
-x(i,1) = \frac{a}{i}(x(i-1,1) + x(n+\theta_2,0))
-\end{equation*}
+\begin{equation}
+x(i,1) = \frac{a}{i}(x(i-1,1) + x(n+\theta_2,0))\label{eq:cloud:data_centers:modeling:energy_efficient:probability_greater_nm}
+\end{equation}
 for \(n + \theta_2 + 1 < i \leq n + m\).
 
 Finally, we need to calculate the probability that the system is in states \((i,1)\) for \(i > n + m\) where we need to obtain
@@ -114,7 +114,7 @@ x(i,1) = \rho x(i-1,1) = x(n + m,1)\rho^{i-(n+m)}
 \end{equation*}
 for \(\rho = \frac{a}{n + m}\) and \(i > n + m\).
 
-Applying this redefinition to \refeq{eq:probability_greater_n+m} we get
+Applying this redefinition to \refeq{eq:cloud:data_centers:modeling:energy_efficient:probability_greater_nm} we get
 \begin{align*}
 x(i>n+m,1) &= \sum_{i = n + m + 1}^{+ \infty} x(i, 1)\\
 &= x(n+m,1)\sum_{i=1}^{+\infty} \rho^i.\nonumber
