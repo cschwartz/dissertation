@@ -3,7 +3,7 @@
 In this section we study the metrics introduced in \refsec{sec:application:lte_video:system_model:model_assumptions:metrics} on the different transmission mechanisms.
 
 First, we study the impact of the considered transmission mechanisms on the energy consumption and the wasted traffic. 
-Then, in \refsec{sec:application:lte_video:connection_count} we consider the impact of the connection count for the \streaming mechanisms and varying values of the parameters \emph{stop threshold} \bufferlower and \emph{threshold size} \buffersize in more detail.
+Then, we consider the impact of the connection count for the \streaming mechanisms and varying values of the parameters \emph{stop threshold} \bufferlower and \emph{threshold size} \buffersize in more detail.
 
 We consider a video of \(\videolength=\SI{1600}{\second}\) length which is viewed on a \gls{UE} with \gls{LTE} access.
 The median of available downlink throughput in current \gls{LTE} networks is \(\bandwidth = \SI{12.74}{\mega\bit\per\second}\) \cite{Huang2012}.
@@ -45,7 +45,7 @@ Thus, we consider only the cases where a user stops the playback before the vide
 \begin{figure}
   \centering
   \includegraphics{application/lte_video/numerical_evaluation/figures/bitrate2lostData}
-  \caption{Influence of bitrate, download mechanism and user model on wasted traffic. Download, Live, and Provisioning mechanisms result in equal Connection Counts.}
+  \caption{Influence of bitrate, download mechanism and user model on wasted traffic. Download, Live, and Provisioning mechanisms result in equal Connection Counts}
   \label{fig:application:lte_video:numerical_evaluation:energy_consumption:bitrate2lostData}
 \end{figure}
 In \reffig{fig:application:lte_video:numerical_evaluation:energy_consumption:bitrate2lostData} we study the wasted traffic for different video bitrates.

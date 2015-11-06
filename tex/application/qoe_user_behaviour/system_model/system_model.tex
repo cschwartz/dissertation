@@ -49,7 +49,7 @@ Thus, in this section we derive a mean value analysis of the proposed video play
 \begin{figure}
   \centering
   \includegraphics{application/qoe_user_behaviour/system_model/figures/player}
-  \caption{Video buffer status evolving over time with constant video bitrate and network bandwidth for a finite video of duration \(T\) and \(Z\) frames.}
+  \caption{Video buffer status evolving over time with constant video bitrate and network bandwidth for a finite video of duration \(T\) and \(Z\) frames}
   \label{fig:application:qoe_user_behaviour:system_model:steady_state:player}
 \end{figure}
 
@@ -65,10 +65,9 @@ First, we consider the time required for the buffer to fill from \(q\) frames to
 This time depicts the average duration \(\meanStallingEventDuration\) of a single stalling event.
 
 In \reffig{fig:application:qoe_user_behaviour:system_model:steady_state:player} this is given as the time between \(t_1\) and \(t_2\), and we get
-\begin{equation}
+\begin{equation*}
 L=t_2-t_1 = \frac{p-q}{\lambda}=\frac{d}{\lambda} = \frac{d^*}{a}\, .
-\label{eq:application:qoe_user_behaviour:system_model:steady_state:mean_stalling_event}
-\end{equation}
+\end{equation*}
 The average stalling length \(\meanStallingEventDuration\) only depends on the actual buffer size \(d\) and the network bandwidth \(\networkBandwidth\).
 
 Next, we consider the time required for the number of frames in the buffer to decrease from \(p\) 
@@ -82,10 +81,9 @@ t_3-t_1=(t_3-t_2)+(t_2-t_1)=\frac{\mu d}{(\mu-\lambda)\lambda}.
 \]
 
 The stalling ratio \stallingRatio follows as
-\begin{equation}
+\begin{equation*}
 \stallingRatio = \frac{t_2-t_1}{t_3-t_1} = 1-a,
-\label{eq:application:qoe_user_behaviour:system_model:steady_state:stalling_ratio}
-\end{equation}
+\end{equation*}
 yielding the same result as in \refeq{eq:application:qoe_user_behaviour:system_model:mm1pq:stalling_ratio_queuing}.
 
 Finally, we can obtain the number of of stalling events normalized by video duration by analysing the busy periods of the system.
@@ -100,10 +98,9 @@ which yields
 \meanBusy = \frac{a}{1-a}\frac{\lambda}{d} 
 \]
 and in turn can be used to obtain the normalized number of stalling events 
-\begin{equation}
+\begin{equation*}
 N^* = \frac{1}{\meanBusy}=\frac{\mu-\lambda}{d} = \frac{1-a}{d^*}\, .
-\label{eq:application:qoe_user_behaviour:system_model:steady_state:normalized_number_of_stalling events}
-\end{equation}
+\end{equation*}
 
 This equation can also be derived by considering \(N^*=\frac{1}{t_3-t_2}\). 
 While \(N^*\) relates the number of stalling events to the video duration, the stalling frequency \(F\) denotes the number of stalling events per unit time. 

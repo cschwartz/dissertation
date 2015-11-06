@@ -50,10 +50,9 @@ For the sake of simplicity, we normalize the function in \refeq{eq:application:q
 The user profile is parametrized with the parameter \(\gamma\) determining the impact of initial delays on the user \gls{QoE}.
 The constant \(c=5.381\) is taken from \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:initial_delay:original_model} defining the shape of the curve. 
 Since the logarithm is not bounded, only positive values are considered to ensure \(Q_2(T_0) \in [0;1]\).
-\begin{equation}
+\begin{equation*}
 Q_2(T_0)= -\gamma \mathrm{log10}\left(T_0 + c\right) + \gamma \mathrm{log10}\left(c\right)+ 1 
-\label{eq:application:qoe_user_behaviour:typical_user_scenarios:initial_delay:parameterized_model}
-\end{equation}
+\end{equation*}
 
 \subsubsection*{Combined QoE Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:combined}
 For dimensioning the video buffers, we are interested in a \gls{QoE} model which considers both, the impairments due to stalling and due to initial delays of the video playout.
