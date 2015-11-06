@@ -1,10 +1,10 @@
 \section{Background and Related Work}\label{sec:application:background}
-This section first introduces the current state of the art of video transmission mechanisms in \refsec{sec:application:background:video_streaming_mechanisms}.
-Then, in \refsec{sec:application:background:application_qoe} we discuss related work regarding 
-\gls{QoE} for video playback including \gls{QoE} modeling approaches, user profiles, and \gls{QoE} management mechanisms.
+This section first introduces the current state of the art of video transmission mechanisms in the network in \refsec{sec:application:background:video_streaming_mechanisms}.
+Then, we shift focus to the user in \refsec{sec:application:background:application_qoe}.
+We discuss related work regarding \gls{QoE} for video playback including \gls{QoE} modeling approaches, user profiles, and \gls{QoE} management mechanisms.
 
 \subsection{Video Streaming Mechanisms}\label{sec:application:background:video_streaming_mechanisms}
-In order to match the demand of video transmission over the Internet, multiple solutions exist~\cite{Begen2011}.
+In order to transfer video content from the content providers to the users over the Internet, multiple solutions exist~\cite{Begen2011}.
 The most basic approach, \emph{\download}, obtains the complete video at once, playing back any available content as required.
 Due to the nature of \emph{\live} video transmissions it is only possible to send the currently available content.
 Furthermore, introducing delay into the live-stream should be avoided as it reduces the timeliness of the video.
@@ -17,17 +17,14 @@ Here the client controls the download and playback of content.
 The authors of~\cite{Oyman2012} study the \gls{QoE} of \gls{HAS} approaches, if the content is consumed via \gls{LTE} networks.
 They highlight the differences to existing server-side approaches and suggest the study of cross-layer optimisation approaches in order to improve the \gls{QoE}.
 One approach to deliver \gls{HAS} is \gls{DASH}, which enables video streaming over \gls{HTTP}~\cite{Sodagar2011}.
-Considering both the video content as well as the available resources by using a proxy has been suggested to improve the users \gls{QoE}~\cite{Essaili2013}.
-In~\cite{Xin2012} the authors suggest the use of a caching strategy, downloading video content according to a user's viewing history and network conditions.
 
 The increasing popularity of video streaming has driven intensive research activities on how to optimise the video delivery to the end user concerning \gls{QoE}.
 In particular, \gls{HTTP} streaming is deployed by large video service delivery platforms, e.g. YouTube or Netflix and represents the major video delivery solution, especially for video-on-demand.
 
-\gls{HTTP} video streaming is a combination of download and concurrent playback.
-Video data is transmitted to the client via \gls{HTTP} and stored in an application buffer.
-After the download of a sufficient amount of data \(p\), which is in the order of a few video seconds, e.g. for YouTube, the video play out starts at the client.
-As soon as the video buffer falls below a certain threshold \(q\), the video stalls~\cite{Hossfeld2013c}.
-We refer to this threshold policy as \(pq\)-policy and model the video buffer at the client side by a queueing model with \(pq\)-policy in \refsec{sec:application:qoe_user_behaviour}.
+In \gls{HTTP} video streaming video data is transmitted to the client via \gls{HTTP} and stored in an application buffer.
+After the download of a sufficient amount of data \(q\), which is in the order of a few video seconds, e.g. for YouTube, the video play out starts at the client.
+As soon as the video buffer falls below a certain threshold \(p\), the video stalls~\cite{Hossfeld2013c}.
+In the remainder of this work, we refer to this threshold policy as \(pq\)-policy.
 
 \subsection{Video Quality of Experience}\label{sec:application:background:application_qoe}
 \gls{HAS} adapts the video to the current network conditions.
@@ -38,17 +35,20 @@ Besides improved quality adaptation mechanisms~\cite{Sieber2013}, other approach
 Subjective studies showed that users prefer initial delays instead of stalling events~\cite{Hossfeld2012c}.
 An analytical framework for the dimensioning of appropriate video buffers for \gls{TCP} streaming shows that the initial buffering delay and the size of the buffer should be as small as possible, yet large enough to avoid buffer underflows~\cite{Yan2011}. 
 A concrete approach~\cite{Hossfeld2012b} determines the optimal, i.e. minimal, initial delay at the client.
-During this time, the the video buffer is filled such that no stalling occurs.
+During this time, the video buffer is filled such that no stalling occurs.
 Two buffer size adaptation policies are proposed by~\cite{Fiedler2014} which are evaluated by means of a fluid model in terms of freezing probability. 
 
-The authors of \cite{Luan2010} evaluate the impact of network dynamics and \gls{QoS} provision on user's video quality. 
+The authors of \cite{Luan2010} evaluate the impact of network dynamics and \gls{QoS} provision on users video quality. 
 An analytical framework models the playback buffer at the receiver as a \(G/G/1\) queue, however no \(pq\)-policy is considered. 
 Further, video quality is considered in terms of the start-up delay or fluency of video playback. 
 Based on that, adaptive playout buffer management schemes are proposed. 
 
+Considering both the video content as well as the available resources by using a proxy has been suggested to improve the users \gls{QoE}~\cite{Essaili2013} for \gls{HAS}.
+In~\cite{Xin2012} the authors suggest the use of a caching strategy, downloading video content according to a user's viewing history and network conditions.
+
 So far, no queueing system with \(pq\)-policy is applied to analyze \gls{QoE} for \gls{HTTP} video streaming and to dimension video buffers accordingly.
-In queueing theory, the related threshold policy is denoted as \(N\)-policy introduced by~\cite{Yadin1963} with \(N=p\) and \(q=0\); the server stops whenever the system becomes empty and resumes service when the number of waiting customers in the system, i.e. the video buffer in our case, reaches a threshold value \(N\).
-\refsec{sec:application:qoe_user_behaviour:system_model:steady_state} will show that in in contrast to the transient phase, in the steady state \(q\) has no influence on the performance. 
+In queueing theory, the related threshold policy is denoted as \(N\)-policy introduced by~\cite{Yadin1963} with \(p=0\) and \(q=N\); the server stops whenever the system becomes empty and resumes service when the number of waiting customers in the system, i.e. the video buffer in our case, reaches a threshold value \(N\).
+\refsec{sec:application:qoe_user_behaviour:system_model:steady_state} will show that in  contrast to the transient phase, in the steady state \(q\) has no influence on the performance. 
 
 Various researchers analysed the \(N\)-policy.
 In \cite{Zhang2004} the stationary joint distribution of queue length and the server's status for the \(GI/M/1\) is derived.

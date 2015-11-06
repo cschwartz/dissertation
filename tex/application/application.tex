@@ -7,11 +7,14 @@
 
 While the previous chapter focussed on the network and the impact of applications, vendors, and users thereon, this chapter shifts focus on the applications themselves.
 The Internet supports a multitude of different applications, including video streaming services, online gaming, file storage services, cloud office solutions, and uncountable more.
+In contrast to applications of earlier generations, todays' services are not standardised or under control by network operators but rather the result of free enterprise and entrepreneurship.
+The interaction of such applications with the network and other players such as cloud providers are not considered by the application developers.
+Deploying such applications can impact other Stakeholders, e.g. Signalling Storms interfering with the operation of mobile networks as discussed in \refsec{sec:network:network_traces}.
+As this is of no consequece to the application developer, they have no incentive to investigate the impact of their applications on other Stakeholders.
 %cite? cisco vni?
-In this chapter, we focus on two of the most prominent application types: Video streaming and file storage, chosen due to their impact on global traffic and frequency of use.
-In contrast to applications of earlier generations, todays services are not standardised or under control by network operators but rather the result of free enterprise and entrepreneurship.
+In this chapter, we study the impact of two of the most prominent application types: Video streaming and file storage, chosen due to their impact on global traffic and frequency of use.
 While in the last chapter we were able to rely on standard documents to model the systems under study, this option is no longer available when considering modern applications.
-Thus, we have to perform measurements or rely on studies of other researchers in order to obtain knowledge of both the systems under study as well as the related stakeholders.
+Thus, we perform measurements or take studies of other researchers into account in order to obtain knowledge of both the systems under study as well as the related stakeholders.
 
 Similar to \refchap{chap:network}, we identify a set of involved stakeholders and their respective key performance indicators and derive corresponding metrics.
 First, we consider the \emph{application provider}. 
@@ -19,18 +22,13 @@ In the case of the video streaming scenario, this role is realised by the video 
 We consider the video provider to be interested in two performance indicators: 
 \begin{enumerate*}
 \item user satisfaction, realised by a \gls{QoE} metric,
-\item cost reduction in compute and network infrastructure, realised by the amount of traffic transmitted to a user about to abort playback.
+\item cost reduction in compute and network infrastructure.
 \end{enumerate*}
 In the case of the file synchronisation scenario, we consider the application operator to be interested in user satisfaction, again realised by as \gls{QoE} metric, the mean time to synchronisation.
-Wasted traffic is not of concern in this scenario, as file synchronisations are usually not aborted.
 Second, we consider the \emph{network operator}.
-As in the last chapter, they are interested in reducing stress on the network infrastructure.
+As in the last chapter, they are interested in reducing load on the network infrastructure, in order to prevent cases similar to Signalling Storms.
 We measure this key performance indicator by considering the number of connections to the mobile network required to complete the synchronisation operation.
-Similarly to \refchap{chap:network}, we assume that the \emph{user} is interested in both a high \gls{QoE} as well long battery life for the used device, represented by the energy consumption metric. 
-
-In the current state of the art, video transmissions are considered from the perspective of the video provider or the user. 
-Neither network operators nor heterogeneous user profiles are considered.
-Studies of file synchronisation services do not consider effects of synchronisation scheduling mechanisms on user satisfaction or energy consumption.  
+Similarly to \refchap{chap:network}, we assume that the \emph{user} is interested in both a high \gls{QoE} as well long battery life for the used device, sometimes also considered a \gls{QoE} metric~\cite{Ickin2012}, represented by the energy consumption metric. 
 
 The contribution of this chapter is threefold:
 \begin{enumerate*}
@@ -42,7 +40,7 @@ The contribution of this chapter is threefold:
 The content from this chapter has been published in \cite{Schwartz2013b, Hossfeld2015, Schwartz2014a}.
 In \refsec{sec:application:background} we discuss the current state of the art regarding video transmission mechanisms and \gls{QoE} studies.
 Then, in \refsec{sec:application:lte_video} we discuss tradeoffs between different video transmission mechanisms, regarding the considered metrics.
-In \refsec{sec:application:qoe_user_behaviour} we study the impact of user preferences on the \gls{QoE} experienced during video streaming.
+In \refsec{sec:application:qoe_user_behaviour} we study the impact of user profiles on the \gls{QoE} experienced during video streaming.
 Finally, in \refsec{sec:application:cloud_file_synchronisation} we consider the impact of different file synchronisation scheduling algorithms on the relevant stakeholders.
 
 \input{application/background/background}
