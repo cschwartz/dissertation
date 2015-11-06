@@ -5,17 +5,16 @@
 \newcommand{\serviceprovisioning}{Provisioning\xspace}
 \newcommand{\streaming}{Streaming\xspace}
 
-While the previous chapter focussed on the network and the impact of applications, vendors, and users thereon, this chapter shifts focus on the applications themselves.
+While the previous chapter focussed on the network and the impact of applications, vendors, and users thereof, this chapter shifts focus on the applications themselves.
 The Internet supports a multitude of different applications, including video streaming services, online gaming, file storage services, cloud office solutions, and uncountable more.
 In contrast to applications of earlier generations, todays' services are not standardised or under control by network operators but rather the result of free enterprise and entrepreneurship.
-The interaction of such applications with the network and other players such as cloud providers are not considered by the application developers.
-Deploying such applications can impact other Stakeholders, e.g. Signalling Storms interfering with the operation of mobile networks as discussed in \refsec{sec:network:network_traces}.
-As this is of no consequece to the application developer, they have no incentive to investigate the impact of their applications on other Stakeholders.
+The interaction of such applications with the network and other players, e.g. cloud providers, are usually not considered by the application developers.
+Deploying such applications can impact other stakeholders, e.g. Signalling Storms interfering with the operation of mobile networks as discussed in \refsec{sec:network:network_traces}.
+As this is of no consequece to the application developer, they have no incentive to investigate the impact of their applications on other stakeholders.
 %cite? cisco vni?
 In this chapter, we study the impact of two of the most prominent application types: Video streaming and file storage, chosen due to their impact on global traffic and frequency of use.
 While in the last chapter we were able to rely on standard documents to model the systems under study, this option is no longer available when considering modern applications.
 Thus, we perform measurements or take studies of other researchers into account in order to obtain knowledge of both the systems under study as well as the related stakeholders.
-
 
 \begin{figure}
   \centering
@@ -23,7 +22,6 @@ Thus, we perform measurements or take studies of other researchers into account 
   \caption{Interactions between considered stakeholders}
   \label{fig:application:stakeholders}
 \end{figure}
-
 
 Similar to \refchap{chap:network}, we identify a set of involved stakeholders and their respective key performance indicators and derive corresponding metrics, as shown in \reffig{fig:application:stakeholders}.
 First, we consider the \emph{application provider}. 

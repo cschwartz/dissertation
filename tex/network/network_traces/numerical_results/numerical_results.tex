@@ -136,7 +136,7 @@ First, we consider the frequency of signalling messages induced at network compo
 In light of network outages caused by so called signalling storms, a large number of signalling messages leading to overload at network equipment, it is in the interest of a network operator to reduce the number of signalling messages arriving at the \gls{RNC}.
 One possible way to reduce the signalling frequency \gls{SF} is to modify network timer values, i.e., \gls{TDCH} and \gls{TFACH}.
 
-As discussed in \refsec{sec:network:background:energy_consumption_qoe}, the \gls{QoE} a user perceives while using his device is influenced by the battery life of the \gls{UE}.
+As discussed in \refsec{sec:network:background:energy_consumption_qoe}, the \gls{QoE} a user perceives while using the device is influenced by the battery life of the \gls{UE}.
 Thus, the second metric considered is the device’s power drain which is influenced by the used network model and associated timer settings.
 As described in \refsec{sec:network:network_traces:calculating_metrics}, based on a measurement trace for an application we use \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} to infer the state transitions occurring during the use of the application.
 Then, we calculate the relative time spent in each state and use \reftab{tab:network:network_traces:calculating_metrics:power_consumption} to compute the mean power
@@ -281,7 +281,7 @@ Thus, the policy change based on one application brings no significant gain to o
 However, from a user's point of view, the power drain \gls{PD} increased from \SI{121}{\milli\watt} to \SI{183}{\milli\watt}.
 Again, we assume the user activates fast dormancy to deal with the increase in power drain of more than $50\%$.
 This results in a decrease of power drain \gls{PD} to \SI{117}{\milli\watt}, and an increase of overall signalling frequency \gls{SF} to \(0.76\) messages per second.
-By changing the value without considering all applications, the network operator has decreased the \gls{QoE} for other users, and worsened his overall situation.
+By changing the value without considering all applications, the network operator has decreased the \gls{QoE} for other users, and worsened the overall situation.
 Thus, due to the large number of applications it seems impossible to optimise the \gls{TDCH} timeout to reduce the signalling frequency without negatively impacting the users \gls{QoE} in unexpected ways.
 
 There exist applications, like Twitter and Aupeo, where optimisation by modifying the \gls{TDCH} values can provide acceptable results.
