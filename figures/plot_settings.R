@@ -22,7 +22,7 @@ linetypes.for <- function(values) {
   seq(1, length(unique(values)))
 }
 
-label.tdch <- expression(T[DCH])
+label.tdch <- expression(paste(T[DCH], ' ', (s))
 label.ea <- expression('E[A]')
 label.power.drain <- 'Power Drain PD'
 label.signalling.intensity <- 'Signalling Intensity SI'
@@ -36,7 +36,7 @@ label.lag <- 'Lag Length'
 label.interarrival.sample.autocorrelation <- 'Sample Autocorrelation\n of Interarrival Times'
 label.page.load.time <- 'Page Load Time (s)'
 label.qoe <- 'Mean Opinion Score'
-label.bandwidth <- expression(paste('Bandwidth b ', (Mbit^-1/s)))
+label.bandwidth <- expression(paste('Bandwidth b ', (Mbit^-1)))
 label.bandwidth.at.time.t <- expression(paste("Bandwidth ", b[d(t)], " (", Mbit^-1, ")"))
 label.cdf.bandwidth <- expression(P(B <= b))
 label.direction <- 'Bandwidth'
@@ -83,6 +83,15 @@ label.number.servers <- 'Number of Available Servers'
 label.parameter <- 'Parameter'
 label.waiting.time.ms <- "Mean Waiting Time (ms)"
 
+unit.labeller <- function(unit) {
+  passed.unit <- substitute(unit)
+  
+  function(variable, value) {
+    do.call(expression, lapply(levels(value)[value], function(value) {
+      bquote(paste(.(value), ' ', .(passed.unit)))
+    }))
+  }
+}
 
 font.size <- 8
 annotation.font.size <- (4/15) * font.size

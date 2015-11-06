@@ -15,7 +15,7 @@ p <- ggplot(data) +
                  y = connections,
                  color = buffer.lower,
                  shape = buffer.size)) +
-  facet_grid(. ~ bitrate, scale = "free") +
+  facet_grid(. ~ bitrate, scale = "free", labeller = unit.labeller((Mbit^-1))) +
   labs(x = label.connection.count,
        y = label.wasted.traffic,
        color = label.buffer.lower,
