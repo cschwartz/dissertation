@@ -2704,8 +2704,22 @@
 					<string>Circle</string>
 					<key>Style</key>
 					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Color</key>
+							<dict>
+								<key>b</key>
+								<string>0.913725</string>
+								<key>g</key>
+								<string>0.705882</string>
+								<key>r</key>
+								<string>0.337255</string>
+							</dict>
+						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -2903,8 +2917,22 @@ B\sub D}</string>
 					<string>Circle</string>
 					<key>Style</key>
 					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Color</key>
+							<dict>
+								<key>b</key>
+								<string>0.913725</string>
+								<key>g</key>
+								<string>0.705882</string>
+								<key>r</key>
+								<string>0.337255</string>
+							</dict>
+						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -2943,6 +2971,8 @@ B\sub D}</string>
 					<dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -2980,8 +3010,22 @@ B\sub D}</string>
 					<string>Circle</string>
 					<key>Style</key>
 					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Color</key>
+							<dict>
+								<key>b</key>
+								<string>0.913725</string>
+								<key>g</key>
+								<string>0.705882</string>
+								<key>r</key>
+								<string>0.337255</string>
+							</dict>
+						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -3176,8 +3220,22 @@ B\sub D}</string>
 					<string>Circle</string>
 					<key>Style</key>
 					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Color</key>
+							<dict>
+								<key>b</key>
+								<string>0.913725</string>
+								<key>g</key>
+								<string>0.705882</string>
+								<key>r</key>
+								<string>0.337255</string>
+							</dict>
+						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -3213,6 +3271,8 @@ B\sub D}</string>
 					<dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -3250,8 +3310,22 @@ B\sub D}</string>
 					<string>Circle</string>
 					<key>Style</key>
 					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Color</key>
+							<dict>
+								<key>b</key>
+								<string>0.913725</string>
+								<key>g</key>
+								<string>0.705882</string>
+								<key>r</key>
+								<string>0.337255</string>
+							</dict>
+						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -3446,8 +3520,22 @@ B\sub D}</string>
 					<string>Circle</string>
 					<key>Style</key>
 					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Color</key>
+							<dict>
+								<key>b</key>
+								<string>0.913725</string>
+								<key>g</key>
+								<string>0.705882</string>
+								<key>r</key>
+								<string>0.337255</string>
+							</dict>
+						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -3483,6 +3571,8 @@ B\sub D}</string>
 					<dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -3791,6 +3881,8 @@ S\sub I\nosupersub /B\sub D}</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -3833,6 +3925,8 @@ S\sub I\nosupersub /B\sub D}</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -3875,6 +3969,8 @@ S\sub I\nosupersub /B\sub D}</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -4022,6 +4118,11 @@ Algorithm Options}</string>
 						<string>0.337255</string>
 					</dict>
 				</dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
 				<key>stroke</key>
 				<dict>
 					<key>Draws</key>
@@ -4111,6 +4212,11 @@ Algorithm Options}</string>
 					<key>Draws</key>
 					<string>NO</string>
 				</dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
 				<key>stroke</key>
 				<dict>
 					<key>CornerRadius</key>
@@ -4147,6 +4253,11 @@ Algorithm Options}</string>
 						<key>r</key>
 						<string>0.337255</string>
 					</dict>
+				</dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
 				</dict>
 				<key>stroke</key>
 				<dict>
@@ -4207,6 +4318,8 @@ Algorithm Options}</string>
 						<key>r</key>
 						<string>0</string>
 					</dict>
+					<key>Draws</key>
+					<string>NO</string>
 					<key>ShadowVector</key>
 					<string>{0, 2}</string>
 				</dict>
@@ -4273,6 +4386,8 @@ Algorithm Options}</string>
 						<key>r</key>
 						<string>0</string>
 					</dict>
+					<key>Draws</key>
+					<string>NO</string>
 					<key>ShadowVector</key>
 					<string>{0, 2}</string>
 				</dict>
@@ -4355,7 +4470,13 @@ Algorithm Options}</string>
 			<key>Shape</key>
 			<string>Circle</string>
 			<key>Style</key>
-			<dict/>
+			<dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+			</dict>
 		</dict>
 		<dict>
 			<key>Bounds</key>
@@ -4409,6 +4530,8 @@ Algorithm Options}</string>
 						<key>r</key>
 						<string>0</string>
 					</dict>
+					<key>Draws</key>
+					<string>NO</string>
 					<key>ShadowVector</key>
 					<string>{0, 2}</string>
 				</dict>
@@ -4475,6 +4598,8 @@ Algorithm Options}</string>
 						<key>r</key>
 						<string>0</string>
 					</dict>
+					<key>Draws</key>
+					<string>NO</string>
 					<key>ShadowVector</key>
 					<string>{0, 2}</string>
 				</dict>
@@ -4643,6 +4768,8 @@ Algorithm Options}</string>
 						<key>r</key>
 						<string>0</string>
 					</dict>
+					<key>Draws</key>
+					<string>NO</string>
 					<key>ShadowVector</key>
 					<string>{0, 2}</string>
 				</dict>
@@ -4709,6 +4836,8 @@ Algorithm Options}</string>
 						<key>r</key>
 						<string>0</string>
 					</dict>
+					<key>Draws</key>
+					<string>NO</string>
 					<key>ShadowVector</key>
 					<string>{0, 2}</string>
 				</dict>
@@ -4807,6 +4936,8 @@ Algorithm Options}</string>
 			<dict>
 				<key>shadow</key>
 				<dict>
+					<key>Draws</key>
+					<string>NO</string>
 					<key>ShadowVector</key>
 					<string>{0, 2}</string>
 				</dict>
@@ -7214,6 +7345,8 @@ Bandwidth B\sub P}</string>
 			<dict>
 				<key>shadow</key>
 				<dict>
+					<key>Draws</key>
+					<string>NO</string>
 					<key>ShadowVector</key>
 					<string>{0, 2}</string>
 				</dict>
@@ -7583,6 +7716,8 @@ B\sub U}</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -7632,6 +7767,8 @@ B\sub U}</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -7676,6 +7813,8 @@ B\sub U}</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -7727,12 +7866,17 @@ B\sub U}</string>
 					<key>Color</key>
 					<dict>
 						<key>b</key>
-						<string>0.74902</string>
+						<string>0.913725</string>
 						<key>g</key>
-						<string>0.74902</string>
+						<string>0.705882</string>
 						<key>r</key>
-						<string>0.74902</string>
+						<string>0.337255</string>
 					</dict>
+				</dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
 				</dict>
 				<key>stroke</key>
 				<dict>
@@ -7959,6 +8103,11 @@ B\sub U}</string>
 										<string>0.74902</string>
 									</dict>
 								</dict>
+								<key>shadow</key>
+								<dict>
+									<key>Draws</key>
+									<string>NO</string>
+								</dict>
 								<key>stroke</key>
 								<dict>
 									<key>Draws</key>
@@ -8013,6 +8162,8 @@ B\sub U}</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -8052,6 +8203,8 @@ B\sub U}</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -8096,6 +8249,8 @@ B\sub U}</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 							<key>ShadowVector</key>
 							<string>{0, 2}</string>
 						</dict>
@@ -8152,6 +8307,11 @@ B\sub U}</string>
 								<string>0.592157</string>
 							</dict>
 						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
 					</dict>
 					<key>Text</key>
 					<dict>
@@ -8191,6 +8351,11 @@ B\sub U}</string>
 								<string>0.337255</string>
 							</dict>
 						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
 					</dict>
 					<key>Text</key>
 					<dict>
@@ -8229,6 +8394,11 @@ B\sub U}</string>
 								<key>r</key>
 								<string>0.592157</string>
 							</dict>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
 						</dict>
 						<key>stroke</key>
 						<dict>
@@ -8274,6 +8444,11 @@ B\sub U}</string>
 								<string>0.337255</string>
 							</dict>
 						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
 						<key>stroke</key>
 						<dict>
 							<key>Width</key>
@@ -8312,6 +8487,8 @@ B\sub U}</string>
 			<dict>
 				<key>shadow</key>
 				<dict>
+					<key>Draws</key>
+					<string>NO</string>
 					<key>ShadowVector</key>
 					<string>{0, 2}</string>
 				</dict>
@@ -8337,6 +8514,8 @@ B\sub U}</string>
 			<dict>
 				<key>shadow</key>
 				<dict>
+					<key>Draws</key>
+					<string>NO</string>
 					<key>ShadowVector</key>
 					<string>{0, 2}</string>
 				</dict>
@@ -8390,7 +8569,7 @@ B\sub U}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-09-08 09:42:42 +0000</string>
+	<string>2015-11-06 06:55:54 +0000</string>
 	<key>Modifier</key>
 	<string>Christian Schwartz</string>
 	<key>NotesVisible</key>
@@ -8471,7 +8650,7 @@ B\sub U}</string>
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{2167, 17}, {1272, 1160}}</string>
+		<string>{{43, 0}, {1272, 877}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
@@ -8485,7 +8664,7 @@ B\sub U}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{4.75, 0}, {245, 250.75}}</string>
+		<string>{{21.25, 0}, {248.5, 183.75}}</string>
 		<key>Zoom</key>
 		<real>4</real>
 		<key>ZoomValues</key>

@@ -14,7 +14,7 @@ p <- ggplot(data) +
                  y = power,
                  color = buffer.lower,
                  shape = buffer.size)) +
-  facet_grid(. ~ bitrate, scale = "free") +
+  facet_grid(. ~ bitrate, scale = "free", labeller = unit.labeller((Mbit^-1))) +
   labs(x = label.connections,
        y = label.energy,
        color = label.buffer.lower,
