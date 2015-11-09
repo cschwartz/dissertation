@@ -22,7 +22,7 @@ linetypes.for <- function(values) {
   seq(1, length(unique(values)))
 }
 
-label.tdch <- expression(paste(T[DCH], ' ', (s))
+label.tdch <- expression(paste(T[DCH], ' ', (s)))
 label.ea <- expression('E[A]')
 label.power.drain <- 'Power Drain PD'
 label.signalling.intensity <- 'Signalling Intensity SI'
