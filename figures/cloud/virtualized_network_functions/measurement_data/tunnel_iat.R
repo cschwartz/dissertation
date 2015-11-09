@@ -1,7 +1,11 @@
 data <- read.csv('tunnel_iat.csv')
 data$origin <- factor(data$origin)
 
-p <- ggplot(data, aes(x = IAT,
+set.seed(23)
+
+sampled.data <- data %>% sample_n(., 10000)
+
+p <- ggplot(sampled.data, aes(x = IAT,
                       group = origin,
                       color= origin)) +
   geom_line(stat = 'ecdf') +

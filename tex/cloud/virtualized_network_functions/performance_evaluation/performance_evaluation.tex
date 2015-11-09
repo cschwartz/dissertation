@@ -76,15 +76,14 @@ Note, that both the scenario with \(30\) servers and \(150\) maximum tunnels per
 
 \begin{figure}
   \centering
-  \includegraphics{cloud/virtualized_network_functions/performance_evaluation/blocking-comparison}
-  \caption{Relative increase of blocking probability on the number of servers compared to the traditional \gls{GGSN}; with the \(4500\) maximum tunnels per server being on a single server, \(150\) on \(30\), and \(75\) on \(60\) servers}
+  \includegraphics{cloud/virtualized_network_functions/performance_evaluation/figures/blocking_comparison}
+  \caption{Impact of blocking probability on the number of servers compared to the traditional \gls{GGSN}; with the \(4500\) maximum tunnels per server being on a single server, \(150\) on \(30\), and \(75\) on \(60\) servers}
   \label{fig:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn:blocking_comparison}
 \end{figure}
 
-Next, we take a look at the blocking probability of the virtual \gls{GGSN} system in \reffig{fig:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn:blocking_comparison} and compare it to the results from the traditional \gls{GGSN} model.
-We compare the blocking probability of the traditional \gls{GGSN} system dimensioned for \(4500\) concurrent tunnels with the virtual \gls{GGSN}.
-The figure shows the relative blocking probability when compared with the traditional \gls{GGSN} model.
-We observe that, considering the start up and shut down time of \SI{300}{\second}, the blocking probability increases by a factor of \(1.48\) if the capacity of each server is set to \(75\), i.e. \(\frac{1}{60}\) of the original server capacity, while \(27\) of all \(60\) servers can be turned of or used for other purposes at \SI{50}{\percent} of the time.
+Next, we study the blocking probability of the virtual \gls{GGSN} system in \reffig{fig:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn:blocking_comparison} and compare it to the results from the traditional \gls{GGSN} model with both systems dimensioned for \(4500\) tunnels.
+We observe that, considering the start up and shut down time of \SI{300}{\second}, the blocking probability increases by a factor of \(1.46\) if the the virtual \gls{GGSN} is comprise of \(60\) instances dimensioned for \(75\) concurrent tunnels, i.e. \(\frac{1}{60}\) of the original server capacity.
+In this case \(27\) of all \(60\) servers can be turned off or used for other purposes at \SI{50}{\percent} of the time.
 We conclude, that choosing more powerful servers decreases the blocking probability but reduces the potential to disable servers.
 
 So far we have considered a conservative start up and shut down time of servers of 5 minutes, which can potentially occur if current generation physical servers are used.
@@ -97,7 +96,7 @@ Afterwards, the influence of varying server start and stop times on a fixed comb
 
 \begin{figure}
   \centering
-  \includegraphics{cloud/virtualized_network_functions/performance_evaluation/compare_util_block}
+  \includegraphics{cloud/virtualized_network_functions/performance_evaluation/figures/compare_util_block}
   \caption{Trade-off between blocking probability and mean resource utilization with regard to maximum number of instances, maximum number of tunnels per server, and start up and shut down time}
   \label{fig:cloud_virtualized_network_functions:startup_shutdown:compare_util_block}
 \end{figure}
@@ -109,11 +108,11 @@ In addition to the previous effects, we notice that a higher start up and shut d
 
 \begin{figure}
   \centering
-  \includegraphics{cloud/virtualized_network_functions/performance_evaluation/compare-maxinstances-block}
+  \includegraphics{cloud/virtualized_network_functions/performance_evaluation/figures/compare_maxinstances_block}
   \caption{Influence of start up and shut down time on blocking probability with regard to different numbers of servers}
   \label{fig:cloud_virtualized_network_functions:startup_shutdown:compare_maxinstances_block}
 \end{figure}
-
+ 
 In order to study this behavior in more detail, we focus on a specific scenario in \reffig{fig:cloud_virtualized_network_functions:startup_shutdown:compare_maxinstances_block}, where \(5000\) total tunnels should be supported by the system.
 In order to achieve this goal, we consider three types of instances, with the server capacity varying between \(50\) and \(500\).
 In each case we change the start up and shut down time between \SIrange{60}{300}{\second}.

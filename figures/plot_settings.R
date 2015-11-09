@@ -91,7 +91,9 @@ label.number.instances <- 'Active Instances I'
 label.cdf.number.instances <- expression(P(I <= i))
 label.max.instances <- expression(paste('Maximum Number of Active Instances ', S[max]))
 label.max.tunnels <- expression(paste('Maximum Number of Tunnels ', n))
-label.relative.blocking.probability <- 'Relative Increase of Blocking Probability'
+label.blocking.probability <- expression(paste('Blocking Probability ', p[B]))
+label.mean.resource.utilization <- expression(paste('Mean Tunnel Count')) 
+label.startstop.duration <- expression(paste('Start Up and Shut Down Time ', (s)))
 
 unit.labeller <- function(unit) {
   passed.unit <- substitute(unit)
