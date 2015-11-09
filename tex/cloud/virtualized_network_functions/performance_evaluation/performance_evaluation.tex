@@ -1,6 +1,7 @@
 \subsection{Performance Evaluation}\label{sec:cloud:virtualized_network_functions:performance_evaluation}
 
-We implement the models introduced in \refsec{sec:cloud:virtualized_network_functions:model} using a \gls{DES} with the SimPy~\cite{SimPy2015} package as foundation. Our implementation as well as our considered scenarios are also publicly available\footnote{\url{https://github.com/fmetzger/ggsn-simulation/},\url{https://github.com/cschwartz/ggsn-simulation-studies/}} as a reference.
+We implement the models introduced in \refsec{sec:cloud:virtualized_network_functions:model} using a \gls{DES} with the SimPy~\cite{SimPy2015} package as foundation.
+The implementation\footnote{\url{https://github.com/fmetzger/ggsn-simulation/}} as well as the considered scenarios\footnote{\url{https://github.com/cschwartz/ggsn-simulation-studies/}} are also publicly available as a reference.
 To be in line with the measurement data we consider a simulation time of 7 days for all simulation scenarios, with a transient phase of 60 minutes accounted for.
 Ten replications of each scenario were performed.
 All error bars given in this section show the \SIrange{5}{95}{\percent} quantiles of all replications.
@@ -68,7 +69,8 @@ Therefore, we study these parameters first.
 \end{figure}
 
 In \reffig{fig:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn:instanceuse_multiserver} the \gls{CDF} of the number of active servers for four different virtual \gls{GGSN} configurations is displayed.
-% First, we study the behavior of a virtual \gls{GGSN} with 30 servers, where each server can support 75 or 150 tunnels.  We compare this with a virtual \gls{GGSN} with 60 servers and again 75 or 150 tunnels.
+First, we study the behavior of a virtual \gls{GGSN} with \(30\) servers, where each server can support \(100\) or \(150\) tunnels.  
+We compare this with a virtual \gls{GGSN} with \(50\) servers and again \(75\) or \(150\) tunnels.
 We observe, that increasing the number of supported tunnels per server allows a larger percentage of servers to be shutdown or used for other tasks. This demonstrates the scaling capability of the virtualized model quite well.
 Note, that both the scenario with \(30\) servers and \(150\) maximum tunnels per server as well as the scenario with \(60\) servers and \(75\) maximum tunnels per server share the same maximum amount of tunnels, i.e. \(4500\), being right at the center of the interesting range of candidates.
 

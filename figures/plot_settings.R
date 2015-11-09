@@ -82,6 +82,16 @@ label.pareto <- 'Pareto Optimal'
 label.number.servers <- 'Number of Available Servers'
 label.parameter <- 'Parameter'
 label.waiting.time.ms <- "Mean Waiting Time (ms)"
+label.tunnel.iat <- 'Tunnel Interarrival Time t (s)'
+label.cdf.iat <- expression(P(T <= t))
+label.distribution <- 'Distribution'
+label.tunnel.duration <- 'Tunnel Duration d (s)'
+label.cdf.duration <- expression(P(D <= d))
+label.number.instances <- 'Active Instances I'
+label.cdf.number.instances <- expression(P(I <= i))
+label.max.instances <- expression(paste('Maximum Number of Active Instances ', S[max]))
+label.max.tunnels <- expression(paste('Maximum Number of Tunnels ', n))
+label.relative.blocking.probability <- 'Relative Increase of Blocking Probability'
 
 unit.labeller <- function(unit) {
   passed.unit <- substitute(unit)
