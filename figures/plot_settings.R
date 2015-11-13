@@ -94,7 +94,16 @@ label.max.tunnels <- expression(paste('Maximum Number of Tunnels ', n))
 label.blocking.probability <- expression(paste('Blocking Probability ', p[B]))
 label.mean.resource.utilization <- expression(paste('Mean Tunnel Count')) 
 label.startstop.duration <- expression(paste('Start Up and Shut Down Time ', (s)))
-
+label.campaign.interarrival <- expression('Campaign Interarrival Time t'[c]*' (h)')
+label.cdf.campaign.interarrival <- expression(P(T <= t[c]))
+label.campaign.size <- expression('Campaign Interarrival Time ', Theta)
+label.cdf.campaign.size <- expression(P(T <= Theta))
+label.number.of.workers <- 'Number of Workers c'
+label.worker.utilization <- expression(paste('Worker Utilization ', rho))
+label.mean.task.length <- 'Mean Task Length E[B] (s)'
+label.mean.task.delay <- 'Task Pre-processing Delay E[D] (s)'
+label.campaign.arrival.distribution <- 'Campaign Arrival'
+label.campaign.rate <- 'Rate'
 unit.labeller <- function(unit) {
   passed.unit <- substitute(unit)
   
