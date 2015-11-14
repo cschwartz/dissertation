@@ -73,4 +73,29 @@ During simulation, we record the mean worker utilization \(\workerUtilization\) 
 In this section, we validate the simulative model by comparing the metrics \(\workerUtilization\) and \(\preTaskProcessingDelay\) for a representative parameter set with those obtained from the analytic model.
 We consider exponential campaign inter-arrival times with a campaign rate of \SI{4}{\per\hour}  campaigns per hour, and a campaign size \campaignSize geometrically distributed with a mean of \(100\) tasks per campaign.
 For the task duration \taskDuration we consider a set of suitable values, to accommodate for different task types, between \SIrange{60}{300}{\minute} per task.
-In both simulation and analytical model, we consider between $5$ and $50$ workers.
+In both simulation and analytical model, we consider between \(5\) and \(50\) workers.
+
+\begin{figure*}
+	\centering
+	\begin{subfigure}{\columnwidth}
+		\includegraphics{cloud/crowdsourcing/model/figures/comparison_utilization}
+		\caption{Worker Utilization}
+		\label{fig:cloud:crowdsourcing:validation:model:utilization}
+	\end{subfigure}
+
+	\begin{subfigure}{\columnwidth}
+		\includegraphics{cloud/crowdsourcing/model/figures/comparison_task_delay}
+		\caption{Task Pre-processing Delay}
+		\label{fig:cloud:crowdsourcing:validation:model:task_delay}
+	\end{subfigure}
+	\caption{Comparison of Simulation with Analytic Model}
+	\label{fig:cloud:crowdsourcing:validation:model}
+\end{figure*}
+
+Results are shown in \reffig{fig:cloud:crowdsourcing:validation:model}.
+Simulative respective analytical results are shown by different line types.
+However, due to the good fit of the analytic and simulative model, the line showing the simulative results completely covers the analytic results.
+For the simulation we give \SI{95}{percent} confidence intervals based on \(10\) replications.
+In this, and all following figures, confidence intervals are given as error bars.
+For each simulation we consider a simulation duration of \SI{1500}{\hour} hours and accommodate for a transient phase of \SI{150}{\hour} hours.
+We observe that for both worker utilization and task pre-processing delays, the analytical results are well within the confidence intervals.
