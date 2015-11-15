@@ -2,8 +2,7 @@
 
 \newcommand{\blockingprobability}[0]{p_B}
 \newcommand{\maxServers}[0]{S_{\max}}
-
-\cite{Metzger2014a}
+%\cite{Metzger2014a}
 In this section we apply the theoretical methods discussed in \refsec{sec:cloud:data_centers} and apply them to the real world challenge of virtualised network functions.
 We consider the examplary use case of a virtualised \gls{GGSN}.
 Here, network operators consider the virtualisation of perviously physical middleboxes, in order to gain elasticity and reduce costs.
@@ -11,7 +10,7 @@ Here, network operators consider the virtualisation of perviously physical middl
 In contrast to the last section, we assume that a loss model, as connection establishment requests are not queued in reality but time out if no capacity is available.
 Thus, we consider the blocking probability instead of the mean waiting time as a metric.
 %TODO: anderes wort für running.
-As a second metric we consider the number of provisioned servers which need to kept running 
+As a second metric we consider the number of provisioned servers which need to kept powered on. 
 
 This section is structured as follows:
 In \refsec{sec:cloud:virtualized_network_functions:model} we first introduce a model for a traditional \gls{GGSN}, then extend it to be applicable for study of a virtualised \gls{GGSN}.
