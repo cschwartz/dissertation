@@ -1,0 +1,65 @@
+\section{Background}\label{sec:cloud:related_work}
+This section provides related work relevant to this chapter.
+First, we discuss studies relevant to \refsec{sec:cloud:data_centers}, especially considering related work regarding energy efficiency.
+Then, we focus on research on mobile network traffic characteristics, to be used in \refsec{sec:cloud:virtualized_network_functions}.
+Finally, we focus on crowdsourcing research and provide background information for \refsec{sec:cloud:crowdsourcing}.
+
+\subsection{Energy Efficiency in Data Centers}
+Several papers have been published, proposing new architectures for data centers which provide more resilience or are cheaper to deploy~\cite{Al-Fares2008, Greenberg2009, Guo2009}.
+
+Heller et al.~\cite{Heller2010} published a paper considering the trade-off between energy efficiency and resilience.
+They use the fat-tree architecture similar to~\cite{Al-Fares2008, Greenberg2009} which is based on commercial of-the-shelf network equipment.
+During normal network operation, the additional switches used for backup paths are switched off and only turned on in case of high load or network failures.
+The proposed mechanism is implemented in a testbed where OpenFlow is used for the switch management.
+However, they only turn off the switches and not the servers, which only consume between \SIrange{5}{10}{\percent} of the overall energy consumption.
+
+Kliazovich et al.~\cite{Kliazovich2010} developed a simulation environment for computing the energy consumption of different data center architectures. In addition to showing the share of network and server energy consumption, they present how much energy can be saved while using dynamic voltage and frequency scaling or dynamic power management.
+
+One of the first paper presenting a dynamic resource management according to the offered load  is presented by Chase et al.~\cite{Chase2001}. They propose an architecture where server clusters are dynamically resized in accordance to the negotiated SLAs.
+
+A more detailed approach is presented by Chen et al.~\cite{Chen2005}. Three solutions are proposed to reduce the power consumption of servers in a data center.
+For the first solution, the workload behavior of the near future is predicted while the second solution is a reactive solution, using periodic feedback of system execution.
+The third proposed solution is a hybrid solution using a combination of prediction and periodic feedback.
+
+The goal of the authors in~\cite{Mazzucco2010a, Dyachuk2010, Mazzucco2010b} is to run a minimum number of servers in a data center to maximize the revenue of the service provider.
+The considered data center hosts a webpage application. While in~\cite{Mazzucco2010a}, the authors do not consider user impatience and the fact that servers consume energy without producing revenue during wake up, \cite{Mazzucco2010b} takes both into account. In~\cite{Dyachuk2010}, the authors introduced a policy for dynamically adapting the number of running servers. The goal of the paper was to find the best trade-off between consumed power and service quality.
+
+In~\cite{Gandhi2010} the authors present a model for server farms using exponential inter-arrival, service and setup times. They consider different policies for powering down servers for finite and infinite servers. 
+
+
+\subsection{Mobile Network Traffic Characteristics}
+The authors of \cite{Metzger2014}, include a co-author of the work~\cite{Metzger2014a} providing the basis for \refsec{sec:cloud:virtualized_network_functions} provide a detailed evaluation of mobile network traces taken from a large european mobile network operator. 
+
+Having access to core network datasets, the authors of~\cite{Shafiq2011, Paul2011} both take the approach of looking at high-level user traffic characteristics, focusing on temporal and spatial variations of user traffic volume and investigating the influence of different devices on this metric.
+Additional user flow and session traffic metrics are being studied in~\cite{Zhang2012} with the conclusion that, in comparison to wired traffic, short flows are occurring more frequently.
+In 2006, a core network measurement study of various user traffic related patterns was conducted, providing an initial insight into \gls{PDP} context activity and durations~\cite{Svoboda2006}.
+
+In~\cite{Lee2007}, mobile network traces are used to simulate a malicious signaling storm by transmitting low-volume user plane traffic with specially crafted inter-departure times, causing signaling to occur constantly.
+The authors of~\cite{Romirer-Maierhofer2008} investigate influence of core network elements on one-way delays in mobile networks.
+
+\subsection{Crowdsourcing}
+The term crowdsourcing is a neologism combining the terms `crowd' and `outsourcing'.
+It was first introduced by Jeff Howe in 2006~\cite{Howe2006} and describes a new form of work organisation with a smaller granularity than traditional forms~\cite{Hossfeld2011c}.
+In contrast to traditional forms of work organization, work is divided in individual \emph{tasks} that can be completed independent of each others. 
+These tasks are not directly assigned to an employee but published on a \emph{crowdsourcing platform} in form of an open call.
+Users publishing tasks on crowdsourcing platforms are referred to as \emph{employer}, users accepting and accomplishing tasks as \emph{workers}.
+Workers can freely choose which task to work on, other than in traditional forms of work organization.
+In commercial applications, workers are usually paid for successfully completed tasks and do not receive hourly wages.
+Crowdsourcing platforms act as mediators in this environment, i.e., provide infrastructure for posting tasks and submitting task results and negotiate in case of disagreements between workers and employers.
+
+The crowdsourcing approach is used for a large variety of nonprofit, academic, and commercial applications, including information gathering during crisis~\cite{Morrow2011}, analysis of astronomic images~\cite{Raddick2010}, and by numerous large scale labour providers, e.g., Amazon Mechanical Turk~(MTurk)\footnote{\url{http://www.mturk.com}, Accessed Jul 2015}, Microworkers\footnote{\url{http://www.microworkers.com}, Accessed Jul 2015}, and Innocentive\footnote{\url{http://www.innocentive.com}, Accessed Jul 2015}.
+Depending on the specific use case, the features of the crowdsourcing platform, the workers, and employers differ.
+Therefore, we focus in this work on commercial micro-tasking platforms for the development and evaluation of our model.
+
+Commercial micro-tasking platforms like MTurk or Microworkers are specialized labour provides for very fine granular tasks that can be easily completed a humans within a few second to a few minutes, but cannot be solved using automatic approaches. 
+These tasks include, e.g., image tagging, text creation, or subjective ratings.
+As the tasks are highly repetitive, they are often submitted by the employers in from of \emph{campaigns}, representing batches of similar tasks.
+
+Several efforts have already been made to describe certain aspects of micro-tasking platforms in analytic models. 
+Faradani et al.~\cite{Faradani2011} modelled the arrival process of workers using a non-homogeneous Poisson process in order to derive optimal pricing strategies for the employers.
+The model is based on a crawled dataset from MTurk including about 130,000 campaigns with in total over 4,000,000 tasks.
+Wang et al.~\cite{Wang2011} analysed the completion time of crowdsourcing campaigns using a survival analysis based on a crawled dataset from MTurk consisting of more than 160,000 campaigns and approximatly 6,700,000 tasks over a period of 15 months.
+They were able to show the impact of time-independent factors, e.g., the payment or the type of the task, on the completion time.
+In order to optimize the costs and the completion times of single jobs, Bernstein et al.~\cite{Bernstein2012} use a \(M/M/c\) queueing model to describe a crowdsourcing retainer approach.
+Here, workers are paid for staying online to wait for potentially upcoming tasks.
+The model was validated in a proof-of-concept experiment with 500 users on MTurk.
