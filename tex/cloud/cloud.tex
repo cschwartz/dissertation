@@ -4,11 +4,11 @@ In this chapter we consider trade-offs stakeholders face in cloud scenarios.
 Traditionally, a cloud is a set of compute and network resources, which can be elastically rented by customers.
 In recent time, it has become usefull to refer to this type of cloud as \emph{machine cloud}, in order to better differentiate from the \emph{human cloud}.
 The human cloud provides properties from the machine cloud, e.g. elasticity and reliability, to the crowdsourcing market by enabling employers to offer tasks to workers available on demand.
-We consider multiple scenarios:
+In this chapter we consider multiple scenarios:
 First, we study the role of a cloud operator providing virtual resources to customers.
-Then, we consider decissions faced by the a user of a cloud, deploying virtualised network functions in a cloud.
+Then, we consider decissions faced by the a user of a cloud who is deploying virtualised network functions in a cloud.
 Finally, we investigate resource dimensioning in human clouds.
-Regardless of the specific scenario, the number of resoures available impact the key performance indicators of all participating stakeholders, and is thus subject to optimisation.
+Regardless of the specific scenario, the number of resoures available impact the \glspl{KPI} of all participating stakeholders, and is thus subject to optimisation.
 
 \begin{figure}
   \centering
@@ -17,18 +17,18 @@ Regardless of the specific scenario, the number of resoures available impact the
   \label{fig:cloud:model}
 \end{figure}
 
-Thus, we first provide an overview of the involved stakeholders and key performance indicators in \reffig{fig:cloud:model}.
-If we are considering the operation of a machine cloud, both the cloud operator and the cloud user need to be considered.
+Thus, we first provide an overview of the involved stakeholders and \glspl{KPI} in \reffig{fig:cloud:model}.
+If we study the operation of a machine cloud, both the cloud operator and the cloud user need to be considered.
 The cloud operator is interested in increasing revenue, i.e. attracting a high number of customers, and decrease financial expendiature, e.g. by reducing consumed energy.
 The customer of a cloud operator is interested in good \glspl{SLA}, for example a low delay before processing of a job can begin.
-The network function operator, performing the role of a customer in the previous scenario, is interrested in provisioning a minimal number of resources from the cloud operator, in order to reduce cost, while in turn provising a sufficient \gls{SLA} to its customers.
+In the second scenario, the network function operator taking the role of a customer in the previous scenario, is interrested in provisioning a minimal number of resources from the cloud operator, in order to reduce cost, while in turn providing a sufficient \gls{SLA} to its customers.
 The users of the virtualised network functions demand a sufficient availability of the provided service.
-In case of the human cloud scenario, the cloud operator has to satisfy two stalkeholders with conflicting interests.
+Finally, in case of the human cloud scenario, the cloud operator has to satisfy two stalkeholders with conflicting interests.
 On the one hand, employers are interrested in a fast completion of the offered tasks.
 On the other hand, workers are interrested in obtaining a high income.
 These goals are clearly conflicting, as fast completion can be obtained by providing a high number of available workers.
 However, income per workers increases if the tasks are distributed between fewer workers.
-Thus, the human cloud operator has to balance the interests of its two stakeholders.
+Thus, the human cloud operator has to balance the interests of the two stakeholders.
 
 The contribution of this chapter is threefold
 \begin{enumerate}
@@ -40,7 +40,7 @@ The contribution of this chapter is threefold
 The content of this chapter is published in~\cite{Schwartz2012a,Metzger2014a,Schwartz2015}.
 In \refsec{sec:cloud:related_work} we provide an overview of related work relevant to this chapter.
 Then, in \refsec{sec:cloud:data_centers} we discuss the trade-offs faced by a cloud operator.
-We focus on the customer of a cloud operator in \refsec{sec:cloud:virtualized_network_functions} and discuss challenges when implementing virtualised network functions.
+We focus on the customer of a cloud operator in \refsec{sec:cloud:virtualized_network_functions} and discuss challenges when provisioning virtualised network functions.
 Strategies for resource provisioning of a human cloud are considered in \refsec{sec:cloud:crowdsourcing}.
 Finally, we provide lessons learned from our studies in \refsec{sec:cloud:lessons_learned}.
 

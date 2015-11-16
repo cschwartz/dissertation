@@ -14,13 +14,13 @@ A \gls{POD} consists of a number of servers connected over top of rack switches 
 
 
 We assume, that new jobs entering the system arrive with exponentially distributed inter-arrival time.
-When a job in form of a packet arrives at the \gls{POD}, it is forwarded to an idle server.
+When a job arrives at the \gls{POD}, it is forwarded to an idle server.
 If no idle server is available, the job is queued.
 Once a server finishes processing its current job, it picks another one from the queue.
 
-Our goal is now to evaluate how much power is consumed in a data center and how much can be saved when servers, not processing any job, are switched off.
+Our goal is to evaluate how much power is consumed in a data center and how much can be saved when servers, currently not processing any job, are switched off.
 Therefore, we developed two different data center models.
-The first model, the \emph{default data center}, consists of two-state servers only which are either \emph{busy} or \emph{idle}, as shown in \reffig{fig:cloud:data_centers:problem_formulation:servers:idle_busy}) 
+The first model, the \emph{default data center}, consists of two-state servers only which are either \emph{busy} or \emph{idle}, as shown in \reffig{fig:cloud:data_centers:problem_formulation:servers:idle_busy} 
 For the second model, a more \emph{energy-efficient data center}, a subset of the servers may additionally be switched on and \emph{off} on demand, shown in \reffig{fig:cloud:data_centers:problem_formulation:idle_busy_off} as recommended in~\cite{EPA2007}.
 
 \begin{figure}
