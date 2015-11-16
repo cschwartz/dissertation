@@ -47,6 +47,14 @@ However, if we assume that all servers are immediately switched off if they are 
 
 Using the same parameters we evaluate the systems performance metrics, the mean power consumption \(e(n, \theta_1, \theta_2)\) relative to \(E_\text{max}\), and the mean waiting time \(w(n, \theta_1, \theta_2)\) for the energy-efficient data center.
 As mentioned before, the Pareto optima of the system are a subset of the \(\mathbb{R}^2\), with one dimension corresponding to the mean waiting time, the other to the mean power consumption.
+
+\begin{figure}
+  \centering
+  \includegraphics{cloud/data_centers/performance_evaluation/figures/energy_vs_waiting_pareto}
+  \caption{Set of Pareto Optimal Values for the Energy Efficient Data Center}
+  \label{fig:cloud:data_centers:performance_evaluation:energy_vs_waiting_pareto}
+\end{figure}
+
 We plot all Pareto optima in \reffig{fig:cloud:data_centers:performance_evaluation:energy_vs_waiting_pareto}, the resulting curve has hyperbolic properties, going asymptotically to the mean waiting time as well as asymptotically to a parallel of the lower bound of the power consumption.
 This allows us to select an acceptable increase in waiting time, for example one that would still satisfy a service level agreement, and harness the resulting energy savings.
 On the other hand, we can decide on the required energy savings and infer if the corresponding waiting times are acceptable.
@@ -54,9 +62,9 @@ One possible parameter choice would allow the reduction of the energy consumptio
 
 \begin{figure}
   \centering
-  \includegraphics{cloud/data_centers/performance_evaluation/figures/energy_vs_waiting_pareto}
-  \caption{Set of Pareto Optimal Values for the Energy Efficient Data Center}
-  \label{fig:cloud:data_centers:performance_evaluation:energy_vs_waiting_pareto}
+  \includegraphics{cloud/data_centers/performance_evaluation/figures/sorted_results}
+  \caption{Impact of Parameter Selection on Mean Waiting Time}
+  \label{fig:cloud:data_centers:performance_evaluation:sorted_results}
 \end{figure}
 
 Given the set of Pareto optima, we can investigate the parameter choice that leads to these optima.
@@ -66,10 +74,3 @@ From the figure we observe see that generally, the server deactivation threshold
 Furthermore, the number of base-line servers is decreasing as the waiting time increases. 
 The mean waiting time spectrum can be partitioned in interleaving sections, during which the number of base-line servers remain constant.
 Furthermore, in such a section, the server activation threshold increases super linearly.
-
-\begin{figure}
-  \centering
-  \includegraphics{cloud/data_centers/performance_evaluation/figures/sorted_results}
-  \caption{Impact of Parameter Selection on Mean Waiting Time}
-  \label{fig:cloud:data_centers:performance_evaluation:sorted_results}
-\end{figure}

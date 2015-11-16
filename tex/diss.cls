@@ -43,7 +43,7 @@
 \usepackage{color} % funzt sonst nicht
 \RequirePackage{graphicx}
 \ifd@pdf
-  \RequirePackage{hyperref}
+  %\RequirePackage{hyperref}
 \else
   \RequirePackage{url}
   \newcommand{\hypersetup}[1]{}

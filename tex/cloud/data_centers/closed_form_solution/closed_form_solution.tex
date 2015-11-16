@@ -3,12 +3,12 @@
 Using the macro state equations discussed in \refsec{sec:cloud:data_centers:modeling}, multiple ways to obtain the state probabilities are possible.
 This section examines the different approaches.
 
-\paragraph{System of Linear Equations}
+\subsubsection*{System of Linear Equations}
 First, it is possible to directly solve the system of linear equations implied by the micro or macro states.
 Solvers for linear equation systems scale cubic in the dimension of the matrix, which in this case is bounded by the system size.
 Especially for large numbers of servers, this prevents an exhaustive search of the parameter space.
 
-\paragraph{Closed Form Solutions}
+\subsubsection*{Closed Form Solutions}
 Thus, we obtain closed form solutions for the state probabilities.
 These equations can be derived by recursively applying the macro state equations.
 
@@ -62,7 +62,7 @@ x(0, 0)=\left(1 +\sum_{k=1}^{n+\theta_2}\bar{x}(k, 0) + \sum_{k=\theta_1}^{\inft
 
 While these closed form solutions allow for the derivation of analytical properties of the model, performing a numerical analysis of a given parameter space is difficult due to numerical instability of the equations.
 
-\paragraph{Recursive Algorithm}
+\subsubsection*{Recursive Algorithm}
 To avoid these problems, we introduce a recursive algorithm to calculate the state probabilities based on the macro state equations.
 To this end, our we first define \(x(0,0)\) as a constant \(K_0\), and then iteratively computes the state probabilities.
 For an earlier application of this concept, see \cite{Trangia1997}.
