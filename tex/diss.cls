@@ -304,26 +304,26 @@
 \hbadness=10000
 \vbadness=10000
 \AtBeginDocument{
- \maketitle
+  \maketitle
  %% Added by K. Leibnitz
- \renewcommand{\baselinestretch}{1.3}\normalsize
- \clearpage\pagenumbering{roman}\setcounter{page}{1}
+  \renewcommand{\baselinestretch}{1.3}\normalsize
+  \clearpage\pagenumbering{roman}\setcounter{page}{1}
  \ifx\d@vorwort\@empty \else%
    \InputIfFileExists{\d@vorwort}%
      {\chapter*{\d@vorwortname}\markboth{\d@vorwortname}{\d@vorwortname}}
      {}
  \fi
- \ifx\d@preface\@empty \else%
-   \InputIfFileExists{\d@preface}%
-     {\chapter*{\d@prefacename}\markboth{\d@prefacename}{\d@prefacename}}
-     {}
- \fi
- \tableofcontents
- \ifx\d@addfrontmatter\@empty \else%
-   \d@addfrontmatter%
- \fi
- \cleardoublepage\pagenumbering{arabic}\setcounter{page}{1}
- \makeindex
+\ifx\d@preface\@empty \else%
+  \InputIfFileExists{\d@preface}%
+    {\chapter*{\d@prefacename}\markboth{\d@prefacename}{\d@prefacename}}
+    {}
+\fi
+\tableofcontents
+\ifx\d@addfrontmatter\@empty \else%
+  \d@addfrontmatter%
+\fi
+\cleardoublepage\pagenumbering{arabic}\setcounter{page}{1}
+\makeindex
 }
 \AtEndDocument{
   \cleardoublepage
