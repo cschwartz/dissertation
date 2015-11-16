@@ -115,7 +115,7 @@ In addition to the previous effects, we notice that a higher start up and shut d
  
 In order to study this behavior in more detail, we focus on a specific scenario in \reffig{fig:cloud_virtualized_network_functions:startup_shutdown:compare_maxinstances_block}, where \(5000\) total tunnels should be supported by the system.
 In order to achieve this goal, we consider three types of instances, with the server capacity varying between \(50\) and \(500\).
-In each case we change the start up and shut down time between \SIrange{60}{300}{\second}.
+In each case we change the start up and shut down time between \SIrange{20}{300}{\second}.
 We observe, that lower server capacities combined with higher start up and shut down times increase the blocking probability.
 This is due to the server start up threshold mechanism, used in the model, not taking the additional capacity gained by activating an additional server into account.
 If a low capacity server with a long boot time is activated, there is a high probability that the system will quickly expend its capacity again.

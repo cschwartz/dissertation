@@ -65,8 +65,8 @@ The minimum campaign size \(s_{\min}\) is observed with a fixed probability \(p_
 Due to the relatively high frequencies of campaign sizes being multiples of \(10\) and \(100\), it is only possible to achieve a good fitting either for the lower or the higher region of the geometric part.
 As an overestimation of the campaign size will give us an upper bound of the platform work load, we decided to put a stronger emphasis on correct fitting of the larger campaign sizes.
 
-Again we used the \texttt{fitdistrplus} package for the R language to estimate the \(p=0.086\) parameter of the geometric distribution but using quantile matching for the \SI{90}{percent} quantile.
-\(s_{\min}=30\) and \(p_{s_{\min}}=0.350\) were taken from the empirical values.
+Using the \texttt{fitdistrplus} package for the R language we estimate the \(p=0.086\) parameter of the geometric distribution using quantile matching for the \SI{90}{percent} quantile.
+The values \(s_{\min}=30\) and \(p_{s_{\min}}=0.350\) are obtained from the empirical values.
 
 \paragraph*{Task Duration: }Another relevant model parameter is the processing time of the tasks, i.e., the time a single worker needs to complete one tasks.
 Unfortunately, this information cannot be obtained from our dataset, because a tracking of the individual workers is not available.

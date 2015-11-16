@@ -32,10 +32,10 @@ A shape of \(1\) degenerates the gamma distribution to an exponential distributi
 Increasing of the shape for the same rate changes the form of the distribution from an exponential type to a distribution which is similar to a normal distribution.
 By increasing the rate for the same shape the tightness of the distribution is modified.
 A rate less than \(1\) results in a distribution with a long tail.
-The increase of the rate decreases the broad of the distribution.
+The increase of the rate decreases the breadth of the distribution.
 Transferred to the campaign inter-arrival process different shape and rate settings can be used to model different task types and varying the business of the platform.
 The range of the inter-arrival times is given by the rate and the shape defines the weighting of the different times.
-A lower shape means more campaigns arrive in a short time interval in combination with longer time periods without any campaign arrival.
+A lower shape means more campaigns arrive in bursts in combination with longer time periods without any campaign arrival.
 
 Next, we use our simulation model introduced in \refsec{sec:cloud:crowdsourcing:model} with the campaign size distribution and task completion times obtained in \refsec{sec:cloud:crowdsourcing:measurements} for different campaign inter-arrival times to study the impact on the worker utilization. 
 Only stable systems, i.e., crowdsourcing platforms with an utilization \(\workerUtilization < 1\) are considered in the following.
@@ -75,7 +75,7 @@ The effect is more obvious for high rates.
 Finally, we consider the effect of an increased rate while keeping all other parameters fixed.
 An increased campaign inter-arrival rate increases the task pre-processing time, as the number of campaigns arriving at the platform is increased.
 The increase of the rate \(\beta\) decreases the variance of the campaign inter-arrival times distribution.
-The greater \(\beta\), the lower is \(E[\campaignIAT]\) and the higher the campaign inter-arrival rate. 
+For greater values of \(\beta\), the mean campaign inter-arrival time \(E[\campaignIAT]\) decreases campaign inter-arrival rate increases. 
 Thus, more tasks arriving at the platform and have to be completed with the same number of workers.
 
 Based on this observations, we conclude that while both shape and rate influence the metrics worker utilization and mean task pre-processing delay, the rate parameter of the Gamma distribution has an higher influence on the considered metrics.
@@ -85,8 +85,8 @@ In order to account for the higher influence of the rate on the considered metri
 
 A crowdsourcing platform operator's business success depends on the satisfaction of the main stakeholders, i.e., the employers and workers.
 As discussed in \refsec{sec:cloud:crowdsourcing:model}, workers are interested in a high worker utilization \(\workerUtilization\) because this correlates with their payment.
-Employers are interested in having their tasks completed as fast as possible, i.e., in an as small as possible task pre-processing delay \(\preTaskProcessingDelay\).
-The interests of the stakeholders are opposing because lower task pre-processing delays can be achieved by hiring more workers, which in turn results in a lower worker utilization.
+Employers are interested in having their tasks completed as fast as possible, i.e., in an as small as possible task pre-processing delays \(\preTaskProcessingDelay\).
+The interests of the stakeholders are opposing as lower task pre-processing delays can be achieved by hiring more workers, which in turn results in a lower worker utilization.
 Thus, the platform operator is forced to consider a trade-off between worker and employer satisfaction, which we consider in this section.
 The impact of different campaign inter-arrival rates on worker and employer satisfaction for the specific platform can be evaluated by following the colored lines in \reffig{fig:cloud:crowdsourcing:performance_evaluation:tradeoff:pareto}.
 
@@ -97,7 +97,7 @@ The impact of different campaign inter-arrival rates on worker and employer sati
 	\label{fig:cloud:crowdsourcing:performance_evaluation:tradeoff:pareto}
 \end{figure*}
 
-Given a fixed number of workers, decreases in the campaign inter-arrival rate result in lower worker utilization and task pre-processing delay.
+Given a fixed number of workers, decreases in the campaign inter-arrival rate result in lower worker utilization and longer task pre-processing delays.
 The effects on the worker utilization and the task waiting time decrease for a larger amount of workers.
 This means a platform with a larger number of workers is more robust against fluctuations in the rate of incoming campaigns than a system with a small number of workers.
 
