@@ -38,13 +38,13 @@ For the second model, a more \emph{energy-efficient data center}, a subset of th
 	\caption{Power state transition on a per server level}\label{fig:cloud:data_centers:problem_formulation:servers}
 \end{figure}
 
-\subsection{Default Data Center}\label{sec:cloud:data_centers:problem_formulation:default_data_center}
+\subsubsection*{Default Data Center}\label{sec:cloud:data_centers:problem_formulation:default_data_center}
 For the default data center model, each of the \(n\) servers is either on and processing a job or on and idle as depicted in \reffig{fig:cloud:data_centers:problem_formulation:servers:idle_busy}.
 If a busy server finishes processing a job and the queue is empty, the server becomes idle. Once a new job is assigned to a yet idle server, the server becomes busy.
 According to our measurements of a server with an Intel twelve core processor \SI{2.67}{\giga\hertz} and \SI{32}{\giga\byte} RAM, a server currently processing a job consumes \(e_{\text{busy}} = \SI{240}{\watt}\)
 An idle server still consumes \(e_{\text{idle}} = \SI{170}{\watt}\).
 
-\subsection{Energy-Efficient Data Center}\label{sec:cloud:data_centers:problem_formulation:energy_efficient_data_center}
+\subsubsection*{Energy-Efficient Data Center}\label{sec:cloud:data_centers:problem_formulation:energy_efficient_data_center}
 For the second model, we differentiate between two types of servers.
 \(n\) base-line servers which are always on and \(m\) reserved servers to be enabled on demand.
 If they are enabled, their power consumption is similar to that of the default data center model.
