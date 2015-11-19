@@ -4,6 +4,9 @@ Todays internet is no longer controlled by few standard bodies, telecommunicatio
 New Internet applications are developed by start ups at an increasing rate, and each application has the potential to disrupt the status quo, both in business and technology.
 These new applications not only impact the network infrastructure, but also a large set of Stakeholders participating in todays ecosystem of applications.
 
+Signalling Storm!
+
+
 Network operator: Can manipulate network configuration, influences connection state of UE, which has an impact on power drain and thus battery life of UE.
 
 Application Provider: Develops and deploys applications. Is usually interrested in increasing \gls{QoE} for the user. Additional considered \glspl{KPI} are cost, for example incurred due to use of compute or network resources in \gls{IaaS} or \gls{PaaS} scenarios. Design and configuration of applications has impact on traffic patterns which, result in signalling traffic in the network operators traffic and also influence the connection state of the UE.
@@ -16,11 +19,17 @@ Usually wants to increase \gls{QoE}, i.e. by minimising power drain of \gls{UE}o
 
 Cloud operator: Provides services to cloud users according to specified \glspl{SLA}. Wants to reduce costs to operate infrastructure, e.g. by reducing energy consumption.
 
+NFV operator
+
+Crowdsourcing platform operator:
+
+CS Employer
+
+CS Worker
+
 %\section{Considered Stakeholders}
 \section{Scientific Contribution}
 This monograph studies the interactions between different stakeholders in three, partially overlapping, scenarios in order to paint a broad picture of todays interlocking network and application ecosystem.
-
-In \reffig{fig:introduction:publications}
 
 \begin{figure}
 \centering
@@ -28,7 +37,27 @@ In \reffig{fig:introduction:publications}
 \caption{Contribution of this work as a classification of the research studies conducted by the author}\label{fig:introduction:publications}
 \end{figure}
 
-First, 
+In \reffig{fig:introduction:publications}
+
+The first contribution of this monograph is a study of the impact of mobile application traffic on mobile communication networks, especially considering the current network parameter selection.
+To this end, we introduce an algorithm to infer power drain and generated signalling messages for a given application traffic trace and network generation.
+We then extend on this algorithm and present a theoretical model to derive said metric from arbitrary \gls{IID} traffic arrival distributions.
+Using these methods we study the impact of different traffic types and study the potential of network parameter optimisation as a mean to reduce signalling traffic.
+
+As a second contribution, we provide models for two popular applications, i.e. Video Streaming and Cloud File Synchronisation, thus enabling the study of the impact of different mechanisms implemented in said applications.
+For the Video Streaming application we use a simulation in order to compare \glspl{KPI} for all stakeholders in this scenario.
+We show, that the Streaming mechanism allows the most flexible configuration and can provide a pareto optimal results for all pairs of metrics.
+However, further study shows that in fact no pareto optimal value exists which satisfies the \glspl{KPI} of all stakeholders.
+Furthermore, we provide a queueing model for video streaming and use it to derive parameterisable \gls{QoE} models for different user groups.
+Finally, for the Cloud File Synchronisation scenario we obtain measurements of the performance of the Dropbox service and use them as input for a simulation model.
+Using this simulation model we compare different upload scheduling algorithms and find that both the Size based algorithm as well as the Time based algorithm can be used to specifyspecify a tradeoff between the different considered \glspl{KPI}.
+
+As a third contribution, we discuss the impact of resource dimensioning and management schemes in cloud environments.
+To this end, we first study the performance of a power conservation mechanism for cloud environments using a queueing model.
+We derive guidelines for selecting Pareto optimal results regarding both waiting time before a job can begin processing and power consumption of the cloud.
+Then, we discuss a mechanism to reduce cost for cloud users by disabling compute instances while still allowing configurable \glspl{SLA} and evaluate this mechanism using a queueing simulation.
+Finally, we present a model to dimension worker numbers in a human cloud scenario which can be used to ensure satisfaction the key stakeholders of a crowdsourcing platform operator.
+We evaluate this model using \gls{DES} and data obtained from a major crowdsourcing platform operator. 
 
 \section{Outline of Thesis}
 
@@ -63,4 +92,4 @@ Based on data obtained from a commercial crowdsourcing provider, we extract char
 We evaluate both the impact of chosen analysis method as well as fit of the distributions obtained from the measurements.
 Finally, we provide system dimensioning guidelines for the crowdsourcing provider.
 
-Finally, \refchap{chap:conclusion} concludes this monograph.
+Finally, \refchap{chap:conclusion} provides a summary of the major contributions of this work and provides an outlook on future potential research directions.
