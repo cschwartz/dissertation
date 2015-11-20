@@ -1264,7 +1264,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-11-16 08:17:35 +0000</string>
+	<string>2015-11-20 09:25:10 +0000</string>
 	<key>Modifier</key>
 	<string>Christian Schwartz</string>
 	<key>NotesVisible</key>
@@ -1340,7 +1340,7 @@
 		<key>ExpandedCanvases</key>
 		<array/>
 		<key>Frame</key>
-		<string>{{778, 160}, {693, 877}}</string>
+		<string>{{444, 269}, {693, 877}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>

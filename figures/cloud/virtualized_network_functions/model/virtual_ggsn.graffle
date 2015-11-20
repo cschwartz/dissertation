@@ -150,6 +150,13 @@
 			<false/>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1797</integer>
 			<key>Points</key>
@@ -190,6 +197,13 @@
 			<false/>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1796</integer>
 			<key>Points</key>
@@ -235,6 +249,13 @@
 			<string>YES</string>
 			<key>Flow</key>
 			<string>Resize</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1793</integer>
 			<key>Shape</key>
@@ -262,7 +283,7 @@
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -283,6 +304,13 @@
 			<string>YES</string>
 			<key>Flow</key>
 			<string>Resize</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1792</integer>
 			<key>Shape</key>
@@ -310,7 +338,7 @@
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -324,13 +352,20 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{260.89117431640625, 78.335926055908203}, {6, 11}}</string>
+			<string>{{260.89117431640625, 78.335926055908203}, {5, 12}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
 			<string>YES</string>
 			<key>Flow</key>
 			<string>Resize</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1791</integer>
 			<key>Shape</key>
@@ -358,8 +393,8 @@
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
-\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LucidaGrande;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
+\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -372,13 +407,20 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{260.39117431640625, 36.450107574462891}, {7, 11}}</string>
+			<string>{{260.39117431640625, 36.450107574462891}, {7, 12}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
 			<string>YES</string>
 			<key>Flow</key>
 			<string>Resize</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1790</integer>
 			<key>Shape</key>
@@ -406,8 +448,8 @@
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
-\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LucidaGrande;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
+\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -427,6 +469,13 @@
 			<string>YES</string>
 			<key>Flow</key>
 			<string>Resize</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1789</integer>
 			<key>Shape</key>
@@ -454,7 +503,7 @@
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -469,6 +518,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1788</integer>
 			<key>Points</key>
@@ -492,6 +548,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1787</integer>
 			<key>Points</key>
@@ -522,7 +585,7 @@
 				<key>Font</key>
 				<string>LinBiolinumO</string>
 				<key>Size</key>
-				<real>8</real>
+				<real>9</real>
 			</dict>
 			<key>ID</key>
 			<integer>1779</integer>
@@ -563,6 +626,13 @@
 			<string>{{236.32348442077637, 50.614173889160156}, {17.353700637817383, 45.385826110839844}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1781</integer>
 			<key>Shape</key>
@@ -611,6 +681,13 @@
 					<string>YES</string>
 					<key>Flow</key>
 					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>LinBiolinumO</string>
+						<key>Size</key>
+						<real>9</real>
+					</dict>
 					<key>ID</key>
 					<integer>1716</integer>
 					<key>Shape</key>
@@ -638,7 +715,7 @@
 						<key>Pad</key>
 						<integer>0</integer>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -652,13 +729,20 @@
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{70.9769287109375, 47.661602976561412}, {4, 12}}</string>
+					<string>{{70.9769287109375, 47.661602976561412}, {5, 12}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
 					<string>YES</string>
 					<key>Flow</key>
 					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>LinBiolinumO</string>
+						<key>Size</key>
+						<real>9</real>
+					</dict>
 					<key>ID</key>
 					<integer>1717</integer>
 					<key>Shape</key>
@@ -686,7 +770,7 @@
 						<key>Pad</key>
 						<integer>0</integer>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -707,6 +791,13 @@
 					<string>YES</string>
 					<key>Flow</key>
 					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>LinBiolinumO</string>
+						<key>Size</key>
+						<real>9</real>
+					</dict>
 					<key>ID</key>
 					<integer>1718</integer>
 					<key>Shape</key>
@@ -734,7 +825,7 @@
 						<key>Pad</key>
 						<integer>0</integer>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -766,7 +857,7 @@
 										<key>Font</key>
 										<string>LinBiolinumO</string>
 										<key>Size</key>
-										<real>8</real>
+										<real>9</real>
 									</dict>
 									<key>ID</key>
 									<integer>1721</integer>
@@ -797,12 +888,12 @@
 									<key>Text</key>
 									<dict>
 										<key>Text</key>
-										<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+										<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs12 \cf0 n}</string>
+\f0\fs18 \cf0 n}</string>
 									</dict>
 								</dict>
 								<dict>
@@ -815,7 +906,7 @@
 										<key>Font</key>
 										<string>LinBiolinumO</string>
 										<key>Size</key>
-										<real>8</real>
+										<real>9</real>
 									</dict>
 									<key>ID</key>
 									<integer>1722</integer>
@@ -846,12 +937,12 @@
 									<key>Text</key>
 									<dict>
 										<key>Text</key>
-										<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+										<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs12 \cf0 2}</string>
+\f0\fs18 \cf0 2}</string>
 									</dict>
 								</dict>
 								<dict>
@@ -869,7 +960,7 @@
 												<key>Font</key>
 												<string>LinBiolinumO</string>
 												<key>Size</key>
-												<real>8</real>
+												<real>9</real>
 											</dict>
 											<key>ID</key>
 											<integer>1724</integer>
@@ -900,12 +991,12 @@
 											<key>Text</key>
 											<dict>
 												<key>Text</key>
-												<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+												<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs12 \cf0 1}</string>
+\f0\fs18 \cf0 1}</string>
 											</dict>
 										</dict>
 										<dict>
@@ -918,7 +1009,7 @@
 												<key>Font</key>
 												<string>LinBiolinumO</string>
 												<key>Size</key>
-												<real>8</real>
+												<real>9</real>
 											</dict>
 											<key>ID</key>
 											<integer>1725</integer>
@@ -949,13 +1040,12 @@
 												<key>Pad</key>
 												<integer>0</integer>
 												<key>Text</key>
-												<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
-\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LucidaGrande;\f1\fnil\fcharset0 LinBiolinumO;}
+												<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
+\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs16 \cf0 \uc0\u956 
-\f1 (t)}</string>
+\f0\fs18 \cf0 \uc0\u956 (t)}</string>
 												<key>VerticalPad</key>
 												<integer>0</integer>
 											</dict>
@@ -976,7 +1066,7 @@
 										<key>Font</key>
 										<string>LinBiolinumO</string>
 										<key>Size</key>
-										<real>8</real>
+										<real>9</real>
 									</dict>
 									<key>ID</key>
 									<integer>1726</integer>
@@ -1007,12 +1097,12 @@
 										<key>Pad</key>
 										<integer>0</integer>
 										<key>Text</key>
-										<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+										<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs16 \cf0 ...}</string>
+\f0\fs18 \cf0 ...}</string>
 										<key>VerticalPad</key>
 										<integer>0</integer>
 									</dict>
@@ -1033,7 +1123,7 @@
 								<key>Font</key>
 								<string>LinBiolinumO</string>
 								<key>Size</key>
-								<real>8</real>
+								<real>9</real>
 							</dict>
 							<key>ID</key>
 							<integer>1727</integer>
@@ -1079,7 +1169,7 @@
 										<key>Font</key>
 										<string>LinBiolinumO</string>
 										<key>Size</key>
-										<real>8</real>
+										<real>9</real>
 									</dict>
 									<key>ID</key>
 									<integer>1730</integer>
@@ -1110,12 +1200,12 @@
 									<key>Text</key>
 									<dict>
 										<key>Text</key>
-										<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+										<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs12 \cf0 n}</string>
+\f0\fs18 \cf0 n}</string>
 									</dict>
 								</dict>
 								<dict>
@@ -1128,7 +1218,7 @@
 										<key>Font</key>
 										<string>LinBiolinumO</string>
 										<key>Size</key>
-										<real>8</real>
+										<real>9</real>
 									</dict>
 									<key>ID</key>
 									<integer>1731</integer>
@@ -1159,12 +1249,12 @@
 									<key>Text</key>
 									<dict>
 										<key>Text</key>
-										<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+										<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs12 \cf0 2}</string>
+\f0\fs18 \cf0 2}</string>
 									</dict>
 								</dict>
 								<dict>
@@ -1182,7 +1272,7 @@
 												<key>Font</key>
 												<string>LinBiolinumO</string>
 												<key>Size</key>
-												<real>8</real>
+												<real>9</real>
 											</dict>
 											<key>ID</key>
 											<integer>1733</integer>
@@ -1213,12 +1303,12 @@
 											<key>Text</key>
 											<dict>
 												<key>Text</key>
-												<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+												<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs12 \cf0 1}</string>
+\f0\fs18 \cf0 1}</string>
 											</dict>
 										</dict>
 										<dict>
@@ -1231,7 +1321,7 @@
 												<key>Font</key>
 												<string>LinBiolinumO</string>
 												<key>Size</key>
-												<real>8</real>
+												<real>9</real>
 											</dict>
 											<key>ID</key>
 											<integer>1734</integer>
@@ -1262,13 +1352,12 @@
 												<key>Pad</key>
 												<integer>0</integer>
 												<key>Text</key>
-												<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
-\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LucidaGrande;\f1\fnil\fcharset0 LinBiolinumO;}
+												<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
+\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs16 \cf0 \uc0\u956 
-\f1 (t)}</string>
+\f0\fs18 \cf0 \uc0\u956 (t)}</string>
 												<key>VerticalPad</key>
 												<integer>0</integer>
 											</dict>
@@ -1289,7 +1378,7 @@
 										<key>Font</key>
 										<string>LinBiolinumO</string>
 										<key>Size</key>
-										<real>8</real>
+										<real>9</real>
 									</dict>
 									<key>ID</key>
 									<integer>1735</integer>
@@ -1320,12 +1409,12 @@
 										<key>Pad</key>
 										<integer>0</integer>
 										<key>Text</key>
-										<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+										<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs16 \cf0 ...}</string>
+\f0\fs18 \cf0 ...}</string>
 										<key>VerticalPad</key>
 										<integer>0</integer>
 									</dict>
@@ -1346,7 +1435,7 @@
 								<key>Font</key>
 								<string>LinBiolinumO</string>
 								<key>Size</key>
-								<real>8</real>
+								<real>9</real>
 							</dict>
 							<key>ID</key>
 							<integer>1736</integer>
@@ -1401,7 +1490,7 @@
 										<key>Font</key>
 										<string>LinBiolinumO</string>
 										<key>Size</key>
-										<real>8</real>
+										<real>9</real>
 									</dict>
 									<key>ID</key>
 									<integer>1739</integer>
@@ -1432,12 +1521,12 @@
 									<key>Text</key>
 									<dict>
 										<key>Text</key>
-										<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+										<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs12 \cf0 n}</string>
+\f0\fs18 \cf0 n}</string>
 									</dict>
 								</dict>
 								<dict>
@@ -1459,7 +1548,7 @@
 										<key>Font</key>
 										<string>LinBiolinumO</string>
 										<key>Size</key>
-										<real>8</real>
+										<real>9</real>
 									</dict>
 									<key>ID</key>
 									<integer>1740</integer>
@@ -1490,12 +1579,12 @@
 									<key>Text</key>
 									<dict>
 										<key>Text</key>
-										<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+										<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs12 \cf0 2}</string>
+\f0\fs18 \cf0 2}</string>
 									</dict>
 								</dict>
 								<dict>
@@ -1522,7 +1611,7 @@
 												<key>Font</key>
 												<string>LinBiolinumO</string>
 												<key>Size</key>
-												<real>8</real>
+												<real>9</real>
 											</dict>
 											<key>ID</key>
 											<integer>1742</integer>
@@ -1553,12 +1642,12 @@
 											<key>Text</key>
 											<dict>
 												<key>Text</key>
-												<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+												<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs12 \cf0 1}</string>
+\f0\fs18 \cf0 1}</string>
 											</dict>
 										</dict>
 										<dict>
@@ -1580,7 +1669,7 @@
 												<key>Font</key>
 												<string>LinBiolinumO</string>
 												<key>Size</key>
-												<real>8</real>
+												<real>9</real>
 											</dict>
 											<key>ID</key>
 											<integer>1743</integer>
@@ -1611,13 +1700,12 @@
 												<key>Pad</key>
 												<integer>0</integer>
 												<key>Text</key>
-												<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
-\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LucidaGrande;\f1\fnil\fcharset0 LinBiolinumO;}
+												<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
+\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs16 \cf0 \uc0\u956 
-\f1 (t)}</string>
+\f0\fs18 \cf0 \uc0\u956 (t)}</string>
 												<key>VerticalPad</key>
 												<integer>0</integer>
 											</dict>
@@ -1647,7 +1735,7 @@
 										<key>Font</key>
 										<string>LinBiolinumO</string>
 										<key>Size</key>
-										<real>8</real>
+										<real>9</real>
 									</dict>
 									<key>ID</key>
 									<integer>1744</integer>
@@ -1678,12 +1766,12 @@
 										<key>Pad</key>
 										<integer>0</integer>
 										<key>Text</key>
-										<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+										<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs16 \cf0 ...}</string>
+\f0\fs18 \cf0 ...}</string>
 										<key>VerticalPad</key>
 										<integer>0</integer>
 									</dict>
@@ -1713,7 +1801,7 @@
 								<key>Font</key>
 								<string>LinBiolinumO</string>
 								<key>Size</key>
-								<real>8</real>
+								<real>9</real>
 							</dict>
 							<key>ID</key>
 							<integer>1745</integer>
@@ -1749,7 +1837,7 @@
 						<key>Font</key>
 						<string>LinBiolinumO</string>
 						<key>Size</key>
-						<real>8</real>
+						<real>9</real>
 					</dict>
 					<key>ID</key>
 					<integer>1746</integer>
@@ -1796,6 +1884,13 @@
 			<string>YES</string>
 			<key>Flow</key>
 			<string>Resize</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1653</integer>
 			<key>Shape</key>
@@ -1823,7 +1918,7 @@
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -1838,6 +1933,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1651</integer>
 			<key>Points</key>
@@ -1872,6 +1974,13 @@
 			<string>YES</string>
 			<key>Flow</key>
 			<string>Resize</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1628</integer>
 			<key>Shape</key>
@@ -1899,7 +2008,7 @@
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -1920,6 +2029,13 @@
 			<string>YES</string>
 			<key>Flow</key>
 			<string>Resize</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1627</integer>
 			<key>Shape</key>
@@ -1947,7 +2063,7 @@
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -1962,6 +2078,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>1624</integer>
 			<key>Points</key>
@@ -2032,7 +2155,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-11-10 06:30:50 +0000</string>
+	<string>2015-11-20 09:28:53 +0000</string>
 	<key>Modifier</key>
 	<string>Christian Schwartz</string>
 	<key>NotesVisible</key>
@@ -2113,7 +2236,7 @@
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{396, 49}, {866, 601}}</string>
+		<string>{{345, 262}, {866, 601}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
