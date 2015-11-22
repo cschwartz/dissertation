@@ -6,27 +6,56 @@ These new applications not only impact the network infrastructure, but also a la
 
 Signalling Storm!
 
+\section{Considered Stakeholders}
 
-Network operator: Can manipulate network configuration, influences connection state of UE, which has an impact on power drain and thus battery life of UE.
+In this section we introduce the stakeholders considered in the remainder of this monograph.
+\reffig{fig:introduction:stakeholders} shows the considered stakeholders and their interactions.
 
-Application Provider: Develops and deploys applications. Is usually interrested in increasing \gls{QoE} for the user. Additional considered \glspl{KPI} are cost, for example incurred due to use of compute or network resources in \gls{IaaS} or \gls{PaaS} scenarios. Design and configuration of applications has impact on traffic patterns which, result in signalling traffic in the network operators traffic and also influence the connection state of the UE.
+\begin{figure}
+\centering
+\includegraphics{figures/stakeholders}
+\caption{Stakeholder interactions considered in this monograph. Solid lines show stakeholder interactions, dotted lines show \emph{is-a} relationships.}\label{fig:introduction:stakeholders}
+\end{figure}
 
-Hardware vendor: Theoretically implements standards proposed by \gls{3GPP} in order to establish connectivity with mobile networks. However, in reality vendors are free to deviate from standard, in order increase own \glspl{KPI}. One example of such a deviation from a standard is the proprietary fast dormancy algorithm implemented by some hardware vendors. This algorithm reduces power drain be disconnecting the \gls{UE} earlier from the network. However, this has the consequence of increased signalling in the network and can result in increased page load times, i.e. decreased \gls{QoE} from the users point of view.
+First, we consider the \emph{network operator}.
+The network operator owns, manages and operates a mobile network.
+By manipulating network configuration, the operator can influence the connection state of \gls{UE}, resulting in changes of power drain, i.e. battery life, of the \gls{UE} and reduced signalling load in the components of the mobile network.
 
-User uses \gls{UE} and set of applications in the network of network operator. 
-%satz macht mich nicht glücklich
-Usually wants to increase \gls{QoE}, i.e. by minimising power drain of \gls{UE}or increase video \gls{QoE}.
+The \emph{application provider} develops and deploys applications and is interrested in increasing the \gls{QoE} for the user, in order to attract a large user base.
+Additional considered \glspl{KPI} are cost, for example incurred due to use of compute or network resources in \gls{IaaS} or \gls{PaaS} scenarios.
+Design and configuration of applications has impact on traffic patterns which, result in signalling traffic in the mobile network and also influence the connection state of the \gls{UE}.
 
-Cloud operator: Provides services to cloud users according to specified \glspl{SLA}. Wants to reduce costs to operate infrastructure, e.g. by reducing energy consumption.
+%TODO: Video Provider, Storage Provider
 
-NFV operator
+\glspl{UE} are developed and sold by \emph{hardware vendors}.
+While they theoretically implement standards proposed by the \gls{3GPP} in order to establish connectivity with mobile networks, in reality vendors are free to deviate from standard, in order increase own \glspl{KPI}.
+One example of such a deviation from a standard are proprietary fast dormancy mechanisms~\cite{GSM2010} implemented by some hardware vendors.
+These algorithms reduce power drain be disconnecting the \gls{UE} earlier from the network, in order to reduce power drain and increase user \gls{QoE}.
+However, this has the consequence of increased signalling in the mobile network and can result in increased page load times, i.e. decreased \gls{QoE} from the users point of view.
 
-Crowdsourcing platform operator:
+\emph{Users} employ \glspl{UE} to execute applications in the network of network operator. 
+They are usually interested in increasing their \gls{QoE}, i.e. by increasing the battery life of their \gls{UE} or increasing satisfaction during video playback over the network.
 
-CS Employer
+\emph{Cloud operators} provides services, i.e. compute, storage, or network resources, to cloud users according to specified \glspl{SLA} for monetary compensation. 
+They attempt to reduce the costs to operate infrastructure, e.g. by reducing energy consumption, in order to increase revenue while still satisfying the \gls{SLA}.
 
-CS Worker
+Resources provided by cloud operators are purchased by \emph{cloud users}.
+They attempt to provide the best possible service to their own customers while reducing the number of required resources provided by the cloud operator, in order to reduce cost of operation. In this monograph we consider two exemplary cloud users, which will be discribed in the following:
 
+A \emph{\gls{NFV} operator} uses virtualised resources obtained from a cloud operator to provide virtualised network services to other stakeholders.
+In the example considered in this thesis, the \gls{NFV} operator uses cloud compute resources in order to provide a \gls{GGSN} to a mobile network operator.
+The \glspl{KPI} of the \gls{NFV} operator are satisfying the \gls{SLA} with the mobile network operator and reducing the use of compute resources of the cloud operator.
+
+The second considered cloud user is the \emph{crowdsourcing platform operator} who uses cloud resources in order to provide a crowd sourcing platform.
+The crowdsourcing platform operator in turn has to consider the requirements of its two main stakeholders:
+
+The \emph{crowdsourcing employer} requires a set of microtasks to be completed in a small amount of time, in order to use the generated results in future business processes.
+
+\emph{Crowdsourcing workers} complete microtasks for a set amount of money.
+They are interested in completing as many tasks as possible and reduce their idle time, in order to increase their income.
+
+The interactions of this stakeholders result in complex interactions, which are studied in this thesis.
+The next section introduces the considered interactions and provides an overview over the scientific contributions provided by this monograph.
 %\section{Considered Stakeholders}
 \section{Scientific Contribution}
 This monograph studies the interactions between different stakeholders in three, partially overlapping, scenarios in order to paint a broad picture of todays interlocking network and application ecosystem.
@@ -37,20 +66,21 @@ This monograph studies the interactions between different stakeholders in three,
 \caption{Contribution of this work as a classification of the research studies conducted by the author}\label{fig:introduction:publications}
 \end{figure}
 
-In \reffig{fig:introduction:publications}
+In \reffig{fig:introduction:publications} we classify the areas of research as well as scientific method used in relation to the chapter of this monograph.
+Annotations of are used to highlight scientific publication whos content contributes to the respective chapters.
 
-The first contribution of this monograph is a study of the impact of mobile application traffic on mobile communication networks, especially considering the current network parameter selection.
-To this end, we introduce an algorithm to infer power drain and generated signalling messages for a given application traffic trace and network generation.
-We then extend on this algorithm and present a theoretical model to derive said metric from arbitrary \gls{IID} traffic arrival distributions.
+The first contribution of this monograph is a study of the impact of mobile application traffic on mobile communication networks, especially considering the current network configuration.
+To this end, we introduce an algorithm to infer power drain and generated signalling messages , relevant \glspl{KPI} for the mobile network operator and the end user, for a given application traffic trace and network configurations.
+We then extend on this algorithm and present a theoretical model to derive said metrics from arbitrary \gls{IID} traffic arrival distributions.
 Using these methods we study the impact of different traffic types and study the potential of network parameter optimisation as a mean to reduce signalling traffic.
 
 As a second contribution, we provide models for two popular applications, i.e. Video Streaming and Cloud File Synchronisation, thus enabling the study of the impact of different mechanisms implemented in said applications.
 For the Video Streaming application we use a simulation in order to compare \glspl{KPI} for all stakeholders in this scenario.
 We show, that the Streaming mechanism allows the most flexible configuration and can provide a pareto optimal results for all pairs of metrics.
-However, further study shows that in fact no pareto optimal value exists which satisfies the \glspl{KPI} of all stakeholders.
+However, further study shows that in fact no pareto optimal value exists which satisfies the \glspl{KPI} of all participating stakeholders.
 Furthermore, we provide a queueing model for video streaming and use it to derive parameterisable \gls{QoE} models for different user groups.
 Finally, for the Cloud File Synchronisation scenario we obtain measurements of the performance of the Dropbox service and use them as input for a simulation model.
-Using this simulation model we compare different upload scheduling algorithms and find that both the Size based algorithm as well as the Time based algorithm can be used to specifyspecify a tradeoff between the different considered \glspl{KPI}.
+Using this simulation model we compare different upload scheduling algorithms and find that both the Size based algorithm as well as the Time based algorithm can be used to specify a tradeoff between the different considered \glspl{KPI}.
 
 As a third contribution, we discuss the impact of resource dimensioning and management schemes in cloud environments.
 To this end, we first study the performance of a power conservation mechanism for cloud environments using a queueing model.
