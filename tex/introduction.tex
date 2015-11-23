@@ -1,12 +1,22 @@
 \chapter{Introduction}\label{chap:introduction}
 
-Todays internet is no longer controlled by few standard bodies, telecommunications companies and hardware vendors. 
+Todays Internet is no longer only controlled by standard bodies, telecommunications companies and hardware vendors. 
 New Internet applications are developed by start ups at an increasing rate, and each application has the potential to disrupt the status quo, both in business and technology.
 These new applications not only impact the network infrastructure, but also a large set of Stakeholders participating in todays ecosystem of applications.
 
-Signalling Storm!
+One example of such a scenrio are \emph{Signalling Storms}~\cite{Huawei2011}, with one of the largest occuring in Japan in 2012\footnote{\url{https://www.techinasia.com/docomo-outage}, Accessed: November, 21st 2015} due to the release and fast uptake of a free instant messaging application.
+The connection establishment algorithms of \glspl{UE} triggered by the applications traffic resulted in a loss of service for 2.5 million users over 4 hours.
+While the network operator suffers the largest impact of this signalling behaviour, it is in no good position to intervene.
+The stakeholders who could prevent or at least reduce such behaviour, i.e. application developers or hardware vendors, have no direct benefit from modifying their products in such a way.  
 
-\section{Considered Stakeholders}
+The goal of this monograph is to provide an overview over the complex structures of stakeholder relationships in todays Internet applications.
+To this end, we study different scenarios where such stakeholder interests clash and suggest methods where stakeholder trade-offs can be optimised for all participants or detail on why such an optimisation is not possible or attempts at it might lead to adverse effects.
+
+In the remainder of this chapter we first discuss the stakeholders considered in this work in \refsec{sec:introduction:considered_stakeholders}.
+Then, in \refsec{sec:introduction:scientific_contribution} we provide an overview over the scientific contributions of this thesis.
+Finally, \refsec{sec:introduction:outline} provides an outline of this monograph.
+
+\section{Considered Stakeholders}\label{sec:introduction:considered_stakeholders}
 
 In this section we introduce the stakeholders considered in the remainder of this monograph.
 \reffig{fig:introduction:stakeholders} shows the considered stakeholders and their interactions.
@@ -33,7 +43,7 @@ One example of such a deviation from a standard are proprietary fast dormancy me
 These algorithms reduce power drain be disconnecting the \gls{UE} earlier from the network, in order to reduce power drain and increase user \gls{QoE}.
 However, this has the consequence of increased signalling in the mobile network and can result in increased page load times, i.e. decreased \gls{QoE} from the users point of view.
 
-\emph{Users} employ \glspl{UE} to execute applications in the network of network operator. 
+\emph{End users} employ \glspl{UE} to execute applications in the network of network operator. 
 They are usually interested in increasing their \gls{QoE}, i.e. by increasing the battery life of their \gls{UE} or increasing satisfaction during video playback over the network.
 
 \emph{Cloud operators} provides services, i.e. compute, storage, or network resources, to cloud users according to specified \glspl{SLA} for monetary compensation. 
@@ -56,8 +66,8 @@ They are interested in completing as many tasks as possible and reduce their idl
 
 The interactions of this stakeholders result in complex interactions, which are studied in this thesis.
 The next section introduces the considered interactions and provides an overview over the scientific contributions provided by this monograph.
-%\section{Considered Stakeholders}
-\section{Scientific Contribution}
+
+\section{Scientific Contribution}\label{sec:introduction:scientific_contribution}
 This monograph studies the interactions between different stakeholders in three, partially overlapping, scenarios in order to paint a broad picture of todays interlocking network and application ecosystem.
 
 \begin{figure}
@@ -89,16 +99,16 @@ Then, we discuss a mechanism to reduce cost for cloud users by disabling compute
 Finally, we present a model to dimension worker numbers in a human cloud scenario which can be used to ensure satisfaction the key stakeholders of a crowdsourcing platform operator.
 We evaluate this model using \gls{DES} and data obtained from a major crowdsourcing platform operator. 
 
-\section{Outline of Thesis}
+\section{Outline of Thesis}\label{sec:introduction:outline}
 
 In \refchap{chap:network} we study the impact of mobile network configuration settings on participating stakeholders, i.e. mobile network operators, hardware vendors, and users.
-To this end, we first provide an overview over \gls{3G} mobile communication technology and discuss related work.
+%To this end, we first provide an overview over \gls{3G} mobile communication technology and discuss related work.
 We present an algorithm to infer power drain and signalling messages caused by a given application traffic measurement.
 Then, we perform application traffic measurements and discuss general traffic characteristics before applying the introduced algorithm to the measurements.
 Based on the inferred power drain and signalling messages, we discuss the impact of network configuration settings and proprietary deviations from mobile communication standards.
 We generalise our results by introducing a theoretical model for power drain and signalling messages for arbitrary \gls{IID} traffic distributions.
 %TODO das muss neu
-We apply this model to a set of analytical traffic distributions and derive general results for said metrics. 
+We apply this model to a set of analytical traffic distributions and derive general results for the considered  metrics. 
 
 \refchap{chap:application} focusses on the impact of applications design and algorithm choice by the application developers on the other stakeholders.
 We study two prominent applications in todays Internet: Video Streaming and Cloud File Sychronisation.
@@ -108,13 +118,13 @@ For Video Streaming, we study the impact of different video transmission mechani
 Furthermore, we study provide a queueing model for video streaming algorithms and derive a parameterised \gls{QoE} model.
 We use this model in order to provide algorithm configuration guidelines in order to optimise \gls{QoE} for different user profiles.
 Next, we discuss different scheduling algorithms for Cloud File Synchronisation services.
-Using data obtained from large scale, testbed based~\cite{PlanetLab} measurements, we implement a simulation model in order to investigate the impact of the algorithm choice and configuration on time required to complete synchronisation, signalling in the mobile network and power drain.  
+Using data obtained from large scale, testbed based~\cite{Chun2003} measurements, we implement a simulation model in order to investigate the impact of the synchronization scheduling mechanism and configuration on time required to complete synchronisation, signalling in the mobile network and power drain.  
 
-In \refchap{chap:cloud} we study resource allocation strategies in the cloud and evaluate in which matter the cloud platform operators impact the other stakeholders.
+In \refchap{chap:cloud} we study resource allocation strategies in the cloud and evaluate in which matter decissions of the cloud platform operators impact the other stakeholders.
 First, we consider a energy saving scheme where a cloud operator scales the number of available servers according to the available load.
 We introduce a queueing model and perform a performance evaluation in order to study optimal parameter settings.
 Then, we consider the role of a cloud user renting virtual machines in the cloud in order to provide a service to users on the example of a virtualised network operator.
-The cloud user is interrested in ensuring the \gls{SLA} offered to its customers while reducing costs by disabling servers currently not in use.
+This cloud user is interrested in ensuring the \gls{SLA} offered to its customers is satisfied while reducing costs by disabling servers currently not in use.
 We analyse traffic characteristis and use them as input for a simulation model of a virtualised \gls{GGSN}.
 Then, we evaluate the impact of different virtual server setups and scaling configurations.
 Finally, we consider resource allocation in human clouds.
