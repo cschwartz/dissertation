@@ -10,7 +10,7 @@ While the network operator suffers the largest impact of this signalling behavio
 The stakeholders who could prevent or at least reduce such behaviour, i.e. application developers or hardware vendors, have no direct benefit from modifying their products in such a way.  
 
 The goal of this monograph is to provide an overview over the complex structures of stakeholder relationships in todays Internet applications.
-To this end, we study different scenarios where such stakeholder interests clash and suggest methods where stakeholder trade-offs can be optimised for all participants or detail on why such an optimisation is not possible or attempts at it might lead to adverse effects.
+To this end, we study different scenarios where such stakeholder interests clash and suggest methods where stakeholder tradeoffs can be optimised for all participants or detail on why such an optimisation is not possible or attempts at it might lead to adverse effects.
 
 In the remainder of this chapter we first discuss the stakeholders considered in this work in \refsec{sec:introduction:considered_stakeholders}.
 Then, in \refsec{sec:introduction:scientific_contribution} we provide an overview over the scientific contributions of this thesis.
@@ -47,7 +47,7 @@ However, this has the consequence of increased signalling in the mobile network 
 They are usually interested in increasing their \gls{QoE}, i.e. by increasing the battery life of their \gls{UE} or increasing satisfaction during video playback over the network.
 
 \emph{Cloud operators} provides services, i.e. compute, storage, or network resources, to cloud users according to specified \glspl{SLA} for monetary compensation. 
-They attempt to reduce the costs to operate infrastructure, e.g. by reducing energy consumption, in order to increase revenue while still satisfying the \gls{SLA}.
+They attempt to reduce the costs to operate infrastructure, e.g. by reducing power drain, in order to increase revenue while still satisfying the \gls{SLA}.
 
 Resources provided by cloud operators are purchased by \emph{cloud users}.
 They attempt to provide the best possible service to their own customers while reducing the number of required resources provided by the cloud operator, in order to reduce cost of operation. In this monograph we consider two exemplary cloud users, which will be discribed in the following:
@@ -86,7 +86,7 @@ Using these methods we study the impact of different traffic types and study the
 
 As a second contribution, we provide models for two popular applications, i.e. Video Streaming and Cloud File Synchronisation, thus enabling the study of the impact of different mechanisms implemented in said applications.
 For the Video Streaming application we use a simulation in order to compare \glspl{KPI} for all stakeholders in this scenario.
-We show, that the Streaming mechanism allows the most flexible configuration and can provide a pareto optimal results for all pairs of metrics.
+We show that the Streaming mechanism allows the most flexible configuration and can provide a pareto optimal results for all pairs of metrics.
 However, further study shows that in fact no pareto optimal value exists which satisfies the \glspl{KPI} of all participating stakeholders.
 Furthermore, we provide a queueing model for video streaming and use it to derive parameterisable \gls{QoE} models for different user groups.
 Finally, for the Cloud File Synchronisation scenario we obtain measurements of the performance of the Dropbox service and use them as input for a simulation model.
@@ -94,7 +94,7 @@ Using this simulation model we compare different upload scheduling algorithms an
 
 As a third contribution, we discuss the impact of resource dimensioning and management schemes in cloud environments.
 To this end, we first study the performance of a power conservation mechanism for cloud environments using a queueing model.
-We derive guidelines for selecting Pareto optimal results regarding both waiting time before a job can begin processing and power consumption of the cloud.
+We derive guidelines for selecting Pareto optimal results regarding both waiting time before a job can begin processing and power drain of the cloud.
 Then, we discuss a mechanism to reduce cost for cloud users by disabling compute instances while still allowing configurable \glspl{SLA} and evaluate this mechanism using a queueing simulation.
 Finally, we present a model to dimension worker numbers in a human cloud scenario which can be used to ensure satisfaction the key stakeholders of a crowdsourcing platform operator.
 We evaluate this model using \gls{DES} and data obtained from a major crowdsourcing platform operator. 

@@ -29,7 +29,7 @@ We identified bursty traffic pattern as particularly resource-efficient with res
 In contrast, nearly periodic traffic is likely to cause signalling overload due to frequent connection reestablishments, especially when the connection timeout is slightly below the inter-packet time.
 This can be observed on the example of a \gls{TDCH} timer of \SI{10}{\second}.
 Here, the coefficient of variation has no impact on the signalling load for very small inter-packet times \(E[\PacketIAT]<\SI{1e-1}{\second}\) or very large inter-packet times \(E[\PacketIAT]>\SI{1e3}{\second}\).
-For example, for a mean interarrival time of \(E[\PacketIAT] = 11.5\) seconds, an increase of coefficient of variation from \(0.5\) to \(5.0\) can decrease the signalling load by \SI{53}{\percent}.
+For example, for a mean inter-arrival time of \(E[\PacketIAT] = 11.5\) seconds, an increase of coefficient of variation from \(0.5\) to \(5.0\) can decrease the signalling load by \SI{53}{\percent}.
 
 Concluding from this chapter, we see that in mobile networks many different players, metrics, and tradeoffs exist.
 We highlighted one examples of such a tradeoff, i.e. signalling load vs. power drain and discussed the influence of the current optimisation parameters, the network timers, on another.

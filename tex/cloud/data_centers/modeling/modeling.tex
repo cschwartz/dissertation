@@ -1,31 +1,31 @@
-\subsection{Modeling}\label{sec:cloud:data_centers:modeling}
-In this section, we first discuss the default data center model, where a server can either be idle or busy, processing a job. Afterwards, the energy-efficient data center model with the three states is set up.
+\subsection{Modelling}\label{sec:cloud:data_centers:modeling}
+In this section, we first discuss the default data centre model, where a server can either be idle or busy, processing a job. Afterwards, the energy-efficient data centre model with the three states is defined.
 
-\subsubsection*{Default Data Center}\label{sec:cloud:data_centers:modeling:default}
+\subsubsection*{Traditional Data Centre}\label{sec:cloud:data_centers:modeling:default}
 We consider new jobs arriving at a \gls{POD} with exponential \gls{IID} inter-arrival times with rate \(\lambda\).
 Each server accepts only one job at a time and processes it with an exponentially distributed service time with mean \(\frac{1}{\mu}\).
-Then, the system can be modeled using a simple \(M/M/n\) delay system.
+Then, the system can be modelled using a simple \(M/M/n\) delay system.
 Here, the random variable \(X\) gives the number of jobs in the system and \(x(i)\) is the stationary probability that \(i\) jobs are currently in the system.
 
-We obtain the mean power consumption of such a system based on the measured values presented in \refsec{sec:cloud:data_centers:problem_formulation}.
-If less then \(i < n\) jobs are currently in the system, then \(i\) servers are busy each consuming \(e_\text{busy}\) \si{\watt} and \(n-i\) servers are idle, where each consumes \(e_\text{idle}\) \si{\watt}.
+We obtain the mean power drain of such a system based on the measured values presented in \refsec{sec:cloud:data_centers:problem_formulation}.
+If less than \(i < n\) jobs are currently in the system, then \(i\) servers are busy each consuming \(e_\text{busy}\) \si{\watt} and \(n-i\) servers are idle, where each consumes \(e_\text{idle}\) \si{\watt}.
 If \(i \geq n\) jobs are in the system all servers are busy and consume \(n\cdot e_\text{busy}\) \si{\watt} in total.
 
-Thus, for stationary state probabilities \(x(i)\) we obtain the mean power consumption as
+Thus, for stationary state probabilities \(x(i)\), we obtain the mean power drain as
 %TODO rename this
 \begin{equation}\label{sec:cloud:data_centers:modeling:default:emax}
 E_\text{max} = \sum_{i=0}^{n} x(i) (i e_\text{busy} + (n-i) e_\text{idle}) + ne_\text{busy} \sum_{i=n + 1}^{+ \infty} x(i).
 \end{equation}
 
-Furthermore, we can provide a lower bound for the power consumption of the system by assuming that a server is turned of if it is not processing a job, thus consuming \(e_\text{off}\).
+Furthermore, we can provide a lower bound for the power drain of the system by assuming that a server is turned off if it is not processing a job, thus consuming \(e_\text{off}\).
 By substituting \(e_\text{off}\) for \(e_\text{idle}\) in \refeq{sec:cloud:data_centers:modeling:default:emax} we obtain
 \begin{equation*}
 E_\text{min} = \sum_{i=0}^{n} x(i) (i e_\text{busy} + (n-i) e_\text{off}) + ne_\text{busy} \sum_{i=n + 1}^{+ \infty} x(i).
 \end{equation*}
 
-\subsubsection*{Energy Efficient Data Center}\label{sec:cloud:data_centers:modeling:energy_efficient}
+\subsubsection*{Energy Efficient Data Centre}\label{sec:cloud:data_centers:modeling:energy_efficient}
 
-We extend the queuing system to model the energy-efficient data center model introduced in \refsec{sec:cloud:data_centers:problem_formulation}, by adapting the state space of the model.
+We extend the queuing system to model the energy-efficient data centre model introduced in \refsec{sec:cloud:data_centers:problem_formulation}, by adapting the state space of the model.
 We now model the system state as a tuple \((i,j)\) where \(i\) is gives the number of jobs currently in the system and \(j\) is \(1\) if the reserved servers are activated and \(0\) if they are not activated.
 We give the state diagram in \reffig{fig:cloud:data_centers:modeling:energy_efficient:state_diagram}.
 The system activates the reserved servers if more than \(\theta_2\) jobs are in the queue, i.e. more than \(n + \theta_2\) jobs are in the system.
@@ -36,7 +36,7 @@ Again, \(X\) is the random variable describing the number of jobs in the system 
 \begin{figure}
   \centering
   \includegraphics{cloud/data_centers/modeling/figures/state_diagram}
-  \caption{\(M/M/(n+m)^{(\theta_1, \theta_2)}\) System with macro states \(S_1^i, S_2^i,\) and \(S_3\) for the calculation of \(x(i, \left\{0, 1\right\})\).}
+  \caption{\(M/M/(n+m)^{(\theta_1, \theta_2)}\) system with macro states \(S_1^i, S_2^i,\) and \(S_3\) for the calculation of \(x(i, \left\{0, 1\right\})\).}
   \label{fig:cloud:data_centers:modeling:energy_efficient:state_diagram}
 \end{figure}
 
@@ -74,7 +74,7 @@ should hold.
 
 Based on the state probabilities we can derive the required performance metrics for our analysis.
 
-The carried traffic and utilization is given by
+The carried traffic and utilisation is given by
 \begin{equation*}
 %TODO anders, evtl 2 zeilen?
 a = \frac{\lambda}{\mu} \text{\quad and\quad} \rho=\frac{\lambda}{\mu(n+m)}.
@@ -99,7 +99,7 @@ Now, we can give the mean waiting time for all jobs in the system as
 \begin{equation*}
 E[W] = \frac{\Omega}{\lambda}.
 \end{equation*}
-Finally, we obtain the mean power consumption similarly to \refeq{sec:cloud:data_centers:modeling:default:emax} as
+Finally, we obtain the mean power drain similarly to \refeq{sec:cloud:data_centers:modeling:default:emax} as
 \begin{align*}
 E& = \sum_{i=0}^{n} x(i,0)(i e_\text{busy} + (n-i)e_\text{idle} + m e_\text{off})\\
 &+ \sum_{i=n+1}^{n+\theta_2} x(i,0)(ne_\text{busy}+me_\text{off})\nonumber\\

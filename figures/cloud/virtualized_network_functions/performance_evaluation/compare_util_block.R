@@ -15,7 +15,8 @@ p <- ggplot(data, aes(x = res.util,
   scale_colour_manual(values = color.palette) +
   labs(x = label.mean.resource.utilization,
        y = label.blocking.probability,
-       color = label.startstop.duration)
+       color = label.startstop.duration,
+       shape = label.max.tunnels)
 
 save.full.row.plot(p)
 

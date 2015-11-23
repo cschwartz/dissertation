@@ -14,7 +14,7 @@ The time required for completion is given by the random variable \(\taskDuration
 \end{figure}
 
 From this model we derive two metrics in order to evaluate the performance of the crowdsourcing platform.
-First, we consider the utilization \(\workerUtilization\) for all workers.
+First, we consider the utilisation \(\workerUtilization\) for all workers.
 This can be interpreted as a measure of earning potential for workers on the platform and should be maximized in order to keep current workers and attract new ones. 
 Furthermore, we seek to obtain the mean task pre-processing delay \(\preTaskProcessingDelay\), i.e., the time occurring before a worker begins to work on a task.
 This measure is relevant for the employer and should be minimized.
@@ -34,7 +34,7 @@ State probabilities\cite{Kleinrock1975} can be obtained by solving the state equ
 x(i + 1) = x(i) \frac{\lambda + \mu \min(i, c)}{\mu \min(i + 1, c)} - \sum_{k=0}^{i-1} x(k) \lambda \theta(i - k)
 \]
 for \(i \geq 0\) tasks unserviced in the platform.
-The state probability for \(x(i+1)\) only depends on the state probabilities for \(x(k)\) for \(k \leq i\) lending itself to an iterative numerical computation.
+The state probability for \(x(i+1)\) only depends on the state probabilities for \(x(k)\) for \(k \leq i\) allowing for an iterative numerical computation.
 Note that \(x(0)\) cannot be computed in such a manner and has to be obtained using the normalizing equation 
 \[
 1 = \sum_{i=0}^{\infty} x(i).
@@ -48,7 +48,7 @@ Once a sufficient number \(\kappa\) of state probabilities have been computed, t
 \]
 Finally, we can calculate the actual state probabilities as \(x(i) = \zeta(i) x(0)\) for all \(0 < i \leq \kappa\).
 
-Based on these state probabilities, we obtain the mean worker utilization as
+Based on these state probabilities, we obtain the mean worker utilisation as
 \[
 \workerUtilization = \sum_{i=0}^{\kappa} \min(i, c) x(i) = \frac{\lambda E[\campaignSize]}{c\mu}. 
 \]
@@ -69,29 +69,29 @@ In order to allow for a larger variety of campaign inter-arrival time distributi
 We augment the framework with support for bulk arrivals and support of empiric distributions taken from measurements described in \refsec{sec:cloud:crowdsourcing:measurements}.
 Similar, to the queueing model introduced in this section, we consider campaign inter-arrivals according to a distribution \(\campaignIAT\) and a campaign size of \(\campaignSize\) tasks.
 Task length is given by a distribution \(\taskDuration\) and tasks are stored in an unbounded queue before being sent to service to the \(\numberOfWorkers\) available workers.
-During simulation, we record the mean worker utilization \(\workerUtilization\) as well as the mean task pre-processing delay \(\preTaskProcessingDelay\).
+During simulation, we record the mean worker utilisation \(\workerUtilization\) as well as the mean task pre-processing delay \(\preTaskProcessingDelay\).
 
 \subsubsection*{Validation}
 
 In this section, we validate the simulative model by comparing the metrics \(\workerUtilization\) and \(\preTaskProcessingDelay\) for a representative parameter set with those obtained from the analytic model.
 We consider exponential campaign inter-arrival times with a campaign rate of \SI{4}{\per\hour} campaigns, and a campaign size \campaignSize geometrically distributed with a mean of \(100\) tasks per campaign.
-For the task duration \taskDuration we consider a set of suitable values, to accommodate for different task types, between \SIrange{60}{300}{\second} per task.
+For the task duration \taskDuration, we consider a set of suitable values, to accommodate for different task types, between \SIrange{60}{300}{\second} per task.
 In both simulation and analytical model, we consider between \(5\) and \(50\) workers.
 
 \begin{figure*}
 	\centering
 	\begin{subfigure}{\columnwidth}
 		\includegraphics{cloud/crowdsourcing/model/figures/comparison_utilization}
-		\caption{Worker Utilization}
+		\caption{Worker utilisation}
 		\label{fig:cloud:crowdsourcing:validation:model:utilization}
 	\end{subfigure}
 
 	\begin{subfigure}{\columnwidth}
 		\includegraphics{cloud/crowdsourcing/model/figures/comparison_task_delay}
-		\caption{Task Pre-processing Delay}
+		\caption{Task pre-processing delay}
 		\label{fig:cloud:crowdsourcing:validation:model:task_delay}
 	\end{subfigure}
-	\caption{Comparison of Simulation with Analytic Model}
+	\caption{Comparison of simulation with analytic model}
 	\label{fig:cloud:crowdsourcing:validation:model}
 \end{figure*}
 
@@ -101,4 +101,4 @@ However, due to the good fit of the analytic and simulative model, the line show
 For the simulation we give \SI{95}{percent} confidence intervals based on \(10\) replications.
 In this, and all following figures, confidence intervals are given as error bars.
 For each simulation we consider a simulation duration of \SI{1500}{\hour} hours and accommodate for a transient phase of \SI{150}{\hour} hours.
-We observe that for both worker utilization and task pre-processing delays, the analytical results are well within the confidence intervals.
+We observe that for both worker utilisation and task pre-processing delays, the analytical results are well within the confidence intervals.

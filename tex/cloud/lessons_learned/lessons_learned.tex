@@ -1,31 +1,34 @@
 \section{Lessons Learned}\label{sec:cloud:lessons_learned}
-In this chapter we studied trade-offs occuring in cloud environments.
+In this chapter we examined tradeoffs between stakeholders in cloud environments.
 As in the previously considered scenarios, various stakeholders exist, each with different and partially conflicting interests.
-First, we considered the operation of a data center from the point of view of a \emph{data center operator}.
-The data center operator is interested in decreasing expenditures, e.g. due to energy consumption of computing equipment as well as in offering a competitive service to its customers.
-The \emph{data center customers} are interested in obtaining such services, usually by selecting them according to metrics specified in a \gls{SLA}, such as the delay a scheduled job is experiencing.
-Second, we consider the role of the data center customer role in more detail, by focussing on a specific virtualised network function deployed in a data center, and the customer in the role of a \emph{network function operator}.
-The network function operator is interested in reducing the number of conuccrent virtual machines provisioned, in order to decrease cost.
-The network function operator in turn needs to satisfy its customers, the \emph{network function users}, who rely on the network function operator providing availability goals, such as the ability to connect to the internet using \gls{GTP} tunnels.
+First, we considered the operation of a data centre from the point of view of a \emph{data centre operator}.
+The data centre operator is interested in decreasing expenditures, e.g. due to energy consumption of computing equipment as well as in offering a competitive service to its customers.
+The \emph{data centre customers} are interested in obtaining such services, usually by selecting them according to metrics specified in a \gls{SLA}.
+One example of a metric considered in a \gls{SLA} is the delay a scheduled job is experiencing.
+Second, we consider the role of the data centre customer in more detail.
+Thus, we focus on a specific virtualised network function deployed in a data centre, and the customer in the role of a \emph{network function operator}.
+The network function operator is interested in reducing the number of concurrent virtual machines provisioned, in order to decrease cost.
+The network function operator in turn needs to satisfy its customers, the \emph{network function users}, who rely on the network function operator satisfying availability goals, e.g. the ability to connect to the Internet using \gls{GTP} tunnels.
 Finally, we consider a human cloud scenario.
 Here, the \emph{crowdsourcing platform operator} attempts to balance the needs of its two stakeholders, the \emph{crowdsourcing employer} against the requirements of the \emph{crowdsourcing worker}.
-The crowdsourcing employer publishes tasks via the crowdsourcing plattform to crowdsourcing employees and requires a fast task completion time.
+The crowdsourcing employer publishes tasks via the crowdsourcing platform to crowdsourcing employees and requires a fast task completion time.
 The crowdsourcing worker is interested in being offered as many tasks as possible, in order to increase the income.
-The crowdsourcing platform operator can dimension the number of available crowdsourcing workers in order balance this trade-off. 
+The crowdsourcing platform operator can dimension the number of available crowdsourcing workers in order balance this tradeoff. 
 
 We draw three major conclusions from this chapter:
 
-First, we observe that proposed scheme for operation of the data center allows for a reduction of the energy consumption by \SI{40}{\percent} while only increasing the time before a task can begin processing is increased by by less then \SI{1}{\milli\second}.
-Furthermore, we show that for the considerd mechanism, server deactivation should occur as soon as possible, resulting in the greatest energy savings while keeping an acceptable time until tasks can begin processing. 
+First, we observe that the proposed scheme for operation of the data centre allows for a reduction of the energy consumption by \SI{40}{\percent}.
+As a tradeoff, the time before a task can begin processing is increased by less then \SI{1}{\milli\second}.
+Furthermore, we show that for the considered mechanism, server deactivation should occur as soon as possible, resulting in the greatest energy savings while keeping an acceptable time until tasks can begin processing. 
 
-Second, show the existence of configurations for the virtualised network function scenario, so that even for conservative server startup times, such as \SI{300}{\second}, the blocking probability increases only by a factor of 1.46.
+Second, we study the existence of configurations for the virtualised network function scenario, so that even for conservative server startup times, e.g. \SI{300}{\second}, the blocking probability increases only by a factor of 1.46.
 This configuration also allows  \SI{45}{\percent} of the required instances to be used for other purposes at \SI{50}{\percent} of the time. 
-We also demonstrate that the observed blocking probability can be reduced by over \SI{90}{\percent} by employing techniques to reduce instance startup time, such as \glspl{SSD} or software containerisation.
+We also demonstrate that the observed blocking probability can be reduced by over \SI{90}{\percent} by employing techniques to reduce instance startup time, e.g. \glspl{SSD} or software containerisation.
 
-Finally, we show that according to our model, crowdsourcing plattforms are robust regarding to different shapes of the arrival process, i.e. bursty arrivals compared to periodic arrivals.
-Furthermore, we show that a relatively small number of workers is sufficient to sustain the plattform during times of worker shortage, if the workers are put on retainer for the platform.
+Finally, we show that according to our model, crowdsourcing platforms are robust regarding different shapes of the arrival process, i.e. bursty arrivals compared to periodic arrivals.
+Furthermore, we show that a relatively small number of workers is sufficient to sustain the platform during times of worker shortage, if the workers are put on retainer for the platform.
 
 In the scenarios considered in this section, the platform operator is in control over parameters influencing the \glspl{KPI} for the participating stakeholders.
 However, in all cases the \glspl{KPI} of the other stakeholders, by means of \gls{SLA} design, availability goals, or income, are also a \gls{KPI} for the platform operator.
-This is due to the fact, that not only one platform operator exists but multiple such platform operators compete for customers.
+This is due to the fact that not only one platform operator exists but multiple platform operators compete for customers.
 Research on such multi-operator scenarios can be performed using the models introduced in this chapter.

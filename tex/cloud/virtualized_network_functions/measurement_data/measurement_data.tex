@@ -2,16 +2,16 @@
 
 In order to evaluate our models introduced in \refsec{sec:cloud:virtualized_network_functions:model}, we use data gathered from a nation-wide mobile operator.
 This allows for precise core network evaluations and the creation statistical fits for the observed processes.
-In this section we first describe the dataset used for the evaluation and afterwards we derive the random variables required for our models.
+In this section we first describe the dataset used for the evaluation and afterwards, we derive the random variables required for our models.
 
 \subsubsection*{Dataset Description}\label{sec:cloud:virtualized_network_functions:measurement_data:description}
 
 \label{sec:dataset_description}
 
-All data was collected by the \gls{METAWIN} monitoring system~\cite{Ricciato2006} with measurement probes located at the Gn interface within the core network, enabling broad access to signaling.
+All data was collected by the \gls{METAWIN} monitoring system~\cite{Ricciato2006} with measurement probes located at the Gn interface within the core network, enabling broad access to signalling.
 For this investigation we employ \gls{GTP} protocol data gathered by \gls{METAWIN}.
 This data includes the \gls{RAT} identifier as well as the terminal types of the mobile clients, by use of the \gls{TAC} part of the \gls{IMEI}.
-To meet privacy requirements, \gls{METAWIN} anonymizes all captured data.
+To meet privacy requirements, \gls{METAWIN} anonymises all captured data.
 The application-level payload is removed and all user identifiers are hashed with one-way functions before data storage.
 Individual \glspl{UE} in our dataset can be differentiated by the hashed \gls{MS-ID}, but not traced back to the actual user.
 
@@ -22,19 +22,19 @@ It was tapped at one of the \glspl{GGSN} of the operator and contains about half
 \subsubsection*{Statistical Evaluation}\label{sec:cloud:virtualized_network_functions:measurement_data:evaluation}
 
 Using this dataset, we can obtain the distributions required for the models introduced in \refsec{sec:cloud:virtualized_network_functions:model}.
-First, we study the tunnel interarrival time in \reffig{fig:cloud:virtualized_network_functions:measurement_data:evaluation:tunnel_iat}.
+First, we study the tunnel inter-arrival time in \reffig{fig:cloud:virtualized_network_functions:measurement_data:evaluation:tunnel_iat}.
 
 \begin{figure}
   \centering
   \includegraphics{cloud/virtualized_network_functions/measurement_data/figures/tunnel_iat}
-  \caption{Empirical and exponentially fitted CDFs of the tunnel interarrival duration by time of day. CDFs are overlapping as the coefficient of determination is close to \(1\).}
+  \caption{Empirical and exponentially fitted CDFs of the tunnel inter-arrival duration by time of day. CDFs are overlapping as the coefficient of determination is close to \(1\).}
   \label{fig:cloud:virtualized_network_functions:measurement_data:evaluation:tunnel_iat}
 \end{figure}
 
-The arrival of new tunnel requests can be used as a measure for the load a \gls{GGSN} experiences, as every incoming tunnel carries several signaling interactions, processing and state with it.
+The arrival of new tunnel requests can be used as a measure for the load a \gls{GGSN} experiences, as every incoming tunnel carries several signalling interactions, processing and state with it.
 Typically, a device will only hold one tunnel at a time, but this tunnel can be initiated and shut down in rapid succession, causing the aforementioned issues in the radio network.
 The arrivals also show a strong diurnal effect, closely resembling patterns present in the actual user traffic:
-We observe a decline of arrivals, i.e. longer interarrivals, late in the night and during the early morning hours with a peak rate in the afternoon and early evening.
+We observe a decline of arrivals, i.e. longer inter-arrivals, late in the night and during the early morning hours with a peak rate in the afternoon and early evening.
 To represent this time-of-day dependence in the model, the measurement was split into the four time slots displayed in the figure.
 Each slot was then fitted with an exponential distribution by way of moment matching.
 This results in the cumulative distribution function \(F(x) = 1- e^{-\lambda x}, x \geq 0\) with \(\lambda\) given in \reftab{tab:cloud:virtualized_network_functions:measurement_data:evaluation:iat_fits} for the four time slots.
@@ -86,9 +86,9 @@ Further properties of the tunnel duration, especially the correlation with devic
 
 Furthermore, the model requires information on the tunnel durations.
 However, none of the basic probability distributions, e.g. exponential, gamma, and weibull distributions, fit the tunnel duration well enough.
-One of the reasons for this probably being the correlation of the tunnel duration to a large number of factors, including user behavior and network-specific timers and procedures, e.g. tunnels are shut down by the network after specific events, introducing artifacts which make it hard to fit any distribution against.
+One of the reasons for this probably being the correlation of the tunnel duration to a large number of factors, including user behaviour and network-specific timers and procedures, e.g. tunnels are shut down by the network after specific events, introducing artefacts which make it hard to fit any distribution against.
 Instead, we fit rational functions to the empirical \gls{CDF} using the Eureqa \cite{Schmidt2009} software.
 
-This allowes for a much closer fit while still smoothing out some of the artifacts.
+This allows for a much closer fit while still smoothing out some of the artefacts.
 \reftab{tab:cloud:virtualized_network_functions:measurement_data:evaluation:duration_fits} displays these functions fitted to the inverse \gls{CDF}, to be directly used for generating random numbers using the inversion method.
 Both the \gls{CDF} in \reffig{fig:cloud:virtualized_network_functions:measurement_data:evaluation:tunnel_duration} as well as the Pearson correlation coefficient confirm the goodness of the fitted functions.

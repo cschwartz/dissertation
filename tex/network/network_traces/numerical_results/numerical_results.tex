@@ -65,21 +65,21 @@ However, these cases should be considered when optimisation strategies for messa
 Background applications, for instance, could allow for the batching of messages, due to the fact that the transmission is usually not urgent, while foreground applications do not allow for such behaviour as it would delay the user interactions and consequently decrease \gls{QoE}.
 
 Next, we describe the applications under study in more detail.
-For each application we show the \gls{CDF} of the interarrival times in \reffig{fig:network:network_traces:numerical_results:traffic:interarrival_times} and give information about the mean values and standard deviation of both interarrival times and bandwidth in \reftab{tab:network:network_traces:numerical_results:traffic_statistics}, respectively.
+For each application we show the \gls{CDF} of the inter-arrival times in \reffig{fig:network:network_traces:numerical_results:traffic:interarrival_times} and give information about the mean values and standard deviation of both inter-arrival times and bandwidth in \reftab{tab:network:network_traces:numerical_results:traffic_statistics}, respectively.
 
 \begin{figure}
 \centering
 \includegraphics{network/network_traces/numerical_results/figures/interarrival_times}
-\caption{CDF of interarrival times for considered applications}\label{fig:network:network_traces:numerical_results:traffic:interarrival_times}
+\caption{CDF of inter-arrival times for considered applications}\label{fig:network:network_traces:numerical_results:traffic:interarrival_times}
 \end{figure}
 
 \begin{table}
   \centering
-  \caption{Mean and standard deviation of interarrival time and bandwidth for considered applications}
+  \caption{Mean and standard deviation of inter-arrival time and bandwidth for considered applications}
   \label{tab:network:network_traces:numerical_results:traffic_statistics}
   \begin{tabular}{lcccc}
   	\toprule
-    Application&\multicolumn{2}{c}{Interarrival time (\si{\second})}&\multicolumn{2}{c}{Bandwidth (\si{\kilo\bit\per\second})}\\
+    Application&\multicolumn{2}{c}{Inter-arrival time (\si{\second})}&\multicolumn{2}{c}{Bandwidth (\si{\kilo\bit\per\second})}\\
     \cmidrule(lr){2-3}\cmidrule(lr){4-5}
     &Mean&Standard deviation&Mean&Standard deviation\\
     \midrule
@@ -92,40 +92,40 @@ For each application we show the \gls{CDF} of the interarrival times in \reffig{
 \end{table}
 
 \paragraph*{Angry Birds}
-We see that there are no distinct peaks in interarrival time, which would indicate a periodic behaviour.
-Furthermore, we see that \SI{5}{\percent} of all interarrival times are greater than \SI{1}{\second}.
+We see that there are no distinct peaks in inter-arrival time, which would indicate a periodic behaviour.
+Furthermore, we see that \SI{5}{\percent} of all inter-arrival times are greater than \SI{1}{\second}.
 As we consider only \gls{TDCH} values above \SI{1}{\second}, those are candidates for triggering state transitions.
-The mean interarrival time is \SI{0.66}{\second}, with a relatively high standard deviation of \SI{15.90}{\second}.
-This is caused by the low interarrival times in one advertisement request at the beginning of each new level and the relatively large interarrival times between two advertisements.
+The mean inter-arrival time is \SI{0.66}{\second}, with a relatively high standard deviation of \SI{15.90}{\second}.
+This is caused by the low inter-arrival times in one advertisement request at the beginning of each new level and the relatively large inter-arrival times between two advertisements.
 Mean bandwidth is relatively low with \SI{4.42}{\kilo\bit\per\second} and a high standard deviation of \SI{4.5}{\kilo\bit\per\second}.
 These differences can be explained by considering the behaviour of the application.
 During long phases of use no traffic is sent, and after a level is restarted, a new advertisement has to be obtained, causing the transmission of data.
 Note that no level data is downloaded during gameplay at all, as the complete game is downloaded during the installation process.
 
 \paragraph*{Aupeo}
-We see that the application generates packets with relatively small interarrival times with a small mean interarrival time of \SI{0.06}{\second}.
+We see that the application generates packets with relatively small inter-arrival times with a small mean inter-arrival time of \SI{0.06}{\second}.
 The high standard deviation of \SI{3.06}{\second} is caused by the wait between two tracks.
 Furthermore, we see a high mean bandwidth of \SI{129.76}{\kilo\bit\per\second}, and a standard deviation of \SI{482.63}{\kilo\bit\per\second}.
 This is caused by the difference in traffic activity between times when tracks are either downloaded or not.
 
 \paragraph*{Twitter}
-We see that \SI{90}{\percent} of all transmissions occur with an interarrival time of less than \SI{1}{\second}.
-Also, we can observe a high mean interarrival time of \SI{8.91}{\second} and a high standard deviation of \SI{44.49}{\second}.
+We see that \SI{90}{\percent} of all transmissions occur with an inter-arrival time of less than \SI{1}{\second}.
+Also, we can observe a high mean inter-arrival time of \SI{8.91}{\second} and a high standard deviation of \SI{44.49}{\second}.
 Additionally, the mean bandwidth is low with only \SI{0.27}{\kilo\bit\per\second} and a low standard deviation of \SI{0.04}{\kilo\bit\per\second} due to the fact that Twitter text messages are only \(140\) characters in length and thus only a low volume of traffic needs to be transmitted.
 
 \paragraph*{Skype}
-Similar to the Twitter application, we see that \SI{90}{\%} of all packets occur with an interarrival time of less than \SI{1}{\second}.
-However, in contrast to Twitter, we see a low mean interarrival time of \SI{0.55}{\second} with a standard deviation of \SI{1.95}{\second}.
+Similar to the Twitter application, we see that \SI{90}{\%} of all packets occur with an inter-arrival time of less than \SI{1}{\second}.
+However, in contrast to Twitter, we see a low mean inter-arrival time of \SI{0.55}{\second} with a standard deviation of \SI{1.95}{\second}.
 Further, we observe a relatively low mean bandwidth of \SI{1.30}{\kilo\bit\per\second} and a standard deviation of \SI{1.8}{\kilo\bit\per\second}.
 
 \begin{figure}
 \centering
 \includegraphics{network/network_traces/numerical_results/figures/autocorrelation}
-\caption{Autocorrelation of interarrival times for considered applications}\label{fig:network:network_traces:numerical_results:traffic:autocorrelation}
+\caption{Autocorrelation of inter-arrival times for considered applications}\label{fig:network:network_traces:numerical_results:traffic:autocorrelation}
 \end{figure}
 
-To further study the traffic patterns of the applications, we study the autocorrelation of the packet interarrival time with regard to the lag length in \reffig{fig:network:network_traces:numerical_results:traffic:autocorrelation}.
-We note that all studied applications present completely different autocorrelations for the interarrival times.
+To further study the traffic patterns of the applications, we study the autocorrelation of the packet inter-arrival time with regard to the lag length in \reffig{fig:network:network_traces:numerical_results:traffic:autocorrelation}.
+We note that all studied applications present completely different autocorrelations for the inter-arrival times.
 This is one of the reasons that the applications under consideration will display different signalling behaviour in the next section.
 
 \subsubsection*{Influence of Application Characteristics on Optimisation with Network Timers}\label{sec:network:network_traces:numerical_results:application_influence}

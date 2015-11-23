@@ -11,7 +11,7 @@ p <- ggplot(data, aes(x = x,
   labs(x = label.tunnel.duration,
        y = label.cdf.duration,
        color = label.distribution) +
-  coord_cartesian(xlim = c(1, 1.5e6))
+  coord_cartesian(xlim = c(1, 1.5e5))
 
 save.full.row.plot(p)
 
