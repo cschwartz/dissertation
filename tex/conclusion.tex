@@ -1,1 +1,33 @@
 \chapter{Conclusion}\label{chap:conclusion}
+
+Todays' Internet traffic is dominated by applications not architected by standard bodies or network operators, but rather by companies or individuals.
+The design goals of these applications did not account for \glspl{KPI} of all stakeholders which are impacted by the behaviour of the application in the Internet.
+Rather, the application provider is focused on its own interests and at most that of its users.
+Other stakeholders in the mobile internet, e.g. hardware vendors, mobile network operators or cloud platform operators, primarily focus on improving their own \glspl{KPI}.
+Each stakeholder attempts to improve its considered \glspl{KPI} by manipulating parameters under its control, e.g. implementing energy saving mechanisms, changing network configuration, or adapting the number of available servers.
+However, these manipulations not only improve the \glspl{KPI} of the stakeholders but impact the \glspl{KPI} of a set of other stakeholders.
+This results in complex relationships between stakeholders where interests are sometimes adverse and satisfactory results for all stakeholders can only be reached by means of a tradeoff analysis.
+
+In this monograph we study clashes of stakeholder interests for a set of scenarios from different regions of the mobile Internet.
+We consider different approaches to model and analyse these conflicts and provide numeric results for best-case scenarios, which usually can be reached by cooperation between the participating stakeholders.
+
+We first study the impact of network configuration on a set of \glspl{KPI} given network traffic caused by mobile applications.
+Then we consider the impact of transmission mechanisms and scheduling algorithms implemented on mobile applications on \glspl{KPI} for the participating stakeholders.
+Finally, we study the impact of resource allocation and management schemes implemented in both machine-cloud and human-cloud scenarios.
+
+In \refchap{chap:network} we propose an algorithm to derive metrics such as power drain and signalling frequency from application traffic traces for a given network configuration.
+This algorithm allows application developers to consider the impact of their applications traffic on both the mobile network as well as the battery life of the \gls{UE}.
+We then present an analytic model which allows the derivation of the considered metrics from arbitrary, theoretical traffic distributions.
+Using these methods we study exemplary application and perform a two-moment parameter study on synthetic traffic in order to identify problematic traffic patterns.
+We find that periodic traffic has a negative impact on both signalling frequency and power drain.
+We show that given the existence of proprietary fast dormancy algorithms, network timer optimisation performed by network operators can degrade performance for all participating stakeholders. 
+Furthermore, it can result in Nash equilibriae with worse system performance for all participants then when no optimisation by the operator is performed.  
+We suggest that hardware vendors implement operating system level mechanisms for applications to be notified on connection state changes in order to schedule transmissions and for network operators to provide interfaces to query network configuration.
+
+We focus on two specific applications, video streaming and cloud file synchronisation, in \refchap{chap:application}.
+
+Chapter 4
+
+Impact of this monograph
+
+Future work

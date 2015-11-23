@@ -24,7 +24,8 @@ We obtain the following equilibrium state equations.
   \lambda x(0, i) &= \lambda x(0, i-1) & i&\in\left(q, p\right)\\
   (\lambda + \mu) x(1, q+1) &= \mu x(1, q+2) & &\\
   (\lambda + \mu) x(1, i) &= \lambda x(1, i-1) + \mu x(1, i+1) & i&\in\left(q+1, p\right)\\
-  (\lambda + \mu) x(1, p) &= \lambda (x(0,p-1) + x(1, p-1)) + \mu x(1, p+1) & &\\
+  (\lambda + \mu) x(1, p) &= \lambda (x(0,p-1) + x(1, p-1)) & &\\
+  & + \mu x(1, p+1) & &\\
   (\lambda + \mu) x(1, i) &= \lambda x(1, i-1) + \mu x(1, i+1) & i&\in\left(p, +\infty\right)
 \end{align*}
 State probabilities are obtained using macro state equations and recursive reduction and follow analogously to~\cite{Zhang2004}:
