@@ -1,10 +1,10 @@
 \chapter{Introduction}\label{chap:introduction}
 
-Todays Internet is no longer only controlled by standard bodies, telecommunications companies and hardware vendors. 
+Todays' Internet is no longer only controlled by standard bodies, telecommunications companies and hardware vendors. 
 New Internet applications are developed by start ups at an increasing rate, and each application has the potential to disrupt the status quo, both in business and technology.
-These new applications not only impact the network infrastructure, but also a large set of Stakeholders participating in todays ecosystem of applications.
+These new applications not only impact the network infrastructure, but also a large set of Stakeholders participating in todays' ecosystem of applications.
 
-One example of such a scenrio are \emph{Signalling Storms}~\cite{Huawei2011}, with one of the largest occuring in Japan in 2012\footnote{\url{https://www.techinasia.com/docomo-outage}, Accessed: November, 21st 2015} due to the release and fast uptake of a free instant messaging application.
+One example of such a scenario are \emph{Signalling Storms}~\cite{Huawei2011}, with one of the largest occurring in Japan in 2012\footnote{\url{https://www.techinasia.com/docomo-outage}, Accessed: November, 21st 2015} due to the release and fast uptake of a free instant messaging application.
 The connection establishment algorithms of \glspl{UE} triggered by the applications traffic resulted in a loss of service for 2.5 million users over 4 hours.
 While the network operator suffers the largest impact of this signalling behaviour, it is in no good position to intervene.
 The stakeholders who could prevent or at least reduce such behaviour, i.e. application developers or hardware vendors, have no direct benefit from modifying their products in such a way.  
@@ -31,7 +31,7 @@ First, we consider the \emph{network operator}.
 The network operator owns, manages and operates a mobile network.
 By manipulating network configuration, the operator can influence the connection state of \gls{UE}, resulting in changes of power drain, i.e. battery life, of the \gls{UE} and reduced signalling load in the components of the mobile network.
 
-The \emph{application provider} develops and deploys applications and is interrested in increasing the \gls{QoE} for the user, in order to attract a large user base.
+The \emph{application provider} develops and deploys applications and is interested in increasing the \gls{QoE} for the user, in order to attract a large user base.
 Additional considered \glspl{KPI} are cost, for example incurred due to use of compute or network resources in \gls{IaaS} or \gls{PaaS} scenarios.
 Design and configuration of applications has impact on traffic patterns which, result in signalling traffic in the mobile network and also influence the connection state of the \gls{UE}.
 
@@ -77,7 +77,7 @@ This monograph studies the interactions between different stakeholders in three,
 \end{figure}
 
 In \reffig{fig:introduction:publications} we classify the areas of research as well as scientific method used in relation to the chapter of this monograph.
-Annotations of are used to highlight scientific publication whos content contributes to the respective chapters.
+Annotations of are used to highlight scientific publication who's content contributes to the respective chapters.
 
 The first contribution of this monograph is a study of the impact of mobile application traffic on mobile communication networks, especially considering the current network configuration.
 To this end, we introduce an algorithm to infer power drain and generated signalling messages , relevant \glspl{KPI} for the mobile network operator and the end user, for a given application traffic trace and network configurations.
@@ -86,7 +86,7 @@ Using these methods we study the impact of different traffic types and study the
 
 As a second contribution, we provide models for two popular applications, i.e. Video Streaming and Cloud File Synchronisation, thus enabling the study of the impact of different mechanisms implemented in said applications.
 For the Video Streaming application we use a simulation in order to compare \glspl{KPI} for all stakeholders in this scenario.
-We show that the Streaming mechanism allows the most flexible configuration and can provide a pareto optimal results for all pairs of metrics.
+We show that the Streaming mechanism allows the most flexible configuration and can provide a Pareto optimal results for all pairs of metrics.
 However, further study shows that in fact no pareto optimal value exists which satisfies the \glspl{KPI} of all participating stakeholders.
 Furthermore, we provide a queueing model for video streaming and use it to derive parameterisable \gls{QoE} models for different user groups.
 Finally, for the Cloud File Synchronisation scenario we obtain measurements of the performance of the Dropbox service and use them as input for a simulation model.
@@ -120,12 +120,12 @@ We use this model in order to provide algorithm configuration guidelines in orde
 Next, we discuss different scheduling algorithms for Cloud File Synchronisation services.
 Using data obtained from large scale, testbed based~\cite{Chun2003} measurements, we implement a simulation model in order to investigate the impact of the synchronization scheduling mechanism and configuration on time required to complete synchronisation, signalling in the mobile network and power drain.  
 
-In \refchap{chap:cloud} we study resource allocation strategies in the cloud and evaluate in which matter decissions of the cloud platform operators impact the other stakeholders.
+In \refchap{chap:cloud} we study resource allocation strategies in the cloud and evaluate in which matter decisions of the cloud platform operators impact the other stakeholders.
 First, we consider a energy saving scheme where a cloud operator scales the number of available servers according to the available load.
 We introduce a queueing model and perform a performance evaluation in order to study optimal parameter settings.
 Then, we consider the role of a cloud user renting virtual machines in the cloud in order to provide a service to users on the example of a virtualised network operator.
 This cloud user is interrested in ensuring the \gls{SLA} offered to its customers is satisfied while reducing costs by disabling servers currently not in use.
-We analyse traffic characteristis and use them as input for a simulation model of a virtualised \gls{GGSN}.
+We analyse traffic characteristics and use them as input for a simulation model of a virtualised \gls{GGSN}.
 Then, we evaluate the impact of different virtual server setups and scaling configurations.
 Finally, we consider resource allocation in human clouds.
 Based on data obtained from a commercial crowdsourcing provider, we extract characteristic distributions and apply it as input two both an analytic queueing model as well as a simulation model.
