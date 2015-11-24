@@ -16,18 +16,31 @@ Then we consider the impact of transmission mechanisms and scheduling algorithms
 Finally, we study the impact of resource allocation and management schemes implemented in both machine-cloud and human-cloud scenarios.
 
 In \refchap{chap:network} we propose an algorithm to derive metrics such as power drain and signalling frequency from application traffic traces for a given network configuration.
-This algorithm allows application developers to consider the impact of their applications traffic on both the mobile network as well as the battery life of the \gls{UE}.
+This algorithm allows application developers to consider the impact of their applications  traffic on other considered stakeholders, i.e. on both the mobile network as well as the battery life of the \gls{UE}.
 We then present an analytic model which allows the derivation of the considered metrics from arbitrary, theoretical traffic distributions.
 Using these methods we study exemplary application and perform a two-moment parameter study on synthetic traffic in order to identify problematic traffic patterns.
 We find that periodic traffic has a negative impact on both signalling frequency and power drain.
 We show that given the existence of proprietary fast dormancy algorithms, network timer optimisation performed by network operators can degrade performance for all participating stakeholders. 
-Furthermore, it can result in Nash equilibriae with worse system performance for all participants then when no optimisation by the operator is performed.  
+Furthermore, it can result in equilibria with worse system performance for all participants then when no optimisation by the operator is performed.  
 We suggest that hardware vendors implement operating system level mechanisms for applications to be notified on connection state changes in order to schedule transmissions and for network operators to provide interfaces to query network configuration.
 
 We focus on two specific applications, video streaming and cloud file synchronisation, in \refchap{chap:application}.
+We study different types of video transmission mechanisms and configurations regarding \glspl{KPI} stakeholder metrics.
+While the configurable \emph{Streaming} mechanism allows for suitable tradeoffs between all stakeholder pairs, we find that the none of the considered transmissions mechanisms allows for suitable tradeoffs for all participating stakeholders.
+We suggest to use the \emph{Design for Tussle}~\cite{Clark2005} in order to allow stakeholders to find suitable tradeoffs at run time.
+In order to study tradeoffs between end user groups with different, we study video \gls{QoE} models in streaming scenarios and provide a model to evaluate consequences of parameter choice of the \emph{Streaming} algorithm on user satisfaction.
+We show, that by accounting for different user scenarios, i.e. browsing videos and watching videos, video \gls{QoE} can be improved.
+Finally, we consider cloud file synchronisation services.
+Based on large scale measurements using the PlanetLab platform we provide input distributions as well as a simulation framework to be used to evaluate different synchronisation scheduling algorithms.
+This simulation framework allows application developers to gauge the impact of their algorithm design decisions on other stakeholders, such as the network operator or the end user.
+We use the framework in order to evaluate different algorithms and find, that both the \emph{Interval} and the \emph{Size} algorithms allows for a good tradeoff between the considered stakeholders.
 
-Chapter 4
+In \refchap{chap:cloud} we first provide a queueing model as well as a power saving mechanism for data centres allowing operators to select a tradeoff between power savings they can achieve and \glspl{SLA} they will be able to offer to their customers.
+We than consider the role of a cloud customer renting resources in a data centre in order to provide \gls{NFV} services to mobile network operators.
+We propose and evaluate a resource provisioning mechanism allowing the \gls{NFV} operator to balance the required resources with the \glspl{SLA} it can offer to its stakeholders. 
+We especially consider the impact of new technologies, e.g. containerisation and \glspl{SSD} on performance during provisioning.
+Finally, we apply our methodology to human-cloud scenarios and discuss dimensioning strategies for crowdsourcing platform operators, enabling them to provide a tradeoff between the interests of their stakeholders, the crowdsourcing platform employer and the crowdsourcing platform worker. 
 
-Impact of this monograph
-
-Future work
+This monograph studies the impact of conflicts of interests between stakeholders, where either stakeholders have the possibility to impact \glspl{KPI} of other stakeholders or where stakeholders may choose between a set of competitors based on specific \glspl{KPI} requirements.
+Methods and models introduced in this monograph can be applied to other clashes of stakeholder interests and analysed in a comparable way.
+Based on the results and proposed techniques multi-tier optimisation frameworks can be studied, investigating the clash of larger stakeholder groups over multiple scenarios.
