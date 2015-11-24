@@ -73,15 +73,17 @@ task :check_for_typos do
 end
 
 task :check_fonts => :pdf do
+  puts "checking fonts..."
   Dir['tex/**/figures/*.pdf'].each do |f|
     out = `pdffonts #{ f }`
-    if out.include? 'TrueType'
+    if out.include?('TrueType') || out.include?('CID Type 0C')
       puts f
       puts source_path(f)
       puts out
       puts "======"
     end
   end
+  puts "done"
 end
 
 rule '.pdf' => -> (f) {source_path(f)} do |t|
