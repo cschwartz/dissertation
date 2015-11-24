@@ -20,7 +20,7 @@ p <- ggplot(data) +
        y = label.wasted.traffic,
        color = label.buffer.lower,
        shape = label.buffer.size) +
-  geom_text(data = annotation_data, aes(x = xtextpos, y = ytextpos), label = "Pareto Optimum", size = 2, vjust = 0, hjust = 0) +
+  geom_text(data = annotation_data, aes(x = xtextpos, y = ytextpos), label = "Pareto Optimum", size = 2, vjust = 0, hjust = 0, family = annotation.font) +
   geom_segment(data = annotation_data, aes(x = xtextpos, xend = wasted.data, y = ytextpos, yend = connections), arrow = arrow(length = unit(0.1, "cm"))) +
   scale_color_manual(values = color.palette) +
   guides(shape = guide_legend(order = 2), color=guide_legend(order = 1))

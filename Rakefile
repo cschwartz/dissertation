@@ -72,6 +72,18 @@ task :check_for_typos do
   end
 end
 
+task :check_fonts => :pdf do
+  Dir['tex/**/figures/*.pdf'].each do |f|
+    out = `pdffonts #{ f }`
+    if out.include? 'TrueType'
+      puts f
+      puts source_path(f)
+      puts out
+      puts "======"
+    end
+  end
+end
+
 rule '.pdf' => -> (f) {source_path(f)} do |t|
   ensure_destination_path_exists(t.name)
   extension = File.extname(t.source)

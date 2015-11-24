@@ -62,13 +62,20 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{159.125, 7.875}, {8, 11}}</string>
+			<string>{{159.125, 7.875}, {7, 12}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
 			<string>YES</string>
 			<key>Flow</key>
 			<string>Resize</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>27</integer>
 			<key>Shape</key>
@@ -97,7 +104,7 @@
 				<integer>0</integer>
 				<key>Text</key>
 				<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -113,6 +120,13 @@
 			<string>{{192.5, 5.875}, {46.25, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>11</integer>
 			<key>Magnets</key>
@@ -175,6 +189,13 @@
 			<string>{{87.5, 5.875}, {46.25, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>10</integer>
 			<key>Magnets</key>
@@ -237,6 +258,13 @@
 			<string>{{30.75, 5.875}, {46.25, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>9</integer>
 			<key>Magnets</key>
@@ -299,6 +327,13 @@
 			<string>{{100.50000017881393, 43.317913055419922}, {46.25, 26.75}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>8</integer>
 			<key>Magnets</key>
@@ -363,6 +398,13 @@
 			<string>{{159.00000035762787, 43.317911148071289}, {46.25, 26.75}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>7</integer>
 			<key>Magnets</key>
@@ -425,6 +467,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -462,6 +511,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -497,6 +553,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -534,6 +597,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -567,6 +637,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -602,6 +679,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -637,6 +721,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -674,6 +765,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -709,6 +807,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -819,7 +924,7 @@
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 
-\f0\i\fs18 \cf0 Network Operator}</string>
+\f0\fs18 \cf0 Network Operator}</string>
 			</dict>
 			<key>TextPlacement</key>
 			<integer>0</integer>
@@ -900,7 +1005,7 @@
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 
-\f0\i\fs18 \cf0 Users}</string>
+\f0\fs18 \cf0 Users}</string>
 			</dict>
 			<key>TextPlacement</key>
 			<integer>0</integer>
@@ -910,6 +1015,13 @@
 			<string>{{-2.2351741790771484e-08, 40.317912678464523}, {220.75, 32.75}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>LinBiolinumO</string>
+				<key>Size</key>
+				<real>9</real>
+			</dict>
 			<key>ID</key>
 			<integer>4</integer>
 			<key>Magnets</key>
@@ -1027,7 +1139,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-11-06 09:39:00 +0000</string>
+	<string>2015-11-24 07:56:37 +0000</string>
 	<key>Modifier</key>
 	<string>Christian Schwartz</string>
 	<key>NotesVisible</key>
