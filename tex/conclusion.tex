@@ -1,26 +1,27 @@
 \chapter{Conclusion}\label{chap:conclusion}
 
-Todays' Internet traffic is dominated by multiple stakeholders.
-Applications are developed and deployed by application providers, run on \glspl{UE} developed by hardware vendors, and use mobile networks owned by operators.
+Today's Internet traffic is dominated by multiple stakeholders.
+Applications are developed and deployed by application providers, run on \glspl{UE} produced by hardware vendors, and use mobile networks owned by operators.
 They use resources rented from cloud operators, may use human labour provided by crowdsourcing platforms and ultimately attempt to provide a high \gls{QoE} to end users.
-However, the interests and \glspl{KPI} of the stakeholders in todays' Internet do not always line up and sometimes even conflict.%, resulting in complex inter-dependencies of stakeholder interests.
+However, the interests and \glspl{KPI} of the stakeholders in today's Internet do often collide with each other and sometimes even conflict.%, resulting in complex inter-dependencies of stakeholder interests.
 
-For example, an application provider might be interested in providing its end users content as up-to-date as possible using queries to a web service.
-These queries can, depending on the configuration used by the mobile network operator, result in numerous connection establishments and tear-downs, increasing the signalling load in the mobile network and potentially causing \emph{Signalling Storms}, i.e. overload.
-Reconfiguration of the network by the operator can result in the \gls{UE} being connected for a longer time, resulting in decreased battery life and \gls{QoE} of the user.  
+For example, an application provider might be interested in providing its end users content as timely as possible using queries to a web service.
+These queries can result in numerous connection establishments and tear-downs, depending on the configuration used by the mobile network operator, increasing the signalling load in the mobile network and potentially causing \emph{Signalling Storms}, i.e. overload.
+However, reconfiguration of the network by the operator can result in the \gls{UE} being connected for a longer time, resulting in decreased battery life and \gls{QoE} of the user.  
 
 In general, each stakeholder attempts to improve its considered \glspl{KPI} by manipulating parameters under its control, e.g. by changing network configuration, implementing energy saving mechanisms, or adapting the number of available servers in a cloud environment.
-However, these manipulations not only improve the \glspl{KPI} of the stakeholders but impact the \glspl{KPI} of a set of other stakeholders.
+However, these manipulations not only improve the \glspl{KPI} of the stakeholders but also impact the \glspl{KPI} of a set of other stakeholders.
 This results in complex relationships between stakeholders where interests are sometimes adverse and satisfactory results for all stakeholders can only be reached by means of a tradeoff analysis.
 
 In this monograph, we study clashes of stakeholder interests for a set of scenarios from the major areas of the mobile Internet, including the network, the application, and the cloud domain.
 We consider different approaches to model and analyse these conflicts and provide numeric results for best-case scenarios, which usually can be reached by cooperation between the participating stakeholders.
 
-We first study the impact of a network's configuration on relevant \glspl{KPI} given the network traffic caused by mobile applications.
-Second, we consider the impact of transmission mechanisms and scheduling algorithms implemented in mobile applications on \glspl{KPI} for the participating stakeholders.
-Finally, we study the impact of resource allocation and management schemes implemented in both machine-cloud and human-cloud scenarios.
+We first study the impact of a network's configuration on relevant \glspl{KPI}.
+To this end we investigate the network traffic caused by mobile applications.
+Second, we examine the impact of application design by considering the impact of transmission mechanisms and scheduling algorithms implemented in mobile applications on \glspl{KPI} for the participating stakeholders.
+Finally, we address the cloud by studying the impact of resource allocation and management schemes implemented in both machine-cloud and human-cloud scenarios.
 
-First, we consider tradeoffs occuring in the network domain.
+First, we consider tradeoffs occurring in the network domain.
 We propose an algorithm to derive metrics such as power drain and signalling frequency from application traffic traces for a given network configuration.
 This algorithm allows application developers to consider the impact of their applications  traffic on other considered stakeholders, i.e. on both the mobile network as well as the battery life of the \gls{UE}.
 Then, we present an analytic model which allows the derivation of the considered metrics from arbitrary, theoretical traffic distributions.
@@ -30,7 +31,7 @@ We show that given the existence of proprietary fast dormancy algorithms, networ
 Furthermore, it can result in equilibria with worse system performance for all participants compared to the case when no optimisation by the operator is performed.  
 We suggest that hardware vendors implement operating system level mechanisms for applications to be notified on connection state changes in order to schedule transmissions and for network operators to provide interfaces to query network configuration.
 
-In the second part we focus on the application domain, by considering two specific applications: video streaming and cloud file synchronisation.
+In the second part we focus on the application domain by considering two specific applications: video streaming and cloud file synchronisation.
 We study different types of video transmission mechanisms and configurations regarding considered \glspl{KPI}.
 While the configurable \emph{Streaming} mechanism allows for suitable tradeoffs between all stakeholder pairs, we find that none of the considered transmissions mechanisms allows for suitable tradeoffs for all participating stakeholders.
 We suggest to use the \emph{Design for Tussle}~\cite{Clark2005} in order to allow stakeholders to find suitable tradeoffs at run time.
@@ -39,15 +40,15 @@ We show that by accounting for different user scenarios, i.e. browsing videos an
 Finally, we consider cloud file synchronisation services.
 Based on large scale measurements using the PlanetLab platform, we provide bandwidth and processing time distributions as well as a simulation framework to be used to evaluate different synchronisation scheduling algorithms.
 This simulation framework allows application developers to gauge the impact of their algorithm design decisions on other stakeholders, such as the network operator or the end user.
-We use the framework in order to evaluate different algorithms and find, that both the \emph{Interval} and the \emph{Size} algorithms allows for a good tradeoff between the considered stakeholders.
+We use the framework in order to evaluate different algorithms and find that both, the \emph{Interval} and the \emph{Size} algorithms, allow for a good tradeoff between the considered stakeholders.
 
-Having studies the application and network domains, we now focus on the cloud.
+Having studied the application and network domains, we now focus on the cloud.
 We provide a queueing model as well as a power saving mechanism for data centres allowing operators to select a tradeoff between power savings they can achieve and \glspl{SLA} they will be able to offer to their customers.
 We then consider the role of a cloud customer renting resources in a data centre in order to provide \gls{NFV} services to mobile network operators.
 We propose and evaluate a resource provisioning mechanism allowing the \gls{NFV} operator to balance the required resources with the \glspl{SLA} which it can offer to its stakeholders. 
 We especially consider the impact of new technologies, e.g. containerisation and \glspl{SSD} on performance during provisioning.
 Finally, we apply our methodology to human-cloud scenarios and discuss dimensioning strategies for crowdsourcing platform operators, enabling them to provide a tradeoff between the interests of their stakeholders, the crowdsourcing platform employer and the crowdsourcing platform worker. 
 
-This monograph studies the impact of conflicts of interests between stakeholders, where either stakeholders have the possibility to impact \glspl{KPI} of other stakeholders or where stakeholders may choose between a set of competitors based on specific \glspl{KPI} requirements.
-Methods and models introduced in this monograph can be applied to other clashes of stakeholder interests and analysed in a comparable way.
+This monograph studies the impact of conflicts of interests between stakeholders in communication networks, where either stakeholders have the possibility to impact \glspl{KPI} of other stakeholders or where stakeholders may choose between a set of competitors based on specific \glspl{KPI} requirements.
+Methods and models introduced in this monograph can form the basis for further studies of other of stakeholder interests and analysed in a comparable way.
 Based on the results and proposed techniques multi-tier optimisation frameworks can be studied, investigating the clash of larger stakeholder groups over multiple scenarios.
