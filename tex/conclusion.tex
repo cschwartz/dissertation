@@ -1,43 +1,50 @@
 \chapter{Conclusion}\label{chap:conclusion}
 
-Todays' Internet traffic is dominated by applications not architected by standard bodies or network operators, but rather by companies or individuals.
-The design goals of these applications did not account for \glspl{KPI} of all stakeholders which are impacted by the behaviour of the application in the Internet.
-Rather, the application provider is focused on its own interests and at most that of its users.
-Other stakeholders in the mobile internet, e.g. hardware vendors, mobile network operators or cloud platform operators, primarily focus on improving their own \glspl{KPI}.
-Each stakeholder attempts to improve its considered \glspl{KPI} by manipulating parameters under its control, e.g. implementing energy saving mechanisms, changing network configuration, or adapting the number of available servers.
+Todays' Internet traffic is dominated by multiple stakeholders.
+Applications are developed and deployed by application providers, run on \glspl{UE} developed by hardware vendors, and use mobile networks owned by operators.
+They use resources rented from cloud operators, may use human labour provided by crowdsourcing platforms and ultimately attempt to provide a high \gls{QoE} to end users.
+However, the interests and \glspl{KPI} of the stakeholders in todays' Internet do not always line up and sometimes even conflict.%, resulting in complex inter-dependencies of stakeholder interests.
+
+For example, an application provider might be interested in providing its end users content as up-to-date as possible using queries to a web service.
+These queries can, depending on the configuration used by the mobile network operator, result in numerous connection establishments and tear-downs, increasing the signalling load in the mobile network and potentially causing \emph{Signalling Storms}, i.e. overload.
+Reconfiguration of the network by the operator can result in the \gls{UE} being connected for a longer time, resulting in decreased battery life and \gls{QoE} of the user.  
+
+In general, each stakeholder attempts to improve its considered \glspl{KPI} by manipulating parameters under its control, e.g. by changing network configuration, implementing energy saving mechanisms, or adapting the number of available servers in a cloud environment.
 However, these manipulations not only improve the \glspl{KPI} of the stakeholders but impact the \glspl{KPI} of a set of other stakeholders.
 This results in complex relationships between stakeholders where interests are sometimes adverse and satisfactory results for all stakeholders can only be reached by means of a tradeoff analysis.
 
-In this monograph we study clashes of stakeholder interests for a set of scenarios from different regions of the mobile Internet.
+In this monograph, we study clashes of stakeholder interests for a set of scenarios from the major areas of the mobile Internet, including the network, the application, and the cloud domain.
 We consider different approaches to model and analyse these conflicts and provide numeric results for best-case scenarios, which usually can be reached by cooperation between the participating stakeholders.
 
-We first study the impact of network configuration on a set of \glspl{KPI} given network traffic caused by mobile applications.
-Then we consider the impact of transmission mechanisms and scheduling algorithms implemented on mobile applications on \glspl{KPI} for the participating stakeholders.
+We first study the impact of a network's configuration on relevant \glspl{KPI} given the network traffic caused by mobile applications.
+Second, we consider the impact of transmission mechanisms and scheduling algorithms implemented in mobile applications on \glspl{KPI} for the participating stakeholders.
 Finally, we study the impact of resource allocation and management schemes implemented in both machine-cloud and human-cloud scenarios.
 
-In \refchap{chap:network} we propose an algorithm to derive metrics such as power drain and signalling frequency from application traffic traces for a given network configuration.
+First, we consider tradeoffs occuring in the network domain.
+We propose an algorithm to derive metrics such as power drain and signalling frequency from application traffic traces for a given network configuration.
 This algorithm allows application developers to consider the impact of their applications  traffic on other considered stakeholders, i.e. on both the mobile network as well as the battery life of the \gls{UE}.
-We then present an analytic model which allows the derivation of the considered metrics from arbitrary, theoretical traffic distributions.
+Then, we present an analytic model which allows the derivation of the considered metrics from arbitrary, theoretical traffic distributions.
 Using these methods we study exemplary application and perform a two-moment parameter study on synthetic traffic in order to identify problematic traffic patterns.
 We find that periodic traffic has a negative impact on both signalling frequency and power drain.
 We show that given the existence of proprietary fast dormancy algorithms, network timer optimisation performed by network operators can degrade performance for all participating stakeholders. 
-Furthermore, it can result in equilibria with worse system performance for all participants then when no optimisation by the operator is performed.  
+Furthermore, it can result in equilibria with worse system performance for all participants compared to the case when no optimisation by the operator is performed.  
 We suggest that hardware vendors implement operating system level mechanisms for applications to be notified on connection state changes in order to schedule transmissions and for network operators to provide interfaces to query network configuration.
 
-We focus on two specific applications, video streaming and cloud file synchronisation, in \refchap{chap:application}.
-We study different types of video transmission mechanisms and configurations regarding \glspl{KPI} stakeholder metrics.
-While the configurable \emph{Streaming} mechanism allows for suitable tradeoffs between all stakeholder pairs, we find that the none of the considered transmissions mechanisms allows for suitable tradeoffs for all participating stakeholders.
+In the second part we focus on the application domain, by considering two specific applications: video streaming and cloud file synchronisation.
+We study different types of video transmission mechanisms and configurations regarding considered \glspl{KPI}.
+While the configurable \emph{Streaming} mechanism allows for suitable tradeoffs between all stakeholder pairs, we find that none of the considered transmissions mechanisms allows for suitable tradeoffs for all participating stakeholders.
 We suggest to use the \emph{Design for Tussle}~\cite{Clark2005} in order to allow stakeholders to find suitable tradeoffs at run time.
-In order to study tradeoffs between end user groups with different, we study video \gls{QoE} models in streaming scenarios and provide a model to evaluate consequences of parameter choice of the \emph{Streaming} algorithm on user satisfaction.
-We show, that by accounting for different user scenarios, i.e. browsing videos and watching videos, video \gls{QoE} can be improved.
+In order to study tradeoffs between end user groups with different viewing preferences, we study video \gls{QoE} models in streaming scenarios and provide a model to evaluate consequences of parameter choice of the \emph{Streaming} algorithm on user satisfaction.
+We show that by accounting for different user scenarios, i.e. browsing videos and watching videos, video \gls{QoE} can be improved.
 Finally, we consider cloud file synchronisation services.
-Based on large scale measurements using the PlanetLab platform we provide input distributions as well as a simulation framework to be used to evaluate different synchronisation scheduling algorithms.
+Based on large scale measurements using the PlanetLab platform, we provide bandwidth and processing time distributions as well as a simulation framework to be used to evaluate different synchronisation scheduling algorithms.
 This simulation framework allows application developers to gauge the impact of their algorithm design decisions on other stakeholders, such as the network operator or the end user.
 We use the framework in order to evaluate different algorithms and find, that both the \emph{Interval} and the \emph{Size} algorithms allows for a good tradeoff between the considered stakeholders.
 
-In \refchap{chap:cloud} we first provide a queueing model as well as a power saving mechanism for data centres allowing operators to select a tradeoff between power savings they can achieve and \glspl{SLA} they will be able to offer to their customers.
-We than consider the role of a cloud customer renting resources in a data centre in order to provide \gls{NFV} services to mobile network operators.
-We propose and evaluate a resource provisioning mechanism allowing the \gls{NFV} operator to balance the required resources with the \glspl{SLA} it can offer to its stakeholders. 
+Having studies the application and network domains, we now focus on the cloud.
+We provide a queueing model as well as a power saving mechanism for data centres allowing operators to select a tradeoff between power savings they can achieve and \glspl{SLA} they will be able to offer to their customers.
+We then consider the role of a cloud customer renting resources in a data centre in order to provide \gls{NFV} services to mobile network operators.
+We propose and evaluate a resource provisioning mechanism allowing the \gls{NFV} operator to balance the required resources with the \glspl{SLA} which it can offer to its stakeholders. 
 We especially consider the impact of new technologies, e.g. containerisation and \glspl{SSD} on performance during provisioning.
 Finally, we apply our methodology to human-cloud scenarios and discuss dimensioning strategies for crowdsourcing platform operators, enabling them to provide a tradeoff between the interests of their stakeholders, the crowdsourcing platform employer and the crowdsourcing platform worker. 
 
