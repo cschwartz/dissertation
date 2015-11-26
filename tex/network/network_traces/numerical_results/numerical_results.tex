@@ -91,7 +91,8 @@ For each application we show the \gls{CDF} of the inter-arrival times in \reffig
   \end{tabular}
 \end{table}
 
-\paragraph*{Angry Birds}
+\begin{enumerate}
+\item \textbf{Angry Birds}
 We see that there are no distinct peaks in inter-arrival time, which would indicate a periodic behaviour.
 Furthermore, we see that \SI{5}{\percent} of all inter-arrival times are greater than \SI{1}{\second}.
 As we consider only \gls{TDCH} values above \SI{1}{\second}, those are candidates for triggering state transitions.
@@ -102,21 +103,19 @@ These differences can be explained by considering the behaviour of the applicati
 During long phases of use no traffic is sent, and after a level is restarted, a new advertisement has to be obtained, causing the transmission of data.
 Note that no level data is downloaded during gameplay at all, as the complete game is downloaded during the installation process.
 
-\paragraph*{Aupeo}
-We see that the application generates packets with relatively small inter-arrival times with a small mean inter-arrival time of \SI{0.06}{\second}.
+\item \textbf{Aupeo} We see that the application generates packets with relatively small inter-arrival times with a small mean inter-arrival time of \SI{0.06}{\second}.
 The high standard deviation of \SI{3.06}{\second} is caused by the wait between two tracks.
 Furthermore, we see a high mean bandwidth of \SI{129.76}{\kilo\bit\per\second}, and a standard deviation of \SI{482.63}{\kilo\bit\per\second}.
 This is caused by the difference in traffic activity between times when tracks are either downloaded or not.
 
-\paragraph*{Twitter}
-We see that \SI{90}{\percent} of all transmissions occur with an inter-arrival time of less than \SI{1}{\second}.
+\item \textbf{Twitter} We see that \SI{90}{\percent} of all transmissions occur with an inter-arrival time of less than \SI{1}{\second}.
 Also, we can observe a high mean inter-arrival time of \SI{8.91}{\second} and a high standard deviation of \SI{44.49}{\second}.
 Additionally, the mean bandwidth is low with only \SI{0.27}{\kilo\bit\per\second} and a low standard deviation of \SI{0.04}{\kilo\bit\per\second} due to the fact that Twitter text messages are only \(140\) characters in length and thus only a low volume of traffic needs to be transmitted.
 
-\paragraph*{Skype}
-Similar to the Twitter application, we see that \SI{90}{\%} of all packets occur with an inter-arrival time of less than \SI{1}{\second}.
+\item \textbf{Skype} Similar to the Twitter application, we see that \SI{90}{\%} of all packets occur with an inter-arrival time of less than \SI{1}{\second}.
 However, in contrast to Twitter, we see a low mean inter-arrival time of \SI{0.55}{\second} with a standard deviation of \SI{1.95}{\second}.
 Further, we observe a relatively low mean bandwidth of \SI{1.30}{\kilo\bit\per\second} and a standard deviation of \SI{1.8}{\kilo\bit\per\second}.
+\end{enumerate}
 
 \begin{figure}
 \centering
@@ -196,7 +195,7 @@ Finally, the most power is consumed by Skype.
 Here we see that the maximum value of \SI{800}{\milli\watt} is reached at a \gls{TDCH} timeout of \SI{20}{\second}.
 Due to the periodic traffic behaviour of Skype, the device is always in \gls{RRC_DCH} state.
 Again, we see that the traffic characteristics of the applications impact the power drain.
-Applications with more network activity are forced to stay in more power consuming states for a longer time.
+Applications with more network activity are forced to stay in connection states requring a larger amount of power for a longer time.
 We see that for very small network timers, the power drain is minimal.
 However, as seen in the last section small timers increase the signalling frequency at the \gls{RNC}.
 Again, a choice of \SI{10}{\second} for the \gls{TDCH} timer can be seen as a compromise between signalling frequency \gls{SF} and power drain \gls{PD}.
@@ -281,7 +280,7 @@ Thus, the policy change based on one application brings no significant gain to o
 However, from a user's point of view, the power drain \gls{PD} increased from \SI{121}{\milli\watt} to \SI{183}{\milli\watt}.
 Again, we assume the user activates fast dormancy to deal with the increase in power drain of more than $50\%$.
 This results in a decrease of power drain \gls{PD} to \SI{117}{\milli\watt}, and an increase of overall signalling frequency \gls{SF} to \(0.76\) messages per second.
-By changing the value without considering all applications, the network operator has decreased the \gls{QoE} for other users, and worsened the overall situation.
+By changing the value without considering all applications, the network operator reduces the \gls{QoE} for other users, and worsened the overall situation.
 Thus, due to the large number of applications it seems impossible to optimise the \gls{TDCH} timeout to reduce the signalling frequency without negatively impacting the users \gls{QoE} in unexpected ways.
 
 There exist applications, like Twitter and Aupeo, where optimisation by modifying the \gls{TDCH} values can provide acceptable results.

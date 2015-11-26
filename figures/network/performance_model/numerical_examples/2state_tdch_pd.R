@@ -9,6 +9,7 @@ p <- ggplot(data, aes(x = TDCH,
   scale_color_manual(values = color.palette) +
   labs(x = label.tdch, 
        y = label.power.drain, 
-       color = label.cA )
+       color = label.cA ) +
+  coord_cartesian(xlim = c(0, 31))
 
 save.full.row.plot(p)

@@ -1,5 +1,5 @@
 \subsection{Inferring State Transitions and Deriving Metrics}\label{sec:network:network_traces:performance_evaluation}
-\gls{RRC} state transitions are triggered by the \gls{UE}’s firmware.
+A \gls{UE}’s firmware triggers \gls{RRC} state transitions based on application traffic.
 While solutions exist to capture RRC state transitions on specific hardware~\cite{zayas2010} they are not available for all modern smartphone platforms.
 Other options to measure the required information include using costly hardware and use specific \glspl{UE}, usually not available to researchers and application developers.
 This prevents the developers from evaluating the effect of their applications on the overall health
@@ -21,7 +21,7 @@ This application requires \emph{root} privileges which are obtained by rooting t
 Once \texttt{tcpdump} is installed and running, we start the application under study and capture packet traces while the application is running.
 Then, the \emph{android debugging bridge} is used to copy the traces to a workstation.
 The traces contain \gls{IP} packets embedded in Linux Cooked Captures.
-We require the \gls{IP} packets, thus we extracted the \gls{IP} packets which are used during the following analysis.
+We require the \gls{IP} packets, thus we extracted the \gls{IP} packets which are used during the analysis to follow.
 
 \subsubsection*{Inferring Network State}\label{sec:network:network_traces:performance_evaluation:inferring_network_state}
 In this section we study the influence of the application traffic on \gls{RRC} state transitions and signalling messages.
@@ -73,7 +73,7 @@ Similarly, if the inter-arrival time exceeds both the \gls{TDCH} and \gls{TFACH}
   \label{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm}
 \end{algorithm}
 
-\gls{UE} vendors always search for ways to decrease power drain of their devices.
+Decreasing power drain of their devices is always a goal of \gls{UE} vendors.
 A straightforward way to achieve this, if only the wellbeing of the \gls{UE} is considered, is to transition from \gls{RRC_DCH} state to \gls{RRC_idle} as soon as no additional data is ready for sending.
 While this transition is not directly available in the 3GPP specification for the \gls{RRC} protocol \cite{3GPP_RRC_Spec}, a \gls{UE} may reset the connection, effectively transitioning from any state to \gls{RRC_idle}.
 This behaviour can be modeled using the Two State Model introduced in \refsec{sec:network:background:umts_rrc}.
@@ -109,9 +109,9 @@ To obtain the total number of signalling messages, we weight the number of state
 Then, we average the number of state transitions over the measurement duration to obtain a metric for the signalling load at the \gls{RNC}, i.e. the \gls{SF}.
 The inference algorithm does not differentiate between state changes caused by upstream or downstream traffic.
 State changes caused by downstream traffic usually generate some additional signalling messages, as paging is involved.
-The inference algorithm can be easily enhanced to support this behaviour.
+The inference algorithm can easily be enhanced to support this behaviour.
 However, the results discussed in the next section would only change quantitatively.
-Furthermore, the algorithm can be easily adapted to new networking models or signalling numbers.
+Furthermore, the algorithm can be adapted to new networking models or other numbers of signalling messages sent per state transition.
 
 \begin{table}
   \centering

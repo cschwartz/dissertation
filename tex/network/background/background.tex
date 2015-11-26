@@ -81,7 +81,7 @@ The second model, denoted as the \emph{Two State Model}, and shown in \reffig{fi
 If the \gls{UE} is in the \gls{RRC_idle} mode and a packet is sent or received, the connection transitions to the \gls{RRC_DCH} state. Once in \gls{RRC_DCH} mode, the \gls{TDCH} timer is started and it is reset whenever a new packet is sent or received.
 If the timer expires, the \gls{UE} transitions back to \gls{RRC_idle} state.
 
-\paragraph*{Fasy Dormancy} While the Three State Model is closer to the specified \gls{RRC} protocol, the Two State Model is similar to some proprietary \emph{Fast Dormancy} implementations used by \gls{UE} vendors.
+\paragraph*{Fast Dormancy} While the Three State Model is closer to the specified \gls{RRC} protocol, the Two State Model is similar to some proprietary \emph{Fast Dormancy} implementations used by \gls{UE} vendors.
 In these Fast Dormancy implementations, the \gls{UE} tears down the connection to the network state as soon as no data is ready to be sent for a certain time, i.e., it forces the network to transition to \gls{RRC_idle} state.
 In contrast to the Three State Model, there is no transition to the \gls{RRC_FACH} state.
 If a device disconnects from the network by transitioning to the \gls{RRC_idle} state, it has to be reauthenticated before another transition to the \gls{RRC_DCH} state can occur.
@@ -140,5 +140,5 @@ The study comprises
 \item weekly interviews of the participants.
 \end{enumerate*}
 To determine the factors of influence, the authors analyse the frequency of specific keywords in the interviews and the surveys.
-They find that the term \emph{battery} has the highest frequency.
+They find that the term \emph{battery} is mentioned by the participants with the highest frequency.
 According to the authors this is reasonable since the battery efficiency has a strong impact on the user perceived quality, in particular when it the \gls{UE} is nearly discharged.

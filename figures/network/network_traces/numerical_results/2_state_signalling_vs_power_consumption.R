@@ -4,13 +4,13 @@ data$application <- factor(data$application, labels = c('Angry Birds', 'Aupeo', 
 
 p <- ggplot(data, aes(x = signalling.intensity,
                       y = power.drain,
-                      shape = application,
                       color = tdch,
                       group= application)) + 
   geom_point() +
   geom_point(data = subset(data, tdch == 11), color = color.highlight) +
   geom_path(color=color.highlight) +
-  scale_color_continuous(low = color.palette[1], high = color.palette[2]) +
+  facet_wrap(~ application, ncol = 2) +
+  scale_color_continuous(low = color.low, high = color.high) +
   labs(x = label.signalling.frequency, 
        y = label.power.drain,
        shape = label.application,

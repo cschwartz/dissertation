@@ -16,8 +16,8 @@ annotation.font <- 'Linux Biolinum O'
 ggsave <- ggplot2::ggsave; body(ggsave) <- body(ggplot2::ggsave)[-2]
 
 color.palette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
-color.low <- color.palette[1]
-color.high <- color.palette[2]
+color.low <- color.palette[7]
+color.high <- color.palette[4]
 color.highlight <- 'black'
 
 linetypes.for <- function(values) {
@@ -25,7 +25,7 @@ linetypes.for <- function(values) {
 }
 
 label.tdch <- expression(paste(T[DCH], ' ', (s)))
-label.ea <- expression('E[A]')
+label.ea <- expression('E[A] (s)')
 label.power.drain <- 'Power Drain PD'
 label.signalling.intensity <- 'Signalling Intensity SI'
 label.signalling.frequency <- 'Signalling Frequency SF'
