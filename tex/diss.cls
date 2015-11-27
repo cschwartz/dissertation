@@ -272,7 +272,7 @@
     \noindent
     Eingereicht am: \@date\\
     bei der Fakult\"at f\"ur Mathematik und Informatik\\
-    1. Gutachter: Prof.~Dr.-Ing~P.~Tran-Gia\\
+    1. Gutachter: Prof.~Dr.-Ing.~Phuoc~Tran-Gia\\
     2. Gutachter: \d@reviewer\\
     %3. Gutachter: \d@reviewerint\\
     Tag der m\"undlichen Pr\"ufung: \d@disp

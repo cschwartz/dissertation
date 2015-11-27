@@ -1,10 +1,10 @@
-\subsection{YouTube QoE Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe}
+\subsection{YouTube \headershortacr{QoE} Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe}
 This section introduces \gls{QoE} models for YouTube video playback.
 First, we extend the \gls{QoE} mapping function introduced in~\cite{Hossfeld2013c} in order to support user preferences regarding sensitivity to stalling duration and number of stalling events.
 Then, we provide a parametrised mapping function allowing for user preferences regarding initial delay.
 Finally, we combine the proposed mapping functions.
 
-\subsubsection*{Stalling QoE Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling}
+\subsubsection*{Stalling \headershortacr{QoE} Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling}
 The \gls{QoE} of \gls{HTTP} streaming depends mainly on the actual number of stalling events \(N\) for a video of duration \(T\) and the average length \(L\) of a single stalling event.
 A \gls{QoE} model combining both key influence factors into a single equation \(f(L,N)\) is provided in~\cite{Hossfeld2013c} and found to follow the IQX hypothesis~\cite{Fiedler2010} describing an exponential relationship between the influence factors and \gls{QoE}.
 In particular, the model function returns \gls{MOS} on a 5-point absolute category rating scale with 1 indicating the lowest \gls{QoE} and 5 the highest \gls{QoE}. 
@@ -33,7 +33,7 @@ The model function \(Q_1\) in \refeq{eq:application:qoe_user_behaviour:typical_u
 For example, some users may suffer stronger from interruptions which is then adjusted by a higher value of \(\beta\).
 Thus, a user profile can be expressed in terms of different values of the duration parameter \(\alpha\) and the interruption parameter \(\beta\)
 
-\subsubsection*{Initial Delay QoE Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:initial_delay}
+\subsubsection*{Initial Delay \headershortacr{QoE} Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:initial_delay}
 Another impairment on \gls{HTTP} streaming \gls{QoE} are initial delays before the video playout can start for the first time.
 The impact of initial delays \(T_0\) is modeled by the function given in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:initial_delay:original_model}, model parameters are obtained from subjective tests \cite{Hossfeld2012c}. 
 \begin{equation}
@@ -54,7 +54,7 @@ Since the logarithm is not bounded, only positive values are considered to ensur
 Q_2(T_0)= -\gamma \mathrm{log10}\left(T_0 + c\right) + \gamma \mathrm{log10}\left(c\right)+ 1 
 \end{equation*}
 
-\subsubsection*{Combined QoE Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:combined}
+\subsubsection*{Combined \headershortacr{QoE} Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:combined}
 For dimensioning the video buffers, we are interested in a \gls{QoE} model which considers both, the impairments due to stalling and due to initial delays of the video playout.
 However, to the best of our knowledge no combined model exists so far which has been validated by proper subjective user studies.
 Therefore, we suggest the following model \(Q\).

@@ -10,7 +10,7 @@ We use the measurements introduced in \refsec{sec:cloud:virtualized_network_func
 Based on these results, we first examine the effects of network function virtualisation by scaling \emph{out} instead of up through a virtual \gls{GGSN} model.
 Finally, we arrive at a more realistic version of the virtual \gls{GGSN} by taking the start up and shut down times into account.
 
-\subsubsection*{Traditional GGSN}\label{sec:cloud:virtualized_network_functions:performance_evaluation:traditional_ggsn}
+\subsubsection*{Traditional \headershortacr{GGSN}}\label{sec:cloud:virtualized_network_functions:performance_evaluation:traditional_ggsn}
 
 Employing the inter-arrival times and duration of tunnels, we first study the traditional \gls{GGSN} model introduced previously.
 Whilst our measurements provide us with information on the frequency of new tunnels and the duration they remain active, we have no reliable information on the number of active tunnels the \gls{GGSN} can support.
@@ -23,7 +23,7 @@ We observe that as the number of supported parallel tunnels increases, the block
 For the normalized inter-arrival no blocking is occurring if we allow for more than \(5000\) parallel tunnels.
 Thus, we consider the range of \(4000\) to \(5000\) parallel tunnels to be of special interest for the remainder of the study.
 
-\subsubsection*{Virtual GGSN}\label{sec:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn}
+\subsubsection*{Virtual \headershortacr{GGSN}}\label{sec:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn}
 
 In order to study the feasibility of the virtual \gls{GGSN} approach discussed in \refsec{sec:cloud:virtualized_network_functions:model}, we compare the performance metrics of the virtual \gls{GGSN} with that of a traditional \gls{GGSN}.
 To this end, the virtual \gls{GGSN} is simulated in varying configurations.
@@ -64,7 +64,7 @@ Therefore, we study these parameters first.
 \begin{figure}
   \centering
   \includegraphics{cloud/virtualized_network_functions/performance_evaluation/figures/instanceuse_multiserver}
-  \caption{Impact of the maximum number of tunnels and number of servers on number of active servers in the virtual \gls{GGSN} model}
+  \caption{Impact of the maximum number of tunnels and number of servers on number of active servers in the virtual \headershortacr{GGSN} model.}
   \label{fig:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn:instanceuse_multiserver}
 \end{figure}
 
@@ -77,7 +77,7 @@ Note that both the scenario with \(30\) servers and \(150\) maximum tunnels per 
 \begin{figure}
   \centering
   \includegraphics{cloud/virtualized_network_functions/performance_evaluation/figures/blocking_comparison}
-  \caption{Impact of blocking probability on the number of servers compared to the traditional \gls{GGSN}; with the \(4500\) maximum tunnels per server being on a single server, \(150\) on \(30\), and \(75\) on \(60\) servers}
+  \caption{Impact of blocking probability on the number of servers compared to the traditional \headershortacr{GGSN}, \(4500\) maximum tunnels per server being on a single server, i.e. \(150\) on \(30\), and \(75\) on \(60\) servers.}
   \label{fig:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn:blocking_comparison}
 \end{figure}
 
@@ -97,7 +97,7 @@ Afterwards, the influence of varying server start and stop times on a fixed comb
 \begin{figure}
   \centering
   \includegraphics{cloud/virtualized_network_functions/performance_evaluation/figures/compare_util_block}
-  \caption{Trade-off between blocking probability and mean resource utilisation with regard to maximum number of instances, maximum number of tunnels per server, and start up and shut down time}
+  \caption{Trade-off between blocking probability and mean resource utilisation with regard to maximum number of instances, maximum number of tunnels per server, and start up and shut down time.}
   \label{fig:cloud_virtualized_network_functions:startup_shutdown:compare_util_block}
 \end{figure}
 
@@ -109,7 +109,7 @@ In addition to the previous effects, we notice that a higher start up and shut d
 \begin{figure}
   \centering
   \includegraphics{cloud/virtualized_network_functions/performance_evaluation/figures/compare_maxinstances_block}
-  \caption{Influence of start up and shut down time on blocking probability with regard to different numbers of servers}
+  \caption{Influence of start up and shut down time on blocking probability with regard to different numbers of servers.}
   \label{fig:cloud_virtualized_network_functions:startup_shutdown:compare_maxinstances_block}
 \end{figure}
  

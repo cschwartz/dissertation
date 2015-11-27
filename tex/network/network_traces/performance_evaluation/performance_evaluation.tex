@@ -69,7 +69,7 @@ Similarly, if the inter-arrival time exceeds both the \gls{TDCH} and \gls{TFACH}
       \EndIf
     \EndFor
   \end{algorithmic}
-  \caption{Inferring \headershortacr{RRC} state transitions based on \headershortacr{IP} timestamps}
+  \caption{Inferring \headershortacr{RRC} state transitions based on \headershortacr{IP} timestamps.}
   \label{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm}
 \end{algorithm}
 
@@ -85,9 +85,9 @@ Alternatively, the behaviour of the Two State Model can be emulated using \refal
 
 \begin{table}
 \centering
-  \caption{Number of signalling messages per \headershortacr{RRC} state transition perceived at the \headershortacr{RNC} (Taken From \cite{3GPP_RRC_Spec})}
+  \caption{Number of signalling messages per \headershortacr{RRC} state transition perceived at the \headershortacr{RNC} \cite{3GPP_RRC_Spec}.}
   \label{tab:network:network_traces:calculating_metrics:signalling_messages}
-\begin{tabular}{cccc}
+\begin{tabular}{lccc}
 	\toprule
     from/to & \gls{RRC_idle} & \gls{RRC_FACH} & \gls{RRC_DCH}\\
     \midrule
@@ -115,9 +115,9 @@ Furthermore, the algorithm can be adapted to new networking models or other numb
 
 \begin{table}
   \centering
-  \caption{Power consumption of the \headershortacr{UE} radio interface depending on current \headershortacr{RRC} state (taken from \cite{Qian2011a})}
+  \caption{Power consumption of the \headershortacr{UE} radio interface depending on current \headershortacr{RRC} state \cite{Qian2011a}.}
   \label{tab:network:network_traces:calculating_metrics:power_consumption}  
-  \begin{tabular}{cc}
+  \begin{tabular}{lc}
   	\toprule
     \gls{RRC} State & Power Consumption\\
     \midrule

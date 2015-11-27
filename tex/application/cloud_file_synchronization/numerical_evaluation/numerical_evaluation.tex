@@ -18,15 +18,15 @@ For most of the derived mean values, the confidence intervals are not visible du
 	\begin{subfigure}[b]{\textwidth}
 	\centering
 	\includegraphics{application/cloud_file_synchronization/numerical_evaluation/figures/interval_delay}
-	\caption{Algorithm \algointerval for different interval lengths}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:interval}
+	\caption{Algorithm \algointerval, different interval lengths}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:interval}
 	\end{subfigure} 
 	\begin{subfigure}[b]{\textwidth}
 	\centering
 	\includegraphics{application/cloud_file_synchronization/numerical_evaluation/figures/size_delay}
-	\caption{Algorithm \algosize for threshold sizes}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:size}
+	\caption{Algorithm \algosize, different threshold sizes}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:size}
 	\end{subfigure}
 
-	\caption{Comparison of algorithms with regard to waiting time \sojournTime}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time}
+	\caption{Comparison of algorithms with regard to waiting time \sojournTime.}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time}
 \end{figure}
 
 \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:interval} shows the results for the \algointerval algorithm, \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:size} shows the results for the \algosize mechanisms. 
@@ -64,15 +64,15 @@ The mean relative disconnected times including the \SI{95}{\percent} confidence 
 	\begin{subfigure}[b]{\textwidth}
 	\centering
 	\includegraphics{application/cloud_file_synchronization/numerical_evaluation/figures/interval_disconnected}
-	\caption{Algorithm \algointerval for different interval lengths}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:disconnected:disconnected:interval}
+	\caption{Algorithm \algointerval, different interval lengths}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:disconnected:disconnected:interval}
 	\end{subfigure} 
 	\begin{subfigure}[b]{\textwidth}
 	\centering
 	\includegraphics{application/cloud_file_synchronization/numerical_evaluation/figures/size_disconnected}
-	\caption{Algorithm \algosize for threshold sizes}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:disconnected:disconnected:size}
+	\caption{Algorithm \algosize, different threshold sizes}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:disconnected:disconnected:size}
 	\end{subfigure}
 
-	\caption{Comparison of algorithms with regard to relative disconnected time \relativeDisconnectedTime}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:disconnected:disconnected}
+	\caption{Comparison of algorithms with regard to relative disconnected time \relativeDisconnectedTime.}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:disconnected:disconnected}
 \end{figure}
 
 \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:disconnected:disconnected:interval} depicts the relative disconnected time \relativeDisconnectedTime on the y-axis, on the x-axis the inter-sending interval in \si{\second} for the \algointerval algorithm. 
@@ -102,15 +102,15 @@ The number of connections is shown on the y-axis, the x-axis in \reffig{fig:appl
 	\begin{subfigure}[b]{\textwidth}
 	\centering
 	\includegraphics{application/cloud_file_synchronization/numerical_evaluation/figures/interval_connection}
-	\caption{Algorithm \algointerval for different interval lengths}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:connection:connection:interval}
+	\caption{Algorithm \algointerval, different interval lengths}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:connection:connection:interval}
 	\end{subfigure} 
 	\begin{subfigure}[b]{\textwidth}
 	\centering
 	\includegraphics{application/cloud_file_synchronization/numerical_evaluation/figures/size_connection}
-	\caption{Algorithm \algosize for threshold sizes}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:connection:connection:size}
+	\caption{Algorithm \algosize, threshold sizes}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:connection:connection:size}
 	\end{subfigure}
 
-	\caption{Comparison of Algorithms with Regard to Connection Count \connectionCount}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:connection:connection}
+	\caption{Comparison of algorithms with regard to connection count \connectionCount.}\label{fig:application:cloud_file_synchronisation:numerical_evaluation:connection:connection}
 \end{figure}
 
 We observer a similar behaviour as in the previous evaluations, the average number of connection for the \algointerval and the \algoimmediate algorithms is the same in \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:connection:connection:interval}, if the inter-send intervals are smaller then \SI{4}{\second}.
@@ -152,7 +152,7 @@ In order to test this hypothesis, we normalize the size threshold parameter with
 The mean connection count for both algorithms depending on the normalized synchronization threshold are depicted in \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:mechanism_comparison:comparison}. 
 \begin{figure}
   \includegraphics{application/cloud_file_synchronization/numerical_evaluation/figures/comparison}
-  \caption{Comparison of algorithms with regard to normalized synchronization threshold and connection count}
+  \caption{Comparison of algorithms with regard to normalized synchronization threshold and connection count \connectionCount.}
   \label{fig:application:cloud_file_synchronisation:numerical_evaluation:mechanism_comparison:comparison}
 \end{figure}
 

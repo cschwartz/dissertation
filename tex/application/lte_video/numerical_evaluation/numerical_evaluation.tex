@@ -21,7 +21,7 @@ First, we study the influence of both video bitrate as well as the selected down
 \begin{figure}
   \centering
   \includegraphics{application/lte_video/numerical_evaluation/figures/bitrate2energy}
-  \caption{Influence of bitrate and download mechanism on energy consumption}
+  \caption{Influence of bitrate and download mechanism on energy consumption.}
   \label{fig:application:lte_video:numerical_evaluation:energy_consumption:bitrate2energy}
 \end{figure}
 
@@ -42,12 +42,14 @@ We conclude that the \download and \streaming mechanisms outperform \live and \s
 Next, we consider the wasted traffic as a metric of the transmission mechanism quality.
 If a user completely watches a video, no traffic is wasted, as all data downloaded is used during playback.
 Thus, we consider only the cases where a user stops the playback before the video is finished.
+
 \begin{figure}
   \centering
   \includegraphics{application/lte_video/numerical_evaluation/figures/bitrate2lostData}
-  \caption{Influence of bitrate, download mechanism and user model on wasted traffic. Download, Live, and Provisioning mechanisms result in equal Connection Counts}
+  \caption{Influence of bitrate, download mechanism and user model on wasted traffic. Download, Live, and Provisioning mechanisms result in equal connection counts.}
   \label{fig:application:lte_video:numerical_evaluation:energy_consumption:bitrate2lostData}
 \end{figure}
+
 In \reffig{fig:application:lte_video:numerical_evaluation:energy_consumption:bitrate2lostData} we study the wasted traffic for different video bitrates.
 We consider the different transmission mechanisms introduced in \refsec{fig:application:lte_video:system_model:video_model} as well as the previously introduced user models.
 We observe that the choice of user model has no significant impact on the wasted traffic.
@@ -70,10 +72,11 @@ From now on, we only consider the uniformly distributed user model.
 \subsubsection*{Connection Count}\label{sec:application:lte_video:connection_count}
 The \gls{ISP} is interested in reducing the number of connections occurring during video transmission.
 Thus, we quantify the impact of the selected video transmission mechanism on the connection count, which directly correlates with the occurring signalling.
+
 \begin{figure}
   \centering
   \includegraphics{application/lte_video/numerical_evaluation/figures/bitrate2connections}
-  \caption{Influence of bitrate and download mechanism on connection counts}
+  \caption{Influence of bitrate and download mechanism on connection counts.}
   \label{fig:application:lte_video:numerical_evaluation:energy_consumption:bitrate2connections}
 \end{figure}
 
@@ -88,7 +91,7 @@ As the maximum time of video transmission is upper bounded by the video length, 
 \begin{figure}
   \centering
   \includegraphics{application/lte_video/numerical_evaluation/figures/bitrate2connections_parameters}
-  \caption{Influence of bitrate and selected parameters on connection counts for the streaming mechanism. Lines for different Stop Thresholds \(\theta\) overlap}
+  \caption{Influence of bitrate and selected parameters on connection counts for the streaming mechanism. Lines for different Stop Thresholds \(\theta\) overlap.}
   \label{fig:application:lte_video:numerical_evaluation:energy_consumption:bitrate2connections_parameters}
 \end{figure}
 
