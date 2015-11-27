@@ -6,7 +6,7 @@ p <- ggplot(data, aes(x = SI,
                       y = PD)) + 
   geom_point(aes(color = TDCH)) +
   geom_line(aes(linetype = cA)) +
-  scale_color_continuous(low = color.palette[1], high = color.palette[2]) +
+  scale_color_continuous(low = color.low, high = color.high) +
   scale_linetype_manual(values = linetypes.for(data$cA)) +
   labs(x = label.signalling.intensity, 
        y = label.power.drain, 
