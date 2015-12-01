@@ -1,7 +1,7 @@
 data <- read.csv('energy_vs_waiting_pareto.csv', sep = ",", col.names = c('mean.waiting', 'mean.energy', 'is.pareto'))
 data$is.pareto  <- factor(data$is.pareto, labels = c("No", "Yes"))
 
-sample.count <- 20000
+sample.count <- 10000
 pareto.rows <- subset(data, is.pareto == 'Yes')
 non.pareto.rows <- subset(data, is.pareto == 'No')
 sampled.non.pareto.rows <- non.pareto.rows[sample(nrow(non.pareto.rows), sample.count),]
