@@ -9,11 +9,11 @@ The results presented in this section can be used as guidelines for platform ope
 
 Campaign inter-arrival times influence both the work load of the individual workers as well as time required before a worker starts working on a task.
 From the perspective of an operator, understanding the influence of different inter-arrival processes is important.
-As shown in \refsec{sec:cloud:crowdsourcing:measurements}, the Gamma distribution can be used to approximate the campaign inter-arrival times as seen on the crowdsourcing platform Microworkers.
+As shown in \refsec{sec:cloud:crowdsourcing:measurements}, the gamma distribution can be used to approximate the campaign inter-arrival times as seen on the crowdsourcing platform Microworkers.
 In this section, we study the impact of such different processes by utilizing the parameter space afforded by the 
-Gamma distribution and considering the impact on the metrics worker utilisation and task pre-processing delay.
+gamma distribution and considering the impact on the metrics worker utilisation and task pre-processing delay.
 
-The characteristics of the Gamma distribution change depending on the parameters shape \(\alpha\) and rate \(\beta\).
+The characteristics of the gamma distribution change depending on the parameters shape \(\alpha\) and rate \(\beta\).
 While both shape and rate influence the mean 
 \begin{equation*}
 E[\campaignIAT] =  \frac{\alpha}{\beta}
@@ -78,8 +78,8 @@ The increase of the rate \(\beta\) decreases the variance of the campaign inter-
 For greater values of \(\beta\), the mean campaign inter-arrival time \(E[\campaignIAT]\) decreases campaign inter-arrival rate increases. 
 Thus, more tasks arriving at the platform and have to be completed with the same number of workers.
 
-Based on this observations, we conclude that while both shape and rate influence the metrics worker utilisation and mean task pre-processing delay, the rate parameter of the Gamma distribution has an higher influence on the considered metrics.
-In order to account for the higher influence of the rate on the considered metrics, we fix the shape parameter of the Gamma distribution to the value \(0.484071\) obtained in \refsec{sec:cloud:crowdsourcing:measurements} for the next section and focus on different rate parameters.
+Based on this observations, we conclude that while both shape and rate influence the metrics worker utilisation and mean task pre-processing delay, the rate parameter of the gamma distribution has an higher influence on the considered metrics.
+In order to account for the higher influence of the rate on the considered metrics, we fix the shape parameter of the gamma distribution to the value \(0.484071\) obtained in \refsec{sec:cloud:crowdsourcing:measurements} for the next section and focus on different rate parameters.
 
 \subsubsection*{Tradeoff Considerations for Platform Operators}
 

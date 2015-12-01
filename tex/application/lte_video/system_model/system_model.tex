@@ -193,7 +193,7 @@ To model this kind of behaviour we use a \emph{truncated normal distribution} ov
 We use the same mean and specify a standard deviation of \SI{400}{\second}.
 
 Finally, we assume that the user is more likely to abort the video at the beginning.
-We model this user behaviour using a \emph{truncated lognormal distribution} with the same mean and a standard deviation of \SI{0.8}{\second} for the normal distribution at the basis of the lognormal distribution.
+We model this user behaviour using a \emph{truncated log-normal distribution} with the same mean and a standard deviation of \SI{0.8}{\second} for the normal distribution at the basis of the log-normal distribution.
 
 Note that the wasted traffic \meanwastedtraffic is influenced by the user abort model, due to the fact that wasted traffic only occurs if a user aborts a video.
 Even though this may only affect a subset of all watched videos, it still consumes unnecessary resources and should be considered by the video provider.

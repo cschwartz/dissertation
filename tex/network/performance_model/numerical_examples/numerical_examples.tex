@@ -45,7 +45,7 @@ In contrast, other applications, e.g. social network clients send and receive sm
 In this section we study the impact of average inter-packet times \(E[\PacketIAT]\) and the burstiness of the traffic pattern, i.e., the coefficient of variation 
 \[c_{\PacketIAT} = \frac{\sqrt{\mathrm{Var}[\PacketIAT]}}{\mathrm{E}[\PacketIAT]}\]
  on the signalling load.
-For that purpose, we use the simple Two State Model, set the timer \(\gls{TDCH}=\SI{10}{\second}\), consider only the first and the second moment of the inter-packet time \(\PacketIAT\), and assume that \(\PacketIAT\) follows a lognormal distribution, where both moments can be varied independently.
+For that purpose, we use the simple Two State Model, set the timer \(\gls{TDCH}=\SI{10}{\second}\), consider only the first and the second moment of the inter-packet time \(\PacketIAT\), and assume that \(\PacketIAT\) follows a log-normal distribution, where both moments can be varied independently.
 
 \begin{figure}
 	\centering
@@ -104,7 +104,7 @@ In \refsec{sec:network:performance_model:signalling_intensity:ea} we have seen t
 This was due to the fact that for very small values the \gls{UE} is continuously in state \gls{RRC_idle} and for large values it switches to state \gls{RRC_DCH} for every packet.
 Thus, traffic patterns with very small and very large inter-packet times \(E[\PacketIAT]\) have also no impact on the power drain of the \gls{UE} regardless of the burstyness represented by the coefficient of variation \(c_{\PacketIAT}\).
 
-To study the impact of the timer configuration \(\gls{TDCH}\), we use the same setting as for the signalling load: lognormal distribution of inter-packet time \(\PacketIAT\), \(E[\PacketIAT] = \SI{4}{\second}\) in the Two State Model.
+To study the impact of the timer configuration \(\gls{TDCH}\), we use the same setting as for the signalling load: log-normal distribution of inter-packet time \(\PacketIAT\), \(E[\PacketIAT] = \SI{4}{\second}\) in the Two State Model.
 The numerical values shown in \reffig{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:2state_tdch_pd} indicate that longer timeouts lead to a higher power drain \(\gls{PD}\).
 This is reasonable since the UE stays longer in the power intensive \gls{RRC_DCH} state in these cases.
 However, we observe that the burstiness of the traffic pattern has also a considerable impact on the power drain \gls{PD}. 
