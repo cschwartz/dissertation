@@ -26,13 +26,13 @@ linetypes.for <- function(values) {
 
 label.tdch <- expression(paste(T[DCH], ' ', (s)))
 label.ea <- expression('E[A] (s)')
-label.power.drain <- 'Power Drain PD'
-label.signalling.intensity <- 'Signalling Intensity SI'
-label.signalling.frequency <- 'Signalling Frequency SF'
+label.power.drain <- 'Power drain PD'
+label.signalling.intensity <- 'Signalling intensity SI'
+label.signalling.frequency <- 'Signalling frequency SF'
 label.application <- 'Application'
 label.evaluation.type <- 'Model'
 label.cA <- expression(c[A])
-label.interarrival.time <- expression(paste('Packet Inter-arrival Time ', A, ' (s)'))
+label.interarrival.time <- expression(paste('Packet inter-arrival time ', A, ' (s)'))
 label.interarrival.time.cdf <- expression(P(A <= a))
 label.lag <- 'Lag Length'
 label.interarrival.sample.autocorrelation <- 'Sample Autocorrelation\n of Inter-arrival Times'

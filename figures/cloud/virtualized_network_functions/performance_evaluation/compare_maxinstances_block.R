@@ -7,8 +7,9 @@ p <- ggplot(data, aes(x = max.tunnels,
                       y = block.prob,
                       group = startstop.duration,
                       ymin = block.prob - ci,
-                      ymax = block.prob + ci)) +
-  geom_line(aes(color = startstop.duration)) +
+                      ymax = block.prob + ci,
+                      color = startstop.duration)) +
+  geom_line() +
   geom_errorbar(width = 0.1) +
   scale_x_discrete() +
   scale_colour_manual(values = color.palette) +

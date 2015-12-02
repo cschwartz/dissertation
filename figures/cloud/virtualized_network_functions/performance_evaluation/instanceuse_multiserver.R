@@ -6,8 +6,9 @@ data$max.instances <- factor(data$max.instances)
 p <- ggplot(data, aes(x = N,
                       y = mean,
                       ymin = q5,
-                      ymax = q95)) +
-  geom_line(aes(color = max.tunnels)) +
+                      ymax = q95,
+                      color = max.tunnels)) +
+  geom_line() +
   geom_errorbar(width = 0.5) +
   facet_grid(max.instances ~ .) +
   scale_color_manual(values = color.palette) +
