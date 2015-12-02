@@ -1,10 +1,10 @@
 \subsection{Numerical Evaluation}\label{sec:application:cloud_file_synchronisation:numerical_evaluation}
-In order to evaluate the proposed model we use the OMNeT++\footnote{\url{http://www.omnetpp.org/}} simulation framework.
-To analyze the impact of the different algorithms we study the metrics introduced in \refsec{sec:application:cloud_file_synchronisation:system_model}.
+In order to evaluate the proposed model we use the OMNeT++\footnote{\url{http://www.omnetpp.org/}, Accessed: November, \(21^{st}\) 2015} simulation framework.
+To analyse the impact of the different algorithms we study the metrics introduced in \refsec{sec:application:cloud_file_synchronisation:system_model}.
 We evaluate the waiting time \sojournTime until a file is retrieved at the downloading client, the relative time the mobile client stays disconnected \relativeDisconnectedTime during the synchronization process, and the number of connection \connectionCount during the synchronization process to estimate the signalling overhead.
 For the \algointerval scheduling algorithm, we vary the interval length from \SI{1}{\second} to \SI{512}{\second} in powers of two.
 The threshold for the \algosize algorithm is analysed for values from \SI{1}{\mega\byte} to \SI{512}{\mega\byte} in the same manner.
-The \algoimmediate algorithm is not parameterised.
+The \algoimmediate algorithm is not parametrised.
 
 In the simulated scenario, we assume a user synchronizing \(\numberOfFiles = 1000\) files from the camera to the downloading client.
 For each parameter set we perform \(100\) repetitions.
@@ -30,8 +30,8 @@ For most of the derived mean values, the confidence intervals are not visible du
 \end{figure}
 
 \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:interval} shows the results for the \algointerval algorithm, \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:size} shows the results for the \algosize mechanisms. 
-In \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:interval} the x-axes shows the length of the interval in \si{\second} between sending newly added files, in \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:size} the axis shows the required cumulated size in \si{\mega\byte} of new files before an upload is triggered.
-The y-axes in both figures show the mean waiting time \sojournTime in \si{\second}.
+In \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:interval} the x-axis shows the length of the interval in \si{\second} between sending newly added files, in \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:waiting_time:waiting_time:size} the axis shows the required cumulated size in \si{\mega\byte} of new files before an upload is triggered.
+The y-axis in both figures show the mean waiting time \sojournTime in \si{\second}.
 The result of the \algoimmediate algorithm is added in both figures as a reference.
 Note, the waiting time for this algorithms is independent of the parameters used for the other two algorithms, as files are always uploaded immediately after they have been copied to the \dropbox folder.
 

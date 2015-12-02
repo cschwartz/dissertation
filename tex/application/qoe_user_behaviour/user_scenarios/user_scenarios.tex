@@ -3,7 +3,7 @@ Based on the playback model introduced in \refsec{sec:application:qoe_user_behav
 We discuss optimal choices for buffer size depending on user preferences and highlight the impact of buffer choices neglecting the user preference.
 
 \subsubsection*{Watch Later Scenario}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:watch_later}
-In the \watchLater scenario, a user requests a video, but the user does not expect that the video playout starts immediately. 
+In the \watchLater scenario, a user requests a video, but the user does not expect that the video play-out starts immediately. 
 This may be the case, for example, when the user wants to watch an HD at a later time and expects low network bandwidth later. 
 During that initial delay, the user may opt do something else, e.g. opening another web page in a parallel tab in the browser.
 Thus, \gls{QoE} is not affected by initial delays and we only need to consider \(Q_1\) in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:parameterized_model}.
@@ -63,7 +63,7 @@ However, for video browsing, the impact of the initial delay may be more importa
   \label{fig:application:qoe_user_behaviour:typical_user_scenarios:browsing:video_browsing}
 \end{figure}
 
-In \reffig{fig:application:qoe_user_behaviour:typical_user_scenarios:browsing:video_browsing}, the impact of the buffer size on the \gls{QoE} is depicted for the case that the video is aborted after the first \SI{10}{\second} using a logarithmic x-axes. 
+In \reffig{fig:application:qoe_user_behaviour:typical_user_scenarios:browsing:video_browsing}, the impact of the buffer size on the \gls{QoE} is depicted for the case that the video is aborted after the first \SI{10}{\second} using a logarithmic x-axis. 
 We consider two different network scenarios with an offered load of \(a = 0.8\) and \(a = 0.95\).
 Multiple local QoE maxima exist independently of \(\gamma\), which appear when the number of stalling events change. 
 For different values of \(\beta\) these maxima occur at the same buffer size.

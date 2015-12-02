@@ -9,7 +9,7 @@ The authors of~\cite{Hossfeld2012a} find that the \gls{QoE} is mainly influenced
 As shown in \reffig{fig:application:lte_video:system_model:stalling2qoe}, the \gls{QoE} model, where 5 is the highest possible \gls{MOS} and 1 the lowest, rapidly decreases if the number or duration of stalling events increases.
 The provided \gls{QoE} model between stalling and \gls{QoE} shows that stalling significantly worsens \gls{QoE}.
 Thus, an operator has to avoid stalling at any cost.
-As a consequence, we only consider scenarios where no stalling occur, i.e. the delivery bandwidth is larger than the minimum video bitrate to ensure a smooth video playout.
+As a consequence, we only consider scenarios where no stalling occur, i.e. the delivery bandwidth is larger than the minimum video bitrate to ensure a smooth video play-out.
 Furthermore, in \refsec{sec:application:qoe_user_behaviour} we will study the impact of available network load and user preference on \gls{QoE}.
 
 \begin{figure}
@@ -64,7 +64,7 @@ In the \emph{\serviceprovisioning} mechanism, the download bandwidth is chosen s
 In order to reduce stalling and improve the \gls{QoE} of a video, the available bandwidth should be at least \SI{120}{\percent} of the video bitrate \bitrate~\cite{Hossfeld13a}.
 
 \item \textbf{\streaming} For the \emph{\streaming} mechanism the complete video is encoded in advance, allowing for the full bandwidth of the \gls{UE} being used for download.
-The video is downloaded with full bandwidth for a \emph{prebuffering time} \streamingstart in order to guarantee a stalling-free start of the playback.
+The video is downloaded with full bandwidth for a \emph{pre-buffering time} \streamingstart in order to guarantee a stalling-free start of the playback.
 After \(\streamingstart\) \si{\second} the download stops and the playback begins.
 The download is only resumed if the available seconds of video for playback are below a \emph{stop threshold} \bufferlower.
 The download continues until the buffer contains a \emph{threshold size} \buffersize, resulting in a total buffer length of \(\bufferlower + \buffersize\) \si{\second}.
@@ -163,11 +163,11 @@ In order to compute the overall energy consumption \(\energyconsumption\) during
 \end{table}
 
 \paragraph*{Wasted Traffic}
-If a user stops watching a video currently being downloaded before its end, this leads to \emph{wasted traffic} as the data has been already prebuffered at the \gls{UE}.
+If a user stops watching a video currently being downloaded before its end, this leads to \emph{wasted traffic} as the data has been already pre-buffered at the \gls{UE}.
 This metric impacts the video provider, but is influenced by the user aborting the video.
 This decision can not be influenced by the video provider, thus a user model has to be assumed by the video provider in order to provide a performance analysis of the different video delivery mechanisms.
 
-Considering that transmitting data to a smartphone costs both money and traffic, a transmission mechanism should attempt to reduce the amount of video which has been transmitted but is not yet watched at any time \(t\) as 
+Considering that transmitting data to a smartphone consumes both compute as well as network resources, a transmission mechanism should attempt to reduce the amount of video which has been transmitted but is not yet watched at any time \(t\) as 
 \[\timeunwatched(t) = \timedownloaded(t) - \timeplayedback(t)\]
 If the user stops the playback according to a random variable \userabortrv with \gls{PDF} \(\userabortpdf\), we can give the wasted traffic \meanwastedtraffic as the expected value of $\timeunwatched$ under $\userabortrv$.
 \begin{equation}
@@ -187,7 +187,7 @@ We consider three types of user behaviour, shown in \reffig{fig:application:lte_
 First we consider a \emph{uniform} distributed user abort model, where the user can abort the video at any time.
 Due to the uniform distribution of the abort time and the length of the video, i.e. \SI{1600}{\second}, the mean time of stop occurs at \SI{800}{\second}.
 
-Second, we consider a type of user that watches a part of the video before deciding if the video is stopped. 
+Second, we consider a type of user who watches a part of the video before deciding if the video is stopped. 
 After the main part of the video has been watched, the user is again more likely to abort.
 To model this kind of behaviour we use a \emph{truncated normal distribution} over the playtime of the video, assuming a symmetry of the abort density at the half-way point of the video.
 We use the same mean and specify a standard deviation of \SI{400}{\second}.

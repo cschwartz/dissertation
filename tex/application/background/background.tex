@@ -9,25 +9,25 @@ The most basic approach, \emph{\download}, obtains the complete video at once, p
 Due to the nature of \emph{\live} video transmissions it is only possible to send the currently available content.
 Furthermore, introducing delay into the live-stream should be avoided as it reduces the timeliness of the video.
 There exist different approaches for \emph{\streaming} video content to a user.
-In server based solutions, the streaming server controls the transmission of content.
+In server-based solutions, the streaming server controls the transmission of content.
 One example of such a server based approach is the \gls{RTSP} which was widely discussed as a standardized solution for mobile video streaming~\cite{Elsen2001}.
 
-In the more recent past, client based approaches were discussed.
-Here the client controls the download and playback of content.
-The authors of~\cite{Oyman2012} study the \gls{QoE} of \gls{HAS} approaches, if the content is consumed via \gls{LTE} networks.
+In the more recent past, client-based approaches were discussed.
+Here the client side controls the download and playback of content.
+The authors of~\cite{Oyman2012} study the \gls{QoE} of \gls{HAS} approaches in \gls{LTE} networks.
 They highlight the differences to existing server-side approaches and suggest the study of cross-layer optimisation approaches in order to improve the \gls{QoE}.
 One approach to deliver \gls{HAS} is \gls{DASH}, which enables video streaming over \gls{HTTP}~\cite{Sodagar2011}.
 
 The increasing popularity of video streaming has driven intensive research activities on how to optimise the video delivery to the end user concerning \gls{QoE}.
 In particular, \gls{HTTP} streaming is deployed by large video service delivery platforms, e.g. YouTube or Netflix and represents the major video delivery solution, especially for video-on-demand.
 
-In \gls{HTTP} video streaming video data is transmitted to the client via \gls{HTTP} and stored in an application buffer.
+In \gls{HTTP} video streaming, video data is transmitted to the client via \gls{HTTP} and stored in an application buffer.
 After the download of a sufficient amount of data \(q\), which is in the order of a few video seconds, e.g. for YouTube, the video play out starts at the client.
 As soon as the video buffer falls below a certain threshold \(p\), the video stalls~\cite{Hossfeld2013c}.
 In the remainder of this work, we refer to this threshold policy as \(pq\)-policy.
 
 \subsection{Video Quality of Experience for \headershortacr{HTTP} Adaptive Streaming}\label{sec:application:background:application_qoe}
-\gls{HAS} adapts the video to the current network conditions.
+The goal of \gls{HAS} is to adapt the video to the current network conditions.
 The video adaptation may be realized by changing the frame rate, resolution, or quantization of the video. Although the adaptation results in lower quality, the major benefits compared to classical \gls{HTTP} video streaming is the reduction of stalling events.
 The authors of \cite{Seufert2014} survey \gls{QoE} for \gls{HTTP} adaptive streaming and gives an overview of recent developments. 
 Besides improved quality adaptation mechanisms~\cite{Sieber2013}, other approaches aim for example at optimising the segmentation of the videos~\cite{Lievens2013}.
@@ -41,7 +41,7 @@ Two buffer size adaptation policies are proposed by~\cite{Fiedler2014} which are
 The authors of \cite{Luan2010} evaluate the impact of network dynamics and \gls{QoS} provision on users video quality. 
 An analytical framework models the playback buffer at the receiver as a \(GI/GI/1\) queue, however no \(pq\)-policy is considered. 
 Further, video quality is considered in terms of the start-up delay or fluency of video playback. 
-Based on that, adaptive playout buffer management schemes are proposed. 
+Based on that, adaptive play-out buffer management schemes are proposed. 
 
 Considering both the video content as well as the available resources by using a proxy has been suggested to improve the users \gls{QoE}~\cite{Essaili2013} for \gls{HAS}.
 In~\cite{Xin2012} the authors suggest the use of a caching strategy, downloading video content according to a user's viewing history and network conditions.

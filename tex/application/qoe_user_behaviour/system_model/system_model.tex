@@ -16,7 +16,15 @@ The state of the video playback is characterized by the tuple \((i, j)\), where 
 Furthermore, \(j \geq 0\) gives the number of unplayed frames currently available at the client.
 Furthermore, we give the probability of the playback being in state \((i, j)\) as \(x(i, j)\).
 
-We obtain the following equilibrium state equations.
+\begin{figure}
+  \centering
+  \includegraphics{application/qoe_user_behaviour/system_model/figures/state_diagram}
+  \caption{System model for the \(M/M/1\) queue with \(pq\)-policy.}
+  \label{fig:application:qoue_user_behaviour:system_model:mm1pq:state_diagram}
+\end{figure}
+
+
+We obtain the following equilibrium state equations, based on the state diagram given in \reffig{fig:application:youtube_qoe_model:system_model:mm1pq:state_diagram}.
 \begin{align*}
   \lambda x(0, 0) &= 0 & &\\
   \lambda x(0, i) &= \lambda x(0, i-1) & i&\in \left[1, q\right)\\
@@ -120,9 +128,9 @@ This behaviour is shown in \reffig{fig:application:qoe_user_behaviour:system_mod
 We do not consider the time until the initial playback, i.e. the time between \(t_0\) and \(t_2\) as stalling, since it has a much lower impact on the perceived quality than stalling \cite{Garcia2014} and it only depends on the network bandwidth \networkBandwidth and thus is not subject to optimisation.
 First, we consider the case where the user plays back the complete video.
 Given the network bandwidth \networkBandwidth and a video of \numberFrames Frames, the required download time for the complete video is \(\videoDownloadTime = \frac{Z}{\lambda}\).
-Within \videoDownloadTime there are \(N\) phases of stalling and playback and each phase is of duration \(t_3 - t_1\).
+Within \videoDownloadTime there are \(N\) phases of stalling and playback and each phase is of duration \(t_3 - t_1\), i.e.
 \[
-N = \left\lfloor \frac{t_Z-t_1+t_0}{t_3-t_1} \right\rfloor 
+N = \left\lfloor \frac{t_Z-t_1+t_0}{t_3-t_1} \right\rfloor .
 \]
 
 Next, we consider the case where the user aborts playback of the video after \(T\) seconds of video have been watched.

@@ -32,10 +32,10 @@ label.signalling.frequency <- 'Signalling Frequency SF'
 label.application <- 'Application'
 label.evaluation.type <- 'Model'
 label.cA <- expression(c[A])
-label.interarrival.time <- expression(paste('Packet Interarrival Time ', A, ' (s)'))
+label.interarrival.time <- expression(paste('Packet Inter-arrival Time ', A, ' (s)'))
 label.interarrival.time.cdf <- expression(P(A <= a))
 label.lag <- 'Lag Length'
-label.interarrival.sample.autocorrelation <- 'Sample Autocorrelation\n of Interarrival Times'
+label.interarrival.sample.autocorrelation <- 'Sample Autocorrelation\n of Inter-arrival Times'
 label.page.load.time <- 'Page Load Time (s)'
 label.qoe <- 'Mean Opinion Score'
 label.bandwidth <- expression(paste('Bandwidth b ', (Mbit^-1)))
@@ -77,14 +77,14 @@ label.infinite <- 'Steady State'
 label.offered.load <- 'Offered Load'
 label.alpha <- expression(paste("Duration Parameter ", alpha)) 
 label.beta <- expression(paste("Interruption Parameter ", beta)) 
-label.prebuffering.sensitivity <- expression(paste("Prebuffering Parameter ", gamma))
+label.prebuffering.sensitivity <- expression(paste("Pre-buffering Parameter ", gamma))
 label.normalized.video.buffer <- expression(paste('Normalized Video Buffer ', d^'*', ' (s)'))
 label.power <- 'Power Consumption (kW)'
 label.pareto <- 'Pareto Optimal'
 label.number.servers <- 'Number of Available Servers'
 label.parameter <- 'Parameter'
 label.waiting.time.ms <- "Mean Waiting Time (ms)"
-label.tunnel.iat <- 'Tunnel Interarrival Time t (s)'
+label.tunnel.iat <- 'Tunnel Inter-arrival Time t (s)'
 label.cdf.iat <- expression(P(T <= t))
 label.distribution <- 'Distribution'
 label.tunnel.duration <- 'Tunnel Duration d (s)'
@@ -96,9 +96,9 @@ label.max.tunnels <- expression(paste('Maximum Number of Tunnels ', n))
 label.blocking.probability <- expression(paste('Blocking Probability ', p[B]))
 label.mean.resource.utilization <- expression(paste('Mean Tunnel Count')) 
 label.startstop.duration <- expression(paste('Start Up and Shut Down Time ', (s)))
-label.campaign.interarrival <- expression('Campaign Interarrival Time t'[c]*' (h)')
+label.campaign.interarrival <- expression('Campaign Inter-arrival Time t'[c]*' (h)')
 label.cdf.campaign.interarrival <- expression(P(T <= t[c]))
-label.campaign.size <- expression('Campaign Interarrival Time ', Theta)
+label.campaign.size <- expression('Campaign Inter-arrival Time ', Theta)
 label.cdf.campaign.size <- expression(P(T <= Theta))
 label.number.of.workers <- 'Number of Workers c'
 label.worker.utilization <- expression(paste('Worker Utilization ', rho))

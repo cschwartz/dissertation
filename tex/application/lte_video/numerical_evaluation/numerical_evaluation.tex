@@ -7,10 +7,10 @@ Then, we consider the impact of the connection count for the \streaming mechanis
 
 We consider a video of \(\videolength=\SI{1600}{\second}\) length which is viewed on a \gls{UE} with \gls{LTE} access.
 The median of available downlink throughput in current \gls{LTE} networks is \(\bandwidth = \SI{12.74}{\mega\bit\per\second}\) \cite{Huang2012}.
-A wide set of video bitrates between \SIlist{1;50}{\mega\bit\per\second} is in use~\cite{YouTube2013}.
+A wide set of video bitrates between \SIlist{1;50}{\mega\bit\per\second} is in use\footnote{\url{https://support.google.com/youtube/answer/1722171?hl=en}, Accessed: November, \(21^{st}\) 2015}.
 In order to prevent stalling, we consider bitrates between \SIrange{1}{10}{\mega\bit\per\second}, staying below the available network bandwidth.
 For the \streaming mechanism, a stop threshold of \(\bufferlower = \SI{4}{\second}\) and a threshold size of \(\buffersize = \SI{32}{\second}\) were selected.
-Furthermore, we specify a prebuffering duration of \(\streamingstart = \SI{5}{\second}\).
+Furthermore, we specify a pre-buffering duration of \(\streamingstart = \SI{5}{\second}\).
 
 We conduct our study using deterministic discrete event simulation which uses no random variables.
 The wasted traffic is obtained analytically using the abort behaviour model.
@@ -26,7 +26,7 @@ First, we study the influence of both video bitrate as well as the selected down
 \end{figure}
 
 We consider the \download mechanism and observe that it consumes the least amount of energy.
-Here the video is downloaded with full bandwidth, as seen in \reffig{fig:application:lte_video:system_model:video_model}, resulting in a very short energy intensive download phase and a longer energy unintensive playback phase.
+Here the video is downloaded with full bandwidth, as seen in \reffig{fig:application:lte_video:system_model:video_model}, resulting in a very short energy intensive download phase and a longer energy playback phase which consumes less energy.
 For the \live mechanism we observe the opposite, i.e. the highest energy consumption for all bandwidths.
 If this mechanism is used, the used bandwidth equals the video bitrate.
 Thus, the download requires the same amount of time as the playback, resulting in the highest possible energy consumption.
@@ -35,7 +35,7 @@ This reduced download time decreases the energy consumption when compared to the
 For the \streaming mechanism we observe an energy consumption slightly higher than the \download mechanism.
 As the bitrate of the video increases, the energy consumption increases as well.
 This is due to the fact that a higher video bitrates require larger downloads.
-For video bitrates approaching the available bandwidth the \streaming mechanism degenerates to the \live mechanism, as no prebuffering is possible.
+For video bitrates approaching the available bandwidth the \streaming mechanism degenerates to the \live mechanism, as no pre-buffering is possible.
 We conclude that the \download and \streaming mechanisms outperform \live and \serviceprovisioning with regard to energy consumption.
 
 \subsubsection*{Wasted Traffic}\label{sec:application:lte_video:numerical_evaluation:wasted_traffic}
@@ -53,10 +53,10 @@ Thus, we consider only the cases where a user stops the playback before the vide
 In \reffig{fig:application:lte_video:numerical_evaluation:energy_consumption:bitrate2lostData} we study the wasted traffic for different video bitrates.
 We consider the different transmission mechanisms introduced in \refsec{fig:application:lte_video:system_model:video_model} as well as the previously introduced user models.
 We observe that the choice of user model has no significant impact on the wasted traffic.
-For the \download mechanism, the amount of wasted traffic increases up to a video bitrate of \SI{6}{\mega\bit\per\second}, then the wasted traffic decreases as only video data which has been prebuffered can be lost if the user aborts the video.
-As we assume an available bandwidth of \SI{12.74}{\mega\bit\per\second}, the bandwidth available for prebuffering decreases as the bitrate increases, resulting in lower amounts of wasted traffic for high video bitrates.
+For the \download mechanism, the amount of wasted traffic increases up to a video bitrate of \SI{6}{\mega\bit\per\second}, then the wasted traffic decreases as only video data which has been pre-buffered can be lost if the user aborts the video.
+As we assume an available bandwidth of \SI{12.74}{\mega\bit\per\second}, the bandwidth available for pre-buffering decreases as the bitrate increases, resulting in lower amounts of wasted traffic for high video bitrates.
 For the \live mechanism, we see that the wasted traffic for all user models is very low, but wasted traffic exists.
-This is due to the traffic already sent by the server while the \gls{UE} is still waiting for promotion from \rrcidle to \rrcconnected, i.e. a short prebuffering phase exists.
+This is due to the traffic already sent by the server while the \gls{UE} is still waiting for promotion from \rrcidle to \rrcconnected, i.e. a short pre-buffering phase exists.
 As the bandwidth increases with the video bitrate, the wasted traffic increases as well.
 Next, we consider the \serviceprovisioning approach and see an increase of wasted traffic as the video bitrate increases, due to the fact that the bandwidth used for continuous download is a factor of the video bitrate.
 A higher video bitrate results in the download of the video being completed earlier, which leads to more wasted traffic.

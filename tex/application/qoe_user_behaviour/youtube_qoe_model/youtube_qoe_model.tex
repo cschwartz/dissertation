@@ -7,9 +7,9 @@ Finally, we combine the proposed mapping functions.
 \subsubsection*{Stalling \headershortacr{QoE} Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling}
 The \gls{QoE} of \gls{HTTP} streaming depends mainly on the actual number of stalling events \(N\) for a video of duration \(T\) and the average length \(L\) of a single stalling event.
 A \gls{QoE} model combining both key influence factors into a single equation \(f(L,N)\) is provided in~\cite{Hossfeld2013c} and found to follow the IQX hypothesis~\cite{Fiedler2010} describing an exponential relationship between the influence factors and \gls{QoE}.
-In particular, the model function returns \gls{MOS} on a 5-point absolute category rating scale with 1 indicating the lowest \gls{QoE} and 5 the highest \gls{QoE}. 
+In particular, the model function returns \gls{MOS} on a 5-point absolute category rating scale with 1 indicating the lowest \gls{QoE} and 5 the highest \gls{QoE}:
 \begin{equation}
- f(L,N) = 3.5 e^{-(0.15L + 0.19)N}+1.50
+ f(L,N) = 3.5 e^{-(0.15L + 0.19)N}+1.50.
 \label{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:original_model}
 \end{equation}
 Due to well known rating scale effects, the model in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:original_model} has a lower bound of \(1.50\), as users avoid the extremities of the scale called \emph{saturation effect}, see e.g.~\cite{Moller2000}.
@@ -19,25 +19,26 @@ It has to be noted that the model function in \refeq{eq:application:qoe_user_beh
 For other video durations, the normalized number \(N^*=\frac{N}{T}\) of stalling events has to be considered which requires to adapt the parameters \(\alpha=0.15\) and \(\beta=0.19\) in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:original_model}, respectively. 
 
 As the goal of our investigation is the analysis of the impact of different user profiles, we parametrize the function in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:original_model} with parameters \(\alpha\) and \(\beta\) and conduct a parameter study on their impact. 
-For the sake of simplicity, we normalize the QoE value to be in the range \(\left[0;1\right]\)  and use the normalized number of stalling events $N^*$. 
+For the sake of simplicity, we normalize the QoE value to be in the range \(\left[0;1\right]\)  and use the normalized number of stalling events \(N^*\). 
 As a result, we arrive at \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:parameterized_model} as parametrized \gls{QoE} model \(Q_1\) to quantify the impact of stalling on QoE for different user profiles expressed by \(\alpha\) and \(\beta\). 
 Thereby, the parameter \(\alpha\) adjusts the sensitivity of the user to the stalling duration \(L\cdot N^*\), while \(\beta\) quantifies the sensitivity of the user to the actual number of stalling events, i.e. the video interruptions.
 Therefore, we will also use the term \emph{duration parameter} and \emph{interruption parameter} for \(\alpha\) and \(\beta\), respectively.
 
+The model function \(Q_1\) in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:parameterized_model} has the same form as \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:original_model} and follows the IQX hypothesis, but allows to investigate different user profiles:
+
 \begin{equation}
-   Q_1(L,N^*) = e^{-\left( \alpha L + \beta\right) N^*} 
+   Q_1(L,N^*) = e^{-\left( \alpha L + \beta\right) N^*}.
 \label{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:parameterized_model}
 \end{equation}
 
-The model function \(Q_1\) in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:parameterized_model} has the same form as \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:stalling:original_model} and follows the IQX hypothesis, but allows to investigate different user profiles.
 For example, some users may suffer stronger from interruptions which is then adjusted by a higher value of \(\beta\).
 Thus, a user profile can be expressed in terms of different values of the duration parameter \(\alpha\) and the interruption parameter \(\beta\)
 
 \subsubsection*{Initial Delay \headershortacr{QoE} Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:initial_delay}
-Another impairment on \gls{HTTP} streaming \gls{QoE} are initial delays before the video playout can start for the first time.
-The impact of initial delays \(T_0\) is modeled by the function given in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:initial_delay:original_model}, model parameters are obtained from subjective tests \cite{Hossfeld2012c}. 
+Another impairment on \gls{HTTP} streaming \gls{QoE} are initial delays before the video play-out can start for the first time.
+The impact of initial delays \(T_0\) is modeled by the function given in \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:initial_delay:original_model}, model parameters are obtained from subjective tests \cite{Hossfeld2012c}, yielding
 \begin{equation}
-g(T_0)=-0.963 \mathrm{log10}(T_0 + 5.381) + 5
+g(T_0)=-0.963 \mathrm{log10}(T_0 + 5.381) + 5.
 \label{eq:application:qoe_user_behaviour:typical_user_scenarios:initial_delay:original_model}
 \end{equation}
 
@@ -49,13 +50,13 @@ For the sake of simplicity, we normalize the function in \refeq{eq:application:q
 
 The user profile is parametrized with the parameter \(\gamma\) determining the impact of initial delays on the user \gls{QoE}.
 The constant \(c=5.381\) is taken from \refeq{eq:application:qoe_user_behaviour:typical_user_scenarios:initial_delay:original_model} defining the shape of the curve. 
-Since the logarithm is not bounded, only positive values are considered to ensure \(Q_2(T_0) \in [0;1]\).
+Since the logarithm is not bounded, only positive values are considered to ensure \(Q_2(T_0) \in [0;1]\):
 \begin{equation*}
-Q_2(T_0)= -\gamma \mathrm{log10}\left(T_0 + c\right) + \gamma \mathrm{log10}\left(c\right)+ 1 
+Q_2(T_0)= -\gamma \mathrm{log10}\left(T_0 + c\right) + \gamma \mathrm{log10}\left(c\right)+ 1.
 \end{equation*}
 
 \subsubsection*{Combined \headershortacr{QoE} Model}\label{sec:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:combined}
-For dimensioning the video buffers, we are interested in a \gls{QoE} model which considers both, the impairments due to stalling and due to initial delays of the video playout.
+For dimensioning the video buffers, we are interested in a \gls{QoE} model which considers both, the impairments due to stalling and due to initial delays of the video play-out.
 However, to the best of our knowledge no combined model exists so far which has been validated by proper subjective user studies.
 Therefore, we suggest the following model \(Q\).
 Since the impact of stalling events clearly dominates the user perception \cite{Hossfeld2012a,Hossfeld2012c}, we consider the following rationale for the combined QoE model.
@@ -66,9 +67,9 @@ For \(N^*\) stalling events with an average length \(L\), the \gls{QoE} will be 
 
 An additive \gls{QoE} model for non-adaptive HTTP streaming which is referred to as buffer-related perceptual indicator is recommended in \cite{ITUT2012}. This model follows the same rationale above, start from the maximum QoE value which is \(1=Q(0,0,0)\), subtract the degradation from stalling \(1-Q_1(L,N^*)\) and \(1-Q_2(T_0)\) stemming from initial delay.
 
-Then, we arrive at the following additive QoE model \(Q\) used in the following analysis.  
+Then, we arrive at the following additive QoE model \(Q\) used in the following analysis:  
 \begin{eqnarray}
   Q(T_0,L,N^*) &=& 1-(1-Q_1(L,N^*)) - (1-Q_2(T_0)) \notag\\
-   &=& Q_1(L,N^*) + Q_2(T_0) - 1
+   &=& Q_1(L,N^*) + Q_2(T_0) - 1.
 \label{eq:application:qoe_user_behaviour:typical_user_scenarios:youtube_qoe:combined:qsum}
 \end{eqnarray}

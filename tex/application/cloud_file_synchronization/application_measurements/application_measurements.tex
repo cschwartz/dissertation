@@ -5,7 +5,7 @@ Then, we present measurement results as well as fitted distributions for both up
 Finally, we derive a image file size distribution by analysing a large set of digital photos.
 
 \subsubsection*{Bandwidth and Preparation Times}\label{sec:application:cloud_file_synchronisation:application_measurements:bandwidth_preparation_times}
-We obtain a PlanetLab slice containing all available nodes in February 2014 and discard every node not responding to \texttt{ping} or \texttt{ssh} within a \SI{20}{\second} interval.
+We obtain a PlanetLab slice containing all momentarily available nodes in February 2014 and discard every node not responding to \texttt{ping} or \texttt{ssh} within a \SI{20}{\second} interval.
 On the remaining \(87\) nodes we install our measurement setup.
 This includes two instances of the \dropbox client on each host, linking them to a specially created \dropbox account and two different directories.
 Furthermore, we disable the \emph{LAN-Synchronization} feature for both clients.
@@ -39,7 +39,7 @@ Finally, we calculate the mean download bandwidth \downloadbandwidth similar to 
 
 In \reffig{fig:application:cloud_file_synchronisation:application_measurements:bandwidth_preparation_times:measurement_setup:bandwidths} we show the mean upload and download bandwidth obtained from our measurements, as well as fitted distributions.
 For the fit we considered a set of different possible distributions, including exponential, log-normal, gamma, pareto, and weibull.
-We found that none of the considered distributions provided an adequate fit due to the slope at the \SI{7}{\percent} quantile for the upload, respectively \SI{25}{percent} quantile for the download bandwidth.
+We found that none of the considered distributions provided an adequate fit due to the slope at the \SI{7}{\percent} quantile for the upload, respectively \SI{25}{\percent} quantile for the download bandwidth.
 To adapt for this behaviour, we consider a \emph{$2$-hyper log-normal} distribution \cite{Wang2006} with partitions at \(0.07\) or \({0.25}\).
 After splitting, the random variables are fitted to log-normal random variables using \texttt{fitdistrplus} for the \emph{R} language.
 The resulting parameters for the upload bandwidth \uploadbandwidth and download bandwidth \downloadbandwidth can be found in \reftab{tab:application:cloud_file_synchronisation:application_measurements:bandwidth_preparation_times:measurement_setup:fit}, where \(\mu_1\) and \(\sigma_1\) are the location and scale parameters for the \emph{lower} part of the compound distribution and \(\mu_2\) and \(\sigma_2\) are the location and scale of the \emph{upper} part of the compound distribution.

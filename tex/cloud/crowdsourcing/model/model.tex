@@ -65,7 +65,7 @@ We solve for task the pre-processing delay \preTaskProcessingDelay~and obtain
 
 \subsubsection*{Simulation}
 
-In order to allow for a larger variety of campaign inter-arrival time distributions, we implement a discrete event simulation using the OMNet++ simulation framework\footnote{\url{http://www.omnetpp.org/}, Accessed Jul 2015}.
+In order to allow for a larger variety of campaign inter-arrival time distributions, we implement a discrete event simulation using the OMNet++ simulation framework\footnote{\url{http://www.omnetpp.org/}, Accessed: November, \(21^{st}\) 2015}.
 We augment the framework with support for bulk arrivals and support of empiric distributions taken from measurements described in \refsec{sec:cloud:crowdsourcing:measurements}.
 Similar, to the queueing model introduced in this section, we consider campaign inter-arrivals according to a distribution \(\campaignIAT\) and a campaign size of \(\campaignSize\) tasks.
 Task length is given by a distribution \(\taskDuration\) and tasks are stored in an unbounded queue before being sent to service to the \(\numberOfWorkers\) available workers.
