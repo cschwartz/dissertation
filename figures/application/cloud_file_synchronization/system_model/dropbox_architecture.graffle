@@ -2987,7 +2987,7 @@
 					<key>Text</key>
 					<dict>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -3038,13 +3038,13 @@
 						<key>Pad</key>
 						<integer>0</integer>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 
 \f0\fs16 \cf0 Notify\
-Client}</string>
+client}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
 					</dict>
@@ -3062,7 +3062,7 @@ Client}</string>
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{180.61844635009766, 80.358234480112742}, {21.259841918945312, 21.259841918945312}}</string>
+					<string>{{177.61844635009766, 80.358234480112742}, {21.259841918945312, 21.259841918945312}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FontInfo</key>
@@ -3089,7 +3089,7 @@ Client}</string>
 					<key>Text</key>
 					<dict>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -3101,7 +3101,7 @@ Client}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{204.76303398609161, 85.744478225708008}, {16.61616190795516, 9.8989898989898979}}</string>
+					<string>{{201.76303398609161, 85.744478225708008}, {16.61616190795516, 9.8989898989898979}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FontInfo</key>
@@ -3140,13 +3140,13 @@ Client}</string>
 						<key>Pad</key>
 						<integer>0</integer>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 
 \f0\fs16 \cf0 Download\
-Data}</string>
+data}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
 					</dict>
@@ -3191,7 +3191,7 @@ Data}</string>
 					<key>Text</key>
 					<dict>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -3242,13 +3242,13 @@ Data}</string>
 						<key>Pad</key>
 						<integer>0</integer>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qr
 
 \f0\fs16 \cf0 Upload \
-Data}</string>
+data}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
 					</dict>
@@ -3293,7 +3293,7 @@ Data}</string>
 					<key>Text</key>
 					<dict>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -3344,13 +3344,13 @@ Data}</string>
 						<key>Pad</key>
 						<integer>0</integer>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qr
 
 \f0\fs16 \cf0 Synchronise \
-Meta-Data}</string>
+meta-data}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
 					</dict>
@@ -3405,13 +3405,13 @@ Meta-Data}</string>
 						<key>Pad</key>
 						<integer>0</integer>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\fs16 \cf0 Upload \
-Client}</string>
+client}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
 					</dict>
@@ -4228,13 +4228,13 @@ Client}</string>
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\fs16 \cf0 Download\
-Client}</string>
+client}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
@@ -5027,8 +5027,8 @@ Client}</string>
 			<integer>1357</integer>
 			<key>Points</key>
 			<array>
-				<string>{170.42719747408336, 73.625789346104924}</string>
-				<string>{237.5, 58.399404465481588}</string>
+				<string>{170.42719737215049, 73.625782470397979}</string>
+				<string>{237.5, 58.3993845213583}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -5067,8 +5067,8 @@ Client}</string>
 			<integer>1329</integer>
 			<key>Points</key>
 			<array>
-				<string>{237.49999999999997, 53.18167208746533}</string>
-				<string>{171.13089727924881, 33.00873143696834}</string>
+				<string>{237.49999999999997, 53.181671454760021}</string>
+				<string>{171.13090125708672, 33.008727740139626}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -5107,8 +5107,8 @@ Client}</string>
 			<integer>1331</integer>
 			<key>Points</key>
 			<array>
-				<string>{28.653737718873344, 58.327187697763136}</string>
-				<string>{97.941416863669986, 73.547350284619185}</string>
+				<string>{28.653737718873359, 58.327169614787444}</string>
+				<string>{97.94146407112629, 73.547215071273371}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -5147,8 +5147,8 @@ Client}</string>
 			<integer>1330</integer>
 			<key>Points</key>
 			<array>
-				<string>{28.653737718873344, 53.278359104492168}</string>
-				<string>{96.337410673185587, 33.371796591318187}</string>
+				<string>{28.653737718873344, 53.27835974274965}</string>
+				<string>{96.337412714966021, 33.371801025134999}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -5207,12 +5207,12 @@ Client}</string>
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs16 \cf0 DropBox Server}</string>
+\f0\fs16 \cf0 Dropbox server}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
@@ -5736,12 +5736,12 @@ Client}</string>
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs16 \cf0 S3 Server}</string>
+\f0\fs16 \cf0 S3 server}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
@@ -5839,12 +5839,12 @@ Client}</string>
 						<key>Pad</key>
 						<integer>0</integer>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 LinBiolinumO;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs16 \cf0 Amazon Cloud}</string>
+\f0\fs16 \cf0 Amazon cloud}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
 					</dict>
@@ -5903,7 +5903,7 @@ Client}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-11-27 15:39:59 +0000</string>
+	<string>2015-12-04 14:36:58 +0000</string>
 	<key>Modifier</key>
 	<string>Christian Schwartz</string>
 	<key>NotesVisible</key>

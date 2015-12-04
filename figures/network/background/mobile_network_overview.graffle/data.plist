@@ -22,7 +22,7 @@
 			<key>Font</key>
 			<string>Helvetica</string>
 			<key>Size</key>
-			<real>12</real>
+			<real>8</real>
 		</dict>
 		<key>ID</key>
 		<integer>2</integer>
@@ -731,7 +731,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{177.62156677246094, 69.5}, {30, 18}}</string>
+			<string>{{177.12156677246094, 69.5}, {31, 18}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -778,7 +778,7 @@
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\fs16 \cf0 Packet\
-Gateway}</string>
+GateWay}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
@@ -1376,7 +1376,7 @@ Equipment}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-11-20 09:36:19 +0000</string>
+	<string>2015-12-04 14:44:48 +0000</string>
 	<key>Modifier</key>
 	<string>Christian Schwartz</string>
 	<key>NotesVisible</key>

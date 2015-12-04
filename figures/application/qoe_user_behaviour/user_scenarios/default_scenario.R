@@ -20,10 +20,11 @@ p <- ggplot(molten.data, aes(x = B, y = value, color = alpha, linetype = beta)) 
   geom_line() +
   geom_point(data = max.molten.data) +
   scale_color_manual(values = color.palette, name = label.alpha) +
-  scale_x_continuous(name = label.normalized.video.buffer) +
+  scale_x_continuous(name = label.normalized.video.buffer, breaks = seq(0, 7.5, by = 2.5)) +
   scale_y_continuous(name = label.qoe) +
   scale_linetype_discrete(name = label.beta) +
   guides(colour = guide_legend(order = 1),
-         linetype = guide_legend(order = 2))
+         linetype = guide_legend(order = 2)) +
+  coord_cartesian(x = c(0, 7.7))
 
 save.full.row.plot(p)
