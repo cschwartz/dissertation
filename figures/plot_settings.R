@@ -66,8 +66,8 @@ label.unplayed.buffer <- expression(paste("Buffer ", t[u](t), " (s)"))
 label.bitrate <- expression(paste('Video bitrate ', (Mbit^-1)))
 label.energy <- 'Energy consumption E (kJ)'
 label.wasted.traffic <- 'Wasted traffic W (Mbit)'
-label.user.model <- 'User Model'
-label.connections <- 'Connection Count C'
+label.user.model <- 'User model'
+label.connections <- 'Connection count C'
 label.buffer.lower <- expression(paste("Stop threshold ", theta))
 label.buffer.size <- expression(paste("Buffer size ", Theta))
 label.abort.time <- 'Abort time t (s)'
@@ -108,14 +108,14 @@ label.startstop.duration <- expression(paste('Start up and shut down time ', (s)
 # 4.4, done
 label.campaign.interarrival <- expression('Campaign inter-arrival time t'[c]*' (h)')
 label.cdf.campaign.interarrival <- expression(P(T <= t[c]))
-label.campaign.size <- expression('Campaign size ', Theta)
+label.campaign.size <- expression(paste('Campaign size ', Theta))
 label.cdf.campaign.size <- expression(P(T <= Theta))
 label.number.of.workers <- 'Number of workers c'
 label.worker.utilization <- expression(paste('Worker utilisation ', rho))
 label.mean.task.length <- 'Mean task length E[B] (s)'
 label.mean.task.delay <- 'Task pre-processing Delay E[D] (s)'
 label.campaign.arrival.distribution <- 'Campaign arrival'
-label.campaign.rate <- 'Rate'
+label.campaign.rate <- expression(paste('Rate ', beta))
 
 unit.labeller <- function(unit) {
   passed.unit <- substitute(unit)

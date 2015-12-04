@@ -41,14 +41,14 @@ In \reffig{fig:application:cloud_file_synchronisation:application_measurements:b
 For the fit we considered a set of different possible distributions, including exponential, log-normal, gamma, pareto, and weibull.
 We found that none of the considered distributions provided an adequate fit due to the slope at the \SI{7}{\percent} quantile for the upload, respectively \SI{25}{\percent} quantile for the download bandwidth.
 To adapt for this behaviour, we consider a \emph{$2$-hyper log-normal} distribution \cite{Wang2006} with partitions at \(0.07\) or \({0.25}\).
-After splitting, the random variables are fitted to log-normal random variables using \texttt{fitdistrplus}\texttt{fitdistrplus}\footnote{\url{https://cran.r-project.org/web/packages/fitdistrplus}, \accessed} for the \emph{R} language.
+After splitting, the random variables are fitted to log-normal random variables using \texttt{fitdistrplus}\footnote{\url{https://cran.r-project.org/web/packages/fitdistrplus}, \accessed} for the \emph{R} language.
 The resulting parameters for the upload bandwidth \uploadbandwidth and download bandwidth \downloadbandwidth can be found in \reftab{tab:application:cloud_file_synchronisation:application_measurements:bandwidth_preparation_times:measurement_setup:fit}, where \(\mu_1\) and \(\sigma_1\) are the location and scale parameters for the \emph{lower} part of the compound distribution and \(\mu_2\) and \(\sigma_2\) are the location and scale of the \emph{upper} part of the compound distribution.
 
 \begin{table}
   \centering
   \begin{tabular}{lccccc}
     \toprule
-    Random Variable&Split&\(\mu_1\)&\(\sigma_1\)&\(\mu_2\)&\(\sigma_2\)\\
+    Random variable&Split&\(\mu_1\)&\(\sigma_1\)&\(\mu_2\)&\(\sigma_2\)\\
     \midrule
     \uploadbandwidth & 0.07 & 13.44 & 0.49 & 16.10 & 0.37\\
     \downloadbandwidth & 0.23 & 14.63 & 0.51 & 15.81 & 0.21 \\
