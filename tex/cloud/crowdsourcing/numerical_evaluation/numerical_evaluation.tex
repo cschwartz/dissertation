@@ -7,11 +7,10 @@ The results presented in this section can be used as guidelines for platform ope
 
 \subsubsection*{Impact of Campaign Inter-arrival Distributions}
 
-Campaign inter-arrival times influence both the work load of the individual workers as well as time required before a worker starts working on a task.
+Campaign inter-arrival times \campaignIAT influence both the work load of the individual workers \workerUtilization as well as the mean time required before a worker starts working on a task \preTaskProcessingDelay.
 From the perspective of an operator, understanding the influence of different inter-arrival processes is important.
-As shown in \refsec{sec:cloud:crowdsourcing:measurements}, the gamma distribution can be used to approximate the campaign inter-arrival times as seen on the crowdsourcing platform Microworkers.
-In this section, we study the impact of such different processes by utilizing the parameter space afforded by the 
-gamma distribution and considering the impact on the metrics worker utilisation and task pre-processing delay.
+As shown in \refsec{sec:cloud:crowdsourcing:measurements}, the gamma distribution can be used to approximate the campaign inter-arrival times \campaignIAT as seen on the crowdsourcing platform Microworkers.
+In this section, we study the impact of such different processes by utilising the parameter space afforded by the gamma distribution and considering the impact on the metrics worker utilisation \workerUtilization and mean task pre-processing delay \preTaskProcessingDelay.
 
 The characteristics of the gamma distribution change depending on the parameters shape \(\alpha\) and rate \(\beta\).
 While both shape and rate influence the mean 
@@ -22,7 +21,7 @@ and variance
 \begin{equation*}
 \Var[\campaignIAT] =  \frac{\alpha}{\beta^2}
 \end{equation*}
-of the campaign inter-arrival times, only the shape influences the skewness 
+of the campaign inter-arrival times \campaignIAT, only the shape influences the skewness 
 \begin{equation*}
 \Skew[\campaignIAT] =  \frac{2}{\sqrt{\alpha}}
 \end{equation*}
@@ -33,76 +32,77 @@ Increasing of the shape for the same rate changes the form of the distribution f
 By increasing the rate for the same shape the tightness of the distribution is modified.
 A rate less than \(1\) results in a distribution with a long tail.
 The increase of the rate decreases the breadth of the distribution.
-Transferred to the campaign inter-arrival process different shape and rate settings can be used to model different task types and varying the business of the platform.
+Transferred to the campaign inter-arrival process \campaignIAT different shape and rate settings can be used to model different task types and varying the business of the platform.
 The range of the inter-arrival times is given by the rate and the shape defines the weighting of the different times.
 A lower shape means more campaigns arrive in bursts in combination with longer time periods without any campaign arrival.
 
-Next, we use our simulation model introduced in \refsec{sec:cloud:crowdsourcing:model} with the campaign size distribution and task completion times obtained in \refsec{sec:cloud:crowdsourcing:measurements} for different campaign inter-arrival times to study the impact on the worker utilisation. 
+Next, we use our simulation model introduced in \refsec{sec:cloud:crowdsourcing:model} with the campaign size distribution \campaignSize and task completion times \taskDuration obtained in \refsec{sec:cloud:crowdsourcing:measurements} for different campaign inter-arrival times to study the impact on the worker utilisation. 
 Only stable systems, i.e., crowdsourcing platforms with an utilisation \(\workerUtilization < 1\) are considered in the following.
 
 \begin{figure*}
 	\centering
 	\includegraphics{cloud/crowdsourcing/numerical_evaluation/figures/parameter_utilization}
-	\caption{Worker utilisation for different campaign inter-arrival times.}
+	\caption{Worker utilisation \workerUtilization for different campaign inter-arrival times \campaignIAT.}
 	\label{fig:cloud:crowdsourcing:performance_evaluation:distributions:parameter_utilization}
 \end{figure*}
 
-Independent of the campaign inter-arrival time distribution and the number of workers, we see in \reffig{fig:cloud:crowdsourcing:performance_evaluation:distributions:parameter_utilization} that the introduction of more complex tasks in the platform by means of a higher mean task length \meanTaskLength increases the worker utilisation.
-The same number of workers now require more time to process the same number of tasks.
-Furthermore, for the same campaign inter-arrival times and mean task lengths, increasing the number of workers decreases the worker utilisation, as a higher number of workers has to compete for the same number of tasks.
-For different shapes \(\alpha\) of the campaign inter-arrival times and the same rate \(\beta\), with all other parameters fixed, we observe a decrease of the shape results in an increase in worker utilisation.
-A decrease of the shape \(\alpha\) directly decreases the mean campaign inter-arrival time \(E[\campaignIAT]=\frac{\alpha}{\beta}\) and increases the rate \(\frac{1}{E[\campaignIAT]}\) of incoming campaigns which increases the systems utilisation. 
-The same argument can be applied to the rate parameter of the campaign inter-arrival time distribution. An increase of the rate \(\beta\) again influences the mean \(E[\campaignIAT]\) and the rate of the campaign inter-arrival time resulting in an increased worker utilisation.
+Independent of the campaign inter-arrival time distribution \campaignIAT and the number of workers \numberOfWorkers, we see in \reffig{fig:cloud:crowdsourcing:performance_evaluation:distributions:parameter_utilization} that the introduction of more complex tasks in the platform by means of a higher mean task length \meanTaskLength increases the worker utilisation \workerUtilization.
+The same number of workers \numberOfWorkers now require more time to process the same number of tasks.
+Furthermore, for the same campaign inter-arrival times \campaignIAT and mean task lengths \meanTaskLength, increasing the number of workers \numberOfWorkers decreases the worker utilisation \workerUtilization, as a higher number of workers has to compete for the same number of tasks.
+For different shapes \(\alpha\) of the campaign inter-arrival times \campaignIAT and the same rate \(\beta\), with all other parameters fixed, we observe a decrease of the shape results in an increase in worker utilisation \workerUtilization.
+A decrease of the shape \(\alpha\) directly decreases the mean campaign inter-arrival time \(E[\campaignIAT]=\frac{\alpha}{\beta}\) and increases the rate \(\frac{1}{E[\campaignIAT]}\) of incoming campaigns which increases the worker utilisation \workerUtilization. 
+The same argument can be applied to the rate parameter of the campaign inter-arrival time distribution \campaignIAT.
+An increase of the rate \(\beta\) again influences the mean \(E[\campaignIAT]\) and the rate of the campaign inter-arrival time \campaignIAT resulting in an increased worker utilisation \workerUtilization.
 
 \begin{figure*}
 	\centering
 	\includegraphics{cloud/crowdsourcing/numerical_evaluation/figures/parameter_task_delay}
-	\caption{Task pre-processing delay for different campaign inter-arrival times.}
+	\caption{Mean task pre-processing delay \preTaskProcessingDelay for different campaign inter-arrival times \campaignIAT.}
 	\label{fig:cloud:crowdsourcing:performance_evaluation:distributions:parameter_task_delay}
 \end{figure*}
 
-In \reffig{fig:cloud:crowdsourcing:performance_evaluation:distributions:parameter_task_delay} we consider the impact of different campaign inter-arrival time characteristics on the task pre-processing delay \(\preTaskProcessingDelay\).
-For a fixed number of workers and campaign inter-arrival distribution a larger mean task duration also increases the mean task pre-processing delay. 
+In \reffig{fig:cloud:crowdsourcing:performance_evaluation:distributions:parameter_task_delay} we consider the impact of different campaign inter-arrival time characteristics \campaignIAT on the task pre-processing delay \(\preTaskProcessingDelay\).
+For a fixed number of workers \numberOfWorkers and campaign inter-arrival distribution \campaignIAT a larger mean task duration \taskDuration also increases the mean task pre-processing delay \preTaskProcessingDelay. 
 As more tasks have to enter the queue, tasks which would not have been queued for lower task length now suffer queueing delay.
-For a fixed task length and campaign inter-arrival distribution, we see that increasing the number of workers results in a decreased task pre-processing delay.
+For a fixed task length \taskDuration and campaign inter-arrival distribution \campaignIAT, we see that increasing the number of workers \numberOfWorkers results in a decreased task pre-processing delay \preTaskProcessingDelay.
 The waiting probability decreases due to the higher capacity of the platform, resulting in a lower waiting time per task.
 Next, we consider the shape of the campaign inter-arrival time for fixed other parameters. 
-The curves show that increasing the shape decreases the mean task pre-processing delay. 
+The curves show that increasing the shape decreases the mean task pre-processing delay \preTaskProcessingDelay. 
 This is caused by an increasing mean \(E[\campaignIAT]\) of the inter-arrival times which results in a decrease of the campaign arrival rate.
-Thus, the platform contains fewer tasks for the same number of workers and fewer tasks have to wait for completion.
+Thus, the platform contains fewer tasks for the same number of workers \numberOfWorkers and fewer tasks have to wait for completion.
 The effect is more obvious for high rates.
 
-Finally, we consider the effect of an increased rate while keeping all other parameters fixed.
-An increased campaign inter-arrival rate increases the task pre-processing time, as the number of campaigns arriving at the platform is increased.
+Finally, we consider the effect of an increased rate \(\beta\) while keeping all other parameters fixed.
+An increased campaign inter-arrival rate increases the task pre-processing time \preTaskProcessingDelay, as the number of campaigns arriving at the platform is increased.
 The increase of the rate \(\beta\) decreases the variance of the campaign inter-arrival times distribution.
 For greater values of \(\beta\), the mean campaign inter-arrival time \(E[\campaignIAT]\) decreases campaign inter-arrival rate increases. 
-Thus, more tasks arriving at the platform and have to be completed with the same number of workers.
+Thus, more tasks arriving at the platform and have to be completed with the same number of workers \numberOfWorkers.
 
-Based on this observations, we conclude that while both shape and rate influence the metrics worker utilisation and mean task pre-processing delay, the rate parameter of the gamma distribution has an higher influence on the considered metrics.
-In order to account for the higher influence of the rate on the considered metrics, we fix the shape parameter of the gamma distribution to the value \(0.484071\) obtained in \refsec{sec:cloud:crowdsourcing:measurements} for the next section and focus on different rate parameters.
+Based on this observations, we conclude that while both shape and rate influence the metrics worker utilisation \workerUtilization and mean task pre-processing delay  \preTaskProcessingDelay, the rate parameter \(\beta\) of the gamma distribution has an higher influence on the considered metrics.
+In order to account for the higher influence of the rate on the considered metrics, we fix the shape parameter \(\alpha\) of the gamma distribution to the value \(0.484071\) obtained in \refsec{sec:cloud:crowdsourcing:measurements} for the next section and focus on different rate parameters \(\beta\).
 
 \subsubsection*{Tradeoff Considerations for Platform Operators}
 
 A crowdsourcing platform operator's business success depends on the satisfaction of the main stakeholders, i.e., the employers and workers.
 As discussed in \refsec{sec:cloud:crowdsourcing:model}, workers are interested in a high worker utilisation \(\workerUtilization\), due to the fact that this correlates with their payment.
 Employers are interested in having their tasks completed as fast as possible, i.e., in an as small as possible task pre-processing delays \(\preTaskProcessingDelay\).
-The interests of the stakeholders are opposing as lower task pre-processing delays can be achieved by hiring more workers, which in turn results in a lower worker utilisation.
+The interests of the stakeholders are opposing as lower task pre-processing delays \(\preTaskProcessingDelay\) can be achieved by hiring more workers, which in turn results in a lower worker utilisation \(\workerUtilization\).
 Thus, the platform operator is forced to consider a tradeoff between worker and employer satisfaction, which we consider in this section.
-The impact of different campaign inter-arrival rates on worker and employer satisfaction for the specific platform can be evaluated by following the coloured lines in \reffig{fig:cloud:crowdsourcing:performance_evaluation:tradeoff:pareto}.
+The impact of different campaign inter-arrival rates \campaignIAT on worker and employer satisfaction for the specific platform can be evaluated by following the coloured lines in \reffig{fig:cloud:crowdsourcing:performance_evaluation:tradeoff:pareto}.
 
 \begin{figure*}
 	\centering
 	\includegraphics{cloud/crowdsourcing/numerical_evaluation/figures/pareto}
-	\caption{Tradeoff analysis between worker utilisation and task pre-processing delay.}
+	\caption{Tradeoff analysis between worker utilisation \workerUtilization and mean task pre-processing delay \preTaskProcessingDelay.}
 	\label{fig:cloud:crowdsourcing:performance_evaluation:tradeoff:pareto}
 \end{figure*}
 
-Given a fixed number of workers, decreases in the campaign inter-arrival rate result in lower worker utilisation and longer task pre-processing delays.
-The effects on the worker utilisation and the task waiting time decrease for a larger amount of workers.
-This means a platform with a larger number of workers is more robust against fluctuations in the rate of incoming campaigns than a system with a small number of workers.
+Given a fixed number of workers \numberOfWorkers, decreases in the campaign inter-arrival rate \(\beta\) result in lower worker utilisation \workerUtilization and longer mean task pre-processing delays \preTaskProcessingDelay.
+The effects on the worker utilisation \workerUtilization and the mean task pre-processing time \preTaskProcessingDelay decrease for a larger amount of workers \numberOfWorkers.
+This means a platform with a larger number of workers is more robust against fluctuations in the rate of incoming campaigns \(\beta\) than a system with a small number of workers \numberOfWorkers.
 
-Independent of the considered task duration, we observe that increasing the number of workers, for example by advertising the platform, decreases both the task pre-processing delay as well as the worker utilisation.
+Independent of the considered task duration \taskDuration, we observe that increasing the number of workers \numberOfWorkers, for example by advertising the platform, decreases both the mean task pre-processing delay \preTaskProcessingDelay as well as the worker utilisation \workerUtilization.
 However, this decrease is not linear.
-This means that a small increase of the number of workers reduces the worker utilisation, which is generally not desired.
-However, this small degradation of the worker utilisation results in an over proportional reduction of the task pre-processing delay.
-Thus, it is advisable to sightly overdimension the number of workers to optimise the tradeoff between worker utilisation and task pre-processing delay.
+This means that a small increase of the number of workers \numberOfWorkers reduces the worker utilisation \workerUtilization, which is generally not desired.
+However, this small degradation of the worker utilisation \workerUtilization results in an over proportional reduction of the mean task pre-processing delay \preTaskProcessingDelay.
+Thus, it is advisable to sightly overdimension the number of workers \numberOfWorkers to optimise the tradeoff between worker utilisation \workerUtilization and mean task pre-processing delay \preTaskProcessingDelay.

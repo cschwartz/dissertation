@@ -17,15 +17,15 @@ The \dropbox infrastructure consists of two main components:
 \item a storage cloud based on Amazon's Elastic Compute Cloud and Simple Storage Service, and 
 \item (2) control servers directly maintained by \dropbox Inc. 
 \end{enumerate*}
-The control servers store meta information about the current state of the files in the \dropbox folders and trigger synchronization processes on the clients.
+The control servers store meta information about the current state of the files in the \dropbox folders and trigger synchronisation processes on the clients.
 
-A file synchronization can basically be described in five steps.
+A file synchronisation can basically be described in five steps.
 As soon as the new file is added to the \dropbox folder of the uploading client, a preprocessing step is triggered and the meta information for the file are generated, respectively updated.
-This information is then synchronized with the control servers~(1) and the file itself is uploaded to the storage cloud~(2).
+This information is then synchronised with the control servers~(1) and the file itself is uploaded to the storage cloud~(2).
 After the file has completely been transferred to the storage cloud, all connected clients are notified about the update~(3) and start downloading the new file~(4).
 
 \subsubsection*{Use Case: Photo Uploading}\label{sec:application:cloud_file_synchronisation:use_case}
-In this section we consider the synchronization of images from a digital camera to a mobile \gls{UE} via a cloud storage provider.
+In this section we consider the synchronisation of images from a digital camera to a mobile \gls{UE} via a cloud storage provider.
 Real world examples of this scenario are, e.g., taking photos of a live event and transferring them to a picture agency, or shooting private holiday images. 
 
 The user took a finite set of pictures with a wearable device like Google Glass or a smart camera, e.g. a Nikon Coolpix S800c or SAMSUNG CL80.
@@ -43,7 +43,7 @@ This requires a fast and permanent Internet connection of the \gls{UE}, which in
 On the other hand, the power drain of the mobile device should be minimized to enable a long battery life time.
 The second stakeholder, the mobile network provider, wants to minimize the signalisation overhead in the network~\cite{NSN2011, Huawei2011} caused by short time connections.
 Here, an optimisation problem arises to find a practical solution for all three requirements. 
-In order to analyse this problem, we use a simulation model of the file synchronization process, which is described in the following.
+In order to analyse this problem, we use a simulation model of the file synchronisation process, which is described in the following.
 
 \subsubsection*{Cloud Storage Model and Performance Metrics}\label{sec:application:cloud_file_synchronisation:system_model:model_metrics}
 The proposed simulation model is schematically depicted in \reffig{fig:application:cloud_file_synchronisation:system_model:model_metrics:model} and based on the findings of~\cite{Drago2012} described in~\refsec{sec:application:background}.
@@ -51,7 +51,7 @@ The proposed simulation model is schematically depicted in \reffig{fig:applicati
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{application/cloud_file_synchronization/system_model/figures/model}
-\caption{Considered synchronization process model.}
+\caption{Considered synchronisation process model.}
 \label{fig:application:cloud_file_synchronisation:system_model:model_metrics:model}
 \end{figure}
 
@@ -72,13 +72,13 @@ As only one image is transferred at once, waiting images are stored in a queue o
 If the \gls{UE} is idle for more than \(\idleThreshold = \SI{11.576}{\second}\), the device disconnects from the network.
 
 After the image has been successfully uploaded to the storage servers, a server side preprocessing phase starts, before the file transfer to the downloading client starts.
-This server side preprocessing again introduces an additional delay, the server preparation time~\serverpreparationtime, in the synchronization process.
+This server side preprocessing again introduces an additional delay, the server preparation time~\serverpreparationtime, in the synchronisation process.
 Finally, the image is downloaded by the wire line client.
 Again, the duration is calculated based on the size of the image and the available download bandwidth~\downloadbandwidth.
 
 Next, we discuss the metrics used to evaluate the performance of the scheduling algorithms under consideration.
-First, we consider the mean synchronization time \sojournTime, i.e., the time between the generation of images and the completion of the download.
-This metric accounts for the desire of end users to synchronize images in a short amount of time.
+First, we consider the mean synchronisation time \sojournTime, i.e., the time between the generation of images and the completion of the download.
+This metric accounts for the desire of end users to synchronise images in a short amount of time.
 Secondly, we study the relative amount of time the \gls{UE} is disconnected \relativeDisconnectedTime.
 As the \gls{UE} consumes more power in the connected state, the user is generally interested in scheduling mechanisms which ensure that the device is only connected if required \cite{Ickin2012}.
 This measure also enables a more general evaluation then the actually consumed power, as the concrete power drain differs significantly for each device.
@@ -88,13 +88,13 @@ Thus, scheduling algorithms with a small number of transitions would be favoured
 
 \subsubsection*{Scheduling Algorithms}\label{sec:application:cloud_file_synchronisation:system_model:algorithms}
 We use different scheduling strategies in our model to control the uploading of the files from the mobile client.
-These mechanisms in turn affect the synchronization time, the power drain, and the generated signalling traffic.
+These mechanisms in turn affect the synchronisation time, the power drain, and the generated signalling traffic.
 
 The most basic strategy of handing the upload is to immediately send new files, as soon as the meta data is generated.
 We refer to this as the \algoimmediate strategy and will use this as base line for all comparisons in the evaluations.
 The other two strategies considered are based on a temporal, respectively a size threshold. 
-Using the \algointerval scheduling, the client checks periodically if new files have been marked for synchronization.
-If new files are present, they are synchronized to \dropbox.
+Using the \algointerval scheduling, the client checks periodically if new files have been marked for synchronisation.
+If new files are present, they are synchronised to \dropbox.
 Files which could not be sent within the current interval will automatically be added to the file batch for the next interval. 
-The last scheduling mechanisms uses a threshold based on the overall \algosize of the images not yet synchronized.
+The last scheduling mechanisms uses a threshold based on the overall \algosize of the images not yet synchronised.
 If the threshold is crossed, an upload is triggered.

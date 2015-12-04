@@ -24,8 +24,9 @@ linetypes.for <- function(values) {
   seq(1, length(unique(values)))
 }
 
-label.tdch <- expression(paste(T[DCH], ' ', (s)))
-label.ea <- expression('E[A] (s)')
+# 2.2 done
+label.tdch <- expression(paste('DCH timeout ', T[DCH], ' ', (s)))
+label.ea <- expression(paste('Mean inter-packet time E[A] (s)'))
 label.power.drain <- 'Power drain PD'
 label.signalling.intensity <- 'Signalling intensity SI'
 label.signalling.frequency <- 'Signalling frequency SF'
@@ -34,10 +35,11 @@ label.evaluation.type <- 'Model'
 label.cA <- expression(c[A])
 label.interarrival.time <- expression(paste('Packet inter-arrival time ', A, ' (s)'))
 label.interarrival.time.cdf <- expression(P(A <= a))
-label.lag <- 'Lag Length'
-label.interarrival.sample.autocorrelation <- 'Sample Autocorrelation\n of Inter-arrival Times'
-label.page.load.time <- 'Page Load Time (s)'
-label.qoe <- 'Mean Opinion Score'
+label.lag <- 'Lag length'
+label.interarrival.sample.autocorrelation <- 'Sample autocorrelation\n of inter-arrival times'
+label.page.load.time <- 'Page load time t (s)'
+label.qoe <- 'Mean Opinion Score MOS'
+
 label.bandwidth <- expression(paste('Bandwidth b ', (Mbit^-1)))
 label.bandwidth.at.time.t <- expression(paste("Bandwidth ", b[d(t)], " (", Mbit^-1, ")"))
 label.cdf.bandwidth <- expression(P(B <= b))
@@ -47,65 +49,74 @@ label.server.preparation.time <- 'Time t (s)'
 label.cdf.server.preparation.time <- expression(P(T <= t))
 label.image.size <- 'Size s (MiB)'
 label.cdf.image.size <- expression(P(S <= s))
-label.waiting.time <- "Mean Waiting Time (s)"
-label.size.threshold <- "Size Threshold (MB)"
+label.waiting.time <- expression(paste("Mean waiting time ", Sigma, " (s)")) # omega?
+label.size.threshold <- "Size threshold (MB)"
 label.intervall.time <- "Interval (s)"
-label.connection.count <- "Mean Connection Count"
-label.disconnection.time <- "Mean Relative Disconnected Time (%)"
-label.mean.queue.length <- "Mean Queue Length"
+label.connection.count <- expression(paste("Mean connection count ", Kappa))
+label.disconnection.time <- expression(paste("Mean relative disconnected time ", Delta, "(%)"))
+label.mean.queue.length <- "Mean queue length"
 label.mechanism <- "Mechanism"
-label.normalized.threshold <- "Normalized Synchronization Threshold (s)"
-label.number.of.stalling.events <- 'Number of Stalling Events'
+label.normalized.threshold <- "Normalized synchronization threshold (s)"
+label.number.of.stalling.events <- 'Number of stalling events'
 label.qoe.model <- 'QoE Model'
-label.stalling.duration <- 'Stalling Duration per Event (s)'
-label.time <- 'Time (s)'
-label.buffer <- 'Buffer (s)'
+label.stalling.duration <- 'Stalling duration per event (s)'
+label.time <- 'Time t (s)'
+label.buffer <- 'Buffer size S'
 label.unplayed.buffer <- expression(paste("Buffer ", t[u](t), " (s)"))
-label.bitrate <- expression(paste('Video Bitrate ', (Mbit^-1)))
-label.energy <- 'Energy Consumption (kJ)'
-label.wasted.traffic <- 'Wasted Traffic (Mbit)'
+label.bitrate <- expression(paste('Video bitrate ', (Mbit^-1)))
+label.energy <- 'Energy consumption E (kJ)'
+label.wasted.traffic <- 'Wasted traffic W (Mbit)'
 label.user.model <- 'User Model'
-label.connections <- 'Connection Count'
-label.buffer.lower <- expression(paste("Stop Threshold ", theta))
-label.buffer.size <- expression(paste("Size Size ", Theta))
-label.abort.time <- 'Abort Time t (s)'
+label.connections <- 'Connection Count C'
+label.buffer.lower <- expression(paste("Stop threshold ", theta))
+label.buffer.size <- expression(paste("Buffer size ", Theta))
+label.abort.time <- 'Abort time t (s)'
 label.pdf.abort.time <- 'PDF A(t)'
-label.user.model <- 'User Model'
-label.playback.status <- 'Playback Status'
-label.finite <- 'Video Browsing'
-label.infinite <- 'Steady State'
-label.offered.load <- 'Offered Load'
+
+#
+label.user.model <- 'User model'
+label.playback.status <- 'Playback status'
+label.finite <- 'Video browsing'
+label.infinite <- 'Steady state'
+label.offered.load <- 'Offered load'
 label.alpha <- expression(paste("Duration Parameter ", alpha)) 
 label.beta <- expression(paste("Interruption Parameter ", beta)) 
 label.prebuffering.sensitivity <- expression(paste("Pre-buffering Parameter ", gamma))
 label.normalized.video.buffer <- expression(paste('Normalized Video Buffer ', d^'*', ' (s)'))
-label.power <- 'Power Consumption (kW)'
-label.pareto <- 'Pareto Optimal'
-label.number.servers <- 'Number of Available Servers'
+
+# 4.2, done
+label.power <- 'Power drain E (kW)'
+label.pareto <- 'Pareto optimal'
+label.number.servers <- 'Number of available servers n+m'
 label.parameter <- 'Parameter'
-label.waiting.time.ms <- "Mean Waiting Time (ms)"
-label.tunnel.iat <- 'Tunnel Inter-arrival Time t (s)'
+label.waiting.time.ms <- "Mean waiting Time E[W] (ms)"
+
+# 4.3
+label.tunnel.iat <- 'Tunnel inter-arrival time t (s)'
 label.cdf.iat <- expression(P(T <= t))
 label.distribution <- 'Distribution'
-label.tunnel.duration <- 'Tunnel Duration d (s)'
+label.tunnel.duration <- 'Tunnel duration d (s)'
 label.cdf.duration <- expression(P(D <= d))
-label.number.instances <- 'Active Instances I'
+label.number.instances <- 'Active instances I'
 label.cdf.number.instances <- expression(P(I <= i))
-label.max.instances <- expression(paste('Maximum Number of Active Instances ', S[max]))
-label.max.tunnels <- expression(paste('Maximum Number of Tunnels ', n))
-label.blocking.probability <- expression(paste('Blocking Probability ', p[B]))
-label.mean.resource.utilization <- expression(paste('Mean Tunnel Count')) 
-label.startstop.duration <- expression(paste('Start Up and Shut Down Time ', (s)))
-label.campaign.interarrival <- expression('Campaign Inter-arrival Time t'[c]*' (h)')
+label.max.instances <- expression(paste('Maximum number of active instances ', S[max]))
+label.max.tunnels <- expression(paste('Maximum number of tunnels ', n))
+label.blocking.probability <- expression(paste('Blocking probability ', p[B]))
+label.mean.resource.utilization <- expression(paste('Mean number of active tunnels')) 
+label.startstop.duration <- expression(paste('Start up and shut down time ', (s)))
+
+# 4.4, done
+label.campaign.interarrival <- expression('Campaign inter-arrival time t'[c]*' (h)')
 label.cdf.campaign.interarrival <- expression(P(T <= t[c]))
-label.campaign.size <- expression('Campaign Inter-arrival Time ', Theta)
+label.campaign.size <- expression('Campaign size ', Theta)
 label.cdf.campaign.size <- expression(P(T <= Theta))
-label.number.of.workers <- 'Number of Workers c'
-label.worker.utilization <- expression(paste('Worker Utilization ', rho))
-label.mean.task.length <- 'Mean Task Length E[B] (s)'
-label.mean.task.delay <- 'Task Pre-processing Delay E[D] (s)'
-label.campaign.arrival.distribution <- 'Campaign Arrival'
+label.number.of.workers <- 'Number of workers c'
+label.worker.utilization <- expression(paste('Worker utilisation ', rho))
+label.mean.task.length <- 'Mean task length E[B] (s)'
+label.mean.task.delay <- 'Task pre-processing Delay E[D] (s)'
+label.campaign.arrival.distribution <- 'Campaign arrival'
 label.campaign.rate <- 'Rate'
+
 unit.labeller <- function(unit) {
   passed.unit <- substitute(unit)
   

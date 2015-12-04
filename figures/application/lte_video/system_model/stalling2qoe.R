@@ -12,7 +12,7 @@ p <- ggplot(data,
   scale_y_continuous(breaks = seq(1, 5), labels = seq(1, 5), limits = c(1, 5)) +
   scale_x_continuous(breaks = seq(0, 6)) +
   labs(x = label.number.of.stalling.events, 
-       y = label.qoe.model, 
+       y = label.qoe, 
        color = label.stalling.duration)
   
 save.full.row.plot(p)

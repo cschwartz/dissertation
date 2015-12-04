@@ -56,22 +56,22 @@ As mentioned before, the Pareto optima of the system are a subset of the \(\math
   \label{fig:cloud:data_centers:performance_evaluation:energy_vs_waiting_pareto}
 \end{figure}
 
-We plot all Pareto optima in \reffig{fig:cloud:data_centers:performance_evaluation:energy_vs_waiting_pareto}, the resulting curve has hyperbolic properties, going asymptotically to the mean waiting time as well as asymptotically to a parallel of the lower bound of the power drain.
-This allows us to select an acceptable increase in waiting time, for example one that would still satisfy a service level agreement, and harness the resulting energy savings.
-On the other hand, we can decide on the required energy savings and infer if the corresponding waiting times are acceptable.
-One possible parameter choice would allow the reduction of the energy drain by \SI{40}{\percent} while only increasing the waiting time by less then one millisecond.
+We plot all Pareto optima in \reffig{fig:cloud:data_centers:performance_evaluation:energy_vs_waiting_pareto}, the resulting curve has hyperbolic properties, going asymptotically to the mean waiting time \(E[W]\) as well as asymptotically to a parallel of the lower bound of the power drain \(E\).
+This allows us to select an acceptable increase in mean waiting time \(E[W]\), for example one which would still satisfy a service level agreement, and harness the resulting energy savings.
+On the other hand, we can decide on the required energy savings and infer if the corresponding mean waiting times are acceptable.
+One possible parameter choice would allow the reduction of the power drain \(E\) by \SI{40}{\percent} while only increasing the waiting time by less then one millisecond.
 
 \begin{figure}
   \centering
   \includegraphics{cloud/data_centers/performance_evaluation/figures/sorted_results}
-  \caption{Impact of parameter selection on mean waiting time.}
+  \caption{Impact of parameter selection on mean waiting time \(E[W]\).}
   \label{fig:cloud:data_centers:performance_evaluation:sorted_results}
 \end{figure}
 
 Given the set of Pareto optima, we can investigate the parameter choice that leads to these optima.
 To this end, we plot the system parameters for each optimum in \reffig{fig:cloud:data_centers:performance_evaluation:sorted_results}.
-The optima themselves are sorted according to the mean waiting time.
+The optima themselves are sorted according to the mean waiting time \(E[W]\).
 From the figure we observe see that generally, the server deactivation threshold is very close to the number of base-line servers, in most cases \(n - \theta_1 = 2\), the closest possible distance due to the macro state equation constraints.
-Furthermore, the number of base-line servers is decreasing as the waiting time increases. 
-The mean waiting time spectrum can be partitioned in interleaving sections, during which the number of base-line servers remain constant.
+Furthermore, the number of base-line servers is decreasing as the mean waiting time \(E[W]\) increases. 
+The mean waiting time \(E[W]\) spectrum can be partitioned in interleaving sections, during which the number of base-line servers remain constant.
 Furthermore, in such a section, the server activation threshold increases super linearly.

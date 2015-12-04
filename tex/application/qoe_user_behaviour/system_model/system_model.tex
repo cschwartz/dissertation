@@ -24,7 +24,7 @@ Furthermore, we give the probability of the playback being in state \((i, j)\) a
 \end{figure}
 
 
-We obtain the following equilibrium state equations, based on the state diagram given in \reffig{fig:application:youtube_qoe_model:system_model:mm1pq:state_diagram}.
+We obtain the following equilibrium state equations, based on the state diagram given in \reffig{fig:application:qoue_user_behaviour:system_model:mm1pq:state_diagram}.
 \begin{align*}
   \lambda x(0, 0) &= 0 & &\\
   \lambda x(0, i) &= \lambda x(0, i-1) & i&\in \left[1, q\right)\\
@@ -63,10 +63,10 @@ Thus, in this section we derive a mean value analysis of the proposed video play
 \end{figure}
 
 Assuming that the initial download begins at \(t_0\) and new frames arrive with rate \networkBandwidth at the client.
-The number of frames in the buffer exceeds \(q\) the first time at \(t_1\).
+The number of frames in the buffer \currentNumberFrames exceeds \(q\) the first time at \(t_1\).
 At time \(t_2\), the threshold of \(p\) is reached for the first time and playback begins.
 While the download of new frames continues with rate \networkBandwidth, frames are played out with rate \playbackRate, resulting in a buffer change with rate \(\playbackRate - \networkBandwidth\).
-Thus, the number of buffered frames reaches \(q\) at time \(t_3\).
+Thus, the number of buffered frames \currentNumberFrames reaches \(q\) at time \(t_3\).
 This process repeats, resulting in an alternating chain of stalling and playback phases.
 
 In this analysis, we consider the steady state, i.e. especially neglecting the time \(t_1 - t_0\).
@@ -79,7 +79,7 @@ L=t_2-t_1 = \frac{p-q}{\lambda}=\frac{d}{\lambda} = \frac{d^*}{a}\, .
 \end{equation*}
 The average stalling length \(\meanStallingEventDuration\) only depends on the actual buffer size \(d\) and the network bandwidth \(\networkBandwidth\).
 
-Next, we consider the time required for the number of frames in the buffer to decrease from \(p\) 
+Next, we consider the time required for the number of frames \currentNumberFrames in the buffer to decrease from \(p\) 
 to \(q\), i.e. the time between \(t_2\) and \(t_3\), 
 \[t_3-t_2 = \frac{d}{\mu-\lambda},\]
 which represents the time of uninterrupted playback between each stalling event.

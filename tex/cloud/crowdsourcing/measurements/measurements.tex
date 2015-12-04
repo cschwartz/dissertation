@@ -26,14 +26,14 @@ P(t_c=t) \sim \Gamma(\alpha,\beta,t_c) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{
 \]
 
 defined by shape \(\alpha\) and rate \(\beta\) to be the most suitable.
-Using \texttt{fitdistrplus} for the R language we derive the distribution parameters by moment fitting and result in the estimated parameters \(\alpha=0.484\) and \(\beta=2.009\).
+Using \texttt{fitdistrplus}\footnote{\url{https://cran.r-project.org/web/packages/fitdistrplus}, \accessed} for the R language we derive the distribution parameters for the campaign inter-arrival times \(\campaignIAT\) by moment fitting and result in the estimated parameters \(\alpha=0.484\) and \(\beta=2.009\).
 
 \paragraph*{Campaign Sizes:}Next, we consider the campaign sizes, respectively the number of tasks per campaign.
 The smallest possible campaign sizes on Microworkers is \(30\) tasks, however our dataset contained a few internal test campaigns with a small size.
 
 These test campaigns, as well as outliers larger than the \SI{97.5}{\percent} quantile of the campaign size have been removed from the considered dataset.
 In total \SI{3.7}{\percent} of the original dataset were filtered by these conditions, the remaining data resulted in a mean campaign size of \(97.01\) tasks and a standard deviation of \(103.41\).
-The CDF of the campaign sizes is depicted in \reffig{fig:cloud:crowdsourcing:measurements:parameters:campaign_sizes}, together with the corresponding fitted distribution.
+The \gls{CDF} of the campaign sizes \campaignSize is depicted in \reffig{fig:cloud:crowdsourcing:measurements:parameters:campaign_sizes}, together with the corresponding fitted distribution.
 
 \begin{figure}
   \centering
@@ -65,10 +65,10 @@ The minimum campaign size \(s_{\min}\) is observed with a fixed probability \(p_
 Due to the relatively high frequencies of campaign sizes being multiples of \(10\) and \(100\), it is only possible to achieve a good fitting either for the lower or the higher region of the geometric part.
 As an overestimation of the campaign size will give us an upper bound of the platform work load, we decided to put a stronger emphasis on correct fitting of the larger campaign sizes.
 
-Using the \texttt{fitdistrplus} package for the R language we estimate the \(p=0.086\) parameter of the geometric distribution using quantile matching for the \SI{90}{percent} quantile.
+We estimate the \(p=0.086\) parameter of the geometric distribution using quantile matching for the \SI{90}{percent} quantile.
 The values \(s_{\min}=30\) and \(p_{s_{\min}}=0.350\) are obtained from the empirical values.
 
-\paragraph*{Task Duration: }Another relevant model parameter is the processing time of the tasks, i.e., the time a single worker needs to complete one tasks.
+\paragraph*{Task Duration: }Another relevant model parameter is the length of the tasks \taskDuration, i.e., the time a single worker needs to complete one tasks.
 Unfortunately, this information cannot be obtained from our dataset, as tracking of the individual workers is not possible.
 Therefore, we assume that the processing times follow a negative-exponential distribution, i.e.
 \begin{equation*}
@@ -78,7 +78,7 @@ Even if the exact processing times are not available, each employer has to add a
 In our dataset, \SI{87.8}{\percent} of all tasks had an estimated completion time between \SIrange{60}{300}{\second}.
 Therefore, we consider \(\mu \in \{\frac{1}{6},\frac{1}{5},\hdots,\frac{1}{2},1\}\) for the following evaluations.
 
-\paragraph*{Number of Workers: }Finally, the last model parameter to estimate is the number of users on the crowdsourcing platform. 
+\paragraph*{Number of Workers: }Finally, the last model parameter to estimate is the number of users \numberOfWorkers on the crowdsourcing platform. 
 At the time of this analysis, Microworkers.com had over 650.000 registered user accounts.
 However, this number is not applicable in the proposed model, for multiple reasons.
 The proposed model does not consider vacation times, i.e., the workers would have to be available 24/7.
@@ -89,7 +89,7 @@ Taking this into account, the number of workers to be considered in our model ha
 
 \subsubsection*{Comparison of Detailed and Analytical Model}
 An important question for the later analysis is whether the analytic model from \refsec{sec:cloud:crowdsourcing:model} can be used as an approximation or if a simulative evaluation is necessary.
-To this end we compared the later considered metrics \workerUtilization and \preTaskProcessingDelay for 
+To this end we compared the later considered metrics worker utilisation \workerUtilization and task pre-processing delay \preTaskProcessingDelay for 
 \begin{enumerate*}
 \item a simulation using the empiric distributions for the task inter-arrival times and campaign sizes,
 \item a simulation using the fitted distributions derived earlier in this section, and
@@ -102,13 +102,13 @@ The results of the different models are shown in \reffig{fig:cloud:crowdsourcing
 	\centering
 	\begin{subfigure}{\columnwidth}
 		\includegraphics{cloud/crowdsourcing/measurements/figures/distribution_utilization}
-		\caption{Worker utilization}
+		\caption{Worker utilization \workerUtilization}
 		\label{fig:cloud:crowdsourcing:measurements:comparison:distribution:utilization}
 	\end{subfigure}
 
 	\begin{subfigure}{\columnwidth}
 		\includegraphics{cloud/crowdsourcing/measurements/figures/distribution_task_delay}
-		\caption{Task pre-processing delay}
+		\caption{Mean task pre-processing delay \preTaskProcessingDelay}
 		\label{fig:cloud:crowdsourcing:measurements:comparison:distribution:task_delay}
 	\end{subfigure}
 	\caption{Comparison of campaign arrival distributions.}
@@ -116,13 +116,13 @@ The results of the different models are shown in \reffig{fig:cloud:crowdsourcing
 \end{figure*}
 
 The worker utilisation \workerUtilization is depicted in \reffig{fig:cloud:crowdsourcing:measurements:comparison:distribution:utilization}, the task pre-processing delay \preTaskProcessingDelay in \reffig{fig:cloud:crowdsourcing:measurements:comparison:distribution:task_delay}.
-In both figures, the x-axis shows the number of workers \(n\).
+In both figures, the x-axis shows the number of workers \(\numberOfWorkers\).
 The line colour indicates the mean task length, ranging from \SIrange{60}{360}{\second}, the line style denotes the underlying model.
-We observe that all models result in the same values of \workerUtilization, which is not surprising when considering \(\workerUtilization = \frac{E[t_c] E[\campaignSize]}{c\mu}\) with the mean inter-arrival time \(E[t_c]\).
-Here, all parameters are the same for the tree compared models and therefore, no significant differences can be seen.
+We observe that all models result in the same worker utilisation \workerUtilization, which is not surprising when considering \(\workerUtilization = \frac{E[t_c] E[\campaignSize]}{c\mu}\) with the mean inter-arrival time \(E[t_c]\).
+Here, all parameters are the same for the three compared models and therefore, no significant differences can be seen.
 
 This is different for the task pre-processing delay \preTaskProcessingDelay. 
 Here, large discrepancies can been observed between the model based on the empiric distributions and the analytical model.
-This results show that the \(M^{[\campaignSize]}/M/\numberOfWorkers-\infty\) model can also not be used as a worst case estimations, due to the fact that it underestimates \preTaskProcessingDelay.
+This results show that the \(M^{[\campaignSize]}/M/\numberOfWorkers-\infty\) model can also not be used as a worst case estimations, due to the fact that it underestimates the task pre-processing delay \preTaskProcessingDelay.
 In contrast to this, the simulation model based on the gamma distribution fit quite accurate the model based on the empirical values.
 Therefore, we decide continue our evaluation with the simulation model, based on the gamma distributed inter-arrival times and the piecewise defined distribution for the campaign sizes.
