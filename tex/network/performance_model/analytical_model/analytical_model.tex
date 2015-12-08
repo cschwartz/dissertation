@@ -15,7 +15,7 @@ However, the direction of packets, i.e. whether they originate from the \gls{UE}
 Due to the high impact of \gls{RRC} states on traffic patterns, we do not consider packet sizes in this model.
 In real \gls{UMTS} networks very small packets might be treated differently for \gls{RRC} states, but we neglect this both for simplicity reasons and as the impact of packet sizes is highly network operator specific~\cite{Qian2010a}.
 Furthermore, \gls{RRC} state transitions are complex procedures depending on implementation details of the \gls{UE}, the specific \gls{UMTS} release, and the configurations by the network operator.
-In order to keep our model simple, but realistic, we reduce the set of standardized \gls{RRC} states and the state transition triggers in the following ways. 
+In order to keep our model simple, but realistic, we reduce the set of standardised \gls{RRC} states and the state transition triggers in the following ways. 
 
 In a first step we consider the Two State Model: \gls{RRC_idle} and \gls{RRC_DCH} as shown in \reffig{fig:network:background:rrc_state_machines:two_states}.
 The \gls{UE} switches to \gls{RRC_DCH} to transmit or receive data and after an inactivity period of duration \gls{TDCH}, it switches back to \gls{RRC_idle}. 

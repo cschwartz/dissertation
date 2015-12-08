@@ -6,7 +6,7 @@ For the \algointerval scheduling algorithm, we vary the interval length from \SI
 The threshold for the \algosize algorithm is analysed for values from \SI{1}{\mega\byte} to \SI{512}{\mega\byte} in the same manner.
 The \algoimmediate algorithm is not parametrised.
 
-In the simulated scenario, we assume a user synchronizing \(\numberOfFiles = 1000\) files from the camera to the downloading client.
+In the simulated scenario, we assume a user synchronising \(\numberOfFiles = 1000\) files from the camera to the downloading client.
 For each parameter set we perform \(100\) repetitions.
 
 \subsubsection*{Waiting Time}\label{sec:application:cloud_file_synchronisation:numerical_evaluation:waiting_time}
@@ -93,8 +93,8 @@ Afterwards, we observe an increase in saved relative connection time \relativeDi
 \subsubsection*{Connection Count}\label{sec:application:cloud_file_synchronisation:numerical_evaluation:connection_count}
 
 After considering the requirements of the end-user, we have a closer look at the requirements of the mobile network operators.
-The network operator is mainly interested in minimizing the signalling overhead introduce by connection establishment.
-Therefore, a minimization of the number of connections \connectionCount during the synchronisation process is desired.
+The network operator is mainly interested in minimising the signalling overhead introduce by connection establishment.
+Therefore, a minimisation of the number of connections \connectionCount during the synchronisation process is desired.
 \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:connection:connection} depicts the average number of connections \connectionCount established during the synchronisation process, including the 95\% confidence intervals.
 The number of connections is shown on the y-axis, the x-axis in \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:connection:connection:interval} shows the inter-send interval of the \algointerval algorithms, the x-axis in \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:connection:connection:size} shows the \algosize algorithm threshold.
 
@@ -148,8 +148,8 @@ Consequently, the transferred file size can be estimated as the product of sendi
 
 \subsubsection*{Mechanism Comparison}\label{sec:application:cloud_file_synchronisation:numerical_evaluation:mechanism_comparison}
 The previous analyses imply that the results of the \algointerval and \algosize algorithm are interchangeable if the parameters are set appropriately.
-In order to test this hypothesis, we normalize the size threshold parameter with the \gls{PAN} bandwidth to calculate the average inter-send interval caused by this threshold.
-The mean connection count \connectionCount for both algorithms depending on the normalized synchronisation threshold are depicted in \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:mechanism_comparison:comparison}. 
+In order to test this hypothesis, we normalise the size threshold parameter with the \gls{PAN} bandwidth to calculate the average inter-send interval caused by this threshold.
+The mean connection count \connectionCount for both algorithms depending on the normalised synchronisation threshold are depicted in \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:mechanism_comparison:comparison}. 
 \begin{figure}
   \includegraphics{application/cloud_file_synchronization/numerical_evaluation/figures/comparison}
   \caption{Comparison of algorithms with regard to normalized synchronization threshold and connection count \connectionCount.}
@@ -157,7 +157,7 @@ The mean connection count \connectionCount for both algorithms depending on the 
 \end{figure}
 
 We observe that the mean connection count \connectionCount of both algorithms are interchangeable most of the time, as the inter-send interval and the size threshold can be converted into each other.
-However, the results for a normalized synchronisation threshold of \SI{16}{\second} vary significantly.
+However, the results for a normalised synchronisation threshold of \SI{16}{\second} vary significantly.
 If we consider the \algointerval algorithm, the average amount of data transferred from the camera to the mobile client is \(\SI{16}{\second} \cdot \panTransferRate=\SI{8}{\mega\byte}\), which is uploaded in approximately \(\SI{8}{\mega\byte} / E[U] = \SI{1}{\second}\).
 For the \algosize algorithm, the amount of data transferred from the camera to the mobile client has to accumulate to \SI{8}{\mega\byte} in order to result in a normalized synchronisation threshold of \SI{16}{\second}.
 Consequently, the mean upload time is also \SI{1}{\second}.
@@ -189,8 +189,8 @@ After analysing the different objectives of the stakeholders individually, we no
 \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:trade_off_analysis:summary} depicts the mean waiting time for the file synchronisation on the y-axis and the mean relative disconnected time on the x-axis.
 Each point in the figure corresponds to one parameter setting for the \algointerval, the size of the point depicts the mean connection count \connectionCount for this parameter setting.
 For each stakeholder objective we have different optimisation goals.
-While the user wants to minimize the mean waiting time \sojournTime of the file synchronisation, the user also is interested in maximising the mean relative disconnected time \relativeDisconnectedTime in order to save power.
-The network provider wants to minimize the signalling overhead, thus the mean connection count \connectionCount should also be minimize.
+While the user wants to minimise the mean waiting time \sojournTime of the file synchronisation, the user also is interested in maximising the mean relative disconnected time \relativeDisconnectedTime in order to save power.
+The network provider wants to minimise the signalling overhead, thus the mean connection count \connectionCount should also be minimise.
 Therefore, an optimal parameter set would be located on the right bottom of the figure, small mean waiting time and high relative disconnected time \relativeDisconnectedTime, and depicted by a small point indicating a small mean connection count \connectionCount.
 However, the figure indicates that an increase in mean relative disconnected \relativeDisconnectedTime time also results in an increased mean waiting time \sojournTime.
 We see that allowing for a small increase in waiting time \sojournTime of less than a minute can result in twice the time spent in disconnected state, i.e.\ additional power savings.

@@ -1,9 +1,12 @@
 require 'yaml'
 require 'colorize'
+require 'nokogiri'
+require 'csv'
 
 config = YAML.load_file('config.yml')
 
 tex_subdir = 'tex'
+figures_subdir = 'figures'
 tex_root = 'dissertation'
 
 JUNK_FILES = FileList.new(['tex/**/*.log', 'tex/**/*.bbl', 'tex/**/*.blg', 'tex/**/*.run.xml'])
@@ -46,6 +49,22 @@ end
 task pdf: [:process_graphics] do
   Dir.chdir(tex_subdir) do
     sh "latexmk -interaction=nonstopmode -pdf #{ tex_root }.tex"
+  end
+end
+
+task :references_figure do
+  bcf_file_path = File.join tex_subdir, 'dissertation.aux'
+  citekeys_file = File.join figures_subdir, 'citekeys.csv'
+
+  File.open bcf_file_path do |bcf_file|
+    CSV.open citekeys_file, 'wb', col_sep: ';' do |csv|
+      citation = /\\abx@aux@number\{\d+\}\{([A-z0-9]+)\}\{0\}\{none\}\{(\d+)\}/
+      csv << ['reference', 'key']
+      bcf_file.each_line do |line|
+        next unless line =~ citation
+        csv << [$2, $1]
+      end
+    end
   end
 end
 

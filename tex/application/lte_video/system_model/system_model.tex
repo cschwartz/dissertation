@@ -9,7 +9,7 @@ The authors of~\cite{Hossfeld2012a} find that the \gls{QoE} is mainly influenced
 As shown in \reffig{fig:application:lte_video:system_model:stalling2qoe}, the \gls{QoE} model, where 5 is the highest possible \gls{MOS} and 1 the lowest, rapidly decreases if the number or duration of stalling events increases.
 The provided \gls{QoE} model between stalling and \gls{QoE} shows that stalling significantly worsens \gls{QoE}.
 Thus, an operator has to avoid stalling at any cost.
-As a consequence, we only consider scenarios where no stalling occur, i.e. the delivery bandwidth is larger than the minimum video bitrate to ensure a smooth video play-out.
+As a consequence, we only consider scenarios where no stalling occur, i.e. the delivery bandwidth is larger than the minimum video bit rate to ensure a smooth video play-out.
 Furthermore, in \refsec{sec:application:qoe_user_behaviour} we will study the impact of available network load and user preference on \gls{QoE}.
 
 \begin{figure}
@@ -18,7 +18,7 @@ Furthermore, in \refsec{sec:application:qoe_user_behaviour} we will study the im
   \label{fig:application:lte_video:system_model:stalling2qoe}
 \end{figure}
 
-Furthermore, we assume that all videos are played back with a constant bitrate \(\bitrate\).
+Furthermore, we assume that all videos are played back with a constant bit rate \(\bitrate\).
 Thus, each second of the video, independently of its content, requires the same number of bits.
 
 We consider video transmission between a server and a user equipped with an \gls{LTE} enabled smartphone.
@@ -26,8 +26,8 @@ The available bandwidth of a \gls{UE} depends on many factors, e.g. location, nu
 To simplify the evaluation scenarios we assume that a constant maximum bandwidth \(\bandwidth\) is provided to the user.
 We assume that the bottleneck of the connection is the air interface, thus the full available bandwidth \(\bandwidth\)  is used for the video download, which prevents stalling.
 
-Although the assumptions of constant bitrate and bandwidth do not hold in a real environment, the purpose of considering such assumptions is twofold.
-First, they are useful in order to analyse the performance of the discussed mechanisms in optimal conditions without any other effects that could disturb the results and, second, they can serve as a baseline for comparison with fitted random variables for both bandwidth and bitrate.
+Although the assumptions of constant bit rate and bandwidth do not hold in a real environment, the purpose of considering such assumptions is twofold.
+First, they are useful in order to analyse the performance of the discussed mechanisms in optimal conditions without any other effects that could disturb the results and, second, they can serve as a baseline for comparison with fitted random variables for both bandwidth and bit rate.
 
 \subsubsection*{Video Traffic Model}\label{sec:application:lte_video:system_model:video_traffic}
 
@@ -56,12 +56,12 @@ Thus, the complete video is ready to be transmitted as soon as the user starts t
 The required time of the download is only bounded by the bandwidth available in the network.
 
 \item \textbf{\live} Video watched during \emph{\live} transmissions is encoded as it is recorded.
-Thus, the bandwidth used to transmit the video is always limited to the video bitrate \bitrate.
+Thus, the bandwidth used to transmit the video is always limited to the video bit rate \bitrate.
 
 \item \textbf{\serviceprovisioning} In~\cite{Hossfeld2011a} the authors show the influence of the video demand, i.e. the ratio of available bandwidth and required video bandwidth, on the stalling frequency.
 In order to reduce stalling, the bandwidth used to download the video should be provisioned so that the available bandwidth exceeds the video bandwidth by a high enough factor.
 In the \emph{\serviceprovisioning} mechanism, the download bandwidth is chosen so no stalling occurs.
-In order to reduce stalling and improve the \gls{QoE} of a video, the available bandwidth should be at least \SI{120}{\percent} of the video bitrate \bitrate~\cite{Hossfeld13a}.
+In order to reduce stalling and improve the \gls{QoE} of a video, the available bandwidth should be at least \SI{120}{\percent} of the video bit rate \bitrate~\cite{Hossfeld13a}.
 
 \item \textbf{\streaming} For the \emph{\streaming} mechanism the complete video is encoded in advance, allowing for the full bandwidth of the \gls{UE} being used for download.
 The video is downloaded with full bandwidth for a \emph{pre-buffering time} \streamingstart in order to guarantee a stalling-free start of the playback.

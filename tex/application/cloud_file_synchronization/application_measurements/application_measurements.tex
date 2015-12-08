@@ -8,7 +8,7 @@ Finally, we derive a image file size distribution by analysing a large set of di
 We obtain a PlanetLab slice containing all momentarily available nodes in February 2014 and discard every node not responding to \texttt{ping} or \texttt{ssh} within a \SI{20}{\second} interval.
 On the remaining \(87\) nodes we install our measurement setup.
 This includes two instances of the \dropbox client on each host, linking them to a specially created \dropbox account and two different directories.
-Furthermore, we disable the \emph{LAN-Synchronization} feature for both clients.
+Furthermore, we disable the \emph{LAN-Synchronisation} feature for both clients.
 After ensuring that both shared directories are empty, we create a file with randomly generated content of \SI{10}{\mega\bit} size, unique per node.
 Files are unique in order to compensate for caching algorithms by \dropbox, as the client calculates a checksum of the file prior to uploading and only uploads the file if no duplicate file is already stored in the account, in order to conserve bandwidth.
 Further, the randomly generated content ensures that no significant compression results can be achieved before uploading, resulting in comparable results for the time required to upload the files.

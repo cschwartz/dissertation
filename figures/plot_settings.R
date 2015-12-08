@@ -63,7 +63,7 @@ label.stalling.duration <- 'Stalling duration per event (s)'
 label.time <- 'Time t (s)'
 label.buffer <- 'Buffer size S'
 label.unplayed.buffer <- expression(paste("Buffer ", t[u](t), " (s)"))
-label.bitrate <- expression(paste('Video bitrate ', (Mbit^-1)))
+label.bitrate <- expression(paste('Video bit rate ', b[r], ' ', (Mbit^-1)))
 label.energy <- 'Energy consumption E (kJ)'
 label.wasted.traffic <- 'Wasted traffic W (Mbit)'
 label.user.model <- 'User model'

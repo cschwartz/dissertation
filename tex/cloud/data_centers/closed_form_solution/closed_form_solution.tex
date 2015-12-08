@@ -12,7 +12,7 @@ Especially for a large numbers of server, this prevents an exhaustive search of 
 Thus, we obtain closed form solutions for the state probabilities.
 These equations can be derived by recursively applying the macro state equations.
 
-All equations feature a factor \(x(0, 0)\) which in turn can be calculated using the normalization property given in \refeq{eq:cloud:data_centers:modeling:normative}.
+All equations feature a factor \(x(0, 0)\) which in turn can be calculated using the normalisation property given in \refeq{eq:cloud:data_centers:modeling:normative}.
 Due to the length of the individual formulas, the following shorthand is introduced:
 For each state probability \(x(i, j)\) depending on the factor \(x(0,0)\) we define \(\bar{x}(i, j) = x(i, j) \cdot x(0, 0)^{-1}\), i.e. we cancel the factor.
 
@@ -55,7 +55,7 @@ and finally for \(i>n+m\)
 \begin{align*}
 x(i, 1) = x(0, 0)\cdot \bar{x}(n+m,1) \left(\frac{a}{n+m}\right)^{i-(n+m)}.
 \end{align*}
-As discussed earlier, the probability of an empty system is given by the usual normalization property:
+As discussed earlier, the probability of an empty system is given by the usual normalisation property:
 \begin{align*}
 x(0, 0)=\left(1 +\sum_{k=1}^{n+\theta_2}\bar{x}(k, 0) + \sum_{k=\theta_1}^{\infty}\bar{x}(k,1)\right)^{-1}.
 \end{align*}
