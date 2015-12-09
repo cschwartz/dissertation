@@ -3,6 +3,8 @@ data$EB <- factor(data$EB * 60)
 data$n <- factor(data$n)
 data$rate <- factor(data$rate)
 
+data <- subset(data, data$EB != 60)
+
 p <- ggplot(data, aes(x=mean.utilization, y=mean.waiting.time, color=n)) + 
   geom_line(aes(group = n)) +
   geom_point(aes(shape = rate)) +

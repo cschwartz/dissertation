@@ -1,6 +1,8 @@
 data <- read.csv('distribution_task_delay.csv')
 data$EB <- factor(data$EB * 60)
 
+data <- subset(data, data$EB != 60)
+
 p <- ggplot(data, aes(x=n, color=EB, linetype=type)) + 
   geom_line(data = data, aes(x=n, y=mean.waiting.time*60, color=EB)) +
   geom_errorbar(data = data, aes(x=n, ymin=(mean.waiting.time-ci)*60, ymax=(mean.waiting.time+ci)*60, color=EB),

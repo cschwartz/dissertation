@@ -8,6 +8,7 @@ p <- ggplot(data, aes(x, color=type)) +
   scale_color_manual(values = color.palette) +
   labs(x = label.campaign.interarrival,
        y = label.cdf.campaign.interarrival,
-       color = label.type)
+       color = label.type) +
+  coord_cartesian(xlim = c(0, 1.26))
 
 save.full.row.plot(p)

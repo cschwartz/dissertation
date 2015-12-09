@@ -27,10 +27,19 @@ of the campaign inter-arrival times \campaignIAT, only the shape influences the 
 \end{equation*}
 of the distribution. 
 
-A shape of \(1\) degenerates the gamma distribution to an exponential distribution.
+For a shape of \(\alpha = 1\) the gamma distribution given by as
+\[
+P(A_c=t) \sim \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-{\beta}t}
+\]
+degenerates to an exponential distribution with a \gls{PDF} given as 
+ \[
+a_c(t) = \beta e^{\beta t}
+ \]
+due to definition of the gamma function as \(\Gamma(1) := 1\).
+
 Increasing of the shape for the same rate changes the form of the distribution from an exponential type to a distribution which is similar to a normal distribution.
 By increasing the rate for the same shape the tightness of the distribution is modified.
-A rate less than \(1\) results in a distribution with a long tail.
+For rate parameters \(\alpha < 1\) this results in a distribution with a long tail.
 The increase of the rate decreases the breadth of the distribution.
 Transferred to the campaign inter-arrival process \campaignIAT different shape and rate settings can be used to model different task types and varying the business of the platform.
 The range of the inter-arrival times is given by the rate and the shape defines the weighting of the different times.
@@ -70,7 +79,7 @@ Next, we consider the shape of the campaign inter-arrival time for fixed other p
 The curves show that increasing the shape decreases the mean task pre-processing delay \preTaskProcessingDelay. 
 This is caused by an increasing mean \(E[\campaignIAT]\) of the inter-arrival times which results in a decrease of the campaign arrival rate.
 Thus, the platform contains fewer tasks for the same number of workers \numberOfWorkers and fewer tasks have to wait for completion.
-The effect is more obvious for high rates.
+The effect is more obvious for higher traffic intensities.
 
 Finally, we consider the effect of an increased rate \(\beta\) while keeping all other parameters fixed.
 An increased campaign inter-arrival rate increases the task pre-processing time \preTaskProcessingDelay, as the number of campaigns arriving at the platform is increased.
@@ -101,8 +110,8 @@ Given a fixed number of workers \numberOfWorkers, decreases in the campaign inte
 The effects on the worker utilisation \workerUtilization and the mean task pre-processing time \preTaskProcessingDelay decrease for a larger amount of workers \numberOfWorkers.
 This means a platform with a larger number of workers is more robust against fluctuations in the rate of incoming campaigns \(\beta\) than a system with a small number of workers \numberOfWorkers.
 
-Independent of the considered task duration \taskDuration, we observe that increasing the number of workers \numberOfWorkers, for example by advertising the platform, decreases both the mean task pre-processing delay \preTaskProcessingDelay as well as the worker utilisation \workerUtilization.
+Independent of the considered task duration \taskDuration, we observe that increasing the number of workers \numberOfWorkers, e.g. advertising the platform, decreases both the mean task pre-processing delay \preTaskProcessingDelay as well as the worker utilisation \workerUtilization.
 However, this decrease is not linear.
 This means that a small increase of the number of workers \numberOfWorkers reduces the worker utilisation \workerUtilization, which is generally not desired.
-However, this small degradation of the worker utilisation \workerUtilization results in an over proportional reduction of the mean task pre-processing delay \preTaskProcessingDelay.
+However, this small degradation of the worker utilisation \workerUtilization results in an over-proportional reduction of the mean task pre-processing delay \preTaskProcessingDelay.
 Thus, it is advisable to sightly overdimension the number of workers \numberOfWorkers to optimise the tradeoff between worker utilisation \workerUtilization and mean task pre-processing delay \preTaskProcessingDelay.

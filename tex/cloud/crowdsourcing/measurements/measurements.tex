@@ -13,7 +13,7 @@ In our model we only consider the regular operation of the platform, therefore w
 \begin{figure}
   \centering
   \includegraphics{cloud/crowdsourcing/measurements/figures/campaign_interarrival}
-  \caption{Observed campaign inter-arrival times \(t_c\) and corresponding fit.}
+  \caption{Observed campaign inter-arrival times \(A_c\) and corresponding fit.}
   \label{fig:cloud:crowdsourcing:measurements:parameters:campaign_interarrival}
 \end{figure}
 
@@ -22,7 +22,7 @@ Considering the remaining data, we observe a mean campaign inter-arrival time of
 For the fitting we considered several possible distributions but found the gamma distribution 
 
 \[
-P(t_c=t) \sim \Gamma(\alpha,\beta,t_c) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-{\beta}t_c}
+P(A_c=t) \sim \Gamma(\alpha,\beta,t) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-{\beta}t}
 \]
 
 defined by shape \(\alpha\) and rate \(\beta\) to be the most suitable.
@@ -44,10 +44,10 @@ The \gls{CDF} of the campaign sizes \campaignSize is depicted in \reffig{fig:clo
 
 Due to the platform restrictions mentioned above, the campaign sizes start with a minimum value of \(30\) tasks.
 We observer that a very high share, i.e. \SI{35}{\percent}, of campaigns has only this minimum size.
-Further, campaign sizes which are a multiple of ten or a multiple of \(100\) are quite frequent.
-This is caused by the fact that most task on Microworkers.com are repetitive and the employers choose the required number of repetitions and thus are more likely to round the number of repetitions to the nearest multiple of ten or \(100\).
+Further, campaign sizes which are a multiple of \(10\) or a multiple of \(100\) are quite frequent.
+This is caused by the fact that most task on Microworkers.com are repetitive and the employers choose the required number of repetitions and thus are more likely to round the number of repetitions to the nearest multiple of \(10\) or \(100\).
 
-In order to obtain an suitable analytic distribution for the empiric values, we divided the observed values and use the following piecewise defined distribution.
+In order to obtain an suitable analytic distribution for the empiric values, we normalise the observed values and use the following piecewise defined distribution.
 \begin{equation*}
 P(S=s) \sim
 \begin{cases}
@@ -58,7 +58,7 @@ P(S=s) \sim
 \end{equation*}
 with 
 \begin{equation*}
-GEOM(s) = {(1-p)}^s p
+GEOM(s) = {(1-p)}^s p.
 \end{equation*}
 The minimum campaign size \(s_{\min}\) is observed with a fixed probability \(p_{s_{\min}}\), while all campaign sizes larger then \(s_{\min}\) follow a shifted and scaled geometric distribution.
 
@@ -68,15 +68,15 @@ As an overestimation of the campaign size will give us an upper bound of the pla
 We estimate the \(p=0.086\) parameter of the geometric distribution using quantile matching for the \SI{90}{percent} quantile.
 The values \(s_{\min}=30\) and \(p_{s_{\min}}=0.350\) are obtained from the empirical values.
 
-\paragraph*{Task Duration: }Another relevant model parameter is the length of the tasks \taskDuration, i.e., the time a single worker needs to complete one tasks.
+\paragraph*{Task Duration: }Another relevant model parameter is the length of the tasks \taskDuration, i.e., the time a single worker needs to complete one task.
 Unfortunately, this information cannot be obtained from our dataset, as tracking of the individual workers is not possible.
 Therefore, we assume that the processing times follow a negative-exponential distribution, i.e.
 \begin{equation*}
 P(t_p=t) \sim \mu  e^{-{\mu}t}
 \end{equation*}
-Even if the exact processing times are not available, each employer has to add an estimation about the time it task to complete a task in the campaign description.
+Even if the exact processing times are not available, each employer has to add an estimation about the time it takes to complete a task in the campaign description.
 In our dataset, \SI{87.8}{\percent} of all tasks had an estimated completion time between \SIrange{60}{300}{\second}.
-Therefore, we consider \(\mu \in \{\frac{1}{6},\frac{1}{5},\hdots,\frac{1}{2},1\}\) for the following evaluations.
+Therefore, we consider \(\mu \in \{\frac{1}{6},\frac{1}{5},\hdots,\frac{1}{2}\}\) for the following evaluations.
 
 \paragraph*{Number of Workers: }Finally, the last model parameter to estimate is the number of users \numberOfWorkers on the crowdsourcing platform. 
 At the time of this analysis, Microworkers.com had over 650.000 registered user accounts.
@@ -117,8 +117,8 @@ The results of the different models are shown in \reffig{fig:cloud:crowdsourcing
 
 The worker utilisation \workerUtilization is depicted in \reffig{fig:cloud:crowdsourcing:measurements:comparison:distribution:utilization}, the task pre-processing delay \preTaskProcessingDelay in \reffig{fig:cloud:crowdsourcing:measurements:comparison:distribution:task_delay}.
 In both figures, the x-axis shows the number of workers \(\numberOfWorkers\).
-The line colour indicates the mean task length, ranging from \SIrange{60}{360}{\second}, the line style denotes the underlying model.
-We observe that all models result in the same worker utilisation \workerUtilization, which is not surprising when considering \(\workerUtilization = \frac{E[t_c] E[\campaignSize]}{c\mu}\) with the mean inter-arrival time \(E[t_c]\).
+The line colour indicates the mean task length, ranging from \SIrange{120}{360}{\second}, the line style denotes the underlying model.
+We observe that all models result in the same worker utilisation \workerUtilization, which is not surprising when considering \(\workerUtilization = \frac{E[A_c] E[\campaignSize]}{c\mu}\) with the mean inter-arrival time \(E[A_c]\).
 Here, all parameters are the same for the three compared models and therefore, no significant differences can be seen.
 
 This is different for the task pre-processing delay \preTaskProcessingDelay. 

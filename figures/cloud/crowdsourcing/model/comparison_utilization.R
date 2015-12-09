@@ -9,6 +9,7 @@ p <- ggplot(data, aes(x=n, color=EB, linetype=type)) +
   labs(x = label.number.of.workers, 
        y = label.worker.utilization, 
        color=label.mean.task.length,
-       linetype=label.distribution)
+       linetype=label.distribution) +
+  coord_cartesian(xlim = c(5, 31), ylim = c(0, 0.45))
 
 save.full.row.plot(p)

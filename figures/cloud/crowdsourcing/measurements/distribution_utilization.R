@@ -1,6 +1,8 @@
 data <- read.csv('distribution_utilization.csv')
 data$EB <- factor(data$EB * 60)
 
+data <- subset(data, data$EB != 60)
+
 p <- ggplot(data, aes(x=n, color=EB, linetype=type)) + 
   geom_line(data = data, aes(x=n, y=mean.utilization, color=EB)) +
   geom_errorbar(data = data, aes(x=n, ymin=mean.utilization-ci, ymax=mean.utilization+ci, color=EB),
