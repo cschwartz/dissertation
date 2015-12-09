@@ -8,7 +8,17 @@ In this section we first describe the dataset used for the evaluation and afterw
 
 \label{sec:dataset_description}
 
-All data was collected by the \gls{METAWIN} monitoring system~\cite{Ricciato2006} with measurement probes located at the Gn interface within the core network, enabling broad access to signalling.
+All data was collected by the \gls{METAWIN} monitoring system~\cite{Ricciato2006} with measurement probes located at the Gn interface within the core network, , as shown in \reffig{fig:cloud:virtualized_network_functions:measurement_data:dataset_description:mobile_network_overview}.
+The Gn interface is a \gls{IP} based \gls{WAN} used to connect \gls{GGSN} and \gls{SGSN} installations.
+This access to the mobile core network provides \gls{METAWIN} with a broad access to mobile signalling traffic.
+
+\begin{figure}
+  \centering
+  \includegraphics{cloud/virtualized_network_functions/measurement_data/figures/mobile_network_overview}
+  \caption{Overview of the \headershortacr{METAWIN} monitoring architecture in a \headershortacr{3G} mobile network~\cite{Ricciato2006}.}
+  \label{fig:cloud:virtualized_network_functions:measurement_data:dataset_description:mobile_network_overview}
+\end{figure}
+
 For this investigation we employ \gls{GTP} protocol data gathered by \gls{METAWIN}.
 This data includes the \gls{RAT} identifier as well as the terminal types of the mobile clients, by use of the \gls{TAC} part of the \gls{IMEI}.
 To meet privacy requirements, \gls{METAWIN} anonymises all captured data.

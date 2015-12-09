@@ -89,7 +89,7 @@ Taking this into account, the number of workers to be considered in our model ha
 
 \subsubsection*{Comparison of Detailed and Analytical Model}
 An important question for the later analysis is whether the analytic model from \refsec{sec:cloud:crowdsourcing:model} can be used as an approximation or if a simulative evaluation is necessary.
-To this end we compared the later considered metrics worker utilisation \workerUtilization and task pre-processing delay \preTaskProcessingDelay for 
+To this end we compared the later considered metrics utilisation \workerUtilization and task pre-processing delay \preTaskProcessingDelay for 
 \begin{enumerate*}
 \item a simulation using the empiric distributions for the task inter-arrival times and campaign sizes,
 \item a simulation using the fitted distributions derived earlier in this section, and
@@ -102,7 +102,7 @@ The results of the different models are shown in \reffig{fig:cloud:crowdsourcing
 	\centering
 	\begin{subfigure}{\columnwidth}
 		\includegraphics{cloud/crowdsourcing/measurements/figures/distribution_utilization}
-		\caption{Worker utilization \workerUtilization}
+		\caption{Utilization \workerUtilization}
 		\label{fig:cloud:crowdsourcing:measurements:comparison:distribution:utilization}
 	\end{subfigure}
 
@@ -115,10 +115,10 @@ The results of the different models are shown in \reffig{fig:cloud:crowdsourcing
 	\label{fig:cloud:crowdsourcing:measurements:comparison:distribution}
 \end{figure*}
 
-The worker utilisation \workerUtilization is depicted in \reffig{fig:cloud:crowdsourcing:measurements:comparison:distribution:utilization}, the task pre-processing delay \preTaskProcessingDelay in \reffig{fig:cloud:crowdsourcing:measurements:comparison:distribution:task_delay}.
+The utilisation \workerUtilization is depicted in \reffig{fig:cloud:crowdsourcing:measurements:comparison:distribution:utilization}, the task pre-processing delay \preTaskProcessingDelay in \reffig{fig:cloud:crowdsourcing:measurements:comparison:distribution:task_delay}.
 In both figures, the x-axis shows the number of workers \(\numberOfWorkers\).
 The line colour indicates the mean task length, ranging from \SIrange{120}{360}{\second}, the line style denotes the underlying model.
-We observe that all models result in the same worker utilisation \workerUtilization, which is not surprising when considering \(\workerUtilization = \frac{E[A_c] E[\campaignSize]}{c\mu}\) with the mean inter-arrival time \(E[A_c]\).
+We observe that all models result in the same utilisation \workerUtilization, which is not surprising when considering \(\workerUtilization = \frac{E[A_c] E[\campaignSize]}{c\mu}\) with the mean inter-arrival time \(E[A_c]\).
 Here, all parameters are the same for the three compared models and therefore, no significant differences can be seen.
 
 This is different for the task pre-processing delay \preTaskProcessingDelay. 
