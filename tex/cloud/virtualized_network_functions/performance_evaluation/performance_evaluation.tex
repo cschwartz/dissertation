@@ -1,4 +1,4 @@
-\subsection{Performance Evaluation}\label{sec:cloud:virtualized_network_functions:performance_evaluation}
+\subsection{Comparison of Traditional and Virtualised Approach}\label{sec:cloud:virtualized_network_functions:performance_evaluation}
 
 We implement the models introduced in \refsec{sec:cloud:virtualized_network_functions:model} using a \gls{DES} with the SimPy\footnote{\url{https://simpy.readthedocs.org/}, \accessed} package as foundation.
 The implementation\footnote{\url{https://github.com/fmetzger/ggsn-simulation/}, \accessed} as well as the considered scenarios\footnote{\url{https://github.com/cschwartz/ggsn-simulation-studies/}, \accessed} are also publicly available as a reference.
@@ -89,7 +89,7 @@ We conclude that choosing more powerful servers decreases the blocking probabili
 So far we have considered a conservative start-up and shut-down time of servers of 5 minutes, which can potentially occur in non-virtualised available hardware.
 In the next section we study the impact of reduced start-up and shut-down times with modern servers with fast storage, e.g. \glspl{SSD}, or containerised applications\footnote{\url{https://www.docker.com/}, \accessed}.
 
-\subsubsection*{Impact of Startup and Shutdown Times}\label{sec:cloud_virtualized_network_functions:startup_shutdown}
+\subsubsection*{Impact of Start-up and Shut-down Times}\label{sec:cloud_virtualized_network_functions:startup_shutdown}
 
 In this section, we first consider the impact of different boot and shut-down times on resource utilisation and blocking probabilities.
 Afterwards, the influence of varying server start and stop times on a fixed combination of maximum tunnels and servers in the system is examined.
