@@ -23,7 +23,7 @@ Then, the \emph{android debugging bridge} is used to copy the traces to a workst
 The traces contain \gls{IP} packets embedded in Linux Cooked Captures.
 We require the \gls{IP} packets, thus we extracted the \gls{IP} packets which are used during the analysis to follow.
 
-\subsubsection*{Inferring Network State}\label{sec:network:network_traces:performance_evaluation:inferring_network_state}
+\subsubsection*{Inferring Network State of an \headershortacr{UE}}\label{sec:network:network_traces:performance_evaluation:inferring_network_state}
 In this section we study the influence of the application traffic on \gls{RRC} state transitions and signalling messages.
 Since \gls{RRC} state transitions can not be captured using commonly available tools, we introduce an algorithm to infer \gls{RRC} state transitions from \gls{IP} packet traces.
 Using this algorithm we analyse the \gls{RRC} state transition frequency and signalling message load for the Two State Model and Three State Model.
@@ -32,21 +32,21 @@ Traffic below the network layer can not be measured without specific equipment w
 Based on the Two State and Three State models introduced in \refsec{sec:network:background:umts_rrc}, we process \texttt{tcpdump} captures of the application traffic.
 However, it should be noted that this method is not restricted to a specific network model, but can be extended to any other network model as well.
 Using these captures, we extract the timestamps when \gls{IP} packets are sent or received.
-Furthermore, we require the timer values of the transition from \gls{RRC_DCH} state to \gls{RRC_FACH} state, \gls{TDCH}, and the timer for the transition between \gls{RRC_FACH} and \gls{RRC_idle} states, \gls{TFACH}.
+Furthermore, we require the timer values of the transition from \gls{RRC_DCH} state to \gls{RRC_FACH} state, \TDCH, and the timer for the transition between \gls{RRC_FACH} and \gls{RRC_idle} states, \TFACH.
 Based on these informations \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} infers the timestamps of state transitions according to the \gls{3GPP} specification \cite{3GPP_RRC_Spec} for the Three State Model.
 This algorithm can be simplified to also work for the Two State Model. 
 Alternatively, a method to post process the results of the algorithm to obtain results for the Two State Model is given at the end of this section.
 The algorithm first computes the inter-arrival times of all packets.
 Then, each timestamp is considered.
 If the \gls{UE} is currently in \gls{RRC_idle} state, a state transition to \gls{RRC_DCH} occurs at the moment the packet is sent or received.
-If the inter-arrival time exceeds the \gls{TDCH} timer the \gls{UE} transitions to \gls{RRC_FACH} \gls{TDCH} seconds after the packet was sent or received.
-Similarly, if the inter-arrival time exceeds both the \gls{TDCH} and \gls{TFACH} timers a state transition to \gls{RRC_idle} occurs \gls{TDCH} seconds after the state transition to \gls{RRC_FACH}.
+If the inter-arrival time exceeds the \TDCH timer the \gls{UE} transitions to \gls{RRC_FACH} \TDCH seconds after the packet was sent or received.
+Similarly, if the inter-arrival time exceeds both the \TDCH and \TFACH timers a state transition to \gls{RRC_idle} occurs \TDCH seconds after the state transition to \gls{RRC_FACH}.
 
 \begin{algorithm}
   \begin{algorithmic}
     \Require{Packet arrival timestamps \emph{ts}\\
-    \gls{RRC_DCH} to \gls{RRC_FACH} timer \gls{TDCH}\\
-    \gls{RRC_FACH} to \gls{RRC_idle} timer \gls{TFACH}}
+    \gls{RRC_DCH} to \gls{RRC_FACH} timer \TDCH\\
+    \gls{RRC_FACH} to \gls{RRC_idle} timer \TFACH}
     \Ensure{Times of state transition \emph{state\_time}\\
     New states after state transitions \emph{state}}
     \State \texttt{interarrival(i)} $\leftarrow$ \emph{ts}(i+1) - \emph{ts}(i)
@@ -57,15 +57,15 @@ Similarly, if the inter-arrival time exceeds both the \gls{TDCH} and \gls{TFACH}
         \State \texttt{state(index)} $\leftarrow$ \gls{RRC_DCH}
         \State \texttt{state\_time(index)} $\leftarrow$ ts(i)
       \EndIf
-      \If{\texttt{interarrival}(i-1) $> \gls{TDCH}$}
+      \If{\texttt{interarrival}(i-1) $> \TDCH$}
         \State \texttt{index} $\leftarrow$ \texttt{index} + 1
         \State \texttt{state(index)} $\leftarrow$ \gls{RRC_FACH}
-        \State \texttt{state\_time(index)} $\leftarrow$ ts(i) $+ \gls{TDCH}$
+        \State \texttt{state\_time(index)} $\leftarrow$ ts(i) $+ \TDCH$
       \EndIf
-      \If{\texttt{interarrival}(i-1) $> \gls{TDCH} + \gls{TFACH}$}
+      \If{\texttt{interarrival}(i-1) $> \TDCH + \TFACH$}
         \State \texttt{index} $\leftarrow$ \texttt{index} + 1
         \State \texttt{state(index)} $\leftarrow$ \gls{RRC_idle}
-        \State \texttt{state\_time(index)} $\leftarrow$ ts(i) $+ \gls{TDCH} + \gls{TFACH}$
+        \State \texttt{state\_time(index)} $\leftarrow$ ts(i) $+ \TDCH + \TFACH$
       \EndIf
     \EndFor
   \end{algorithmic}
@@ -79,7 +79,7 @@ While this transition is not directly available in the 3GPP specification for th
 This behaviour can be modeled using the Two State Model introduced in \refsec{sec:network:background:umts_rrc}.
 
 State transitions for the Two State Model can be calculated using a similar algorithm.
-Alternatively, the behaviour of the Two State Model can be emulated using \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} if \gls{TFACH} is set to \SI{0}{\second} and all state transitions to \gls{RRC_FACH} are removed in a post processing step.
+Alternatively, the behaviour of the Two State Model can be emulated using \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} if \TFACH is set to \SI{0}{\second} and all state transitions to \gls{RRC_FACH} are removed in a post processing step.
 
 \subsubsection*{Calculating Signalling Frequency and Power Drain}\label{sec:network:network_traces:calculating_metrics}
 

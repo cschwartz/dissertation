@@ -8,17 +8,17 @@ Finally, we define simple metrics for signalling load and power drain.
 
 \newcommand{\PacketIAT}{A}
 
-\subsubsection*{System Description}\label{sec:network:performance_model:analytical_model:system_description}
+\subsubsection*{Mobile \headershortacr{RAN} System Description}\label{sec:network:performance_model:analytical_model:system_description}
 We consider a \gls{UE} which sends and receives a sequence of data packets via a \gls{3G} \gls{UMTS} network.
 As discussed in \refsec{sec:network:background:umts_rrc}, the arrival process of the packet transmissions determines the \gls{RRC} states of the \gls{UE}.
-However, the direction of packets, i.e. whether they originate from the \gls{UE} or the \gls{NodeB}, has no impact on the \gls{RRC} states, as the states depend solely on traffic activity.
+However, the direction of packets, i.e. whether they originate from the \gls{UE} or the NodeB, has no impact on the \gls{RRC} states, as the states depend solely on traffic activity.
 Due to the high impact of \gls{RRC} states on traffic patterns, we do not consider packet sizes in this model.
 In real \gls{UMTS} networks very small packets might be treated differently for \gls{RRC} states, but we neglect this both for simplicity reasons and as the impact of packet sizes is highly network operator specific~\cite{Qian2010a}.
 Furthermore, \gls{RRC} state transitions are complex procedures depending on implementation details of the \gls{UE}, the specific \gls{UMTS} release, and the configurations by the network operator.
 In order to keep our model simple, but realistic, we reduce the set of standardised \gls{RRC} states and the state transition triggers in the following ways. 
 
 In a first step we consider the Two State Model: \gls{RRC_idle} and \gls{RRC_DCH} as shown in \reffig{fig:network:background:rrc_state_machines:two_states}.
-The \gls{UE} switches to \gls{RRC_DCH} to transmit or receive data and after an inactivity period of duration \gls{TDCH}, it switches back to \gls{RRC_idle}. 
+The \gls{UE} switches to \gls{RRC_DCH} to transmit or receive data and after an inactivity period of duration \TDCH, it switches back to \gls{RRC_idle}. 
 The motivation for the two states \gls{RRC} scenario is twofold.
 First, it serves for illustration purposes.
 We derive the model step-by-step in this simple scenario to explain the ideas behind the equations.
@@ -52,7 +52,7 @@ The packet arrivals determine the \gls{RRC} state of the \gls{UE} and the corres
 \newcommand{\NormalisationConstant}{c_0}
 \newcommand{\NObservedPackets}{n_{\text{P}}}
 
-\paragraph*{State Distribution}
+\paragraph*{Connection State Distribution}
 First, we are interested in the state distribution \(P(\RRCState=\RRCStateRealization)\), i.e., the fraction of time the \gls{UE} spends in state \(\RRCStateRealization\in\{\gls{RRC_idle},\gls{RRC_DCH}\}\) for a given inter-packet time \(\PacketIAT\).
 For this purpose, we define an observation interval \(\ObservationInterval\), depicted in \reffig{fig:network:performance_model:system_description:arrival_process}, which is assumed to be larger in orders of magnitude than the average packet inter-arrival time \(E[\PacketIAT]\).
 In addition, we take the position of an outside observer who observes the state \(\RRCState\) at a random point in time \(\ObservationPoint\), uniformly distributed within the observation interval. 
@@ -94,8 +94,8 @@ by considering the relevant cases:
 \begin{equation}
 P(\RRCState=\gls{RRC_idle}\vert \PacketIAT = \ObservationIntervalLength)=
 \begin{cases} 
-	0,  & \mbox{if } \ObservationInterval \leq \gls{TDCH} \\ 
-    \frac{\ObservationIntervalLength - \gls{TDCH}}{\ObservationIntervalLength}, & \mbox{otherwise.}	 
+	0,  & \mbox{if } \ObservationInterval \leq \TDCH \\ 
+    \frac{\ObservationIntervalLength - \TDCH}{\ObservationIntervalLength}, & \mbox{otherwise.}	 
 \end{cases}
 \end{equation}
 
@@ -103,8 +103,8 @@ Similarly, we obtain \(P(\RRCState = \gls{RRC_DCH})\) as:
 \begin{equation}
 P(\RRCState=\gls{RRC_DCH} \vert \PacketIAT = \ObservationIntervalLength)=
 \begin{cases} 
-	1,  & \mbox{if } \ObservationIntervalLength \leq \gls{TDCH} \\ 
-    \frac{\gls{TDCH}}{\ObservationIntervalLength}, & \mbox{otherwise.}	 
+	1,  & \mbox{if } \ObservationIntervalLength \leq \TDCH \\ 
+    \frac{\TDCH}{\ObservationIntervalLength}, & \mbox{otherwise.}	 
 \end{cases}
 \label{eq:network:performance_model:system_description:state_distribution:conditional_probability_dch}
 \end{equation} 
@@ -120,21 +120,21 @@ Next, we estimate the average frequency of state transitions resulting from a gi
 For that purpose, we consider again the observation interval \(\ObservationInterval\) and focus on the state transitions from \gls{RRC_idle} to \gls{RRC_DCH} since every switch from \gls{RRC_DCH} to \gls{RRC_idle} results in a switch vice-versa.
 The expected number of observed packets during \(\ObservationInterval\) is 
 \(E[\NObservedPackets]=\ObservationInterval/E[\PacketIAT]\). 
-Furthermore, the probability that time between two consecutive packets exceeds the timer \(\gls{TDCH}\) is
+Furthermore, the probability that time between two consecutive packets exceeds the timer \(\TDCH\) is
 \begin{equation} 
-P(\PacketIAT > \gls{TDCH}) = 1 - P(\PacketIAT \leq \gls{TDCH}) = 1 - \PacketIAT(\gls{TDCH}).
+P(\PacketIAT > \TDCH) = 1 - P(\PacketIAT \leq \TDCH) = 1 - \PacketIAT(\TDCH).
 \end{equation} 
-The number of state transitions \(\NStateTransitionsIdleToDCH\) during \(\ObservationInterval\) directly corresponds to the number of inter-packet times exceeding \(\gls{TDCH}\) since an active connection is torn down after an inactivity period of \(\gls{TDCH}\).
+The number of state transitions \(\NStateTransitionsIdleToDCH\) during \(\ObservationInterval\) directly corresponds to the number of inter-packet times exceeding \(\TDCH\) since an active connection is torn down after an inactivity period of \(\TDCH\).
 Thus, the expected number is 
 \begin{align*}
 \begin{split}
-E[\NStateTransitionsIdleToDCH] & = E[\NObservedPackets] \cdot P(\PacketIAT > \gls{TDCH})\\
-	& = \frac{\ObservationInterval}{E[\PacketIAT]}\cdot (1-\PacketIAT(\gls{TDCH})). 
+E[\NStateTransitionsIdleToDCH] & = E[\NObservedPackets] \cdot P(\PacketIAT > \TDCH)\\
+	& = \frac{\ObservationInterval}{E[\PacketIAT]}\cdot (1-\PacketIAT(\TDCH)). 
 \end{split}
 \end{align*} 
 Hence, the expected frequency of state transitions is 
 \begin{equation*}
-E[\NStateTransitionsIdleToDCH]=\frac{1-\PacketIAT(\gls{TDCH})}{E[\PacketIAT]}.
+E[\NStateTransitionsIdleToDCH]=\frac{1-\PacketIAT(\TDCH)}{E[\PacketIAT]}.
 \end{equation*}
 The same holds also for the state transitions from \gls{RRC_DCH} to \gls{RRC_idle} and hence 
 \(E[\fStateTransitionsDCHToIdle]=E[\fStateTransitionsDCHToIdle]\)
@@ -143,19 +143,19 @@ holds.
 \subsubsection*{Three State Model}\label{sec:network:performance_model:analytical_model:three_states}
 In this section we consider three states: \gls{RRC_idle}, \gls{RRC_DCH}, and \gls{RRC_FACH}.
 Again, we assume that the \gls{UE} switches from \gls{RRC_idle} to \gls{RRC_DCH} whenever it transmits or receives data.
-After an inactivity of \(\gls{TDCH}\) the \gls{UE} switches to \gls{RRC_FACH}, and after an additional inactivity of \(\gls{TFACH}\), it switches to \gls{RRC_idle}, as depicted in \reffig{fig:network:background:rrc_state_machines:three_states}.
+After an inactivity of \(\TDCH\) the \gls{UE} switches to \gls{RRC_FACH}, and after an additional inactivity of \(\TFACH\), it switches to \gls{RRC_idle}, as depicted in \reffig{fig:network:background:rrc_state_machines:three_states}.
 This scenario usually occurs when the network controls the \gls{RRC} state of the \gls{UE} without proprietary connection tear-down mechanisms implemented on the \gls{UE}.
 In today's network some operator transition the \gls{UE} to a state with a paging channel \texttt{URA\_PCH} instead of the \gls{RRC_idle}, but the resource consumptions in both states are very similar and we therefore neglect the \texttt{URA\_PCH} state for simplicity reasons.
 
-\paragraph*{State Distribution}
+\paragraph*{Connection State Distribution}
 The state distribution \(P(\RRCState=\RRCStateRealization)\) for the three states \(\RRCStateRealization\in\{\gls{RRC_idle},\gls{RRC_FACH},\gls{RRC_DCH}\}\) can be derived in the same way as for the scenario with two states.
 Therefore, we present only the conditional probabilities, which differ from the Two State Model, and use \refeq{eq:network:performance_model:system_description:state_distribution} for the calculation of the distribution.
 First, we consider \(\RRCState=\gls{RRC_idle}\): 
 \begin{equation*} 
 P(\RRCState=\gls{RRC_idle} \vert \PacketIAT = \ObservationIntervalLength) =
 \begin{cases} 
-	0,  & \mbox{if } \ObservationIntervalLength \leq \gls{TDCH}+\gls{TFACH} \\ 
-	\frac{\ObservationIntervalLength - (\gls{TDCH}+\gls{TFACH})}{\ObservationIntervalLength}, 
+	0,  & \mbox{if } \ObservationIntervalLength \leq \TDCH+\TFACH \\ 
+	\frac{\ObservationIntervalLength - (\TDCH+\TFACH)}{\ObservationIntervalLength}, 
 	    & \mbox{otherwise.}
 \end{cases}
 \end{equation*}
@@ -163,11 +163,11 @@ For the case of \(\RRCState=\gls{RRC_FACH}\), we have:
 \begin{equation*} 
 P(\RRCState=\gls{RRC_FACH} \vert \PacketIAT = \ObservationIntervalLength) =
 \begin{cases} 
-	0,  & \mbox{if } \ObservationIntervalLength \leq \gls{TDCH} \\ 
-	\frac{\ObservationIntervalLength - \gls{TDCH}}{\ObservationIntervalLength}, 
-	    & \mbox{if }\gls{TDCH}<\ObservationIntervalLength\leq \gls{TDCH}+\gls{TFACH} \\
-	\frac{\gls{TFACH}}{\ObservationIntervalLength} 
-	    & \mbox{if } \ObservationIntervalLength > \gls{TDCH}+\gls{TFACH} 
+	0,  & \mbox{if } \ObservationIntervalLength \leq \TDCH \\ 
+	\frac{\ObservationIntervalLength - \TDCH}{\ObservationIntervalLength}, 
+	    & \mbox{if }\TDCH<\ObservationIntervalLength\leq \TDCH+\TFACH \\
+	\frac{\TFACH}{\ObservationIntervalLength} 
+	    & \mbox{if } \ObservationIntervalLength > \TDCH+\TFACH 
 \end{cases}
 \end{equation*}
 
@@ -183,21 +183,21 @@ In contrast to the Two State Model, we have to consider a larger number of state
 These are the transitions from \gls{RRC_idle} to \gls{RRC_DCH}, from \gls{RRC_DCH} to \gls{RRC_FACH}, from \gls{RRC_FACH} to \gls{RRC_DCH}, and from \gls{RRC_FACH} to \gls{RRC_idle}.
 Other transitions do not occur.
 We first calculate the frequency of state transitions from \gls{RRC_DCH} to \gls{RRC_FACH}.
-This transition happens every time when the inter-packet time \(\PacketIAT\) exceeds the timer \(\gls{TDCH}\).
+This transition happens every time when the inter-packet time \(\PacketIAT\) exceeds the timer \(\TDCH\).
 Therefore, the derivation is the same as presented above:
 \begin{equation*}
-E[\fStateTransitionsDCHToFACH]=\frac{1-\PacketIAT(\gls{TDCH})}{E[\PacketIAT]}.
+E[\fStateTransitionsDCHToFACH]=\frac{1-\PacketIAT(\TDCH)}{E[\PacketIAT]}.
 \end{equation*}
 \begin{equation*}
-E[\fStateTransitionsFACHToIdle]=\frac{1-\PacketIAT(\gls{TDCH}+\gls{TFACH})}{E[\PacketIAT]}.
+E[\fStateTransitionsFACHToIdle]=\frac{1-\PacketIAT(\TDCH+\TFACH)}{E[\PacketIAT]}.
 \end{equation*}
 Furthermore, all state transitions from \gls{RRC_FACH} to \gls{RRC_idle} correspond to a switch from \gls{RRC_idle} to \gls{RRC_DCH} and therefore 
 \(E[\fStateTransitionsIdleToDCH]=E[\fStateTransitionsFACHToIdle].\)
 Finally, we calculate \(E[\fStateTransitionsFACHToDCH].\)
-These state transitions occur, if \(\gls{TDCH}<\PacketIAT \leq \gls{TDCH}+\gls{TFACH}\).
+These state transitions occur, if \(\TDCH<\PacketIAT \leq \TDCH+\TFACH\).
 Therefore, we have 
 \begin{equation*}
-E[\fStateTransitionsFACHToDCH]=\frac{\PacketIAT(\gls{TDCH}+\gls{TFACH})-\PacketIAT(\gls{TDCH})}{E[\PacketIAT]}.
+E[\fStateTransitionsFACHToDCH]=\frac{\PacketIAT(\TDCH+\TFACH)-\PacketIAT(\TDCH)}{E[\PacketIAT]}.
 \end{equation*}
 Other state transitions do not occur in our scenario, as shown in \reffig{fig:network:background:rrc_state_machines:three_states}).
 

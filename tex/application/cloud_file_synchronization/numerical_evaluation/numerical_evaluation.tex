@@ -1,4 +1,4 @@
-\subsection{Numerical Evaluation}\label{sec:application:cloud_file_synchronisation:numerical_evaluation}
+\subsection{Evaluation of Considered Scheduling Algorithms}\label{sec:application:cloud_file_synchronisation:numerical_evaluation}
 In order to evaluate the proposed model we use the OMNeT++\footnote{\url{http://www.omnetpp.org/}, \accessed} simulation framework.
 To analyse the impact of the different algorithms we study the metrics introduced in \refsec{sec:application:cloud_file_synchronisation:system_model}.
 We evaluate the waiting time \sojournTime until a file is retrieved at the downloading client, the relative time the mobile client stays disconnected \relativeDisconnectedTime during the synchronisation process, and the number of connection \connectionCount during the synchronisation process to estimate the signalling overhead.
@@ -175,7 +175,7 @@ However, the time based algorithm allows a better control of the number of disco
 In order to adapt the size based algorithms accordingly, additional knowledge of the file arrival process is required to estimate the interval length \thresholdInterval.
 In the following, we only consider the \algointerval algorithm as it is easier to configure and also more intuitive for the end-user than the \algosize algorithm. 
 
-\subsubsection*{Tradeoff Analysis}\label{sec:application:cloud_file_synchronisation:numerical_evaluation:trade_off_analysis}
+\subsubsection*{Tradeoff Analysis for Considered Stakeholders}\label{sec:application:cloud_file_synchronisation:numerical_evaluation:trade_off_analysis}
 
 After analysing the different objectives of the stakeholders individually, we now consider the tradeoff between these contradicting optimisation goals, the mean waiting time for the file synchronisation \sojournTime, the mean relative disconnected time \relativeDisconnectedTime, and the mean connection count \connectionCount.
 
