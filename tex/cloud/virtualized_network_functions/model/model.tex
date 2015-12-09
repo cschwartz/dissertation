@@ -16,13 +16,13 @@ However, due to the fact that the \gls{GGSN} is purchased from a vendor as a mid
   \label{sec:cloud:virtualized_network_functions:model:traditional_ggsn:model}
 \end{figure}
 
-We give present an abstract queueing model for the traditional \gls{GGSN} in \reffig{sec:cloud:virtualized_network_functions:model:traditional_ggsn:model}.
-New tunnels requests arrive according to a poisson distribution with a rate of \(\lambda(t)\) at the \gls{GGSN}.
-This server will support a maximum tunnel capacity of \(c_c\).
+We present an abstract queueing model for the traditional \gls{GGSN} in \reffig{sec:cloud:virtualized_network_functions:model:traditional_ggsn:model}.
+New tunnels requests arrive according to a poisson process with rate \(\lambda(t)\) at the \gls{GGSN}.
+This server will support a maximum tunnel capacity of \(c\).
 When this capacity is reached, blocking will occur and newly incoming tunnels requests are rejected.
 Traditionally, \glspl{GGSN} can be expected to be overdimensioned in such a way that this rarely happens.
 If the new tunnel is accepted, it will occupy one of the serving units of the server for the duration \(\mu(t)\) of the tunnel.
-As stated earlier, we can not model the tunnel duration to be markovian, resulting in a  \(M/GI/c_c\) loss system.
+As stated earlier, we can not model the tunnel duration to be markovian, resulting in a  \(M/GI/c\) loss system.
 In order to give quality of service guarantees the network operator is interested in the system's blocking probability \(\blockingprobability\), which we consider to be a key metric of our model.
 Additionally, the previously described diurnal patterns can are also be modelled by adjusting the arrival and serving process distributions for each time of day.
 This alternatively also allows just to investigate the busy hour and thus the system's peak load.
@@ -32,7 +32,7 @@ Next, we introduce concepts from \gls{NFV}, i.e. the idea to replace middleboxes
 This allows us to realise benefits from cloud computing, as we are now able to scale out, instead of up.
 The assumptions of the Markov arrival process \(\lambda(t)\) and the serving time distributions \(\mu(t)\) are carried over.
 However, instead of one server processing every tunnel, this model assumes that there are up to \(s_{max}\) virtualised servers \(s_i\).
-Each of these is less powerful than the traditional \gls{GGSN}, having a tunnel serving capacity of \(c_i \ll c_c\) and a total system capacity of \(c_{max} = s_{max} \times i\).
+Each of these is less powerful than the traditional \gls{GGSN}, having a tunnel serving capacity of \(c_i \ll c\) and a total system capacity of \(c_{max} = s_{max} \times i\).
 
 \begin{figure}
   \centering

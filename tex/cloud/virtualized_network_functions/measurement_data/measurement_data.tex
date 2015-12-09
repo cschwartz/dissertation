@@ -37,7 +37,7 @@ The arrivals also show a strong diurnal effect, closely resembling patterns pres
 We observe a decline of arrivals, i.e. longer inter-arrivals, late in the night and during the early morning hours with a peak rate in the afternoon and early evening.
 To represent this time-of-day dependence in the model, the measurement was split into the four time slots displayed in the figure.
 Each slot was then fitted with an exponential distribution by way of moment matching.
-This results in the cumulative distribution function \(F(x) = 1- e^{-\lambda x}, x \geq 0\) with \(\lambda\) given in \reftab{tab:cloud:virtualized_network_functions:measurement_data:evaluation:iat_fits} for the four time slots.
+This results in the cumulative negative exponential distribution function \(F(x) = 1- e^{-\lambda x}, x \geq 0\) with \(\lambda\) given in \reftab{tab:cloud:virtualized_network_functions:measurement_data:evaluation:iat_fits} for the four time slots.
 The fitted functions match the empirical data, with some deviation present at the left tail but overall with a positive correlation coefficient approaching \(1\).
 
 \begin{table}

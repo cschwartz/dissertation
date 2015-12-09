@@ -1,6 +1,6 @@
 %TODO titel ändern
 \subsection{Obtaining State Probabilities}\label{sec:cloud:data_centers:closed_form_solution}
-Using the macro state equations discussed in \refsec{sec:cloud:data_centers:modeling}, multiple ways to obtain the state probabilities are possible.
+Using the macro state equations discussed in \refsec{sec:cloud:data_centers:modeling}, there are multiple ways to obtain the state probabilities.
 This section examines the different approaches.
 
 \subsubsection*{System of Linear Equations}
@@ -8,7 +8,7 @@ First, it is possible to directly solve the system of linear equations implied b
 Solvers for linear equation systems scale cubic in the dimension of the matrix, which in this case is bounded by the system size.
 Especially for a large numbers of server, this prevents an exhaustive search of the parameter space.
 
-\subsubsection*{Closed Form Solutions}
+\subsubsection*{Closed-form Solutions}
 Thus, we obtain closed form solutions for the state probabilities.
 These equations can be derived by recursively applying the macro state equations.
 
@@ -26,36 +26,34 @@ s_i&=\sum_{k=0}^{i}a^k(n-k-1)!.
 \end{align*}
 Using this definition, we get the state probability for \(\theta_1\) jobs in the system with activated reserved servers as
 \begin{align*}
-x(\theta_1, 1) &= x(0, 0)\cdot \frac{a^{n+\theta_2+1}}{\left(1+\frac{a}{\theta_1}\right)}\\
-&\cdot\frac{\left(\theta_1-1\right)!\left(\frac{(1-a^{\theta_2})\theta_1}{1-a}+a^{\theta_2}s_{n-\theta_1}\right)}{n^{\theta_2}n!\left(n-\theta_1+1\right)!}.
+x(\theta_1, 1) &= x(0, 0)\cdot \frac{a^{n+\theta_2+1}}{\left(1+\frac{a}{\theta_1}\right)}
+\cdot\frac{\left(\theta_1-1\right)!\left(\frac{(1-a^{\theta_2})\theta_1}{1-a}+a^{\theta_2}s_{n-\theta_1}\right)}{n^{\theta_2}n!\left(n-\theta_1+1\right)!}.
 \end{align*}
 For \(\theta_1\leq i\leq n\), we get
 \begin{align*}
-x(i, 0) = x(0, 0) &\cdot \left(\frac{\bar{x}(n, 0) a^{i-\theta_1+1}}{(i-\theta_1+1)!}\right.\\
-&\left.- \frac{\bar{x}(\theta_1,1) \theta_1 s_{i-\theta_1}}{i!}\right).
+x(i, 0) = x(0, 0) &\cdot \left(\frac{\bar{x}(n, 0) a^{i-\theta_1+1}}{(i-\theta_1+1)!} - \frac{\bar{x}(\theta_1,1) \theta_1 s_{i-\theta_1}}{i!}\right).
 \end{align*}
 And for \(n<i\leq n+\theta_2\), we get
+%TODO single line
 \begin{align*}
 x(i, 0) = x(0, 0) &\cdot \left(\frac{\bar{x}(n,0) a^{i-\theta_1+1}}{n^{i-n}(n-\theta_1+1)!}\right.\\
-&\left.-\bar{x}(\theta_1,1)\left(\frac{\theta_1 s_{n-\theta_1} a^{i-n}}{n!}\right.\right.\\
-&\left.\left.+ \frac{\theta_1(1-a^{i-n})}{1-a}\right)\right).
+&\left.-\bar{x}(\theta_1,1)\left(\frac{\theta_1 s_{n-\theta_1} a^{i-n}}{n!} + \frac{\theta_1(1-a^{i-n})}{1-a}\right)\right).
 \end{align*}
 
 Thus, we have all probabilities for system states where only the baseline servers are active. For the reserved servers, we obtain state probabilities for \(\theta_1<i\leq n+\theta_2+1\) as
 \begin{align*}
-x(i, 1) = x(0, 0) \cdot \left(\bar{x}(\theta_1, 1)\frac{a^{i-\theta_1}\theta_1!}{i!}\right.\\
-\left.+\bar{x}(n+\theta_2,0)\sum_{k=1}^{i-\theta_1}\frac{a^k(i-k)!}{i!}\right).
+x(i, 1) = x(0, 0) \cdot \left(\bar{x}(\theta_1, 1)\frac{a^{i-\theta_1}\theta_1!}{i!} + \bar{x}(n+\theta_2,0)\sum_{k=1}^{i-\theta_1}\frac{a^k(i-k)!}{i!}\right).
 \end{align*}
 
 For \(n+\theta_2+1 < i \leq n + m\), we get
 \begin{align*}
-x(i, 1) = x(0, 0)\cdot \bar{x}(n+\theta_2+1,1)\\ \cdot\frac{a^{i-(n+\theta_2+1)}(n+\theta_2+1)!}{i!},
+x(i, 1) = x(0, 0)\cdot \bar{x}(n+\theta_2+1,1) \cdot\frac{a^{i-(n+\theta_2+1)}(n+\theta_2+1)!}{i!},
 \end{align*}
 and finally for \(i>n+m\)
 \begin{align*}
 x(i, 1) = x(0, 0)\cdot \bar{x}(n+m,1) \left(\frac{a}{n+m}\right)^{i-(n+m)}.
 \end{align*}
-As discussed earlier, the probability of an empty system is given by the usual normalisation property:
+As discussed earlier, the probability of an empty system is given by the normalisation condition:
 \begin{align*}
 x(0, 0)=\left(1 +\sum_{k=1}^{n+\theta_2}\bar{x}(k, 0) + \sum_{k=\theta_1}^{\infty}\bar{x}(k,1)\right)^{-1}.
 \end{align*}
@@ -75,12 +73,12 @@ x(i, 0) = x(\theta_1 - 1, 0) u_i + K_1 v_i.\label{eq:cloud:data_centers:modeling
 For \(i = \theta_1\), \refeq{eq:cloud:data_centers:modeling:energy_efficient:S1_2} requires \(u_{\theta_1} = \frac{a}{\theta_1}\) and \(v_{\theta_1} = 1\).
 Continuing this pattern by successively applying \refeq{eq:cloud:data_centers:modeling:energy_efficient:S1_2} for \(\theta_1 < i \leq n\), we get
 \begin{align*}
-u_i &= \frac{a}{i}u_{i-1}\\
+u_i &= \frac{a}{i}u_{i-1},\\
 v_i &= \frac{a}{i}v_{i-1} + \frac{\theta_1}{i}.
 \end{align*}
 We use \refeq{eq:cloud:data_centers:modeling:energy_efficient:S1_3} to continue for \(n < i \leq n + \theta_2\), and get
 \begin{align*}
-u_i &= \frac{a}{n}u_{i-1}\\
+u_i &= \frac{a}{n}u_{i-1},\\
 v_i &= \frac{a}{n}v_{i-1} + \frac{\theta_1}{n}.
 \end{align*}
 Thus, we arrive at a probability for \(x(n + \theta_2,0)\) depending on \(x(\theta_1 -1,0)\), which we have obtained, and \(K_1 = x(\theta_1,1)\) which we still need to acquire:

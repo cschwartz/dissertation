@@ -103,11 +103,11 @@ label.max.instances <- expression(paste('Maximum number of active instances ', S
 label.max.tunnels <- expression(paste('Maximum number of tunnels ', n))
 label.blocking.probability <- expression(paste('Blocking probability ', p[B]))
 label.mean.resource.utilization <- expression(paste('Mean number of active tunnels')) 
-label.startstop.duration <- expression(paste('Start up and shut down time ', (s)))
+label.startstop.duration <- expression(paste('Start-up and shut-down time ', (s)))
 
 # 4.4, done
-label.campaign.interarrival <- expression('Campaign inter-arrival time t'[c]*' (h)')
-label.cdf.campaign.interarrival <- expression(P(T <= t[c]))
+label.campaign.interarrival <- expression('Campaign inter-arrival time A'[c]*' (h)')
+label.cdf.campaign.interarrival <- expression(P(A[c] <= t))
 label.campaign.size <- expression(paste('Campaign size ', Theta))
 label.cdf.campaign.size <- expression(P(T <= Theta))
 label.number.of.workers <- 'Number of workers c'

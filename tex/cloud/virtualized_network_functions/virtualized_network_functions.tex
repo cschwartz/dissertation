@@ -5,7 +5,7 @@ In this section we apply the theoretical methods discussed in \refsec{sec:cloud:
 We consider the exemplary use case of a virtualised \gls{GGSN}.
 Here, network operators consider the virtualisation of previously physical middleboxes, in order to gain elasticity and reduce costs.
 
-In contrast to the last section, we assume that a loss model, as connection establishment requests are not queued in reality but expire if no capacity is available.
+In contrast to the last section, we assume a loss model, as connection establishment requests are not queued in reality but expire if no capacity is available.
 Thus, we consider the blocking probability instead of the mean waiting time as a metric.
 As a second metric we consider the number of provisioned servers which need to kept powered on. 
 
@@ -13,7 +13,7 @@ This section is structured as follows:
 In \refsec{sec:cloud:virtualized_network_functions:model} we first introduce a model for a traditional \gls{GGSN}.
 Then, we extend it to be applicable for the study of a virtualised \gls{GGSN}.
 In \refsec{sec:cloud:virtualized_network_functions:measurement_data} we describe the procedures used to obtain and process input parameters for use in our simulation study.
-Finally, in \refsec{sec:cloud:virtualized_network_functions:performance_evaluation} we study possible gains by a virtualised \gls{GGSN} by considering the tradeoff between the required servers to be active at each time and the incurred blocking probability. 
+Finally, in \refsec{sec:cloud:virtualized_network_functions:performance_evaluation} we study possible gains by a virtualised \gls{GGSN} by considering the tradeoff between the required servers to be active simultaneously and the incurred blocking probability. 
 
 \input{cloud/virtualized_network_functions/model/model}
 \input{cloud/virtualized_network_functions/measurement_data/measurement_data}
