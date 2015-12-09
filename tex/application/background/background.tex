@@ -10,7 +10,7 @@ Due to the nature of \emph{\live} video transmissions it is only possible to sen
 Furthermore, introducing delay into the live-stream should be avoided as it reduces the timeliness of the video.
 There exist different approaches for \emph{\streaming} video content to a user.
 In server-based solutions, the streaming server controls the transmission of content.
-One example of such a server based approach is the \gls{RTSP} which was widely discussed as a standardized solution for mobile video streaming~\cite{Elsen2001}.
+One example of such a server based approach is the \gls{RTSP} which was widely discussed as a standardised solution for mobile video streaming~\cite{Elsen2001}.
 
 In the more recent past, client-based approaches were discussed.
 Here the client side controls the download and playback of content.
@@ -28,7 +28,7 @@ In the remainder of this work, we refer to this threshold policy as \(pq\)-polic
 
 \subsection{Video Quality of Experience for \headershortacr{HTTP} Adaptive Streaming}\label{sec:application:background:application_qoe}
 The goal of \gls{HAS} is to adapt the video to the current network conditions.
-The video adaptation may be realized by changing the frame rate, resolution, or quantization of the video. Although the adaptation results in lower quality, the major benefits compared to classical \gls{HTTP} video streaming is the reduction of stalling events.
+The video adaptation may be realised by changing the frame rate, resolution, or quantisation of the video. Although the adaptation results in lower quality, the major benefits compared to classical \gls{HTTP} video streaming is the reduction of stalling events.
 The authors of \cite{Seufert2014} survey \gls{QoE} for \gls{HTTP} adaptive streaming and gives an overview of recent developments. 
 Besides improved quality adaptation mechanisms~\cite{Sieber2013}, other approaches aim for example at optimising the segmentation of the videos~\cite{Lievens2013}.
 
@@ -46,7 +46,7 @@ Based on that, adaptive play-out buffer management schemes are proposed.
 Considering both the video content as well as the available resources by using a proxy has been suggested to improve the users \gls{QoE}~\cite{Essaili2013} for \gls{HAS}.
 In~\cite{Xin2012} the authors suggest the use of a caching strategy, downloading video content according to a user's viewing history and network conditions.
 
-So far, no queueing system with \(pq\)-policy is applied to analyze \gls{QoE} for \gls{HTTP} video streaming and to dimension video buffers accordingly.
+So far, no queueing system with \(pq\)-policy is applied to analyse \gls{QoE} for \gls{HTTP} video streaming and to dimension video buffers accordingly.
 In queueing theory, the related threshold policy is denoted as \(N\)-policy introduced by~\cite{Yadin1963} with \(p=0\) and \(q=N\); the server stops whenever the system becomes empty and resumes service when the number of waiting customers in the system, i.e. the video buffer in our case, reaches a threshold value \(N\).
 \refsec{sec:application:qoe_user_behaviour:system_model:steady_state} will show that in  contrast to the transient phase, in the steady state \(q\) has no influence on the performance. 
 
@@ -58,7 +58,7 @@ A transient solution of the \(M/M/1\) queue under \(pq\)-policy is derived by~\c
 Results from queueing theory may be applied to dimensioning the video buffer for \gls{HTTP} streaming in order to optimise \gls{QoE}. 
 However, the approaches mentioned above are either considering \gls{QoS} parameters only or they apply \gls{QoE} models based on \glspl{MOS} of subjects.
 However, differences in how \gls{QoE} degradations are observed by individual users are not considered.
-In \refsec{sec:application:qoe_user_behaviour} we propose an analytical model which allows to investigate individual user profiles based on a parametrized QoE model.
+In \refsec{sec:application:qoe_user_behaviour} we propose an analytical model which allows to investigate individual user profiles based on a parametrised QoE model.
 
 Most user studies on \gls{HTTP} video streaming quantify and report \gls{QoE} in terms of \gls{MOS}, e.g.~\cite{Hossfeld2013c}.
 However, there is a diversity in user perception which is eliminated by the process of averaging subjective ratings.

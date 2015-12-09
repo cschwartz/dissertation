@@ -49,14 +49,14 @@ label.server.preparation.time <- 'Time t (s)'
 label.cdf.server.preparation.time <- expression(P(T <= t))
 label.image.size <- 'Size s (MiB)'
 label.cdf.image.size <- expression(P(S <= s))
-label.waiting.time <- expression(paste("Mean waiting time ", Sigma, " (s)")) # omega?
-label.size.threshold <- "Size threshold (MB)"
-label.intervall.time <- "Interval (s)"
+label.waiting.time <- expression(paste("Mean waiting time ", Sigma, " (s)"))
+label.size.threshold <- expression(paste("Size threshold ", T[s], " (MB)"))
+label.intervall.time <- expression(paste("Interval length ", T[i], " (s)"))
 label.connection.count <- expression(paste("Mean connection count ", Kappa))
-label.disconnection.time <- expression(paste("Mean relative disconnected time ", Delta, "(%)"))
+label.disconnection.time <- expression(paste("Mean relative disconnected time ", Delta, " (%)"))
 label.mean.queue.length <- "Mean queue length"
 label.mechanism <- "Mechanism"
-label.normalized.threshold <- "Normalized synchronization threshold (s)"
+label.normalized.threshold <- expression(paste("Normalized synchronization threshold ", T[n],  " (s)"))
 label.number.of.stalling.events <- 'Number of stalling events'
 label.qoe.model <- 'QoE Model'
 label.stalling.duration <- 'Stalling duration per event (s)'

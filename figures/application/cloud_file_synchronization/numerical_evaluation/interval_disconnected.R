@@ -9,7 +9,7 @@ p <- ggplot(data, aes(x = intervall.time, y = disconnected.time * 100, color = m
   scale_x_log10(breaks = parameters) +
   scale_color_manual(values = color.palette) + 
   coord_cartesian(ylim = c(0, upper.bound.disconnected)) +
-  labs(x = label.interarrival.time,
+  labs(x = label.intervall.time,
        y = label.disconnection.time,
        color = label.mechanism)
 

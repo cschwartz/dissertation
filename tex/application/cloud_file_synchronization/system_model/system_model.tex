@@ -15,7 +15,7 @@ The authors of~\cite{Drago2012} provide a first study of the \dropbox architectu
 The \dropbox infrastructure consists of two main components:
 \begin{enumerate*}
 \item a storage cloud based on Amazon's Elastic Compute Cloud and Simple Storage Service, and 
-\item (2) control servers directly maintained by \dropbox Inc. 
+\item control servers directly maintained by \dropbox Inc. 
 \end{enumerate*}
 The control servers store meta information about the current state of the files in the \dropbox folders and trigger synchronisation processes on the clients.
 
@@ -93,8 +93,8 @@ These mechanisms in turn affect the synchronisation time, the power drain, and t
 The most basic strategy of handing the upload is to immediately send new files, as soon as the meta data is generated.
 We refer to this as the \algoimmediate strategy and will use this as base line for all comparisons in the evaluations.
 The other two strategies considered are based on a temporal, respectively a size threshold. 
-Using the \algointerval scheduling, the client checks periodically if new files have been marked for synchronisation.
+Using the \algointerval scheduling, the client checks periodically, according to an interval \thresholdInterval, if new files have been marked for synchronisation.
 If new files are present, they are synchronised to \dropbox.
 Files which could not be sent within the current interval will automatically be added to the file batch for the next interval. 
-The last scheduling mechanisms uses a threshold based on the overall \algosize of the images not yet synchronised.
+The last scheduling mechanisms uses a threshold \thresholdSize based on the overall \algosize of the images not yet synchronised.
 If the threshold is crossed, an upload is triggered.
