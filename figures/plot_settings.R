@@ -111,7 +111,7 @@ label.cdf.campaign.interarrival <- expression(P(A[c] <= t))
 label.campaign.size <- expression(paste('Campaign size ', Theta))
 label.cdf.campaign.size <- expression(P(T <= Theta))
 label.number.of.workers <- 'Number of workers c'
-label.worker.utilization <- expression(paste('Worker utilisation ', rho))
+label.worker.utilization <- expression(paste('Utilisation ', rho))
 label.mean.task.length <- 'Mean task length E[B] (s)'
 label.mean.task.delay <- 'Task pre-processing Delay E[D] (s)'
 label.campaign.arrival.distribution <- 'Campaign arrival'
@@ -168,6 +168,16 @@ save.full.row.plot <- function(plot, filename = commandArgs(TRUE)[1]) {
   ggsave(filename, plot=plot,height = rowHeight, width = pageWidth, units = units, device=cairo_pdf)
   #embed_fonts(filename, outfile=filename)
 }
+
+save.full.double.row.plot <- function(plot, filename = commandArgs(TRUE)[1]) {
+  plot <- plot + plot_options + theme(legend.box = "vertical")
+  #plot <- adjust.legend.spacing(plot)
+  print(filename)
+  ggsave(filename, plot=plot,height = rowHeight * 1.5, width = pageWidth, units = units, device=cairo_pdf)
+  #embed_fonts(filename, outfile=filename)
+}
+
+
 
 notation.si <- function(label) {
   label <- format(label, scientific = TRUE)
