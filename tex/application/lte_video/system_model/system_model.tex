@@ -1,9 +1,9 @@
-\subsection{System Model}\label{sec:application:lte_video:system_model}
+\subsection{Model of \headershortacr{LTE} Video Transmission}\label{sec:application:lte_video:system_model}
 In this section, we present modeling assumptions used in the remainder of this section.
 Then, we propose a system model for both video transmission mechanisms and the considered \gls{LTE} network.
 Finally, we introduce performance metrics for each of the considered stakeholders.
 
-\subsubsection*{Model Assumptions}\label{sec:application:lte_video:system_model:model_assumptions}
+\subsubsection*{Transmission Model Assumptions}\label{sec:application:lte_video:system_model:model_assumptions}
 Maintaining a high \gls{QoE} for their viewers is an important goal for operators of video platforms.
 The authors of~\cite{Hossfeld2012a} find that the \gls{QoE} is mainly influenced by the number of stalling events and the stalling event duration.
 As shown in \reffig{fig:application:lte_video:system_model:stalling2qoe}, the \gls{QoE} model, where 5 is the highest possible \gls{MOS} and 1 the lowest, rapidly decreases if the number or duration of stalling events increases.
@@ -29,7 +29,7 @@ We assume that the bottleneck of the connection is the air interface, thus the f
 Although the assumptions of constant bit rate and bandwidth do not hold in a real environment, the purpose of considering such assumptions is twofold.
 First, they are useful in order to analyse the performance of the discussed mechanisms in optimal conditions without any other effects that could disturb the results and, second, they can serve as a baseline for comparison with fitted random variables for both bandwidth and bit rate.
 
-\subsubsection*{Video Traffic Model}\label{sec:application:lte_video:system_model:video_traffic}
+\subsubsection*{Considered Video Traffic Model}\label{sec:application:lte_video:system_model:video_traffic}
 
 In our study we focus on four transmission mechanisms which are currently in use.
 \reffig{fig:application:lte_video:system_model:video_model:playback} shows the consumed bandwidth \(\bandwidthdown(t)\) and the available seconds of video for playback \(\timeunwatched(t)\) for a video for all considered transmission mechanisms at all points of time \(t\).
@@ -75,7 +75,7 @@ A video provider will also consider its bandwidth to be a resource to be conserv
 However, when comparing the bandwidth available in \gls{LTE} with that of a wired network, we can assume the air interface to be the bottleneck.
 Furthermore, not considering bandwidth as an optimisation target of the video provider simplifies the study as it removes one additional metric.
 
-\subsubsection*{\headershortacr{LTE} Network Model}\label{sec:application:lte_video:system_model:lte_network_model}
+\subsubsection*{\headershortacr{LTE} Network Model for Video Transmission}\label{sec:application:lte_video:system_model:lte_network_model}
 In order to quantify the energy consumption during wireless transmission, we model the \gls{LTE} \gls{RRC} behaviour defined in~\cite{3GPP_RRC_Spec}.
 To reduce the energy consumption, the concept of \gls{DRX} has been introduced in~\cite{3GPP_MAC}.
 The authors of~\cite{Huang2012} provide measurements of important \gls{RRC} and \gls{DRX} parameters which are used in the following model and are reproduced in \reftab{tab:application:lte_video:system_model:lte_network_model:rrc_drx_parameters}.
@@ -168,7 +168,7 @@ This metric impacts the video provider, but is influenced by the user aborting t
 This decision can not be influenced by the video provider, thus a user model has to be assumed by the video provider in order to provide a performance analysis of the different video delivery mechanisms.
 
 Considering that transmitting data to a smartphone consumes both compute as well as network resources, a transmission mechanism should attempt to reduce the amount of video which has been transmitted but is not yet watched at any time \(t\) as 
-\[\timeunwatched(t) = \timedownloaded(t) - \timeplayedback(t)\]
+\[\timeunwatched(t) = \timedownloaded(t) - \timeplayedback(t).\]
 If the user stops the playback according to a random variable \userabortrv with \gls{PDF} \(\userabortpdf\), we can give the wasted traffic \meanwastedtraffic as the expected value of $\timeunwatched$ under $\userabortrv$.
 \begin{equation}
 \meanwastedtraffic = E\left[\timeunwatched\right] = \int_{t=0}^{\infty} \userabortpdf(t) \timeunwatched(t) d\mathrm{t}.
@@ -183,7 +183,7 @@ High values of \meanwastedtraffic indicate that server and network resources are
 \end{center}
 \end{figure}
 
-We consider three types of user behaviour, shown in \reffig{fig:application:lte_video:system_model:model_assumptions:metrics:abort_distributions}, each modeled by a random variable describing the abort time, i.e. the time when the user stops watching a video.
+We consider three types of user behaviour, shown in \reffig{fig:application:lte_video:system_model:model_assumptions:metrics:abort_distributions}, each modelled by a random variable describing the abort time, i.e. the time when the user stops watching a video.
 First we consider a \emph{uniform} distributed user abort model, where the user can abort the video at any time.
 Due to the uniform distribution of the abort time and the length of the video, i.e. \SI{1600}{\second}, the mean time of stop occurs at \SI{800}{\second}.
 

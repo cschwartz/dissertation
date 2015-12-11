@@ -1,5 +1,5 @@
-\subsection{Modelling}\label{sec:cloud:data_centers:modeling}
-In this section, we first discuss the default data centre model, where a server can either be idle or busy, processing a job. Afterwards, the energy-efficient data centre model with the three states is defined.
+\subsection{Model for Energy-Efficient Data Centres}\label{sec:cloud:data_centers:modeling}
+In this section, we first discuss the default data centre model, where a server can either be idle or busy, processing a job. Afterwards, the energy-efficient data centre model with three states, i.e. idle, busy, or off, is defined.
 
 \subsubsection*{Traditional Data Centre}\label{sec:cloud:data_centers:modeling:default}
 We consider new jobs arriving at a \gls{POD} with exponential \gls{IID} inter-arrival times with rate \(\lambda\).
@@ -11,7 +11,7 @@ We obtain the mean power drain of such a system based on the measured values pre
 If less than \(i < n\) jobs are currently in the system, then \(i\) servers are busy each consuming \(e_\text{busy}\) \si{\watt} and \(n-i\) servers are idle, where each consumes \(e_\text{idle}\) \si{\watt}.
 If \(i \geq n\) jobs are in the system all servers are busy and consume \(n\cdot e_\text{busy}\) \si{\watt} in total.
 
-Thus, for stationary state probabilities \(x(i)\), we obtain the mean power drain as
+For stationary state probabilities \(x(i)\), we obtain the mean power drain as
 %TODO rename this
 \begin{equation}\label{sec:cloud:data_centers:modeling:default:emax}
 E_\text{max} = \sum_{i=0}^{n} x(i) (i e_\text{busy} + (n-i) e_\text{idle}) + ne_\text{busy} \sum_{i=n + 1}^{+ \infty} x(i).
@@ -26,21 +26,22 @@ E_\text{min} = \sum_{i=0}^{n} x(i) (i e_\text{busy} + (n-i) e_\text{off}) + ne_\
 \subsubsection*{Energy Efficient Data Centre}\label{sec:cloud:data_centers:modeling:energy_efficient}
 
 We extend the queuing system to model the energy-efficient data centre model introduced in \refsec{sec:cloud:data_centers:problem_formulation}, by adapting the state space of the model.
-We now model the system state as a tuple \((i,j)\) where \(i\) is gives the number of jobs currently in the system and \(j\) is \(1\) if the reserved servers are activated and \(0\) if they are not activated.
-The state diagram for this queueing model is given in \reffig{fig:cloud:data_centers:modeling:energy_efficient:state_diagram}.
-The system activates the reserved servers if more than \(\theta_2\) jobs are in the queue, i.e. more than \(n + \theta_2\) jobs are in the system.
-The reserved servers are deactivated if the number of jobs in the system drops below \(\theta_1\).
+We now model the system state as a tuple \((i,j)\) where \(i\) is gives the number of jobs in the system and \(j\) is \(1\) if the reserved servers are active and \(0\) if they are not.
 
-Again, \(X\) is the random variable describing the number of jobs in the system if the reserved servers are activated or deactivated, and \(x(i, j)\) is the stationary probability that \(i\) jobs are in the system, and the reserved servers are activated, for \(j=1\), or deactivated, for \(j=0\). 
-
-\begin{figure}
+\begin{figure}[H]
   \centering
   \includegraphics{cloud/data_centers/modeling/figures/state_diagram}
   \caption{\(M/M/(n+m)^{(\theta_1, \theta_2)}\) system with macro states \(S_1^i, S_2^i,\) and \(S_3\) for the calculation of \(x(i, \left\{0, 1\right\})\) in the energy-efficient data centre.}
   \label{fig:cloud:data_centers:modeling:energy_efficient:state_diagram}
 \end{figure}
 
-Based on the state space and transitions, we formulate macro state equations, defined as the sum of all local balance equations of the states contained in the macrostate.
+The state diagram for this queueing model is given in \reffig{fig:cloud:data_centers:modeling:energy_efficient:state_diagram}.
+The system activates the reserved servers if more than \(\theta_2\) jobs are in the queue, i.e. more than \(n + \theta_2\) jobs are in the system.
+The reserved servers are deactivated if the number of jobs in the system drops below \(\theta_1\).
+
+Again, \(X\) is the random variable describing the number of jobs in the system if the reserved servers are activated or deactivated, and \(x(i, j)\) is the stationary probability that \(i\) jobs are in the system, and the reserved servers are activated, for \(j=1\), or deactivated, for \(j=0\). 
+
+Based on the state space and transitions, we formulate macro state equations, defined as the sum of all local balance equations of the states contained in the macro state.
 They provide, when solved, the state probabilities required for further analysis. 
 
 First,  we consider the macro state equations for state \(S_1^i\), c.f. \reffig{fig:cloud:data_centers:modeling:energy_efficient:state_diagram}, which contains all system states where up to \(i-1\) jobs are in the system and no reserved servers are activated.
@@ -53,6 +54,7 @@ n\mu x(i,0) + \theta_1 \mu x(\theta_1,1) &= \lambda x(i-1,0) & n\leq i\leq n+\th
 
 Next, we examine the system state if the reserved servers are activated.
 The macro state \(S_2^i\) contains all system states with activated reserved servers and at least \(i+1\) jobs in the system.
+
 We get
 \begin{align}
 i\mu x(i,1) = \lambda x(i-1,1)\nonumber\\
@@ -94,6 +96,7 @@ Using this result and the first derivative of the geometric series we get
 \Omega &=& \sum_{i=n}^{n+\theta_2} (i-n)x(i,0) + x(n+m,1)\sum_{i=0}^{+\infty} i\rho^i\nonumber\\
 &=& \sum_{i=n}^{n+\theta_2} (i-n)x(i,0) + x(n+m,1)\frac{\rho}{(1-\rho)^2}.
 \end{eqnarray*}
+
 Now, we can give the mean waiting time for all jobs in the system as
 \begin{equation*}
 E[W] = \frac{\Omega}{\lambda}.

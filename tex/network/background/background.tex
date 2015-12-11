@@ -17,20 +17,20 @@ The \gls{RAN} is used to establish connectivity between the \gls{UE} and the \gl
 
 \glspl{UE} are devices used by end users, i.e. smartphones, tablets or data card enabled notebooks, but can also include \gls{M2M} devices.
 The \gls{RAN} is, amongst other tasks, responsible for \gls{RRC}, packet scheduling and handover control.
-It includes the \glspl{NodeB} and the \gls{RNC}.
+It includes the NodeB and the \gls{RNC}.
 The \gls{CN} provides the backbone network of the \gls{UMTS} network and provides connectivity to the Internet and the \gls{PSTN}.
 Furthermore, the \gls{CN} provides billing, authentication, and location management functionalities.
 
 \paragraph*{\headershortacr{RRC} Protocol} In \gls{UMTS} networks, the radio resources in the \gls{RAN} between base station and UE are controlled and managed by the \gls{RRC} protocol~\cite{3GPP_RRC_Spec}.
-The protocol is responsible for controll band signalling between the \glspl{UE} and the \gls{RAN}.
+The protocol is responsible for control-band signalling between the \glspl{UE} and the \gls{RAN}.
 It is used to establish, maintain, and tear down connections between \gls{UE} and \gls{RAN}.
 Furthermore, the \gls{RRC} protocol performs broadcasting of network information, \gls{QoS} control, and reporting and cell selection management, which are out of scope for this text.
 The protocol is divided into different parts: services for upper layers, communication with lower layers, protocol states, \gls{RRC} procedures, and error control.
 In particular, the \gls{RRC} protocol also participates in the co-ordination of other resource management operations, channel measurements, and handovers.
 All \gls{RRC} procedures rely on protocol states. 
-The state are defined per \gls{UE} and for the connection between the \gls{UE} and the \gls{NodeB} station.
+The state are defined per \gls{UE} and for the connection between the \gls{UE} and the NodeB station.
 Depending on the \gls{RRC} state and network activity from, or targeted at, the \gls{UE} protocol actions can be triggered and transitions to other \gls{RRC} states may occur.
-Typically there are five \gls{RRC} states characterising a connection between \gls{UE} and \gls{NodeB}: \texttt{idle}, \texttt{URA\_PCH}, \texttt{CELL\_PCH}, \texttt{RRC\_DCH}, and \texttt{RRC\_FACH}.
+Typically there are five \gls{RRC} states characterising a connection between \gls{UE} and NodeB: \texttt{idle}, \texttt{URA\_PCH}, \texttt{CELL\_PCH}, \texttt{RRC\_DCH}, and \texttt{RRC\_FACH}.
 Whether a specific \gls{RRC} state is used in a specific mobile network depends on the configuration of the network by the provider.
 In the following we concentrate on the most commonly observed \gls{RRC} states~\cite{Qian2010a}: \gls{RRC_idle}, \gls{RRC_DCH}, and \gls{RRC_FACH}.
 We neglect \texttt{URA\_PCH} and \texttt{CELL\_PCH} in this study.
@@ -38,7 +38,7 @@ While \texttt{URA\_PCH} plays only a role in scenarios of high mobility, \texttt
 Our results are still of general nature and do not depend on the number of considered \gls{RRC} states.
 
 \paragraph*{\headershortacr{RRC} State Transitions} If the \gls{UE} is switched on and no connection to the mobile network is established, the \gls{UE} is in \gls{RRC_idle} state.
-If the \gls{UE} wants to send data, radio resources are allocated by the \gls{NodeB} for the handset and the \gls{UE} will transition to either the \gls{RRC_FACH} or the \gls{RRC_DCH} state. 
+If the \gls{UE} wants to send data, radio resources are allocated by the NodeB for the handset and the \gls{UE} will transition to either the \gls{RRC_FACH} or the \gls{RRC_DCH} state. 
 Then, a corresponding channel for data transmission is assigned to the \gls{UE} and the \gls{UE} is connected to the network.
 The \gls{RRC_FACH} and the \gls{RRC_DCH} state can be distinguished in that way that in \gls{RRC_DCH} state a high-power dedicated channel for high speed transmission is allocated whereas in \gls{RRC_FACH} state a shared access channel for general sporadic data transmission is used.
 Thus, \gls{RRC_FACH} consumes significantly less power than the \gls{RRC_DCH} state. 
@@ -69,22 +69,22 @@ The \gls{UE} will transition into \gls{RRC_idle} state if the \gls{RNC} detects 
 	\caption{\headershortacr{RRC} state machine diagrams}\label{fig:network:background:rrc_state_machines}
 \end{figure}
 
-\paragraph*{Network Models} We consider two different state transition models, depicted in \reffig{fig:network:background:rrc_state_machines}, based on the \gls{RRC} protocol.
+\paragraph*{Considered Network Models} We consider two different state transition models, depicted in \reffig{fig:network:background:rrc_state_machines}, based on the \gls{RRC} protocol.
 The first model includes the \gls{RRC_idle}, \gls{RRC_FACH}, and \gls{RRC_DCH} states is shown in \reffig{fig:network:background:rrc_state_machines:three_states} and is in the following called the \emph{Three State Model}.
 If the \gls{UE} is in the \gls{RRC_idle} state and activity is detected, i.e. a packet is sent or received, the connection transitions to \gls{RRC_DCH} state.
-After each transmission a timer \gls{TDCH} is started and reset whenever a new packet is sent or received.
-If the timer expires, the connection transitions to the \gls{RRC_FACH} state upon entering, the \gls{TFACH} timer is started.
+After each transmission a timer \TDCH is started and reset whenever a new packet is sent or received.
+If the timer expires, the connection transitions to the \gls{RRC_FACH} state upon entering, the \TFACH timer is started.
 If a new transmission occurs, the connection again transitions to the \gls{RRC_DCH} state.
-If \gls{TFACH} expires, the connection transitions to \gls{RRC_idle} state.
+If \TFACH expires, the connection transitions to \gls{RRC_idle} state.
 
 The second model, denoted as the \emph{Two State Model}, and shown in \reffig{fig:network:background:rrc_state_machines:two_states}, only includes the \gls{RRC_idle} and \gls{RRC_DCH} state.
-If the \gls{UE} is in the \gls{RRC_idle} mode and a packet is sent or received, the connection transitions to the \gls{RRC_DCH} state. Once in \gls{RRC_DCH} mode, the \gls{TDCH} timer is started and it is reset whenever a new packet is sent or received.
+If the \gls{UE} is in the \gls{RRC_idle} mode and a packet is sent or received, the connection transitions to the \gls{RRC_DCH} state. Once in \gls{RRC_DCH} mode, the \TDCH timer is started and it is reset whenever a new packet is sent or received.
 If the timer expires, the \gls{UE} transitions back to \gls{RRC_idle} state.
 
-\paragraph*{Fast Dormancy} While the Three State Model is closer to the specified \gls{RRC} protocol, the Two State Model is similar to some proprietary \emph{Fast Dormancy} implementations used by \gls{UE} vendors.
+\paragraph*{Fast Dormancy Extensions} While the Three State Model is closer to the specified \gls{RRC} protocol, the Two State Model is similar to some proprietary \emph{Fast Dormancy} implementations used by \gls{UE} vendors.
 In these Fast Dormancy implementations, the \gls{UE} tears down the connection to the network state as soon as no data is ready to be sent for a certain time, i.e., it forces the network to transition to \gls{RRC_idle} state.
 In contrast to the Three State Model, there is no transition to the \gls{RRC_FACH} state.
-If a device disconnects from the network by transitioning to the \gls{RRC_idle} state, it has to be reauthenticated before another transition to the \gls{RRC_DCH} state can occur.
+If a device disconnects from the network by transitioning to the \gls{RRC_idle} state, it has to be re-authenticated before another transition to the \gls{RRC_DCH} state can occur.
 This results in additional signalling traffic and causes more load on the network \cite{NSN2011} due to frequent re-establishments of the RRC connection.
 These proprietary Fast Dormancy algorithms do not adhere to the \gls{RRC} specification \cite{GSM2010}, but nonetheless exist in the real world and have been identified as possible causes for signalling storms.
 The major reason for Fast Dormancy implementations is the decrease in power drain on the \gls{UE}, since the transmission unit of the \gls{UE} consumes only \SIrange{1}{2}{\percent} of the power in \gls{RRC_idle} state compared to the \gls{RRC_DCH} state.
@@ -103,7 +103,7 @@ Similar results are presented in~\cite{Qian2010a}.
 Here, the observed values vary between \SI{5}{\second} and \SI{12}{\second}. 
 Additionally, they also determined the exact \gls{RRC} state transitions for two networks, i.e. \gls{RRC_idle} \(\rightarrow\) \gls{RRC_FACH} \(\rightarrow\) \gls{RRC_DCH} or \gls{RRC_idle} \(\rightarrow\) \gls{RRC_DCH} directly without transitioning through the \gls{RRC_FACH} state.
 The \gls{3GPP} has released a technical report \cite{3GPP_22801} about the adverse impact of mobile data applications.
-This report states that frequent connection re-establishments due to small data packets caused by e.g. status updates of social network or instant messaging apps can lead to problems of increased signalling.
+This report states that frequent connection re-establishments due to small data packets caused by e.g. status updates of social network or instant messaging applications can lead to problems of increased signalling.
 This highlights the importance of this topic.
 
 Furthermore, there are papers that propose optimising strategies that take the \gls{RRC} states into account. 

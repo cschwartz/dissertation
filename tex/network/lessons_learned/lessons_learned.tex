@@ -15,19 +15,19 @@ This chapter provides a two-pronged approach to analysing the impact of changes 
 First, we provided an algorithm to derive \gls{RRC} state transitions from traffic measurements of already deployed or prototyped applications.
 While proprietary mechanisms exist to directly measure \gls{RRC} state transitions, due to the high price they are usually out of reach for application developers, preventing them from evaluating the impact of their applications on the network.
 Based on this algorithm we analyse four popular smartphone applications, and find that while it is possible to find a viable tradeoff between signalling load and power drain for single applications, no such tradeoff exists if multiple applications operating in the network at the same time are considered.
-For example, for the considered \emph{Twitter} application, increasing the network timer \gls{TDCH} from \SI{10}{\second} to \SI{11}{\second} would result in a decrease of signalling by \SI{40}{\percent}, while only resulting in an increase of power drain of \SI{6}{\percent}.
+For example, for the considered \emph{Twitter} application, increasing the network timer \TDCH from \SI{10}{\second} to \SI{11}{\second} would result in a decrease of signalling by \SI{40}{\percent}, while only resulting in an increase of power drain of \SI{6}{\percent}.
 However, if the \emph{Aupeo} application is running in the same network optimised for the Twitter application, this change results in no reduction of signalling load and an increased power drain of \SI{5}{\percent}. 
 
 Furthermore, we show that network timer optimisation, a practice where network operators manipulate \gls{RRC} timers in order to reduce signalling load, incentivises users to enable proprietary fast dormancy algorithms, resulting in a net increase of signalling load.
-For example, if a network operator increases the \gls{TDCH} network timer from \SI{4}{\second} to \SI{8}{\second}, in order to reduce the signalling frequency caused by the Angry Birds application by \SI{67}{\percent}, this results in an increased power drain at the user's \gls{UE} of \SI{341}{\percent}.
+For example, if a network operator increases the \TDCH network timer from \SI{4}{\second} to \SI{8}{\second}, in order to reduce the signalling frequency caused by the Angry Birds application by \SI{67}{\percent}, this results in an increased power drain at the user's \gls{UE} of \SI{341}{\percent}.
 If the user enables the fast dormancy option of the \gls{UE}, the power drain is decreased by \SI{27}{\percent}, however this increases the signalling frequency above the original value before the reconfiguration of the network operator.
 %We also show that while longer \gls{RRC} timers may have an adverse effect on power drain due to the smartphone being longer connected to the network, it results in an increase of Web \gls{QoE}, as this results in web pages being able to be loaded faster if the smartphone is already connected to the network.
 
 Second, we propose an analytical model to derive the \glspl{KPI} from analytical or empirical traffic distributions, in order to evaluate the impact of applications that do not yet exist or classes of applications defined by a common traffic characteristics.
 Our results show that different access patterns have a considerable impact on the required resources of the mobile phone and the network.
 We identified bursty traffic pattern as particularly resource-efficient with respect to power drain and signalling load.
-In contrast, nearly periodic traffic is likely to cause signalling overload due to frequent connection reestablishments, especially when the connection timeout is slightly below the inter-packet time.
-This can be observed on the example of a \gls{TDCH} timer of \SI{10}{\second}.
+In contrast, nearly periodic traffic is likely to cause signalling overload due to frequent connection re-establishments, especially when the connection timeout is slightly below the inter-packet time.
+This can be observed on the example of a \TDCH timer of \SI{10}{\second}.
 Here, the coefficient of variation has no impact on the signalling load for very small inter-packet times \(E[\PacketIAT]<\SI{1e-1}{\second}\) or very large inter-packet times \(E[\PacketIAT]>\SI{1e3}{\second}\).
 For example, for a mean inter-arrival time of \(E[\PacketIAT] = 11.5\) seconds, an increase of coefficient of variation from \(0.5\) to \(5.0\) can decrease the signalling load by \SI{53}{\percent}.
 

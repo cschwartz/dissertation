@@ -1,4 +1,4 @@
-\subsection{Model}\label{sec:cloud:virtualized_network_functions:model}
+\subsection{Models of \headershortacr{GGSN} Implementations}\label{sec:cloud:virtualized_network_functions:model}
 
 In this section we provide a model for a traditional \gls{GGSN} and discuss a model for a virtual \gls{GGSN} using \gls{NFV}.
 In \gls{NFV} \cite{Nfv2013} static network middleboxes are replaced by commodity hardware.
@@ -17,7 +17,7 @@ However, due to the fact that the \gls{GGSN} is purchased from a vendor as a mid
 \end{figure}
 
 We present an abstract queueing model for the traditional \gls{GGSN} in \reffig{sec:cloud:virtualized_network_functions:model:traditional_ggsn:model}.
-New tunnels requests arrive according to a poisson process with rate \(\lambda(t)\) at the \gls{GGSN}.
+New tunnels requests arrive according to a Poisson process with rate \(\lambda(t)\) at the \gls{GGSN}.
 This server will support a maximum tunnel capacity of \(c\).
 When this capacity is reached, blocking will occur and newly incoming tunnels requests are rejected.
 Traditionally, \glspl{GGSN} can be expected to be overdimensioned in such a way that this rarely happens.
@@ -44,15 +44,15 @@ Each of these is less powerful than the traditional \gls{GGSN}, having a tunnel 
 In its initial state, for efficiency, all but a small portion of the server instances are considered to be disabled.
 Only, when a certain condition is reached, a new server instance is provisioned.
 As a simple example, one instance could be kept in reserve for upcoming requests and an additional would be provisioned as soon as the reserve is used.
-Similar rules should apply in the shutdown of servers and form a hysteresis with the boot condition.
+Similar rules should apply in the shut-down of servers and form a hysteresis with the boot condition.
 For example it would be possible to keep at least one server in reserve but never more than two.
 
 If these conditions are not carefully selected and are in tune with the expected boot time of an instance, additional blocking can occur.
 Despite not having reached its maximum capacity, this system would still reject tunnel requests during the provisioning phase when no tunnel slots are available.
 This could be remedied by a request queue.
-However, this would introduce additional complexity to the system without providing real benefit, as mobile devices or applications will repeat their attempts and would time out when the request is taking too long. 
+However, this would introduce additional complexity to the system without providing real benefit, as mobile devices or applications will repeat their attempts and would timeout when the request is taking too long. 
 
 To place incoming tunnel state on one of the available servers a load balancer is required. 
 To ensure that the system in run time can scale down to its actual needs, the balancer should place tunnels on servers that are the fullest, keeping the reserve free.
-It may even migrate tunnel state from almost empty servers away so that these can be shut down, when the shutdown condition is fulfilled.
+It may even migrate tunnel state from almost empty servers away so that these can be shut down, when the shut-down condition is fulfilled.
 Keeping instance close to their capacity should also have no impact on the performance a mobile device associated to a specific tunnel experiences.

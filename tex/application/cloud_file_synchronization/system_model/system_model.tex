@@ -1,4 +1,4 @@
-\subsection{System Model for Dropbox}\label{sec:application:cloud_file_synchronisation:system_model}
+\subsection{System Model for File Synchronisation using Dropbox}\label{sec:application:cloud_file_synchronisation:system_model}
 This section first provides a general overview over the Dropbox service architecture and introduces the considered use case.
 Then, we propose the cloud storage model and metrics used in this analysis.
 Finally, we discuss a set of scheduling mechanisms used to start the file synchronisation process. 
@@ -86,7 +86,7 @@ Finally, we evaluate the number of transitions~\connectionCount between the conn
 As discussed in \refsec{chap:network}, frequent state transitions stress the network due to increased signalling.
 Thus, scheduling algorithms with a small number of transitions would be favoured by network operators.
 
-\subsubsection*{Scheduling Algorithms}\label{sec:application:cloud_file_synchronisation:system_model:algorithms}
+\subsubsection*{Considered Scheduling Algorithms}\label{sec:application:cloud_file_synchronisation:system_model:algorithms}
 We use different scheduling strategies in our model to control the uploading of the files from the mobile client.
 These mechanisms in turn affect the synchronisation time, the power drain, and the generated signalling traffic.
 

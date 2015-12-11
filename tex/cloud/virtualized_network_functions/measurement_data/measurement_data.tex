@@ -1,4 +1,4 @@
-\subsection{Measurement Data}\label{sec:cloud:virtualized_network_functions:measurement_data}
+\subsection{Mobile Network Traffic Characteristics}\label{sec:cloud:virtualized_network_functions:measurement_data}
 
 In order to evaluate our models introduced in \refsec{sec:cloud:virtualized_network_functions:model}, we use data gathered from a nation-wide mobile operator.
 This allows for precise core network evaluations and the creation statistical fits for the observed processes.
@@ -8,7 +8,17 @@ In this section we first describe the dataset used for the evaluation and afterw
 
 \label{sec:dataset_description}
 
-All data was collected by the \gls{METAWIN} monitoring system~\cite{Ricciato2006} with measurement probes located at the Gn interface within the core network, enabling broad access to signalling.
+All data was collected by the \gls{METAWIN} monitoring system~\cite{Ricciato2006} with measurement probes located at the Gn interface within the core network, , as shown in \reffig{fig:cloud:virtualized_network_functions:measurement_data:dataset_description:mobile_network_overview}.
+The Gn interface is a \gls{IP} based \gls{WAN} used to connect \gls{GGSN} and \gls{SGSN} installations.
+This access to the mobile core network provides \gls{METAWIN} with a broad access to mobile signalling traffic.
+
+\begin{figure}
+  \centering
+  \includegraphics{cloud/virtualized_network_functions/measurement_data/figures/mobile_network_overview}
+  \caption{Overview of the \headershortacr{METAWIN} monitoring architecture in a \headershortacr{3G} mobile network~\cite{Ricciato2006}.}
+  \label{fig:cloud:virtualized_network_functions:measurement_data:dataset_description:mobile_network_overview}
+\end{figure}
+
 For this investigation we employ \gls{GTP} protocol data gathered by \gls{METAWIN}.
 This data includes the \gls{RAT} identifier as well as the terminal types of the mobile clients, by use of the \gls{TAC} part of the \gls{IMEI}.
 To meet privacy requirements, \gls{METAWIN} anonymises all captured data.
@@ -85,7 +95,7 @@ Further properties of the tunnel duration, especially the correlation with devic
 \end{table}
 
 Furthermore, the model requires information on the tunnel durations.
-However, none of the basic probability distributions, e.g. exponential, gamma, and weibull distributions, fit the tunnel duration well enough.
+However, none of the basic probability distributions, e.g. exponential, gamma, and Weibull distributions, fit the tunnel duration well enough.
 One of the reasons for this probably being the correlation of the tunnel duration to a large number of factors, including user behaviour and network-specific timers and procedures, e.g. tunnels are shut down by the network after specific events, introducing artefacts which make it hard to fit any distribution against.
 Instead, we fit rational functions to the empirical \gls{CDF} using the Eureqa \cite{Schmidt2009} software.
 

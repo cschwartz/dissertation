@@ -32,7 +32,7 @@ label.signalling.intensity <- 'Signalling intensity SI'
 label.signalling.frequency <- 'Signalling frequency SF'
 label.application <- 'Application'
 label.evaluation.type <- 'Model'
-label.cA <- expression(c[A])
+label.cA <- expression(paste('Coefficient of variation ', c[A]))
 label.interarrival.time <- expression(paste('Packet inter-arrival time ', A, ' (s)'))
 label.interarrival.time.cdf <- expression(P(A <= a))
 label.lag <- 'Lag length'
@@ -86,7 +86,7 @@ label.normalized.video.buffer <- expression(paste('Normalized Video Buffer ', d^
 
 # 4.2, done
 label.power <- 'Power drain E (kW)'
-label.pareto <- 'Pareto optimal'
+label.pareto <- 'Pareto-optimal'
 label.number.servers <- 'Number of available servers n+m'
 label.parameter <- 'Parameter'
 label.waiting.time.ms <- "Mean waiting Time E[W] (ms)"
@@ -102,8 +102,8 @@ label.cdf.number.instances <- expression(P(I <= i))
 label.max.instances <- expression(paste('Maximum number of active instances ', S[max]))
 label.max.tunnels <- expression(paste('Maximum number of tunnels ', n))
 label.blocking.probability <- expression(paste('Blocking probability ', p[B]))
-label.mean.resource.utilization <- expression(paste('Mean number of active tunnels')) 
-label.startstop.duration <- expression(paste('Start-up and shut-down time ', (s)))
+label.mean.resource.utilization <- expression(paste('Mean number of active tunnels ', n[a])) 
+label.startstop.duration <- expression(paste('Start-up and shut-down time d ', (s)))
 
 # 4.4, done
 label.campaign.interarrival <- expression('Campaign inter-arrival time A'[c]*' (h)')

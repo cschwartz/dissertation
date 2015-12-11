@@ -1,4 +1,4 @@
-\subsection{Performance Evaluation}\label{sec:cloud:virtualized_network_functions:performance_evaluation}
+\subsection{Comparison of Traditional and Virtualised Approach}\label{sec:cloud:virtualized_network_functions:performance_evaluation}
 
 We implement the models introduced in \refsec{sec:cloud:virtualized_network_functions:model} using a \gls{DES} with the SimPy\footnote{\url{https://simpy.readthedocs.org/}, \accessed} package as foundation.
 The implementation\footnote{\url{https://github.com/fmetzger/ggsn-simulation/}, \accessed} as well as the considered scenarios\footnote{\url{https://github.com/cschwartz/ggsn-simulation-studies/}, \accessed} are also publicly available as a reference.
@@ -16,8 +16,6 @@ Employing the inter-arrival times and duration of tunnels, we first study the tr
 Whilst our measurements provide us with information on the frequency of new tunnels and the duration they remain active, we have no reliable information on the number of active tunnels the \gls{GGSN} can support.
 Thus, in a first step, we dimension the \gls{GGSN} in such a way that a suitable blocking probability \(\blockingprobability\) can be achieved.
 
-%TODO grafik? traditional-blocking + text?
-
 In order to obtain a baseline dimensioning, we perform a simulation study, considering the impact of an increasing offered load on the blocking probability.
 We observe that as the number of supported parallel tunnels increases, the blocking probability decreases.
 For the normalized inter-arrival no blocking is occurring if we allow for more than \(5000\) parallel tunnels.
@@ -31,9 +29,9 @@ The number of servers and supported tunnels per server is chosen in such a way t
 Due to simulation time constraints, only a representative subset of scenarios is simulated.
 
 In the virtual \gls{GGSN} model, servers are activated and deactivated on demand, while in the traditional \gls{GGSN} model, the single server is always on.
-For this investigation a conservative start-up and shut-down time of \SI{300}{\second} is chosen.
-Generally, deactivating server instances reduces energy consumption and frees up inactive servers for other use.
-For this reason, the number of active servers is a relevant performance metric in the virtual \gls{GGSN} model.
+For this investigation a conservative start-up and shut-down time \(d\) of \SI{300}{\second} is chosen.
+Generally, deactivating server instances reduces energy consumption, frees up inactive servers for other use, or reduces cost to be paid to a cloud operator.
+For this reason, the number of active servers \(I\) is a relevant performance metric in the virtual \gls{GGSN} model.
 
 \begin{table}\caption{Manipulation check for the experimental factors based on one-way ANOVA.}
 \centering
@@ -47,76 +45,76 @@ For this reason, the number of active servers is a relevant performance metric i
 \emph{blocking probability} \(\blockingprobability\)  & & & & &\\ 
 maxTunnels \(n\)&  15601.53 & \textcolor{red}{0.993} & $<0.001$ & \textcolor{red}{26.73} & 0.96\\ 
 maxInstances \(\maxServers\)&  10218.17 & \textcolor{red}{0.986} & $<0.001$ & \textcolor{red}{1.06} & 0.51\\ 
-startstopDuration &  0.86 & \textcolor{black}{0.003} & $0.482$ & \textcolor{black}{0.00} & 0.00\\ 
+startstopDuration \(d\) &  0.86 & \textcolor{black}{0.003} & $0.482$ & \textcolor{black}{0.00} & 0.00\\ 
 \midrule
-\emph{mean tunnel count}  & & & & &\\ 
+\emph{mean tunnel count} \(n_A\) & & & & &\\ 
 maxTunnels \(n\)&  20448.34 & \textcolor{red}{0.994} & $<0.001$ & \textcolor{red}{27.71} & 0.96\\ 
 maxInstances \(\maxServers\)&  13348.25 & \textcolor{red}{0.989} & $<0.001$ & \textcolor{red}{1.06} & 0.51\\ 
-startstopDuration &  2.87 & \textcolor{black}{0.009} & $0.022$ & \textcolor{black}{0.00} & 0.00\\ 
+startstopDuration \(d\) &  2.87 & \textcolor{black}{0.009} & $0.022$ & \textcolor{black}{0.00} & 0.00\\ 
 \bottomrule
 \end{tabular}
 \end{table}
 
 For the analysis of the influence of different model parameters on the performance metrics, we perform a one-way ANOVA analysis with the results in \reftab{tab:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn:manipulation}.
-High values for the effect size estimators \(\eta_p^2\) and Cohen's \(f^2\)\cite{Ellis2010} indicate that the main influence for both blocking probability \(\blockingprobability\) and mean number of tunnels is the maximum number of tunnels \(n\) and virtual \gls{GGSN} instances \(\maxServers\), i.e. the total number of possible concurrent tunnels in the system.
+High values for the effect size estimators \(\eta_p^2\) and Cohen's \(f^2\)\cite{Ellis2010} indicate that the main influence for both blocking probability \(\blockingprobability\) and mean number of tunnels \(n_A\) is the maximum number of tunnels \(n\) and virtual \gls{GGSN} instances \(\maxServers\), i.e. the total number of possible concurrent tunnels in the system.
 Therefore, we study these parameters first.
 
 \begin{figure}
   \centering
   \includegraphics{cloud/virtualized_network_functions/performance_evaluation/figures/instanceuse_multiserver}
-  \caption{Impact of the maximum number of tunnels and number of servers on number of active servers in the virtual \headershortacr{GGSN} model.}
+  \caption{Impact of the maximum number of tunnels \(n\) and number of servers \maxServers on number of active servers in the virtual \headershortacr{GGSN} model.}
   \label{fig:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn:instanceuse_multiserver}
 \end{figure}
 
 In \reffig{fig:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn:instanceuse_multiserver} the \gls{CDF} of the number of active servers for four different virtual \gls{GGSN} configurations is displayed.
-We study the behaviour of a virtual \gls{GGSN} with \(30\) servers, where each server can support \(100\) or \(150\) tunnels.  
-Then, we compare this with a virtual \gls{GGSN} with \(50\) servers and again \(75\) or \(150\) tunnels.
-We observe that increasing the number of supported tunnels per server allows a larger percentage of servers to be shutdown or used for other tasks. This demonstrates the scaling capability of the virtualised model quite well.
-Note that both the scenario with \(30\) servers and \(150\) maximum tunnels per server as well as the scenario with \(60\) servers and \(75\) maximum tunnels per server sharing the same maximum amount of tunnels, i.e. \(4500\), being right at the centre of the interesting range of candidates.
+We study the behaviour of a virtual \gls{GGSN} with \(\maxServers = 30\) servers, where each server can support \(n = 100\) or \(n = 150\) tunnels.  
+Then, we compare this with a virtual \gls{GGSN} with \(\maxServers = 50\) servers and again \(n = 75\) or \(n = 150\) tunnels.
+We observe that increasing the number of supported tunnels \(n\) per server allows a larger percentage of servers to be shut-down or used for other tasks. This demonstrates the scaling capability of the virtualised model quite well.
+Note that both the scenario with \(30\) servers \maxServers and \(150\) maximum tunnels \(n\) per server as well as the scenario with \(60\) servers \maxServers and \(75\) maximum tunnels per server sharing the same maximum amount of tunnels, i.e. \(4500\), being right at the centre of the interesting range of candidates.
 
 \begin{figure}
   \centering
   \includegraphics{cloud/virtualized_network_functions/performance_evaluation/figures/blocking_comparison}
-  \caption{Impact of blocking probability on the number of servers compared to the traditional \headershortacr{GGSN}, \(4500\) maximum tunnels per server being on a single server, i.e. \(150\) on \(30\), and \(75\) on \(60\) servers.}
+  \caption{Impact of blocking probability \blockingprobability on the number of servers compared to the traditional \headershortacr{GGSN}, \(4500\) maximum tunnels per server being on a single server, i.e. \(150\) on \(30\), and \(75\) on \(60\) servers.}
   \label{fig:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn:blocking_comparison}
 \end{figure}
 
 Next, we study the blocking probability of the virtual \gls{GGSN} system in \reffig{fig:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn:blocking_comparison} and compare it to the results from the traditional \gls{GGSN} model with both systems dimensioned for \(4500\) tunnels.
-We observe that, considering the start-up and shut-down time of \SI{300}{\second}, the blocking probability increases by a factor of \(1.46\) if the virtual \gls{GGSN} is comprised of \(60\) instances dimensioned for \(75\) concurrent tunnels, i.e. \(\frac{1}{60}\) of the original server capacity.
+We observe that, considering the start-up and shut-down time of \SI{300}{\second}, the blocking probability \blockingprobability increases by a factor of \(1.46\) if the virtual \gls{GGSN} is comprised of \(60\) instances \(\maxServers\) dimensioned for \(75\) concurrent tunnels \(n\) , i.e. \(\frac{1}{60}\) of the original server capacity.
 In this case \(27\) of all \(60\) servers can be turned off or used for other purposes at \SI{50}{\percent} of the time.
 We conclude that choosing more powerful servers decreases the blocking probability but reduces the potential to disable servers.
 
-So far we have considered a conservative start-up and shut-down time of servers of 5 minutes, which can potentially occur in non-virtualised available hardware.
+So far we have considered a conservative start-up and shut-down time of servers \(d\) of 5 minutes, which can potentially occur in non-virtualised available hardware.
 In the next section we study the impact of reduced start-up and shut-down times with modern servers with fast storage, e.g. \glspl{SSD}, or containerised applications\footnote{\url{https://www.docker.com/}, \accessed}.
 
-\subsubsection*{Impact of Startup and Shutdown Times}\label{sec:cloud_virtualized_network_functions:startup_shutdown}
+\subsubsection*{Impact of Start-up and Shut-down Times}\label{sec:cloud_virtualized_network_functions:startup_shutdown}
 
-In this section, we first consider the impact of different boot and shut-down times on resource utilisation and blocking probabilities.
-Afterwards, the influence of varying server start and stop times on a fixed combination of maximum tunnels and servers in the system is examined.
+In this section, we first consider the impact of different start-up and shut-down times \(d\) on resource utilisation \(n_A\) and blocking probabilities \blockingprobability.
+Afterwards, the influence of varying server start and stop times \(d\) on a fixed combination of maximum tunnels \(n\) and servers \maxServers in the system is examined.
 
 \begin{figure}
   \centering
   \includegraphics{cloud/virtualized_network_functions/performance_evaluation/figures/compare_util_block}
-  \caption{Trade-off between blocking probability and mean resource utilisation with regard to maximum number of instances, maximum number of tunnels per server, and start-up and shut-down time.}
+  \caption{Trade-off between blocking probability \blockingprobability and mean resource utilisation \(n_A\) with regard to maximum number of instances \maxServers, maximum number of tunnels per server \(n\), and start-up and shut-down time \(d\).}
   \label{fig:cloud_virtualized_network_functions:startup_shutdown:compare_util_block}
 \end{figure}
 
-\reffig{fig:cloud_virtualized_network_functions:startup_shutdown:compare_util_block} shows scenarios with \(40\) and \(100\) \gls{GGSN} instances and  \(1000\) to \(5000\) total concurrent tunnels.
-For each scenario, we study the impact of selecting a different maximum number of tunnels per server as well as start-up and shut-down times on blocking probability and mean resource utilisation.
-The first observation is that by increasing the number of servers, i.e. scaling out, the blocking probability can be decreased, while maintaining a relatively low mean resource utilisation.
-In addition to the previous effects, we notice that a higher start-up and shut-down time causes a slight increase in blocking probability for servers with low tunnel capacity.
+\reffig{fig:cloud_virtualized_network_functions:startup_shutdown:compare_util_block} shows scenarios with \(40\) and \(100\) \gls{GGSN} instances \(maxServers\) and  \(1000\) to \(5000\) total concurrent tunnels.
+For each scenario, we study the impact of selecting a different maximum number of tunnels \(n\) per server as well as start-up and shut-down times \(d\) on blocking probability \blockingprobability and mean resource utilisation \(n_A\).
+The first observation is that by increasing the number of servers \(\maxServers\), i.e. scaling out, the blocking probability \blockingprobability can be decreased, while maintaining a relatively low mean resource utilisation \(n_A\).
+In addition to the previous effects, we notice that a higher start-up and shut-down time \(d\) causes a slight increase in blocking probability \blockingprobability for servers with low tunnel capacity \(n\).
 
 \begin{figure}
   \centering
   \includegraphics{cloud/virtualized_network_functions/performance_evaluation/figures/compare_maxinstances_block}
-  \caption{Influence of start-up and shut-down time on blocking probability with regard to different numbers of servers.}
+  \caption{Influence of start-up and shut-down time \(d\) on blocking probability \(p_B\) with regard to different numbers of supported tunnels per instance \(n\).}
   \label{fig:cloud_virtualized_network_functions:startup_shutdown:compare_maxinstances_block}
 \end{figure}
  
-We focus on a specific scenario in \reffig{fig:cloud_virtualized_network_functions:startup_shutdown:compare_maxinstances_block}, where \(5000\) total tunnels should be supported by the system, to study this behavious in more detail.
-To achieve this goal, we consider three types of instances, with the server capacity varying between \(50\) and \(500\).
-In each case we change the start-up and shut-down time between \(20\) and \(\SI{300}{\second}\).
-We observe that lower server capacities combined with higher start-up and shut-down times increase the blocking probability.
+We focus on a specific scenario in \reffig{fig:cloud_virtualized_network_functions:startup_shutdown:compare_maxinstances_block}, where \(5000\) total tunnels should be supported by the system, to study this behaviour in more detail.
+To achieve this goal, we consider three types of instances, with the server capacity \(n\) varying between \(50\) and \(500\).
+In each case we change the start-up and shut-down time \(d\) between \(20\) and \(\SI{300}{\second}\).
+We observe that lower server capacities \(n\) combined with higher start-up and shut-down times \(d\) increase the blocking probability \blockingprobability.
 This is due to the server start-up threshold mechanism, used in the model, not taking the additional capacity gained by activating an additional server into account.
 If a low capacity server with a long boot time is activated, there is a high probability that the system will quickly expend its capacity again.
 

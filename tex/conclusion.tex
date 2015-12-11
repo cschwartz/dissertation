@@ -3,25 +3,25 @@
 Today's Internet traffic is dominated by multiple stakeholders.
 Applications are developed and deployed by application providers, run on \glspl{UE} produced by hardware vendors, and use mobile networks owned by operators.
 They use resources rented from cloud operators, may use human labour provided by crowdsourcing platforms and ultimately attempt to provide a high \gls{QoE} to end users.
-However, the interests and \glspl{KPI} of the stakeholders in today's Internet do often collide with each other and sometimes even conflict.%, resulting in complex inter-dependencies of stakeholder interests.
+However, the interests and \glspl{KPI} of stakeholders in today's Internet do often collide with each other and sometimes even conflict.
 
 For example, an application provider might be interested in providing its end users content as timely as possible using queries to a web service.
 These queries can result in numerous connection establishments and tear-downs, depending on the configuration used by the mobile network operator, increasing the signalling load in the mobile network and potentially causing \emph{Signalling Storms}, i.e. overload.
 However, reconfiguration of the network by the operator can result in the \gls{UE} being connected for a longer time, resulting in decreased battery life and \gls{QoE} of the user.  
 
 In general, each stakeholder attempts to improve its considered \glspl{KPI} by manipulating parameters under its control, e.g. by changing network configuration, implementing energy saving mechanisms, or adapting the number of available servers in a cloud environment.
-However, these manipulations not only improve the \glspl{KPI} of the stakeholders but also impact the \glspl{KPI} of a set of other stakeholders.
-This results in complex relationships between stakeholders where interests are sometimes adverse and satisfactory results for all stakeholders can only be reached by means of a tradeoff analysis.
+However, these manipulations not only improve the \glspl{KPI} of the stakeholders but also impact the \glspl{KPI} of a set of others.
+This results in complex relationships between stakeholders where interests are sometimes adverse and satisfactory results can only be reached by means of a tradeoff analysis.
 
-In this monograph, we study clashes of stakeholder interests for a set of scenarios from the major areas of the mobile Internet, including the network, the application, and the cloud domain.
-We consider different approaches to model and analyse these conflicts and provide numeric results for best-case scenarios, which usually can be reached by cooperation between the participating stakeholders.
+In this monograph, we study clashes of interest for a set of scenarios from the major areas of the mobile Internet, including the network, the underlying application, and the cloud domain.
+We consider different approaches to model and analyse these conflicts and provide numeric results for best-case scenarios, which can usually be reached by cooperation between the participating stakeholders.
 
-We first study the impact of a network's configuration on relevant \glspl{KPI}.
+We begin with a study on the impact of a network's configuration on relevant \glspl{KPI}.
 To this end we investigate the network traffic caused by mobile applications.
-Second, we examine the impact of application design by considering the impact of transmission mechanisms and scheduling algorithms implemented in mobile applications on \glspl{KPI} for the participating stakeholders.
+Then, we examine the impact of application design by considering the impact of transmission mechanisms and scheduling algorithms implemented in mobile applications on \glspl{KPI} for the participating stakeholders.
 Finally, we address the cloud by studying the impact of resource allocation and management schemes implemented in both machine-cloud and human-cloud scenarios.
 
-First, we consider tradeoffs occurring in the network domain.
+In the first part we consider tradeoffs occurring in the network domain.
 We propose an algorithm to derive metrics such as power drain and signalling frequency from application traffic traces for a given network configuration.
 This algorithm allows application developers to consider the impact of their applications  traffic on other considered stakeholders, i.e. on both the mobile network as well as the battery life of the \gls{UE}.
 Then, we present an analytic model which allows the derivation of the considered metrics from arbitrary, theoretical traffic distributions.
@@ -42,7 +42,7 @@ Based on large scale measurements using the PlanetLab platform, we provide bandw
 This simulation framework allows application developers to gauge the impact of their algorithm design decisions on other stakeholders, such as the network operator or the end user.
 We use the framework in order to evaluate different algorithms and find that both, the \emph{Interval} and the \emph{Size} algorithms, allow for a good tradeoff between the considered stakeholders.
 
-Having studied the application and network domains, we now focus on the cloud.
+Having studied the application and network domains, we now focus on the cloud in the third part.
 We provide a queueing model as well as a power saving mechanism for data centres allowing operators to select a tradeoff between power savings they can achieve and \glspl{SLA} they will be able to offer to their customers.
 We then consider the role of a cloud customer renting resources in a data centre in order to provide \gls{NFV} services to mobile network operators.
 We propose and evaluate a resource provisioning mechanism allowing the \gls{NFV} operator to balance the required resources with the \glspl{SLA} which it can offer to its stakeholders. 

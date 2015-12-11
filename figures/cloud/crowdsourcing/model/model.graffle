@@ -182,11 +182,11 @@
 					<key>Color</key>
 					<dict>
 						<key>b</key>
-						<string>0.913725</string>
+						<string>0.933333</string>
 						<key>g</key>
-						<string>0.705882</string>
+						<string>0.776471</string>
 						<key>r</key>
-						<string>0.337255</string>
+						<string>0.466667</string>
 					</dict>
 				</dict>
 				<key>shadow</key>
@@ -233,11 +233,11 @@
 					<key>Color</key>
 					<dict>
 						<key>b</key>
-						<string>0.913725</string>
+						<string>0.933333</string>
 						<key>g</key>
-						<string>0.705882</string>
+						<string>0.776471</string>
 						<key>r</key>
-						<string>0.337255</string>
+						<string>0.466667</string>
 					</dict>
 				</dict>
 				<key>shadow</key>
@@ -392,11 +392,11 @@
 					<key>Color</key>
 					<dict>
 						<key>b</key>
-						<string>0.913725</string>
+						<string>0.933333</string>
 						<key>g</key>
-						<string>0.705882</string>
+						<string>0.776471</string>
 						<key>r</key>
-						<string>0.337255</string>
+						<string>0.466667</string>
 					</dict>
 				</dict>
 				<key>shadow</key>
@@ -443,11 +443,11 @@
 					<key>Color</key>
 					<dict>
 						<key>b</key>
-						<string>0.6</string>
+						<string>0.886275</string>
 						<key>g</key>
-						<string>0.6</string>
+						<string>0.886275</string>
 						<key>r</key>
-						<string>0.6</string>
+						<string>0.886275</string>
 					</dict>
 				</dict>
 				<key>shadow</key>
@@ -1208,11 +1208,11 @@ size \uc0\u920 }</string>
 									<key>Color</key>
 									<dict>
 										<key>b</key>
-										<string>0.74902</string>
+										<string>0.698039</string>
 										<key>g</key>
-										<string>0.74902</string>
+										<string>0.698039</string>
 										<key>r</key>
-										<string>0.74902</string>
+										<string>0.698039</string>
 									</dict>
 								</dict>
 								<key>shadow</key>
@@ -1283,7 +1283,7 @@ size \uc0\u920 }</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-12-09 07:01:06 +0000</string>
+	<string>2015-12-11 06:46:29 +0000</string>
 	<key>Modifier</key>
 	<string>Christian Schwartz</string>
 	<key>NotesVisible</key>

@@ -1,10 +1,10 @@
-\subsection{System Model}\label{sec:application:qoe_user_behaviour:system_model}
+\subsection{Video Playback Model}\label{sec:application:qoe_user_behaviour:system_model}
 This section provides a system model for video playback, in order to study the stalling behaviour of \gls{HTTP} video streaming.
 We consider the playback of a video consisting of multiple frames, as shown in \reffig{fig:application:qoe_user_behaviour:system_model:steady_state:player}.
-The frames are downloaded in-order and arrive at the client with rate \(\lambda\) while the playback time is given by the video framerate \(\mu\), resulting in an offered load of \(a = \frac{\lambda}{\mu}\). Here, \(a\) quantifies the available network bandwidth normalised by the video framerate. We assume a stable system, i.e. that \(a < 1\) holds.
+The frames are downloaded in-order and arrive at the client with rate \(\lambda\) while the playback time is given by the video frame rate \(\mu\), resulting in an offered load of \(a = \frac{\lambda}{\mu}\). Here, \(a\) quantifies the available network bandwidth normalised by the video frame rate. We assume a stable system, i.e. that \(a < 1\) holds.
 In order to reduce the number of stalling events during playback, the video player uses a playback buffer.
 Video playback stops, if less than \(q\) frames are currently available for playback and is only resumed if the buffer contains \(p = q + d\) frames. 
-The normalised buffer size \(d^*\), in video seconds, relates the buffer size \(d\), which is given in frames, to the video framerate \(\mu\), i.e. \(d^*=\frac{d}{\mu}\).
+The normalised buffer size \(d^*\), in video seconds, relates the buffer size \(d\), which is given in frames, to the video frame rate \(\mu\), i.e. \(d^*=\frac{d}{\mu}\).
 
 Next, we introduce metrics used to evaluate the influence of the playback buffer parameter selection.
 The relative amount of time spent in stalling compared to the total duration of the playback process including stalling is given by the stalling ratio \stallingRatio and the number of stalling events normalised by the video length \(N^*\).

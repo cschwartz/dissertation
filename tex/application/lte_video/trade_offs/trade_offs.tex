@@ -1,4 +1,4 @@
-\subsection{Tradeoffs}\label{sec:application:lte_video:trade_offs}
+\subsection{Tradeoff Considerations for Participating Stakeholders}\label{sec:application:lte_video:trade_offs}
 As shown in \refsec{sec:application:lte_video:numerical_evaluation}, the different video transmission mechanisms influence the performance of all considered metrics . 
 In this section, we discuss the relationship of the metrics to each other.
 
@@ -39,8 +39,8 @@ The streaming mechanism can be configured in such a way that only relatively sma
 In this section, we discuss the influence of the lower buffer threshold \bufferlower and the buffer size \buffersize on the energy consumption \energyconsumption, the wasted traffic \meanwastedtraffic and the connection count \connectioncount for a uniformly distributed user model as discussed in \reffig{sec:application:lte_video:numerical_evaluation}.
 Considered stop thresholds are in the range of \SIlist{4;32}{\second}.
 Lower stop threshold values result in stalling, as the buffer runs empty while the \gls{UE} is still waiting for the promotion delay to be completed and sufficient amount of data to be downloaded to continue playback.
-For sake of readability, we show video bit rates \bitrate for values of \SIlist{2;6;10}{\mega\bit\per\second} and show the Pareto frontier, i.e. the set of all parameter combinations where no other parameter combination yields better results for both metrics, of evaluated parameters as a connected line.
-If only one parameter combination is Pareto optimal is marked using an arrow.
+For sake of readability, we show video bit rates \bitrate for values of \SIlist{2;6;10}{\mega\bit\per\second} and show the Pareto-frontier, i.e. the set of all parameter combinations where no other parameter combination yields better results for both metrics, of evaluated parameters as a connected line.
+If only one parameter combination is Pareto-optimal is marked using an arrow.
 
 \begin{figure}
   \centering
@@ -50,7 +50,7 @@ If only one parameter combination is Pareto optimal is marked using an arrow.
 \end{figure}
 
 First, we consider the tradeoff between energy consumption \energyconsumption and wasted traffic in \reffig{fig:application:lte_video:numerical_evaluation:trade_offs:energy2lostData}.
-We find that, independent of video bit rate \bitrate, the values found on the Pareto frontier can be obtained for the smallest considered buffer threshold.
+We find that, independent of video bit rate \bitrate, the values found on the Pareto-frontier can be obtained for the smallest considered buffer threshold.
 Increasing the buffer size decreases the energy consumption \energyconsumption at the cost of a higher mean wasted traffic \meanwastedtraffic.
 Choosing a small lower buffer threshold \bufferlower decreases the minimum amount of mean wasted traffic \meanwastedtraffic if the user stops watching a video.
 Selecting a higher buffer size \buffersize  increases the mean wasted traffic \meanwastedtraffic, as more video can be downloaded and thus wasted if a user stops watching the video.
@@ -66,7 +66,7 @@ The choice of the buffer size depends on the preference between energy consumpti
 \end{figure}
 
 In \reffig{fig:application:lte_video:numerical_evaluation:trade_offs:energy2connections} we consider both the energy consumption \energyconsumption and the connection count \connectioncount.
-For all considered bit rates, the largest possible lower buffer threshold is Pareto optimal.
+For all considered bit rates, the largest possible lower buffer threshold is Pareto-optimal.
 A tradeoff between energy consumption \energyconsumption and connection count \connectioncount is possible by varying the buffer size.
 A small buffer size yields a larger energy consumption \energyconsumption and a smaller connection count \connectioncount while for a larger buffer size a smaller energy consumption \energyconsumption and a higher connection count \connectioncount can be achieved.
 
@@ -80,9 +80,9 @@ A small buffer size yields a larger energy consumption \energyconsumption and a 
 Finally, in \reffig{fig:application:lte_video:numerical_evaluation:trade_offs:connections2lostData} we study the tradeoff between the connection count \connectioncount required per video transmission and the mean wasted traffic \meanwastedtraffic.
 We observe that for a bit rate \bitrate of \SI{2}{\mega\bit\per\second} configurations exist where only one and two connections are required to transmit the complete video.
 Here, the amount of wasted traffic can be reduced by \SI{82}{\percent} by allowing just one more connection over the whole transmission interval.
-For video bit rates \bitrate of \SIlist{6;10}{\mega\bit\per\second} only one Pareto optimal value exists where the video is transmitted using a single connection.
+For video bit rates \bitrate of \SIlist{6;10}{\mega\bit\per\second} only one Pareto-optimal value exists where the video is transmitted using a single connection.
 
-We find that each of the considered tradeoffs provides Pareto optimal results and summarise the relevant parameters qualitatively in \reftab{tab:application:lte_video:numerical_evaluation:trade_offs:summary}.
+We find that each of the considered tradeoffs provides Pareto-optimal results and summarise the relevant parameters qualitatively in \reftab{tab:application:lte_video:numerical_evaluation:trade_offs:summary}.
 \begin{table}
   \centering
   \begin{tabular}{lcc}
@@ -98,7 +98,7 @@ We find that each of the considered tradeoffs provides Pareto optimal results an
   \label{tab:application:lte_video:numerical_evaluation:trade_offs:summary}
 \end{table}
 
-From these results it becomes clear that it is impossible to find Pareto optimal results for all three tradeoffs.
+From these results it becomes clear that it is impossible to find Pareto-optimal results for all three tradeoffs.
 Thus, new decision making policies are required to find optimal results for all participating stakeholders.
 One such policy is discussed in \emph{Design for Tussle}~\cite{trilogy2008,Clark2005}.
 Here, the attempts are made to resolve tradeoffs and conflicts at run-time instead of design-time.

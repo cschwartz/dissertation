@@ -227,7 +227,7 @@
     {\large\sffamily\bfseries W\"urzburger Beitr\"age zur\\[2mm]
                Leistungsbewertung Verteilter Systeme}\\[4mm]
     {\sffamily\bfseries Herausgeber}\\[2mm]
-    Prof.~Dr.~Ing.~P.~Tran-Gia\\
+    Prof.~Dr.-Ing.~P.~Tran-Gia\\
     Universit\"at W\"urzburg\\
     Institut f\"ur Informatik\\
     Lehrstuhl f\"ur Kommunikationsnetze\\
@@ -237,7 +237,7 @@
     Fax.: +49-931-31-86632\\
     email: trangia@informatik.uni-wuerzburg.de\\[4mm]
     {\sffamily\bfseries Satz}\\[2mm]
-    Reproduktionsf\"ahige Vorlage vom Autor.\\
+    Reproduktionsf\"ahige Vorlage des Autors.\\
     Gesetzt in \LaTeX\ Linux Libertine 10pt.\\[4mm]
     {\sffamily\bfseries ISSN \d@issn}
     \clearpage
