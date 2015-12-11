@@ -6,7 +6,7 @@ After presenting the system description, we derive the state distribution and th
 Afterwards, we extend the model to include \gls{RRC_FACH} for regular \gls{3G} networks.
 Finally, we define simple metrics for signalling load and power drain.
 
-\newcommand{\PacketIAT}{A}
+\newcommand{\PacketIAT}{A\xspace}
 
 \subsubsection*{Mobile \headershortacr{RAN} System Description}\label{sec:network:performance_model:analytical_model:system_description}
 We consider a \gls{UE} which sends and receives a sequence of data packets via a \gls{3G} \gls{UMTS} network.
@@ -23,7 +23,7 @@ The motivation for the two states \gls{RRC} scenario is twofold.
 First, it serves for illustration purposes.
 We derive the model step-by-step in this simple scenario to explain the ideas behind the equations.
 Then, the ideas can be easily transferred to the more complex Three State Model.
-Second, the scenario is of practical relevance since proprietary implementations of the fast dormancy concept can be modeled as the Two State Model, as discussed in \refsec{sec:network:background:umts_rrc}.
+Second, the scenario is of practical relevance since proprietary implementations of the fast dormancy concept can be modelled as the Two State Model, as discussed in \refsec{sec:network:background:umts_rrc}.
 Furthermore, this model is very similar to the one found in \gls{LTE} systems.
 In \gls{LTE}, only a distinction between connected and disconnected states can be found, which maps to the \gls{RRC_idle} and \gls{RRC_DCH} states discussed in this model.
 
@@ -42,15 +42,15 @@ The packet arrivals determine the \gls{RRC} state of the \gls{UE} and the corres
 
 \subsubsection*{Two State Model}\label{sec:network:performance_model:analytical_model:two_states}
 
-\newcommand{\RRCState}{S}
-\newcommand{\PacketIATDensity}{a}
-\newcommand{\RRCStateRealization}{s}
-\newcommand{\ObservationInterval}{T_{\text{Obs}}}
-\newcommand{\ObservationPoint}{t^*}
-\newcommand{\ObservationIntervalDensity}{q}
-\newcommand{\ObservationIntervalLength}{\tau}
-\newcommand{\NormalisationConstant}{c_0}
-\newcommand{\NObservedPackets}{n_{\text{P}}}
+\newcommand{\RRCState}{S\xspace}
+\newcommand{\PacketIATDensity}{a\xspace}
+\newcommand{\RRCStateRealization}{s\xspace}
+\newcommand{\ObservationInterval}{T_{\text{Obs}}\xspace}
+\newcommand{\ObservationPoint}{t^*\xspace}
+\newcommand{\ObservationIntervalDensity}{q\xspace}
+\newcommand{\ObservationIntervalLength}{\tau\xspace}
+\newcommand{\NormalisationConstant}{c_0\xspace}
+\newcommand{\NObservedPackets}{n_{\text{P}}\xspace}
 
 \paragraph*{Connection State Distribution}
 First, we are interested in the state distribution \(P(\RRCState=\RRCStateRealization)\), i.e., the fraction of time the \gls{UE} spends in state \(\RRCStateRealization\in\{\gls{RRC_idle},\gls{RRC_DCH}\}\) for a given inter-packet time \(\PacketIAT\).
@@ -111,10 +111,10 @@ P(\RRCState=\gls{RRC_DCH} \vert \PacketIAT = \ObservationIntervalLength)=
 
 \paragraph*{Average Frequency of State Transitions}
 
-\newcommand{\NStateTransitionsIdleToDCH}{n_{\gls{RRC_idle}\rightarrow\gls{RRC_DCH}}}
-\newcommand{\NStateTransitionsDCHToIdle}{n_{\gls{RRC_DCH}\rightarrow\gls{RRC_idle}}}
-\newcommand{\fStateTransitionsIdleToDCH}{f_{\gls{RRC_idle}\rightarrow\gls{RRC_DCH}}}
-\newcommand{\fStateTransitionsDCHToIdle}{f_{\gls{RRC_DCH}\rightarrow\gls{RRC_idle}}}
+\newcommand{\NStateTransitionsIdleToDCH}{n_{\gls{RRC_idle}\rightarrow\gls{RRC_DCH}}\xspace}
+\newcommand{\NStateTransitionsDCHToIdle}{n_{\gls{RRC_DCH}\rightarrow\gls{RRC_idle}}\xspace}
+\newcommand{\fStateTransitionsIdleToDCH}{f_{\gls{RRC_idle}\rightarrow\gls{RRC_DCH}}\xspace}
+\newcommand{\fStateTransitionsDCHToIdle}{f_{\gls{RRC_DCH}\rightarrow\gls{RRC_idle}}\xspace}
 
 Next, we estimate the average frequency of state transitions resulting from a given packet arrival process.
 For that purpose, we consider again the observation interval \(\ObservationInterval\) and focus on the state transitions from \gls{RRC_idle} to \gls{RRC_DCH} since every switch from \gls{RRC_DCH} to \gls{RRC_idle} results in a switch vice-versa.
@@ -167,7 +167,7 @@ P(\RRCState=\gls{RRC_FACH} \vert \PacketIAT = \ObservationIntervalLength) =
 	\frac{\ObservationIntervalLength - \TDCH}{\ObservationIntervalLength}, 
 	    & \mbox{if }\TDCH<\ObservationIntervalLength\leq \TDCH+\TFACH \\
 	\frac{\TFACH}{\ObservationIntervalLength} 
-	    & \mbox{if } \ObservationIntervalLength > \TDCH+\TFACH 
+	    & \mbox{if } \ObservationIntervalLength > \TDCH+\TFACH.
 \end{cases}
 \end{equation*}
 
@@ -175,9 +175,9 @@ The probability for the \gls{RRC_DCH} state \(P(\RRCState=\gls{RRC_DCH} \vert \P
 
 \paragraph*{Average Frequency of State Transitions}
 
-\newcommand{\fStateTransitionsDCHToFACH}{f_{\gls{RRC_DCH}\rightarrow\gls{RRC_FACH}}}
-\newcommand{\fStateTransitionsFACHToIdle}{f_{\gls{RRC_FACH}\rightarrow\gls{RRC_idle}}}
-\newcommand{\fStateTransitionsFACHToDCH}{f_{\gls{RRC_FACH}\rightarrow\gls{RRC_DCH}}}
+\newcommand{\fStateTransitionsDCHToFACH}{f_{\gls{RRC_DCH}\rightarrow\gls{RRC_FACH}}\xspace}
+\newcommand{\fStateTransitionsFACHToIdle}{f_{\gls{RRC_FACH}\rightarrow\gls{RRC_idle}}\xspace}
+\newcommand{\fStateTransitionsFACHToDCH}{f_{\gls{RRC_FACH}\rightarrow\gls{RRC_DCH}}\xspace}
 
 In contrast to the Two State Model, we have to consider a larger number of state transitions.
 These are the transitions from \gls{RRC_idle} to \gls{RRC_DCH}, from \gls{RRC_DCH} to \gls{RRC_FACH}, from \gls{RRC_FACH} to \gls{RRC_DCH}, and from \gls{RRC_FACH} to \gls{RRC_idle}.
@@ -186,7 +186,7 @@ We first calculate the frequency of state transitions from \gls{RRC_DCH} to \gls
 This transition happens every time when the inter-packet time \(\PacketIAT\) exceeds the timer \(\TDCH\).
 Therefore, the derivation is the same as presented above:
 \begin{equation*}
-E[\fStateTransitionsDCHToFACH]=\frac{1-\PacketIAT(\TDCH)}{E[\PacketIAT]}.
+E[\fStateTransitionsDCHToFACH]=\frac{1-\PacketIAT(\TDCH)}{E[\PacketIAT]},
 \end{equation*}
 \begin{equation*}
 E[\fStateTransitionsFACHToIdle]=\frac{1-\PacketIAT(\TDCH+\TFACH)}{E[\PacketIAT]}.
@@ -203,7 +203,7 @@ Other state transitions do not occur in our scenario, as shown in \reffig{fig:ne
 
 \subsubsection*{Modelling Signalling Intensity and Power Drain of the \headershortacr{UE}}\label{sec:network:performance_model:analytical_model:metrics}
 
-\newcommand{\fStateTransitions}{E[f_{ST}]}
+\newcommand{\fStateTransitions}{E[f_{ST}]\xspace}
 
 We assume that every state transition involves signalling traffic.
 In order to quantify signalling load on an abstract level, we define the \gls{SI} of an application, i.e. of a given distribution for \(\PacketIAT\), as the average number of state transitions required for the transmission of a single data packet.
@@ -225,5 +225,5 @@ We obtain
 \gls{PD} = \sum_{\RRCStateRealization\in\RRCState} \gls{PD}_{\RRCStateRealization} \cdot P(\RRCState=\RRCStateRealization)
 \label{eq::powerdrain}
 \end{equation}
-with \(\RRCState = \{\gls{RRC_idle},\gls{RRC_DCH}\}\) or \(\RRCState = \{\gls{RRC_idle},\gls{RRC_FACH},\gls{RRC_DCH}\}\) depending on wether the Two State Model or the Three State Model is considered.
+with \(\RRCState = \{\gls{RRC_idle},\gls{RRC_DCH}\}\) or \(\RRCState = \{\gls{RRC_idle},\gls{RRC_FACH},\gls{RRC_DCH}\}\) depending on whether the Two State Model or the Three State Model is considered.
 This is a user-centric metric and gives insights into how efficient the transmission process uses the battery. 

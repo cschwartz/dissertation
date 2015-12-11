@@ -5,11 +5,11 @@ Then, we investigate the impact of traffic patterns on signalling load and power
 
 \subsubsection*{Validation of Analytic Model}\label{sec:network:performance_model:validations}
 
-In order to assess the applicability of our performance model, we first have to check whether real-world application traces can be modeled as renewal process, which was our main assumption for the model.
+In order to assess the applicability of our performance model, we first have to check whether real-world application traces can be modelled as renewal process, which was our main assumption for the model.
 We use the Lewis-Robinson-Test \cite{Ascher1984}, which is a hypothesis test with null hypothesis \(H_0\) that the tested process is a renewal process.
 To this end, we use exemplary the measurement, obtained with the measurement testbed introduced in \refsec{sec:network:network_traces:performance_evaluation:measurement}, for two different types of applications: \emph{Twitter} and \emph{K9-Mail}.
 According to this test, the null hypothesis cannot be rejected for both of our packet traces at a significance level of \SI{95}{\percent}.
-Although this assumption may not be true for all applications, our results show that at least the considered applications can be modeled as a renewal process.
+Although this assumption may not be true for all applications, our results show that at least the considered applications can be modelled as a renewal process.
 
 Next, we compare our analytical performance results with \gls{RRC} protocol simulations using measured application and \gls{TCP} traces which are described in more detail in \refsec{sec:network:network_traces:numerical_results:traffic_characterization}.
 In order to produce analytical results that correspond to the real applications, we extract the empirical distributions of the inter-packet time \(\PacketIAT\) from the traces for both applications and use these distributions as input for \refeq{eq:network:performance_model:system_description:state_distribution:observation_density}. 

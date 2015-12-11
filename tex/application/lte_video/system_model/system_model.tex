@@ -168,7 +168,7 @@ This metric impacts the video provider, but is influenced by the user aborting t
 This decision can not be influenced by the video provider, thus a user model has to be assumed by the video provider in order to provide a performance analysis of the different video delivery mechanisms.
 
 Considering that transmitting data to a smartphone consumes both compute as well as network resources, a transmission mechanism should attempt to reduce the amount of video which has been transmitted but is not yet watched at any time \(t\) as 
-\[\timeunwatched(t) = \timedownloaded(t) - \timeplayedback(t)\]
+\[\timeunwatched(t) = \timedownloaded(t) - \timeplayedback(t).\]
 If the user stops the playback according to a random variable \userabortrv with \gls{PDF} \(\userabortpdf\), we can give the wasted traffic \meanwastedtraffic as the expected value of $\timeunwatched$ under $\userabortrv$.
 \begin{equation}
 \meanwastedtraffic = E\left[\timeunwatched\right] = \int_{t=0}^{\infty} \userabortpdf(t) \timeunwatched(t) d\mathrm{t}.
@@ -183,7 +183,7 @@ High values of \meanwastedtraffic indicate that server and network resources are
 \end{center}
 \end{figure}
 
-We consider three types of user behaviour, shown in \reffig{fig:application:lte_video:system_model:model_assumptions:metrics:abort_distributions}, each modeled by a random variable describing the abort time, i.e. the time when the user stops watching a video.
+We consider three types of user behaviour, shown in \reffig{fig:application:lte_video:system_model:model_assumptions:metrics:abort_distributions}, each modelled by a random variable describing the abort time, i.e. the time when the user stops watching a video.
 First we consider a \emph{uniform} distributed user abort model, where the user can abort the video at any time.
 Due to the uniform distribution of the abort time and the length of the video, i.e. \SI{1600}{\second}, the mean time of stop occurs at \SI{800}{\second}.
 

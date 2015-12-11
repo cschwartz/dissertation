@@ -22,7 +22,7 @@ The \gls{CN} provides the backbone network of the \gls{UMTS} network and provide
 Furthermore, the \gls{CN} provides billing, authentication, and location management functionalities.
 
 \paragraph*{\headershortacr{RRC} Protocol} In \gls{UMTS} networks, the radio resources in the \gls{RAN} between base station and UE are controlled and managed by the \gls{RRC} protocol~\cite{3GPP_RRC_Spec}.
-The protocol is responsible for controll band signalling between the \glspl{UE} and the \gls{RAN}.
+The protocol is responsible for control-band signalling between the \glspl{UE} and the \gls{RAN}.
 It is used to establish, maintain, and tear down connections between \gls{UE} and \gls{RAN}.
 Furthermore, the \gls{RRC} protocol performs broadcasting of network information, \gls{QoS} control, and reporting and cell selection management, which are out of scope for this text.
 The protocol is divided into different parts: services for upper layers, communication with lower layers, protocol states, \gls{RRC} procedures, and error control.
@@ -84,7 +84,7 @@ If the timer expires, the \gls{UE} transitions back to \gls{RRC_idle} state.
 \paragraph*{Fast Dormancy Extensions} While the Three State Model is closer to the specified \gls{RRC} protocol, the Two State Model is similar to some proprietary \emph{Fast Dormancy} implementations used by \gls{UE} vendors.
 In these Fast Dormancy implementations, the \gls{UE} tears down the connection to the network state as soon as no data is ready to be sent for a certain time, i.e., it forces the network to transition to \gls{RRC_idle} state.
 In contrast to the Three State Model, there is no transition to the \gls{RRC_FACH} state.
-If a device disconnects from the network by transitioning to the \gls{RRC_idle} state, it has to be reauthenticated before another transition to the \gls{RRC_DCH} state can occur.
+If a device disconnects from the network by transitioning to the \gls{RRC_idle} state, it has to be re-authenticated before another transition to the \gls{RRC_DCH} state can occur.
 This results in additional signalling traffic and causes more load on the network \cite{NSN2011} due to frequent re-establishments of the RRC connection.
 These proprietary Fast Dormancy algorithms do not adhere to the \gls{RRC} specification \cite{GSM2010}, but nonetheless exist in the real world and have been identified as possible causes for signalling storms.
 The major reason for Fast Dormancy implementations is the decrease in power drain on the \gls{UE}, since the transmission unit of the \gls{UE} consumes only \SIrange{1}{2}{\percent} of the power in \gls{RRC_idle} state compared to the \gls{RRC_DCH} state.
@@ -103,7 +103,7 @@ Similar results are presented in~\cite{Qian2010a}.
 Here, the observed values vary between \SI{5}{\second} and \SI{12}{\second}. 
 Additionally, they also determined the exact \gls{RRC} state transitions for two networks, i.e. \gls{RRC_idle} \(\rightarrow\) \gls{RRC_FACH} \(\rightarrow\) \gls{RRC_DCH} or \gls{RRC_idle} \(\rightarrow\) \gls{RRC_DCH} directly without transitioning through the \gls{RRC_FACH} state.
 The \gls{3GPP} has released a technical report \cite{3GPP_22801} about the adverse impact of mobile data applications.
-This report states that frequent connection re-establishments due to small data packets caused by e.g. status updates of social network or instant messaging apps can lead to problems of increased signalling.
+This report states that frequent connection re-establishments due to small data packets caused by e.g. status updates of social network or instant messaging applications can lead to problems of increased signalling.
 This highlights the importance of this topic.
 
 Furthermore, there are papers that propose optimising strategies that take the \gls{RRC} states into account. 

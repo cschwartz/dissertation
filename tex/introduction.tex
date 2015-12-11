@@ -11,21 +11,20 @@ This resulted in a high number of signalling messages in the mobile network, cau
 While the network operator suffers the largest impact of this signalling overload, it does not control the application.
 Thus the network operator can not change the application traffic characteristics to generate less network signalling traffic. 
 The stakeholders who could prevent or, at least, reduce such behaviour, i.e. application developers or hardware vendors, have no direct benefit from modifying their products in such a way.
-This results in a clash of stakeholder interests that negatively impacts the network performance for all participants.
+This results in a clash of interests which negatively impacts the network performance for all participants.
 
 The goal of this monograph is to provide an overview over the complex structures of stakeholder relationships in today's Internet applications in mobile networks.
-To this end, we study different scenarios where such stakeholder interests clash and suggest methods where stakeholder tradeoffs can be optimised for all participants.
+To this end, we study different scenarios where such interests clash and suggest methods where tradeoffs can be optimised for all participants.
 %TODO: 'attempts at it' anders
 If such an optimisation is not possible or attempts at it might lead to adverse effects, we discuss the reasons.
 
 In the remainder of this chapter we first introduce the stakeholders considered in this work in \refsec{sec:introduction:considered_stakeholders}.
-Then, in \refsec{sec:introduction:scientific_contribution} we provide an overview over the scientific contributions of this monograph with respect to the stakeholders interrest.
+Then, in \refsec{sec:introduction:scientific_contribution} we provide an overview over the scientific contributions of this monograph with respect to the stakeholders interest.
 Finally, \refsec{sec:introduction:outline} provides an outline of this monograph.
 
 \section{Scope of Considered Stakeholders}\label{sec:introduction:considered_stakeholders}
 
-In this section we introduce the stakeholders considered in the remainder of this monograph.
-\reffig{fig:introduction:stakeholders} shows the major stakeholders and their interactions.
+In this section we introduce the stakeholders considered in the remainder of this monograph and shows their interactions in \reffig{fig:introduction:stakeholders}.
 
 \begin{figure}
 \centering
@@ -37,35 +36,35 @@ First, we consider the \emph{network operator}.
 The network operator owns, manages and operates a mobile network.
 By manipulating network configuration, the operator can influence the connection state of \gls{UE}, resulting in changes of power drain, i.e. battery life, of the \gls{UE} produced by the hardware vendor and reduced signalling load in the components of its mobile network.
 
-The \emph{application provider} develops and deploys applications and is interested in increasing the \gls{QoE} for the user in order to attract a large user base.
+The \emph{application provider} develops and deploys applications and is interested in increasing the \gls{QoE} for the user, thus attracting a large user base.
 Additional considered \glspl{KPI} are cost, for example incurred due to use of compute or network resources in \gls{IaaS} or \gls{PaaS} scenarios.
 Design and configuration of applications have impact on traffic patterns which result in signalling traffic in the network of the mobile network operator and also influence the power drain of the \gls{UE} of the hardware vendor.
 
 %TODO: Video Provider, Storage Provider
 
-\glspl{UE} are developed and sold by \emph{hardware vendors}.
-While they theoretically implement standards proposed by the \gls{3GPP} in order to establish connectivity with mobile networks, in reality vendors are free to deviate from standard, in order to increase own \glspl{KPI}.
+These \glspl{UE} are developed and sold by \emph{hardware vendors}.
+While they theoretically implement standards proposed by the \gls{3GPP} in order to establish connectivity with mobile networks, in reality vendors can deviate from this standard to increase own \glspl{KPI}.
 One example of such a deviation from a standard are proprietary fast dormancy mechanisms~\cite{GSM2010} implemented by some hardware vendors.
-These algorithms reduce power drain be disconnecting the \gls{UE} earlier from the network, in order to extend battery life and increase end user \gls{QoE}.
+These algorithms reduce power drain be disconnecting the \gls{UE} earlier from the network to extend battery life and increase end user \gls{QoE}.
 However, this has the consequence of increased signalling in the network of the network operator and can lead to increased web page loading times, i.e. decreased \gls{QoE} from the end user's point of view.
 
-\emph{End users} employ \glspl{UE} to execute applications in the systemd of the network operator. 
+\emph{End users} employ \glspl{UE} to execute applications in the system of the network operator. 
 They are usually interested in increasing their \gls{QoE}, i.e. by increasing the battery life of their \gls{UE} or increasing satisfaction during video playback over the network.
 
 \emph{Cloud operators} provide services, i.e. compute, storage, or network resources, to cloud users according to specified \glspl{SLA} for monetary compensation. 
-They attempt to reduce the costs to operate infrastructure, e.g. by reducing power drain, in order to increase revenue while still satisfying the \gls{SLA} negotiated with the cloud users.
+They attempt to reduce the costs to operate infrastructure, e.g. by reducing power drain to increase revenue while still satisfying the \gls{SLA} negotiated with the cloud users.
 Resources provided by cloud operators are purchased by \emph{cloud users}.
-They attempt to provide the best possible service to their own customers while reducing the number of required resources provided by the cloud operator in order to reduce cost of operation. In this monograph we consider two exemplary cloud users, which will be discribed in the following:
+They attempt to provide the best possible service to their own customers while reducing the number of required resources provided by the cloud operator in order to reduce cost of operation. In this monograph we consider two exemplary cloud users, which will be described in the following:
 
 A \emph{\gls{NFV} operator} uses virtualised resources obtained from a cloud operator to provide virtualised network services to other stakeholders.
-In the example considered in this monograph, the \gls{NFV} operator uses cloud compute resources in order to provide a \gls{GGSN} to a mobile network operator.
+In the example considered in this monograph, the \gls{NFV} operator uses cloud compute resources to provide a \gls{GGSN} to a mobile network operator.
 The \glspl{KPI} of the \gls{NFV} operator are to satisfy the \gls{SLA} with the mobile network operator and to reduce the use of compute resources of the cloud operator.
 
-The second considered cloud user is the \emph{crowdsourcing platform operator} who uses cloud resources in order to provide a crowdsourcing platform.
+The second cloud user considered is the \emph{crowdsourcing platform operator} who uses cloud resources in order to provide a crowdsourcing platform.
 The crowdsourcing platform operator in turn has to consider the requirements of its two main stakeholders:
-The \emph{crowdsourcing employer} requires a set of microtasks to be completed in a small amount of time, in order to use the generated results in future business processes. 
+The \emph{crowdsourcing employer} requires a set of microtasks to be completed in a short  time to use the generated results in future business processes. 
 \emph{Crowdsourcing workers} complete microtasks for a specified amount of money.
-They are interested in completing as many tasks as possible and reduce their idle time, in order to increase their income.
+They are interested in completing as many tasks as possible and reduce their idle time, thus increasing their income.
 
 The interactions of these stakeholders result in complex interactions, which are studied in this monograph.
 The next section introduces the considered interactions and provides an overview over the scientific contributions provided by this monograph.
@@ -90,18 +89,17 @@ Annotations are used to highlight scientific publication whose content contribut
 The first contribution of this monograph is a discussion of the impact of mobile application traffic on mobile communication networks, especially considering the current network configuration.
 The study the impact of different traffic types, both from real-world applications and synthetic traffic distributions, and study the potential of network parameter optimisation as a means to reduce signalling traffic.
 
-As a second contribution, we provide models for two popular applications, i.e. Video Streaming and Cloud File Synchronisation, thus enabling the study of the impact of different mechanisms implemented in said applications.
-%For the Video Streaming application we use a simulation in order to compare \glspl{KPI} for all stakeholders in this scenario.
-We show that the streaming mechanism allows the most flexible configuration and can provide Pareto optimal results for all pairs of metrics.
-However, further study shows that in fact no pareto optimal value exists which satisfies the \glspl{KPI} of all participating stakeholders.
-Furthermore, we provide parameterisable \gls{QoE} models for different user groups.
+As second contribution, we provide models for two popular applications, i.e. Video Streaming and Cloud File Synchronisation, thus enabling the study of the impact of different mechanisms implemented in these applications.
+We show that the streaming mechanism allows the most flexible configuration and can provide Pareto-optimal results for all pairs of metrics.
+However, further study shows that in fact no Pareto-optimal value exists which satisfies the \glspl{KPI} of all participating stakeholders.
+Furthermore, we provide parametrisable \gls{QoE} models for different user groups.
 For the Cloud File Synchronisation we compare different upload scheduling algorithms and find that, both the size based algorithm as well as the time based algorithm, can be used to specify a tradeoff between the different considered \glspl{KPI}.
 
-As a third contribution, we discuss the impact of resource dimensioning and management schemes in cloud environments.
+As third contribution, we discuss the impact of resource dimensioning and management schemes in cloud environments.
 To this end, we study the performance of a power conservation mechanism for cloud environments using a queueing model.
-We derive guidelines for selecting Pareto optimal results regarding both waiting time before a job can begin processing and power drain of the cloud.
+We derive guidelines for selecting Pareto-optimal results regarding both waiting time before a job can begin processing and power drain of the cloud.
 Furthermore, we discuss a mechanism to reduce cost for cloud users by disabling compute instances while still allowing configurable \glspl{SLA} and evaluate this mechanism using a queueing simulation.
-Finally, we present a mechanism to dimension worker numbers in a human cloud scenario which can be used to ensure satisfaction of the key stakeholders of a crowdsourcing platform operator.
+Finally, we present a mechanism to dimension worker numbers in a human-cloud scenario which can be used to ensure satisfaction of the key stakeholders of a crowdsourcing platform operator.
 
 \section{Outline of Thesis}\label{sec:introduction:outline}
 
@@ -112,20 +110,18 @@ Finally, we generalise our results by introducing a theoretical model for power 
 
 \refchap{chap:application} focusses on the impact of applications design and algorithm choice by the application developers on the other stakeholders.
 To this end, we study two prominent applications in today's Internet: Video Streaming and Cloud File Sychronisation.
-%video transmission mechanisms hatte einen neuen namen?
 For Video Streaming, we study the impact of different video transmission mechanisms and parameter configurations on energy consumption of the \gls{UE}, signalling in the mobile network and resource consumption at the application developer using a \gls{DES}.
-%auch das hatte einen anderen namen
-Furthermore, we study provide a queueing model for video streaming algorithms and derive a parameterised \gls{QoE} model.
+Furthermore, we study provide a queueing model for video streaming algorithms and derive a parametrised \gls{QoE} model.
 To address the second scenario, we discuss different scheduling algorithms for Cloud File Synchronisation services.
-In order to accomplish this, we use data obtained from large scale, testbed based~\cite{Chun2003} measurements and implement a simulation model in order to investigate \glspl{KPI} for the relevant stakeholders.  
+In order to accomplish this, we use data obtained from large scale, testbed based~\cite{Chun2003} measurements, implement a simulation model, and investigate relevant \glspl{KPI}.  
 
 In \refchap{chap:cloud} we study resource allocation strategies in the cloud and evaluate which management decisions of the cloud platform operators impact the other stakeholders.
 First, we consider a energy saving scheme where a cloud operator scales the number of available servers according to the available load.
-In order to evaluate this scenario, we introduce a queueing model and perform a performance evaluation in order to study optimal parameter settings.
-Then, we consider the role of a cloud user renting virtual machines in the cloud in order to provide a service to users on the example of a virtualised network operator.
+To evaluate this scenario, we introduce a queueing model and perform a performance evaluation to study optimal parameter settings.
+Then, we consider the role of a cloud user renting virtual machines in the cloud to provide a service to users on the example of a virtualised network operator.
 We analyse traffic characteristics and use them as input for a simulation model of a virtualised \gls{GGSN}.
-Combining these results, we evaluate the impact of different virtual server setups and scaling configurations.
-Finally, we consider resource allocation in human clouds.
+Combining these results, we evaluate the impact of different virtual server configurations and scaling configurations.
+Finally, we consider resource allocation in human-clouds.
 Based on data obtained from a commercial crowdsourcing provider, we extract characteristic distributions and apply it as input two both an analytic queueing model as well as a simulation model and derive dimensioning guidelines for the crowdsourcing provider.
 
 In \refchap{chap:conclusion} we provide a summary of the major contributions of this work and provides an outlook on future potential research directions.

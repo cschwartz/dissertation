@@ -10,6 +10,7 @@ p <- ggplot(data, aes(x = SI,
   scale_linetype_manual(values = linetypes.for(data$cA)) +
   labs(x = label.signalling.intensity, 
        y = label.power.drain, 
-       color = label.tdch )
+       color = label.tdch,
+       linetype = label.cA)
 
 save.full.row.plot(p)

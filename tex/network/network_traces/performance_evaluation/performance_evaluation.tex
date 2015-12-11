@@ -33,6 +33,7 @@ Based on the Two State and Three State models introduced in \refsec{sec:network:
 However, it should be noted that this method is not restricted to a specific network model, but can be extended to any other network model as well.
 Using these captures, we extract the timestamps when \gls{IP} packets are sent or received.
 Furthermore, we require the timer values of the transition from \gls{RRC_DCH} state to \gls{RRC_FACH} state, \TDCH, and the timer for the transition between \gls{RRC_FACH} and \gls{RRC_idle} states, \TFACH.
+
 Based on these informations \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} infers the timestamps of state transitions according to the \gls{3GPP} specification \cite{3GPP_RRC_Spec} for the Three State Model.
 This algorithm can be simplified to also work for the Two State Model. 
 Alternatively, a method to post process the results of the algorithm to obtain results for the Two State Model is given at the end of this section.
@@ -74,9 +75,9 @@ Similarly, if the inter-arrival time exceeds both the \TDCH and \TFACH timers a 
 \end{algorithm}
 
 Decreasing power drain of their devices is always a goal of \gls{UE} vendors.
-A straightforward way to achieve this, if only the wellbeing of the \gls{UE} is considered, is to transition from \gls{RRC_DCH} state to \gls{RRC_idle} as soon as no additional data is ready for sending.
+A straightforward way to achieve this, if only the well-being of the \gls{UE} is considered, is to transition from \gls{RRC_DCH} state to \gls{RRC_idle} as soon as no additional data is ready for sending.
 While this transition is not directly available in the 3GPP specification for the \gls{RRC} protocol \cite{3GPP_RRC_Spec}, a \gls{UE} may reset the connection, effectively transitioning from any state to \gls{RRC_idle}.
-This behaviour can be modeled using the Two State Model introduced in \refsec{sec:network:background:umts_rrc}.
+This behaviour can be modelled using the Two State Model introduced in \refsec{sec:network:background:umts_rrc}.
 
 State transitions for the Two State Model can be calculated using a similar algorithm.
 Alternatively, the behaviour of the Two State Model can be emulated using \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} if \TFACH is set to \SI{0}{\second} and all state transitions to \gls{RRC_FACH} are removed in a post processing step.
@@ -128,7 +129,7 @@ Furthermore, the algorithm can be adapted to new networking models or other numb
   \end{tabular}
 \end{table}
 
-From a users point of view, the signalling message frequency is of little importantance.
+From a users point of view, the signalling message frequency is of little importance.
 The user is interested in a low power drain as this increases the battery life of the device.
 To calculate the battery life, we use the time when state transitions occurred, and the information about the state the transition was to, to calculate the relative amount of time that was spent in each state.
 Given the relative time spent in each state, we use \reftab{tab:network:network_traces:calculating_metrics:power_consumption}, taken from \cite{Qian2011a}, to compute the \gls{PD} of the radio interface during the measurement phase.

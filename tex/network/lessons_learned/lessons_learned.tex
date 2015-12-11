@@ -26,7 +26,7 @@ If the user enables the fast dormancy option of the \gls{UE}, the power drain is
 Second, we propose an analytical model to derive the \glspl{KPI} from analytical or empirical traffic distributions, in order to evaluate the impact of applications that do not yet exist or classes of applications defined by a common traffic characteristics.
 Our results show that different access patterns have a considerable impact on the required resources of the mobile phone and the network.
 We identified bursty traffic pattern as particularly resource-efficient with respect to power drain and signalling load.
-In contrast, nearly periodic traffic is likely to cause signalling overload due to frequent connection reestablishments, especially when the connection timeout is slightly below the inter-packet time.
+In contrast, nearly periodic traffic is likely to cause signalling overload due to frequent connection re-establishments, especially when the connection timeout is slightly below the inter-packet time.
 This can be observed on the example of a \TDCH timer of \SI{10}{\second}.
 Here, the coefficient of variation has no impact on the signalling load for very small inter-packet times \(E[\PacketIAT]<\SI{1e-1}{\second}\) or very large inter-packet times \(E[\PacketIAT]>\SI{1e3}{\second}\).
 For example, for a mean inter-arrival time of \(E[\PacketIAT] = 11.5\) seconds, an increase of coefficient of variation from \(0.5\) to \(5.0\) can decrease the signalling load by \SI{53}{\percent}.

@@ -123,7 +123,7 @@ The maximum amount of data \(s_x\) which can be send from the camera to the mobi
 The average time \(t_x\) to upload \(s_x\) can now be calculated as 
 \[t_x = s_x / E\left[\uploadbandwidth\right] = x~\SI{0.5 / 8.0}{\second} = x~\SI{1 / 16}{\second}.\]
 For interval lengths \thresholdInterval between \SI{8}{\second} and \SI{32}{\second}, \(t_x\) results in \SI{0.5}{\second}, \SI{1}{\second}, and \SI{2}{\second} respectively.
-Considering the disconnection time out of \SI{11}{\second}, we can see that a disconnect is likely for interval lengths \thresholdInterval of \SI{16}{\second} and \SI{32}{\second}.
+Considering the disconnection timeout of \SI{11}{\second}, we can see that a disconnect is likely for interval lengths \thresholdInterval of \SI{16}{\second} and \SI{32}{\second}.
 In order to explain the increased number of connections \connectionCount for an interval length \thresholdInterval of \SI{8}{\second}, we also have to consider the average image file size of \SI{3.5}{\mega\byte}.
 Within \SI{8}{\second}, a maximum of \(s_x = \SI{4}{\mega\byte}\) can be transferred from the camera to the mobile client.
 Therefore, it is likely that it takes two interval lengths \thresholdInterval, respectively \SI{16}{\second}, to transfer the image.

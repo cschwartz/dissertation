@@ -38,7 +38,7 @@ Finally, we calculate the mean download bandwidth \downloadbandwidth similar to 
 \end{figure}
 
 In \reffig{fig:application:cloud_file_synchronisation:application_measurements:bandwidth_preparation_times:measurement_setup:bandwidths} we show the mean upload and download bandwidth obtained from our measurements, as well as fitted distributions.
-For the fit we considered a set of different possible distributions, including exponential, log-normal, gamma, pareto, and weibull.
+For the fit we considered a set of different possible distributions, including exponential, log-normal, gamma, Pareto, and Weibull.
 We found that none of the considered distributions provided an adequate fit due to the slope at the \SI{7}{\percent} quantile for the upload, respectively \SI{25}{\percent} quantile for the download bandwidth.
 To adapt for this behaviour, we consider a \emph{$2$-hyper log-normal} distribution \cite{Wang2006} with partitions at \(0.07\) or \({0.25}\).
 After splitting, the random variables are fitted to log-normal random variables using \texttt{fitdistrplus}\footnote{\url{https://cran.r-project.org/web/packages/fitdistrplus}, \accessed} for the \emph{R} language.
@@ -75,7 +75,7 @@ The parameters of the resulting distribution are given in \reftab{tab:applicatio
 
 \begin{figure}
   \includegraphics{application/cloud_file_synchronization/application_measurements/figures/image_size}
-  \caption{Image file size distribution \imageFileSize and corrosponding fit.}
+  \caption{Image file size distribution \imageFileSize and corresponding fit.}
   \label{fig:application:cloud_file_synchronisation:application_measurements:bandwidth_preparation_times:measurement_setup:image_size}
 \end{figure}
 
