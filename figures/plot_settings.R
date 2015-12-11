@@ -24,6 +24,10 @@ linetypes.for <- function(values) {
   seq(1, length(unique(values)))
 }
 
+label.area <- 'Area'
+label.methodology <- 'Methodology'
+label.appears <- 'Appears'
+
 # 2.2 done
 label.tdch <- expression(paste('DCH timeout ', T[DCH], ' ', (s)))
 label.ea <- expression(paste('Mean inter-packet time E[A] (s)'))

@@ -13,4 +13,4 @@ p <- ggplot(data, aes(x=n, color=EB)) +
        y = label.worker.utilization, 
        color=label.mean.task.length)
 
-save.full.row.plot(p)
+save.full.double.row.plot(p)

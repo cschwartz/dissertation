@@ -7,21 +7,32 @@ data <- left_join(mutate(citekeys, key=factor(key, levels=combined)),
                          mutate(references, key=factor(key, levels=combined)),
                          by = 'key')
 
-data$citation <- as.character(sprintf("[%d]", data$reference))
-
-data <- subset(data, !is.na(area) | !is.na(methodology))
+breaks.area <- c('Cloud', 'Network', 'Application')
 
 p <- ggplot(data, aes(x = area,
                       y = methodology,
                       color = chapter,
                       group = reference)) +
-  geom_text(aes(label=citation), position=position_dodge(0.4, 0.4)) +
-  scale_x_continuous('Area',
-                     breaks = c(0.5, 1.5, 2.5),
-                     labels = c('Cloud', 'Network', 'Application')) +
-  scale_y_continuous('Area',
-                     breaks = c(0.5, 1.5, 2.5),
-                     labels = c('Simulation', 'Measurement', 'Theoretical')) +
-  expand_limits(x = c(0, 3), y = c(0, 3))
+  geom_text(aes(label=as.character(sprintf("[%d]", reference))), size = 2, show_guide = F) +
+  geom_point(y = 0.2, size = 0) +
+  scale_x_continuous(breaks = c(0.5, 1.5, 2.5),
+                     minor_breaks = c(1, 2),
+                     labels = breaks.area) +
+  scale_y_continuous(breaks = c(0.5, 1.5, 2.5),
+                     minor_breaks = c(1, 2),
+                     labels = c('Practical', 'Measurement', 'Theoretical')) +
+  scale_colour_manual(values = c(color.palette[[2]], color.palette[[3]], color.palette[[4]], color.palette[[1]]), 
+                      guide=guide_legend(override.aes=list(size=4), 
+                                         ncol = 3, 
+                                         byrow = T)) +
+  coord_cartesian(xlim = c(0, 3), 
+                  ylim = c(0, 3)) +
+  labs(x = label.area,
+       y = label.methodology,
+       color = label.appears) +
+  guides(marker = F) + 
+  theme(panel.grid.major = element_blank(), 
+        panel.grid.minor = element_line(colour = "white"))
 
+save.full.row.plot(p)
 print(p)
