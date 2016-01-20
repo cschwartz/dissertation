@@ -21,7 +21,7 @@ Each of the stakeholders shown in \reffig{fig:network:stakeholders} is intereste
 To this end, each of the stakeholders can manipulate the parts of the network that it controls.
 The \emph{network operator} can change network configuration parameters in order to reduce \emph{signalling} in the network.
 Hardware \emph{vendors} can configure smartphones in such a way that data connections are terminated as soon as possible, decreasing \emph{power drain}.
-\emph{Application developers} can increase polling intervals in their application layer protocols in order to increase \emph{\gls{QoE}}.
+\emph{Application developers} can decrease polling intervals in their application layer protocols in order to increase \emph{\gls{QoE}}.
 However, the parameters the stakeholders can influence in order to optimise the \gls{KPI} of their individual concerns, also influence the complete network and thus all other \glspl{KPI}, possible to the detriment of the other stakeholders.
 When a stakeholder attempts to optimise \glspl{KPI} of interest, the consequences for other stakeholders have to be considered, as they could consider optimising their respective \glspl{KPI} in turn, resulting in a net loss for all participating stakeholders.
 Thus, a tradeoff between all considered \glspl{KPI} is required in order to satisfy the participating stakeholders.
@@ -31,7 +31,7 @@ Current best practices result in each participant optimising the respective \gls
 The contribution of this chapter is threefold:
 \begin{enumerate}
 \item We provide an algorithm to infer metrics for the relevant \glspl{KPI} for the stakeholders from traffic traces, and evaluate exemplary traces for a set of popular applications.
-\item We develop an analytic model in order to analyse theoretical and empirical application traffic distributions and derive \glspl{KPI} for the stakeholders.
+\item We develop an analytical model in order to analyse theoretical and empirical application traffic distributions and derive \glspl{KPI} for the stakeholders.
 \item We study the impact of network timer optimisation, a practice where network operators modify network parameters in order to optimise signalling unilaterally, and show the impact for other stakeholders and highlight potential consequences for the network operator.
 \end{enumerate}
 
@@ -39,7 +39,7 @@ The content of this chapter is taken from~\cite{Schwartz2013a,Schwartz2013c}.
 Its remainder is structured as follows.
 First, we give a background of mobile networks and survey related work in \refsec{sec:network:background}.
 In \refsec{sec:network:network_traces}, we perform application traffic measurements and investigate the impact of application traffic on \gls{UE} power drain, network signalling and web \gls{QoE} for a selected set of applications.
-Then, we generalise our results by introducing an analytic model in order to derive metrics for state transition frequency and power drain from arbitrary traffic distributions in \refsec{sec:network:performance_model}.
+Then, we generalise our results by introducing an analytical model in order to derive metrics for the state transition frequency and power drain from arbitrary traffic distributions in \refsec{sec:network:performance_model}.
 Finally, we conclude this chapter with lessons learned in \refsec{sec:network:lessons_learned}.
 
 \input{network/background/background}

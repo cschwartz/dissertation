@@ -13,18 +13,18 @@ The network function operator in turn needs to satisfy its customers, the \emph{
 
 Finally, we consider a human-cloud scenario.
 Here, the \emph{crowdsourcing platform operator} attempts to balance the needs of its two stakeholders, the \emph{crowdsourcing employer} against the requirements of the \emph{crowdsourcing worker}.
-Crowdsourcing employers publish tasks via the crowdsourcing platform to crowdsourcing employees and requires a fast task completion time.
-Crowdsourcing worker are interested in being offered as many tasks as possible, in order to increase their income.
-Crowdsourcing platform operators can dimension the number of available crowdsourcing workers in order balance this tradeoff. 
+Crowdsourcing employers publish tasks via the crowdsourcing platform to crowdsourcing employees and require a fast task completion time.
+Crowdsourcing workers are interested in being offered as many tasks as possible, in order to increase their income.
+Crowdsourcing platform operators can dimension the number of available crowdsourcing workers in order balance this tradeoff.
 
 We draw three major conclusions from this chapter:
 
 First, we observe that the proposed scheme for operation of the data centre allows for a reduction of the energy consumption by \SI{40}{\percent}.
 As a tradeoff, the time before a task can begin processing is increased by less then \SI{1}{\milli\second}.
-Furthermore, we show that for the considered mechanism, server deactivation should occur as soon as possible, resulting in the greatest energy savings while keeping an acceptable time until tasks can begin processing. 
+Furthermore, we show that for the considered mechanism, server deactivation should occur as soon as possible, resulting in the greatest energy savings while keeping an acceptable time until tasks can begin processing.
 
 Second, we study the existence of configurations for the virtualised network function scenario, so that even for conservative server startup times, e.g. \SI{300}{\second}, the blocking probability increases only by a factor of 1.46.
-This configuration also allows  \SI{45}{\percent} of the required instances to be used for other purposes at \SI{50}{\percent} of the time. 
+This configuration also allows  \SI{45}{\percent} of the required instances to be used for other purposes at \SI{50}{\percent} of the time.
 We also demonstrate that the observed blocking probability can be reduced by over \SI{90}{\percent} by employing techniques to reduce instance startup time, e.g. \glspl{SSD} or software containerisation.
 
 Finally, we show that according to our model, crowdsourcing platforms are robust regarding different shapes of the arrival process, i.e. bursty arrivals compared to periodic arrivals.

@@ -3,7 +3,7 @@ In this section we analyse a large dataset from a commercial crowdsourcing platf
 
 \subsubsection*{Deriving Realistic Model Parameters}
 Our analysis is based on a large dataset from the commercial micro-tasking platform Microworkers.com.
-The dataset contains information about more then 160.000 campaigns submitted to the platform between May 2009 and Jan 2015, including the number of task per campaign was well as the time of the submission of the campaign.  
+The dataset contains information about more then 160.000 campaigns submitted to the platform between May 2009 and Jan 2015, including the number of tasks per campaign as well as the time of the submission of the campaign.
 
 \paragraph*{Inter-arrival Times:} First, we study the inter-arrival times of the campaigns.
 During the observation period, the platform faced some downtime due to software update or changes of the technical infrastructure.
@@ -19,7 +19,7 @@ In our model we only consider the regular operation of the platform, therefore w
 
 Considering the remaining data, we observe a mean campaign inter-arrival time of \SI{0.241}{\hour} with a standard deviation \SI{0.346}{\hour}.
 \reffig{fig:cloud:crowdsourcing:measurements:parameters:campaign_interarrival} shows the \gls{CDF} of considered inter-arrival times, as well as the fitted distribution.
-For the fitting we considered several possible distributions but found the gamma distribution 
+For the fitting we considered several possible distributions but found the gamma distribution
 
 \[
 P(A_c=t) \sim \Gamma(\alpha,\beta,t) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-{\beta}t}
@@ -43,11 +43,11 @@ The \gls{CDF} of the campaign sizes \campaignSize is depicted in \reffig{fig:clo
 \end{figure}
 
 Due to the platform restrictions mentioned above, the campaign sizes start with a minimum value of \(30\) tasks.
-We observer that a very high share, i.e. \SI{35}{\percent}, of campaigns has only this minimum size.
+We observe that a very high share, i.e. \SI{35}{\percent}, of campaigns has only this minimum size.
 Further, campaign sizes which are a multiple of \(10\) or a multiple of \(100\) are quite frequent.
 This is caused by the fact that most task on Microworkers.com are repetitive and the employers choose the required number of repetitions and thus are more likely to round the number of repetitions to the nearest multiple of \(10\) or \(100\).
 
-In order to obtain an suitable analytic distribution for the empiric values, we normalise the observed values and use the following piecewise defined distribution.
+In order to obtain a suitable analytic distribution for the empiric values, we normalise the observed values and use the following piecewise defined distribution.
 \begin{equation*}
 P(S=s) \sim
 \begin{cases}
@@ -56,7 +56,7 @@ P(S=s) \sim
   GEOM(s) \cdot 10 + (s_{\min}+1) & \text{else}
 \end{cases}
 \end{equation*}
-with 
+with
 \begin{equation*}
 GEOM(s) = {(1-p)}^s p.
 \end{equation*}
@@ -75,21 +75,21 @@ Therefore, we assume that the processing times follow a negative-exponential dis
 P(t_p=t) \sim \mu  e^{-{\mu}t}.
 \end{equation*}
 Even if the exact processing times are not available, each employer has to add an estimation about the time it takes to complete a task in the campaign description.
-In our dataset, \SI{87.8}{\percent} of all tasks had an estimated completion time between \SIrange{60}{300}{\second}.
-Therefore, we consider \(\mu \in \{\frac{1}{6},\frac{1}{5},\hdots,\frac{1}{2}\}\) for the following evaluations.
+In our dataset, \SI{87.8}{\percent} of all tasks had an estimated completion time between \SIrange{120}{300}{\second}.
+Therefore, we consider \(\mu \in \{\frac{1}{300},\frac{1}{240},\hdots,\frac{1}{120}\}\) \si{\second^-1} for the following evaluations.
 
-\paragraph*{Number of Workers: }Finally, the last model parameter to estimate is the number of users \numberOfWorkers on the crowdsourcing platform. 
+\paragraph*{Number of Workers: }Finally, the last model parameter to estimate is the number of users \numberOfWorkers on the crowdsourcing platform.
 At the time of this analysis, Microworkers.com had over 650.000 registered user accounts.
 However, this number is not applicable in the proposed model, for multiple reasons.
 The proposed model does not consider vacation times, i.e., the workers would have to be available 24/7.
 In reality, many crowdsourcing workers only work occasionally on the platforms or only for a few tasks.
-Further, employers can limit the access of to their campaigns to specific subset of all workers, which is also not considered in the model.
+Further, employers can limit the access of to their campaigns to specific subsets of all workers, which is also not considered in the model.
 Moreover, Microworkers also limits the number of tasks a worker can complete in a single campaign.
-Taking this into account, the number of workers to be considered in our model has to be much small then the number of workers on the real world platform and consequently we decided to estimate meaningful values based on the model parameters instead of using the given number of workers from the dataset.
+Taking this into account, the number of workers to be considered in our model has to be much smaller than the number of workers on the real world platform and consequently we decided to estimate meaningful values based on the model parameters instead of using the given number of workers from the dataset.
 
 \subsubsection*{Comparison of Detailed and Analytical Model}
 An important question for the later analysis is whether the analytic model from \refsec{sec:cloud:crowdsourcing:model} can be used as an approximation or if a simulative evaluation is necessary.
-To this end we compared the later considered metrics utilisation \workerUtilization and task pre-processing delay \preTaskProcessingDelay for 
+To this end we compared the later considered metrics utilisation \workerUtilization and task pre-processing delay \preTaskProcessingDelay for
 \begin{enumerate*}
 \item a simulation using the empiric distributions for the task inter-arrival times and campaign sizes,
 \item a simulation using the fitted distributions derived earlier in this section, and
@@ -121,8 +121,8 @@ The line colour indicates the mean task length, ranging from \SIrange{120}{360}{
 We observe that all models result in the same utilisation \workerUtilization, which is not surprising when considering \(\workerUtilization = \frac{E[A_c] E[\campaignSize]}{c\mu}\) with the mean inter-arrival time \(E[A_c]\).
 Here, all parameters are the same for the three compared models and therefore, no significant differences can be seen.
 
-This is different for the task pre-processing delay \preTaskProcessingDelay. 
+This is different for the task pre-processing delay \preTaskProcessingDelay.
 Here, large discrepancies can been observed between the model based on the empiric distributions and the analytical model.
-This results show that the \(M^{[\campaignSize]}/M/\numberOfWorkers-\infty\) model can also not be used as a worst case estimations, due to the fact that it underestimates the task pre-processing delay \preTaskProcessingDelay.
-In contrast to this, the simulation model based on the gamma distribution fit quite accurate the model based on the empirical values.
-Therefore, we decide continue our evaluation with the simulation model, based on the gamma distributed inter-arrival times and the piecewise defined distribution for the campaign sizes.
+This results show that the \(M^{[\campaignSize]}/M/\numberOfWorkers-\infty\) model can also not be used as a worst case estimation, due to the fact that it underestimates the task pre-processing delay \preTaskProcessingDelay.
+In contrast to this, the simulation model based on the gamma distribution fits quite accurately the model based on the empirical values.
+Therefore, we continue our evaluation with the simulation model, based on the gamma distributed inter-arrival times and the piecewise defined distribution for the campaign sizes.
