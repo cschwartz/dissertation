@@ -2,7 +2,7 @@
 The model presented in \refsec{sec:application:cloud_file_synchronisation:system_model} requires several input parameters which are obtained from measurements and described in this section.
 First, we give an overview over the measurement setup implemented in the distributed testbed PlanetLab~\cite{Chun2003}.
 Then, we present measurement results as well as fitted distributions for both up and download bandwidth as well as for the time used by the cloud service to prepare data prior to the download.
-Finally, we derive a image file size distribution by analysing a large set of digital photos.
+Finally, we derive an image file size distribution by analysing a large set of digital photos.
 
 \subsubsection*{Bandwidth and Preparation Times}\label{sec:application:cloud_file_synchronisation:application_measurements:bandwidth_preparation_times}
 We obtain a PlanetLab slice containing all momentarily available nodes in February 2014 and discard every node not responding to \texttt{ping} or \texttt{ssh} within a \SI{20}{\second} interval.
@@ -83,4 +83,3 @@ The parameters of the resulting distribution are given in \reftab{tab:applicatio
 In order to obtain a representative random variable for the size of image files, we evaluate a set of \({1375}\) pictures of varying image quality taken by different cameras.
 We record the file-size and evaluate the quality of fits using different random variables as shown in~\reffig{fig:application:cloud_file_synchronisation:application_measurements:bandwidth_preparation_times:measurement_setup:image_size}.
 We find that similar to the upload and download bandwidth, a \(2\)-Hyper Log-normal distribution provides best results and present the distribution parameters in \reftab{tab:application:cloud_file_synchronisation:application_measurements:bandwidth_preparation_times:measurement_setup:fit}.
-

@@ -1,7 +1,7 @@
 \subsection{System Model for File Synchronisation using Dropbox}\label{sec:application:cloud_file_synchronisation:system_model}
 This section first provides a general overview over the Dropbox service architecture and introduces the considered use case.
 Then, we propose the cloud storage model and metrics used in this analysis.
-Finally, we discuss a set of scheduling mechanisms used to start the file synchronisation process. 
+Finally, we discuss a set of scheduling mechanisms used to start the file synchronisation process.
 
 The authors of~\cite{Drago2012} provide a first study of the \dropbox architecture, which is schematically depicted in \reffig{fig:application:cloud_file_synchronisation:system_model:dropbox_architecture} and used as a basis for the model under study in the remainder of this section.
 
@@ -14,8 +14,8 @@ The authors of~\cite{Drago2012} provide a first study of the \dropbox architectu
 
 The \dropbox infrastructure consists of two main components:
 \begin{enumerate*}
-\item a storage cloud based on Amazon's Elastic Compute Cloud and Simple Storage Service, and 
-\item control servers directly maintained by \dropbox Inc. 
+\item a storage cloud based on Amazon's Elastic Compute Cloud and Simple Storage Service, and
+\item control servers directly maintained by \dropbox Inc.
 \end{enumerate*}
 The control servers store meta information about the current state of the files in the \dropbox folders and trigger synchronisation processes on the clients.
 
@@ -26,7 +26,7 @@ After the file has completely been transferred to the storage cloud, all connect
 
 \subsubsection*{Use Case: Photo Uploading}\label{sec:application:cloud_file_synchronisation:use_case}
 In this section we consider the synchronisation of images from a digital camera to a mobile \gls{UE} via a cloud storage provider.
-Real world examples of this scenario are, e.g., taking photos of a live event and transferring them to a picture agency, or shooting private holiday images. 
+Real world examples of this scenario are, e.g., taking photos of a live event and transferring them to a picture agency, or shooting private holiday images.
 
 The user took a finite set of pictures with a wearable device like Google Glass or a smart camera, e.g. a Nikon Coolpix S800c or SAMSUNG CL80.
 The camera is then connected via a \gls{PAN} with a mobile \gls{UE}, for example a laptop with a data card or a smartphone, to store the images on the mobile device.
@@ -38,11 +38,11 @@ For the role of the cloud storage provider we consider \dropbox, Bluetooth is us
 
 In the considered scenario the interests of two stakeholders are impacted.
 The first stakeholder, the end user, has two contradicting requirements on the system.
-On the one hand, the images should be synchronised as fast as possible. 
+On the one hand, the images should be synchronised as fast as possible.
 This requires a fast and permanent Internet connection of the \gls{UE}, which in turn is very power intensive.
 On the other hand, the power drain of the mobile device should be minimised to enable a long battery life time.
 The second stakeholder, the mobile network provider, wants to minimise the signalisation overhead in the network~\cite{NSN2011, Huawei2011} caused by short time connections.
-Here, an optimisation problem arises to find a practical solution for all three requirements. 
+Here, an optimisation problem arises to find a practical solution for all three requirements.
 In order to analyse this problem, we use a simulation model of the file synchronisation process, which is described in the following.
 
 \subsubsection*{Cloud Storage Model and Performance Metrics}\label{sec:application:cloud_file_synchronisation:system_model:model_metrics}
@@ -81,7 +81,7 @@ First, we consider the mean synchronisation time \sojournTime, i.e., the time be
 This metric accounts for the desire of end users to synchronise images in a short amount of time.
 Secondly, we study the relative amount of time the \gls{UE} is disconnected \relativeDisconnectedTime.
 As the \gls{UE} consumes more power in the connected state, the user is generally interested in scheduling mechanisms which ensure that the device is only connected if required \cite{Ickin2012}.
-This measure also enables a more general evaluation then the actually consumed power, as the concrete power drain differs significantly for each device.
+This measure also enables a more general evaluation than the actually consumed power, as the concrete power drain differs significantly for each device.
 Finally, we evaluate the number of transitions~\connectionCount between the connected and disconnected states.
 As discussed in \refsec{chap:network}, frequent state transitions stress the network due to increased signalling.
 Thus, scheduling algorithms with a small number of transitions would be favoured by network operators.
@@ -92,9 +92,9 @@ These mechanisms in turn affect the synchronisation time, the power drain, and t
 
 The most basic strategy of handing the upload is to immediately send new files, as soon as the meta data is generated.
 We refer to this as the \algoimmediate strategy and will use this as base line for all comparisons in the evaluations.
-The other two strategies considered are based on a temporal, respectively a size threshold. 
+The other two strategies considered are based on a temporal, respectively a size threshold.
 Using the \algointerval scheduling, the client checks periodically, according to an interval \thresholdInterval, if new files have been marked for synchronisation.
 If new files are present, they are synchronised to \dropbox.
-Files which could not be sent within the current interval will automatically be added to the file batch for the next interval. 
+Files which could not be sent within the current interval will automatically be added to the file batch for the next interval.
 The last scheduling mechanisms uses a threshold \thresholdSize based on the overall \algosize of the images not yet synchronised.
 If the threshold is crossed, an upload is triggered.

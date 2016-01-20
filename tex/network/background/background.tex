@@ -27,30 +27,30 @@ It is used to establish, maintain, and tear down connections between \gls{UE} an
 Furthermore, the \gls{RRC} protocol performs broadcasting of network information, \gls{QoS} control, and reporting and cell selection management, which are out of scope for this text.
 The protocol is divided into different parts: services for upper layers, communication with lower layers, protocol states, \gls{RRC} procedures, and error control.
 In particular, the \gls{RRC} protocol also participates in the co-ordination of other resource management operations, channel measurements, and handovers.
-All \gls{RRC} procedures rely on protocol states. 
-The state are defined per \gls{UE} and for the connection between the \gls{UE} and the NodeB station.
-Depending on the \gls{RRC} state and network activity from, or targeted at, the \gls{UE} protocol actions can be triggered and transitions to other \gls{RRC} states may occur.
+All \gls{RRC} procedures rely on protocol states.
+The states are defined per \gls{UE} and for the connection between the \gls{UE} and the NodeB station.
+Depending on the \gls{RRC} state and network activity, originating or targeted at the \gls{UE}, protocol actions can be triggered and transitions to other \gls{RRC} states may occur.
 Typically there are five \gls{RRC} states characterising a connection between \gls{UE} and NodeB: \texttt{idle}, \texttt{URA\_PCH}, \texttt{CELL\_PCH}, \texttt{RRC\_DCH}, and \texttt{RRC\_FACH}.
 Whether a specific \gls{RRC} state is used in a specific mobile network depends on the configuration of the network by the provider.
 In the following we concentrate on the most commonly observed \gls{RRC} states~\cite{Qian2010a}: \gls{RRC_idle}, \gls{RRC_DCH}, and \gls{RRC_FACH}.
 We neglect \texttt{URA\_PCH} and \texttt{CELL\_PCH} in this study.
-While \texttt{URA\_PCH} plays only a role in scenarios of high mobility, \texttt{CELL\_PCH} is not yet widely implemented. 
+While \texttt{URA\_PCH} plays only a role in scenarios of high mobility, \texttt{CELL\_PCH} is not yet widely implemented.
 Our results are still of general nature and do not depend on the number of considered \gls{RRC} states.
 
 \paragraph*{\headershortacr{RRC} State Transitions} If the \gls{UE} is switched on and no connection to the mobile network is established, the \gls{UE} is in \gls{RRC_idle} state.
-If the \gls{UE} wants to send data, radio resources are allocated by the NodeB for the handset and the \gls{UE} will transition to either the \gls{RRC_FACH} or the \gls{RRC_DCH} state. 
+If the \gls{UE} wants to send data, radio resources are allocated by the NodeB for the handset and the \gls{UE} will transition to either the \gls{RRC_FACH} or the \gls{RRC_DCH} state.
 Then, a corresponding channel for data transmission is assigned to the \gls{UE} and the \gls{UE} is connected to the network.
 The \gls{RRC_FACH} and the \gls{RRC_DCH} state can be distinguished in that way that in \gls{RRC_DCH} state a high-power dedicated channel for high speed transmission is allocated whereas in \gls{RRC_FACH} state a shared access channel for general sporadic data transmission is used.
-Thus, \gls{RRC_FACH} consumes significantly less power than the \gls{RRC_DCH} state. 
+Thus, \gls{RRC_FACH} consumes significantly less power than the \gls{RRC_DCH} state.
 
 The possible transitions between the different states are defined by the network operator and the \gls{RRC} protocol stack.
-Typically, the following state transitions are included: 
+Typically, the following state transitions are included:
 \gls{RRC_idle} \(\rightarrow\) \gls{RRC_FACH},
-\gls{RRC_FACH} \(\rightarrow\) \gls{RRC_DCH} to switch from lower radio resource utilisation and low \gls{UE} power drain to another state using more resources and power, and 
-\gls{RRC_DCH} \(\rightarrow\) \gls{RRC_FACH}, 
+\gls{RRC_FACH} \(\rightarrow\) \gls{RRC_DCH} to switch from lower radio resource utilisation and low \gls{UE} power drain to another state using more resources and power, and
+\gls{RRC_DCH} \(\rightarrow\) \gls{RRC_FACH},
 \gls{RRC_FACH} \(\rightarrow\) \gls{RRC_idle},
 \gls{RRC_DCH} \(\rightarrow\) \gls{RRC_idle} to switch to lower resource usage and power drain.
-According to~\cite{Perala2009,Qian2010a}, the transitions are triggered by user activity and radio link control buffer level at the base station. 
+According to~\cite{Perala2009,Qian2010a}, the transitions are triggered by user activity and radio link control buffer level at the base station.
 A transition from \gls{RRC_DCH} to \gls{RRC_FACH} usually occurs when the buffer is empty and a threshold for a release timer is exceeded, resulting into the corresponding \gls{RRC} protocol message flow.
 A transition in the reverse direction is triggered if the buffer level exceeds a specified threshold value for a predefined time period.
 The \gls{UE} will transition into \gls{RRC_idle} state if the \gls{RNC} detects overload in the network or no data was sent by the \gls{UE} for a specified time.
@@ -70,10 +70,10 @@ The \gls{UE} will transition into \gls{RRC_idle} state if the \gls{RNC} detects 
 \end{figure}
 
 \paragraph*{Considered Network Models} We consider two different state transition models, depicted in \reffig{fig:network:background:rrc_state_machines}, based on the \gls{RRC} protocol.
-The first model includes the \gls{RRC_idle}, \gls{RRC_FACH}, and \gls{RRC_DCH} states is shown in \reffig{fig:network:background:rrc_state_machines:three_states} and is in the following called the \emph{Three State Model}.
+The first model including the \gls{RRC_idle}, \gls{RRC_FACH}, and \gls{RRC_DCH} states is shown in \reffig{fig:network:background:rrc_state_machines:three_states} and is in the following called the \emph{Three State Model}.
 If the \gls{UE} is in the \gls{RRC_idle} state and activity is detected, i.e. a packet is sent or received, the connection transitions to \gls{RRC_DCH} state.
 After each transmission a timer \TDCH is started and reset whenever a new packet is sent or received.
-If the timer expires, the connection transitions to the \gls{RRC_FACH} state upon entering, the \TFACH timer is started.
+If the timer expires, the connection transitions to the \gls{RRC_FACH} state; upon entering, the \TFACH timer is started.
 If a new transmission occurs, the connection again transitions to the \gls{RRC_DCH} state.
 If \TFACH expires, the connection transitions to \gls{RRC_idle} state.
 
@@ -93,38 +93,38 @@ Thus, both models warrant further investigation.
 \subsection{Measurements of \headershortacr{RRC} Parameters and Optimisation of Resource Consumption}\label{sec:network:background:measurement_optimisation}
 
 In the literature the configuration of the inactivity timers used for the \gls{RRC} protocols have been investigated in detail.
-In~\cite{Perala2009} a measurement tool for \gls{RRC} protocol states is presented. 
+In~\cite{Perala2009} a measurement tool for \gls{RRC} protocol states is presented.
 It is used to determine \gls{RRC} state transition parameters, channel setup delays, and paging delay by measuring the one-way round trip time of data packets.
 The results are validated by monitoring the power drain in different \gls{RRC} states.
 One outcome is that \gls{UMTS} network configurations vary significantly by network operator.
 The \gls{RRC_DCH} release timer as well as the inactivity timer value triggering transition to \gls{RRC_idle} state were measured.
 The values range from \SI{1.2}{\second} for the \gls{RRC_DCH} release timer to more than one minute for the \gls{RRC_idle} timer.
 Similar results are presented in~\cite{Qian2010a}.
-Here, the observed values vary between \SI{5}{\second} and \SI{12}{\second}. 
+Here, the observed values vary between \SI{5}{\second} and \SI{12}{\second}.
 Additionally, they also determined the exact \gls{RRC} state transitions for two networks, i.e. \gls{RRC_idle} \(\rightarrow\) \gls{RRC_FACH} \(\rightarrow\) \gls{RRC_DCH} or \gls{RRC_idle} \(\rightarrow\) \gls{RRC_DCH} directly without transitioning through the \gls{RRC_FACH} state.
 The \gls{3GPP} has released a technical report \cite{3GPP_22801} about the adverse impact of mobile data applications.
 This report states that frequent connection re-establishments due to small data packets caused by e.g. status updates of social network or instant messaging applications can lead to problems of increased signalling.
 This highlights the importance of this topic.
 
-Furthermore, there are papers that propose optimising strategies that take the \gls{RRC} states into account. 
+Furthermore, there are papers that propose optimising strategies that take the \gls{RRC} states into account.
 In~\cite{Qian2011a} the impact of different application traffic patterns is studied to reveal resource usage in mobile networks.
 By identifying packet bursts, they infer the \gls{RRC} states of the \gls{UE}.
 Radio resources are quantified by channel occupation time and power drain.
 They propose an algorithm that tries to optimise application traffic patterns by e.g. piggybacking, batching up data, or decreasing the update rate of an application.
-The algorithm is evaluated for six applications: two news applications, Pandora streaming application, Google search, Tune-In radio and Mobelix. 
+The algorithm is evaluated for six applications: two news applications, Pandora streaming application, Google search, Tune-In radio and Mobelix.
 In~\cite{Qian2010b} \gls{RRC} states are studied for network optimisation.
-The authors optimise the inactivity timers to allow a better resource utilisation. 
+The authors optimise the inactivity timers to allow a better resource utilisation.
 They propose an application-to-network interface to avoid unnecessary timer periods after data transmission.
 
 \subsection{Smartphone Power Consumption and \headershortacr{QoE}}\label{sec:network:background:energy_consumption_qoe}
-As discussed at the beginning of this chapter, power drain of the \gls{UE} and the \gls{QoE} for the end user are important \glspl{KPI} for the hardware vendor and the application developer respectively.
+As discussed at the beginning of this chapter, power drain of the \gls{UE} and the \gls{QoE} for the end user are important \glspl{KPI} for the hardware vendor and the application developer, respectively.
 Power drain of the \gls{UE} varies according to the devices' current \gls{RRC} state.
 The power drain caused by \gls{RRC_DCH} mode was measured at about \SIrange{600}{800}{\milli\watt}~\cite{Qian2011a,Qian2010a}.
 In \gls{RRC_FACH} mode, the power drain of an \emph{HTC TyTN II} was measured at about \SIrange{400}{460}{\milli\watt} depending on the \gls{UE} and the network operator~\cite{Qian2010a}.
-A precise measurement of the power drain of different \gls{RRC} states is performed in~\cite{Qian2010a,Balasubramanian2009,Lee2004}. 
-The authors report that the drain drain depends on two factors: 
+A precise measurement of the power drain of different \gls{RRC} states is performed in~\cite{Qian2010a,Balasubramanian2009,Lee2004}.
+The authors report that the power drain depends on two factors:
 \begin{enumerate*}
-\item user interactions and applications, 
+\item user interactions and applications,
 \item platform hardware and software.
 \end{enumerate*}
 Methods for reducing power drain in \gls{LTE} Machine to Machine scenarios are considered in \cite{Tirronen2012}.
@@ -141,4 +141,4 @@ The study comprises
 \end{enumerate*}
 To determine the factors of influence, the authors analyse the frequency of specific keywords in the interviews and the surveys.
 They find that the term \emph{battery} is mentioned by the participants with the highest frequency.
-According to the authors this is reasonable since the battery efficiency has a strong impact on the user perceived quality, in particular when it the \gls{UE} is nearly discharged.
+According to the authors this is reasonable since the battery efficiency has a strong impact on the user perceived quality, in particular when the \gls{UE} is nearly discharged.

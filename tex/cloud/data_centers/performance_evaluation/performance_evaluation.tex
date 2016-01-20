@@ -1,7 +1,7 @@
 \subsection{Evaluation of Energy Saving Potential}\label{sec:cloud:data_centers:performance_evaluation}
 Based on the metrics obtained in \refsec{sec:cloud:data_centers:modeling}, we can now compare the introduced default data centre and energy-efficient data centre models.
 
-An optimal system setting would decrease both, waiting time and power drain.
+An optimal system setting would decrease both waiting time and power drain.
 For the discussion of this optimisation problem, we require additional notation which is introduced first.
 We assume that the job inter-arrival rate \(\lambda\), the job service rate \(\mu\), and the total number of servers \(n_\text{total}\) are constants and not subject to the optimisation process.
 Thus, the complete system can be described by the number of base-line servers \(n\), the server activation threshold \(\theta_2\), and the server deactivation threshold \(\theta_1\).
@@ -15,7 +15,7 @@ f(n, \theta_1, \theta_2) = \alpha e(n, \theta_1, \theta_2)  + (1-\alpha) w(n, \t
 for \(0\leq\alpha\leq 1\).
 Then, it is possible to choose an \(\alpha\) in such a way that a desirable tradeoff is made. Thus, the optimisation problem can be defined as
 \begin{align}
-\min f(n, \theta_1, \theta_2) \qquad&s.t.& 1 < n < s,\\ 
+\min f(n, \theta_1, \theta_2) \qquad&s.t.& 1 < n < s,\\
 &&1 < \theta_1 < n - 1,\nonumber\\
 &&1 < \theta_2 < m - 1\nonumber,
 \end{align}
@@ -37,7 +37,7 @@ Then, \(x^*\) is Pareto-optimal in \(X\) if no \(x\in X\backslash \left\{x^*\rig
 
 To study the system behaviour we consider an exemplary rack of \(n_\text{total} = 100\) servers, where new jobs arrive with a negative exponential inter-arrival time with mean \SI{10}{\milli\second}, yielding \(\lambda = \SI{1/10}{\per\milli\second}\).
 To determine the mean service time we turn to \cite{Barroso07} where it is reported that in average servers are operating at \SIrange{10}{50}{\percent} of their maximum utilisation levels.
-With this in mind we assume that the service time for job completion is again negative exponential with a mean of \SI{400}{\milli\second}, which implies \(\mu = \SI{1/400}{\per\milli\second}\), resulting in a overall utilisation of \(\frac{\lambda}{\mu n_\text{total}} = 0.4\), well within the described limits.
+With this in mind we assume that the service time for job completion is again negative exponential with a mean of \SI{400}{\milli\second}, which implies \(\mu = \SI{1/400}{\per\milli\second}\), resulting in an overall utilisation of \(\frac{\lambda}{\mu n_\text{total}} = 0.4\), well within the described limits.
 
 Based on these parameters, we can compute the mean waiting time and power drain for the default data centre model.
 The mean waiting time achieved by the default data centre model provides a lower bound for the achievable waiting time for the energy-efficient data centre model, as all \(n\) servers are always either idle or busy.
@@ -71,6 +71,6 @@ Given the set of Pareto-optima, we can investigate the parameter choice that lea
 To this end, we plot the system parameters for each optimum in \reffig{fig:cloud:data_centers:performance_evaluation:sorted_results}.
 The optima themselves are sorted according to the mean waiting time \(E[W]\).
 From the figure we observe see that generally, the server deactivation threshold is very close to the number of base-line servers, in most cases \(n - \theta_1 = 2\), the closest possible distance due to the macro state equation constraints.
-Furthermore, the number of base-line servers is decreasing as the mean waiting time \(E[W]\) increases. 
+Furthermore, the number of base-line servers is decreasing as the mean waiting time \(E[W]\) increases.
 The mean waiting time \(E[W]\) spectrum can be partitioned in interleaving sections, during which the number of base-line servers remain constant.
 Furthermore, in such a section, the server activation threshold increases super linearly.

@@ -10,7 +10,7 @@ However, it is possible to infer the \gls{RRC} state transitions for a given pac
 First, we describe the setup used to capture network packet traces for arbitrary apps.
 Then, we give an algorithm to infer the \gls{RRC} state transitions for a given packet trace.
 Based on these state transitions, we can calculate the number of signalling messages generated
-by the packet trace. 
+by the packet trace.
 Finally, we use the information on when which \gls{RRC} state was entered to calculate the power drain of the \gls{UE}’s radio interface.
 
 \subsubsection*{Measurement Procedure and Setup}\label{sec:network:network_traces:performance_evaluation:measurement}
@@ -23,7 +23,7 @@ Then, the \emph{android debugging bridge} is used to copy the traces to a workst
 The traces contain \gls{IP} packets embedded in Linux Cooked Captures.
 We require the \gls{IP} packets, thus we extracted the \gls{IP} packets which are used during the analysis to follow.
 
-\subsubsection*{Inferring Network State of an \headershortacr{UE}}\label{sec:network:network_traces:performance_evaluation:inferring_network_state}
+\subsubsection*{Inferring Network State of a \headershortacr{UE}}\label{sec:network:network_traces:performance_evaluation:inferring_network_state}
 In this section we study the influence of the application traffic on \gls{RRC} state transitions and signalling messages.
 Since \gls{RRC} state transitions can not be captured using commonly available tools, we introduce an algorithm to infer \gls{RRC} state transitions from \gls{IP} packet traces.
 Using this algorithm we analyse the \gls{RRC} state transition frequency and signalling message load for the Two State Model and Three State Model.
@@ -34,8 +34,8 @@ However, it should be noted that this method is not restricted to a specific net
 Using these captures, we extract the timestamps when \gls{IP} packets are sent or received.
 Furthermore, we require the timer values of the transition from \gls{RRC_DCH} state to \gls{RRC_FACH} state, \TDCH, and the timer for the transition between \gls{RRC_FACH} and \gls{RRC_idle} states, \TFACH.
 
-Based on these informations \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} infers the timestamps of state transitions according to the \gls{3GPP} specification \cite{3GPP_RRC_Spec} for the Three State Model.
-This algorithm can be simplified to also work for the Two State Model. 
+Based on this information \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} infers the timestamps of state transitions according to the \gls{3GPP} specification \cite{3GPP_RRC_Spec} for the Three State Model.
+This algorithm can be simplified to also work for the Two State Model.
 Alternatively, a method to post process the results of the algorithm to obtain results for the Two State Model is given at the end of this section.
 The algorithm first computes the inter-arrival times of all packets.
 Then, each timestamp is considered.
@@ -95,7 +95,7 @@ Alternatively, the behaviour of the Two State Model can be emulated using \refal
     \gls{RRC_idle} & -- & 28 & 32\\
     \gls{RRC_FACH} & 22 & -- & 6\\
     \gls{RRC_DCH} & 25 & 5 & --\\
-    \bottomrule    
+    \bottomrule
 	\end{tabular}
 \end{table}
 
@@ -103,7 +103,7 @@ In reality, the number of state transitions is not the metric of most importance
 Each state transition results in a number of \gls{RRC} messages between the \gls{UE} and different network components.
 For this study we consider the number of messages observed at the \gls{RNC}, which can be found in \cite{3GPP_RRC_Spec} and is summarised in \reftab{tab:network:network_traces:calculating_metrics:signalling_messages}.
 It can be seen that transitions from or to the \gls{RRC_idle} state are especially expensive in terms of number of messages sent or received.
-This is due to the fact that upon entering or leaving the \gls{RRC_idle} state, authentication has to be performed. 
+This is due to the fact that upon entering or leaving the \gls{RRC_idle} state, authentication has to be performed.
 Note that for the Two State Model only transitions from or to the \gls{RRC_idle} state occur.
 This results in the fact that for the same network packet trace the number of signalling messages occurring in the Two State Model is generally higher than in the Three State Model.
 To obtain the total number of signalling messages, we weight the number of state transitions with the number of messages sent per state transitions.
@@ -117,7 +117,7 @@ Furthermore, the algorithm can be adapted to new networking models or other numb
 \begin{table}
   \centering
   \caption{Power consumption of the \headershortacr{UE} radio interface depending on current \headershortacr{RRC} state \cite{Qian2011a}.}
-  \label{tab:network:network_traces:calculating_metrics:power_consumption}  
+  \label{tab:network:network_traces:calculating_metrics:power_consumption}
   \begin{tabular}{lc}
   	\toprule
     \gls{RRC} State & Power consumption\\
@@ -131,6 +131,6 @@ Furthermore, the algorithm can be adapted to new networking models or other numb
 
 From a users point of view, the signalling message frequency is of little importance.
 The user is interested in a low power drain as this increases the battery life of the device.
-To calculate the battery life, we use the time when state transitions occurred, and the information about the state the transition was to, to calculate the relative amount of time that was spent in each state.
+To calculate the battery life, we use the time when state transitions occurred, and the new state, to calculate the relative amount of time that was spent in each state.
 Given the relative time spent in each state, we use \reftab{tab:network:network_traces:calculating_metrics:power_consumption}, taken from \cite{Qian2011a}, to compute the \gls{PD} of the radio interface during the measurement phase.
 We focus on the power drain of the radio interface, as it is possible to measure the aggregated power drain using out of the box instrumentation techniques provided by the hardware vendor.

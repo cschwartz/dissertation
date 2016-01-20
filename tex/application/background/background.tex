@@ -29,42 +29,42 @@ In the remainder of this work, we refer to this threshold policy as \(pq\)-polic
 \subsection{Video Quality of Experience for \headershortacr{HTTP} Adaptive Streaming}\label{sec:application:background:application_qoe}
 The goal of \gls{HAS} is to adapt the video to the current network conditions.
 The video adaptation may be realised by changing the frame rate, resolution, or quantisation of the video. Although the adaptation results in lower quality, the major benefits compared to classical \gls{HTTP} video streaming is the reduction of stalling events.
-The authors of \cite{Seufert2014} survey \gls{QoE} for \gls{HTTP} adaptive streaming and gives an overview of recent developments. 
+The authors of \cite{Seufert2014} survey \gls{QoE} for \gls{HTTP} adaptive streaming and give an overview of recent developments.
 Besides improved quality adaptation mechanisms~\cite{Sieber2013}, other approaches aim for example at optimising the segmentation of the videos~\cite{Lievens2013}.
 
 Subjective studies showed that users prefer initial delays instead of stalling events~\cite{Hossfeld2012c}.
-An analytical framework for the dimensioning of appropriate video buffers for \gls{TCP} streaming shows that the initial buffering delay and the size of the buffer should be as small as possible, yet large enough to avoid buffer underflows~\cite{Yan2011}. 
+An analytical framework for the dimensioning of appropriate video buffers for \gls{TCP} streaming shows that the initial buffering delay and the size of the buffer should be as small as possible, yet large enough to avoid buffer underflows~\cite{Yan2011}.
 A concrete approach~\cite{Hossfeld2012b} determines the optimal, i.e. minimal, initial delay at the client.
 During this time, the video buffer is filled such that no stalling occurs.
-Two buffer size adaptation policies are proposed by~\cite{Fiedler2014} which are evaluated by means of a fluid model in terms of freezing probability. 
+Two buffer size adaptation policies are proposed by~\cite{Fiedler2014} which are evaluated by means of a fluid model in terms of freezing probability.
 
-The authors of \cite{Luan2010} evaluate the impact of network dynamics and \gls{QoS} provision on users video quality. 
-An analytical framework models the playback buffer at the receiver as a \(GI/GI/1\) queue, however no \(pq\)-policy is considered. 
-Further, video quality is considered in terms of the start-up delay or fluency of video playback. 
-Based on that, adaptive play-out buffer management schemes are proposed. 
+The authors of \cite{Luan2010} evaluate the impact of network dynamics and \gls{QoS} provision on users video quality.
+An analytical framework models the playback buffer at the receiver as a \(GI/GI/1\) queue, however no \(pq\)-policy is considered.
+Further, video quality is considered in terms of the start-up delay or fluency of video playback.
+Based on that, adaptive play-out buffer management schemes are proposed.
 
 Considering both the video content as well as the available resources by using a proxy has been suggested to improve the users \gls{QoE}~\cite{Essaili2013} for \gls{HAS}.
 In~\cite{Xin2012} the authors suggest the use of a caching strategy, downloading video content according to a user's viewing history and network conditions.
 
 So far, no queueing system with \(pq\)-policy is applied to analyse \gls{QoE} for \gls{HTTP} video streaming and to dimension video buffers accordingly.
 In queueing theory, the related threshold policy is denoted as \(N\)-policy introduced by~\cite{Yadin1963} with \(p=0\) and \(q=N\); the server stops whenever the system becomes empty and resumes service when the number of waiting customers in the system, i.e. the video buffer in our case, reaches a threshold value \(N\).
-\refsec{sec:application:qoe_user_behaviour:system_model:steady_state} will show that in  contrast to the transient phase, in the steady state \(q\) has no influence on the performance. 
+\refsec{sec:application:qoe_user_behaviour:system_model:steady_state} will show that in  contrast to the transient phase, in the steady state \(q\) has no influence on the performance.
 
 Various researchers analysed the \(N\)-policy.
 In \cite{Zhang2004} the stationary joint distribution of queue length and the server's status for the \(GI/M/1\) is derived.
 The authors of \cite{Wang2000} obtain the steady state probability distribution of the number of customers in a finite system for the \(M/GI/1\) system with \(N\)-policy.
 A transient solution of the \(M/M/1\) queue under \(pq\)-policy is derived by~\cite{Boehm1993}.
 
-Results from queueing theory may be applied to dimensioning the video buffer for \gls{HTTP} streaming in order to optimise \gls{QoE}. 
+Results from queueing theory may be applied to dimensioning the video buffer for \gls{HTTP} streaming in order to optimise \gls{QoE}.
 However, the approaches mentioned above are either considering \gls{QoS} parameters only or they apply \gls{QoE} models based on \glspl{MOS} of subjects.
 However, differences in how \gls{QoE} degradations are observed by individual users are not considered.
 In \refsec{sec:application:qoe_user_behaviour} we propose an analytical model which allows to investigate individual user profiles based on a parametrised QoE model.
 
 Most user studies on \gls{HTTP} video streaming quantify and report \gls{QoE} in terms of \gls{MOS}, e.g.~\cite{Hossfeld2013c}.
 However, there is a diversity in user perception which is eliminated by the process of averaging subjective ratings.
-A relationship between the \gls{MOS} and the second moment of the user ratings is formulated as \gls{SOS} hypothesis and a standard deviation for particular \gls{MOS} values is observed up to \(0.8\) for video \gls{QoE}~\cite{Hossfeld2011b}. 
+A relationship between the \gls{MOS} and the second moment of the user ratings is formulated as \gls{SOS} hypothesis and a standard deviation for particular \gls{MOS} values is observed up to \(0.8\) for video \gls{QoE}~\cite{Hossfeld2011b}.
 Thus, user perceptions may fluctuate between good and poor quality under the same conditions. The authors observe different user types, denoted as \emph{hectic}, \emph{regular}, \emph{insensitive} depending on their sensitivity to \gls{QoE} degradations.
 
-Various resource management mechanisms to improve \gls{QoE} for YouTube have been proposed in literature, e.g. in Wi-Fi mesh networks~\cite{Wamser2013} or using \gls{SDN}~\cite{Zinner2014}.
+Various resource management mechanisms to improve \gls{QoE} for YouTube have been proposed in the literature, e.g. in Wi-Fi mesh networks~\cite{Wamser2013} or using \gls{SDN}~\cite{Zinner2014}.
 \gls{SDN} enhances the interaction between networks and applications and allows a more dynamic and demand-based allocation of network resources which is demonstrated for YouTube video streaming.
 To overcome resource limitations in the content delivery infrastructure,~\cite{Zink2008} proposes client-based local caching, \gls{P2P}-based distribution, and proxy caching which reduces network traffic significantly and can therefore avoid \gls{QoE} degradations.

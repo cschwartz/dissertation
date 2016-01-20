@@ -7,7 +7,7 @@ Finally, we focus on crowdsourcing research and provide background information f
 \subsection{Energy-Efficiency in Data Centres}
 Several papers have been published, proposing new architectures for data centres which provide more resilience or are more cost effective\cite{Al-Fares2008, Greenberg2009a, Guo2009}.
 
-Bolla et al.~\cite{Bolla2011} provide an overview over approaches to reduce energy consumption caused by network infrastructure, offering a complementary view to the methods suggested in this chapter.  
+Bolla et al.~\cite{Bolla2011} provide an overview over approaches to reduce energy consumption caused by network infrastructure, offering a complementary view to the methods suggested in this chapter.
 
 Heller et al.~\cite{Heller2010} published a paper considering the tradeoff between energy efficiency and resilience.
 They use the fat-tree architecture similar to~\cite{Al-Fares2008, Greenberg2009a} which is based on commercial of-the-shelf network equipment.
@@ -26,11 +26,11 @@ The third proposed solution is a hybrid solution using a combination of predicti
 The goal of the authors in~\cite{Mazzucco2010a, Dyachuk2010, Mazzucco2010b} is to run a minimum number of servers in a data centre to maximise the revenue of the service provider.
 The considered data centre hosts a web page application. While in~\cite{Mazzucco2010a} the authors do not consider user impatience and the fact that servers consume energy without producing revenue during wake up, \cite{Mazzucco2010b} takes both into account. In~\cite{Dyachuk2010}, the authors introduced a policy for dynamically adapting the number of running servers. The goal of the paper was to find the best tradeoff between consumed power and service quality.
 
-In~\cite{Gandhi2010} the authors present a model for server farms using exponential inter-arrival, service and setup times. They consider different policies for powering down servers for finite and infinite servers. 
+In~\cite{Gandhi2010} the authors present a model for server farms using exponential inter-arrival, service and setup times. They consider different policies for powering down servers for finite and infinite servers.
 
 
 \subsection{Mobile Network Traffic Characteristics}
-The authors of \cite{Metzger2014} which include a co-author of~\cite{Metzger2014a}, the basis for \refsec{sec:cloud:virtualized_network_functions}, provide a detailed evaluation of mobile network traces taken from a large European mobile network operator. 
+The authors of \cite{Metzger2014} which include a co-author of~\cite{Metzger2014a}, the basis for \refsec{sec:cloud:virtualized_network_functions}, provide a detailed evaluation of mobile network traces taken from a large European mobile network operator.
 
 Having access to core network datasets, the authors of~\cite{Shafiq2011, Paul2011} both take the approach of looking at high-level user traffic characteristics, focusing on temporal and spatial variations of user traffic volume and investigating the influence of different devices on this metric.
 Additional user flow and session traffic metrics are being studied in~\cite{Zhang2012} with the conclusion that, in comparison to wired traffic, short flows are occurring more frequently.
@@ -42,7 +42,7 @@ The authors of~\cite{Romirer-Maierhofer2008} investigate influence of core netwo
 \subsection{Modeling Crowdsourcing Platforms}
 The term crowdsourcing is a neologism combining the terms `crowd' and `outsourcing'.
 It was first introduced by Jeff Howe in 2006~\cite{Howe2006} and describes a new form of work organisation with a smaller granularity than traditional forms~\cite{Hossfeld2011c}.
-In contrast to traditional forms of work organisation, work is divided in individual \emph{tasks} that can be completed independent of each other. 
+In contrast to traditional forms of work organisation, work is divided in individual \emph{tasks} that can be completed independent of each other.
 These tasks are not directly assigned to an employee but published on a \emph{crowdsourcing platform} in form of an open call.
 Users publishing tasks on crowdsourcing platforms are referred to as \emph{employers}, users accepting and accomplishing tasks as \emph{workers}.
 Workers can freely choose which task to work on, other than in traditional forms of work organisation.
@@ -53,11 +53,11 @@ The crowdsourcing approach is used for a large variety of non-profit, academic, 
 Depending on the specific use case, the features of the crowdsourcing platform, the workers, and employers differ.
 Therefore, we focus in this work on commercial micro-tasking platforms for the development and evaluation of our model.
 
-Commercial micro-tasking platforms like MTurk or Microworkers are specialised labour providers for very fine granular tasks that can be easily completed a humans within a few second to a few minutes, but cannot be solved using automatic approaches. 
+Commercial micro-tasking platforms like MTurk or Microworkers are specialised labour providers for very fine granular tasks that can be easily completed by a human within a few second to a few minutes, but cannot be solved using automatic approaches. 
 These tasks include, e.g., image tagging, text creation, or subjective ratings.
 As the tasks are highly repetitive, they are often submitted by the employers in form of \emph{campaigns}, representing batches of similar tasks.
 
-Several efforts have already been made to describe certain aspects of micro-tasking platforms in analytic models. 
+Several efforts have already been made to describe certain aspects of micro-tasking platforms in analytic models.
 Faradani et al.~\cite{Faradani2011} modelled the arrival process of workers using a non-homogeneous Poisson process in order to derive optimal pricing strategies for the employers.
 The model is based on a crawled dataset from MTurk including about 130,000 campaigns with in total over 4,000,000 tasks.
 Wang et al.~\cite{Wang2011} analysed the completion time of crowdsourcing campaigns using a survival analysis based on a crawled dataset from MTurk consisting of more than 160,000 campaigns and approximately 6,700,000 tasks over a period of 15 months.

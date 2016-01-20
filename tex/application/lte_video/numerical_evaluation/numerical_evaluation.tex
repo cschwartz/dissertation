@@ -2,7 +2,7 @@
 
 In this section we study the metrics introduced in \refsec{sec:application:lte_video:system_model:model_assumptions:metrics} on the different transmission mechanisms.
 
-First, we study the impact of the considered transmission mechanisms on the energy consumption and the wasted traffic. 
+First, we study the impact of the considered transmission mechanisms on the energy consumption and the wasted traffic.
 Then, we consider the impact of the connection count for the \streaming mechanisms and varying values of the parameters \emph{stop threshold} \bufferlower and \emph{threshold size} \buffersize in more detail.
 
 We consider a video of \(\videolength=\SI{1600}{\second}\) length which is viewed on a \gls{UE} with \gls{LTE} access.
@@ -34,7 +34,7 @@ The \serviceprovisioning method uses a higher bandwidth, thus reducing the overa
 This reduced download time decreases the energy consumption \energyconsumption when compared to the \live mechanism, even though the bandwidth used for downloading is increased to \SI{120}{\percent}.
 For the \streaming mechanism we observe an energy consumption \energyconsumption slightly higher than the \download mechanism.
 As the bit rate \bitrate of the video increases, the energy consumption \energyconsumption increases as well.
-This is due to the fact that a higher video bit rates \bitrate require larger downloads.
+This is due to the fact that higher video bit rates \bitrate require larger downloads.
 For video bit rates \bitrate approaching the available bandwidth the \streaming mechanism degenerates to the \live mechanism, as no pre-buffering is possible.
 We conclude that the \download and \streaming mechanisms outperform \live and \serviceprovisioning with regard to energy consumption.
 
