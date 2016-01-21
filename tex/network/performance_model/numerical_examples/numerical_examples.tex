@@ -1,13 +1,13 @@
 \subsection{Impact of Analytic Traffic Characteristics}\label{sec:network:performance_model:numerical_examples}
 First, we validate our performance model by comparing the analytical results with simulations based on measured
-packet traces of two real smartphone applications .
+packet traces of two real smartphone applications.
 Then, we investigate the impact of traffic patterns on signalling load and power drain and derive high-level implications of the model.
 
 \subsubsection*{Validation of Analytic Model}\label{sec:network:performance_model:validations}
 
-In order to assess the applicability of our performance model, we first have to check whether real-world application traces can be modelled as renewal process, which was our main assumption for the model.
+In order to assess the applicability of our performance model, we first have to check whether real-world application traces can be modelled as a renewal process, which was our main assumption for the model.
 We use the Lewis-Robinson-Test \cite{Ascher1984}, which is a hypothesis test with null hypothesis \(H_0\) that the tested process is a renewal process.
-To this end, we use exemplary measurements, obtained with the measurement testbed introduced in \refsec{sec:network:network_traces:performance_evaluation:measurement}, for two different types of applications: \emph{Twitter} and \emph{K9-Mail}.
+To this end, we use exemplary measurements, obtained with the testbed introduced in \refsec{sec:network:network_traces:performance_evaluation:measurement}, for two different types of applications: \emph{Twitter} and \emph{K9-Mail}.
 According to this test, the null hypothesis cannot be rejected for both of our packet traces at a significance level of \SI{95}{\percent}.
 Although this assumption may not be true for all applications, our results show that at least the considered applications can be modelled as a renewal process.
 
@@ -32,7 +32,7 @@ The comparison of analytical results for the power drain to the simulation in \r
 	\caption{Power drain}\label{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:power_drain}
 	\end{subfigure}
 
-	\caption{Comparison of the performance model with a \headershortacr{3G} simulation for the Three State Scenario. Lines overlap due to good fit.}\label{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation}
+	\caption{Comparison of the performance model with a \headershortacr{3G} simulation for the Three State Scenario. Lines overlap due to high goodness fit.}\label{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation}
 \end{figure}
 
 \subsubsection*{Impact of Traffic Patterns on Signalling Intensity}\label{sec:network:performance_model:signalling_intensity}
@@ -40,7 +40,7 @@ First, we focus on the signalling intensity \(\gls{SI}\) of traffic patterns and
 
 \paragraph*{Impact of the Average Inter-Packet Time \(E[\PacketIAT]\)}\label{sec:network:performance_model:signalling_intensity:ea}
 Some applications, for example those downloading or streaming of videos, send and receive large amounts of data within short time frames.
-In contrast, other applications, e.g. social network clients send and receive small amounts of data every few minutes over the time span of some hours or days.
+In contrast, other applications, e.g. social network clients send and receive only small amounts of data every few minutes over the time span of some hours or days.
 
 In this section we study the impact of average inter-packet times \(E[\PacketIAT]\) and the burstiness of the traffic pattern, i.e., the coefficient of variation
 \[c_{\PacketIAT} = \frac{\sqrt{\mathrm{Var}[\PacketIAT]}}{\mathrm{E}[\PacketIAT]}\]
@@ -68,7 +68,7 @@ For larger values of \(c_{\PacketIAT}\) this dependency is weaker.
 
 Next, we focus on the impact of the timer value \(\TDCH\) with respect to the burstiness of the traffic.
 We use the same setting as before, but fix the average inter-packet time \(E[\PacketIAT]=\SI{4}{\second}\).
-While there are differences in \(E[\PacketIAT]\) among users in real world settings, measurement studies have revealed that across all users \(\SI{95}{\percent}\) of the packets are received or transmitted within \(\SI{4.5}{\second}\) of the previous packet \cite{Falaki2010a}.
+While there are differences in \(E[\PacketIAT]\) amongst users in real world settings, measurement studies have revealed that across all users \(\SI{95}{\percent}\) of the packets are received or transmitted within \(\SI{4.5}{\second}\) of the previous packet \cite{Falaki2010a}.
 Therefore, the order of magnitude of \(E[\PacketIAT]=\SI{4}{\second}\) is of practical relevance.
 
 \begin{figure}
@@ -81,7 +81,7 @@ Therefore, the order of magnitude of \(E[\PacketIAT]=\SI{4}{\second}\) is of pra
 
 The signalling intensity \(\gls{SI}\) is shown in \reffig{fig:network:performance_model:numerical_examples:validations:analytic_vs_simulation:2state_tdch_si} with respect to the timer value \(\TDCH\) and the burstiness \(c_{\PacketIAT}\) of the traffic pattern.
 Obviously, larger timers lead to less frequent state transitions and therefore to less signalling load.
-We observe in addition that the impact of the timer is crucial for nearly periodic traffic.
+In addition we observe that the impact of the timer is crucial for nearly periodic traffic.
 If the average inter-packet time for nearly periodic traffic is larger than the timer, then every packet transmission involves a state transitions from \gls{RRC_idle} to \gls{RRC_DCH} and a transition back.
 In contrast, no transitions are required if the average inter-packet time is shorter than the timer.
 With increasing values of \(c_{\PacketIAT}\) the impact of the timer is reduced.

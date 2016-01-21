@@ -2,7 +2,7 @@
 In the measurement study, we apply the methods introduced in \refsec{sec:network:network_traces:performance_evaluation} to four popular smartphone
 applications to infer signalling traffic and power drain.
 First, we characterise the applications in terms of traffic patterns, application usage, as well as bandwidth requirements.
-Then, we study the \gls{SF} and power drain caused by these applications if inactivity timers, i.e. \TDCH or \TFACH are modified.
+Then, we study the \gls{SF} and power drain caused by these applications if the inactivity timers, i.e. \TDCH or \TFACH are modified.
 Finally, we analyse the influence of network parameters on web \gls{QoE} in terms of \gls{MOS} depending on page load times which are influenced by the network settings.
 
 \subsubsection*{Characterisation of Traffic Patterns for Selected Applications}\label{sec:network:network_traces:numerical_results:traffic_characterization}
@@ -140,7 +140,7 @@ Thus, the second metric considered is the device’s power drain which is influe
 As described in \refsec{sec:network:network_traces:calculating_metrics}, based on a measurement trace for an application we use \refalg{alg:network:network_traces:performance_evaluation:inferring_network_state:inference_algorithm} to infer the state transitions occurring during the use of the application.
 Then, we calculate the relative time spent in each state and use \reftab{tab:network:network_traces:calculating_metrics:power_consumption} to compute the mean power
 drain of the radio interface during the measurement.
-We study both metrics, first on its own and then aggregated for both network models introduced in \refsec{sec:network:background:umts_rrc}.
+We study both metrics, first on their own and then aggregated for both network models introduced in \refsec{sec:network:background:umts_rrc}.
 
 In this section we first consider the Three State Model, which describes the default behaviour in \gls{3G} networks.
 Then, we describe the influence of the Two State Model which models a network behaviour similar to that if proprietary fast dormancy algorithms are used.
@@ -170,7 +170,7 @@ If the timer is greater than the interval time of the keep-alive messages, the \
 These results show that the traffic patterns of the application have a large influence on the generated signalling frequency.
 Signalling is generated for every pause in sending or receiving larger than the configured timeouts.
 If such pauses occur frequently, this increases the signalling frequency as shown on the examples of Skype and Angry Birds.
-Applications with more time between the sending or receiving of data cause less signalling, as shown by Aupeo and Twitter.
+Applications with more time between sending or receiving of data cause less signalling, as shown by Aupeo and Twitter.
 Furthermore, we can observe that the signalling frequency can be reduced by increasing the \TDCH timeout, with the minimum being reached as \TDCH approaches infinity.
 From a signalling frequency perspective, a value of \SI{20}{\second} would probably be sufficient, however if other metrics, e.g. radio resource consumption, are considered \SI{10}{\second} would be acceptable for a network operator.
 
@@ -188,13 +188,13 @@ Proprietary Fast Dormancy algorithms, as the considered Two State Model, are ena
 \end{figure}
 In \reffig{fig:network:network_traces:numerical_results:three_states:power_drain} we consider the power drain if the network uses the Three State Model, i.e. if the Fast Dormancy mode of the \gls{UE} is disabled.
 The figure shows the mean power drain \gls{PD} of the device with regard to the \TDCH timeout.
-Possible values range between \SI{0}{\milli\watt} if the \gls{UE} was in \gls{RRC_idle} state during the whole measurement and \SI{800}{\milli\watt} if the \gls{UE} was in \gls{RRC_DCH} state during the complete measurement.
-We see that the least power over all considered \TDCH values is consumed by the Twitter application.
+Possible values range between \SI{0}{\milli\watt}, if the \gls{UE} was in \gls{RRC_idle} state during the whole measurement, and \SI{800}{\milli\watt}, if the \gls{UE} was in \gls{RRC_DCH} state during the complete measurement.
+We see that the lowest power over all considered \TDCH values is consumed by the Twitter application.
 The second least power drain is required by Aupeo, followed by Angry Birds.
 Finally, the most power is consumed by Skype.
 Here we see that the maximum value of \SI{800}{\milli\watt} is reached at a \TDCH timeout of \SI{20}{\second}.
 Due to the periodic traffic behaviour of Skype, the device is always in \gls{RRC_DCH} state.
-Again, we see that the traffic characteristics of the applications impact the power drain.
+Again we see that the traffic characteristics of the applications impact the power drain.
 Applications with more network activity are forced to stay in connection states requring a larger amount of power for a longer time.
 We see that for very small network timers, the power drain is minimal.
 However, as seen in the last section small timers increase the signalling frequency at the \gls{RNC}.
@@ -219,8 +219,8 @@ If for example the \gls{RRC_DCH} timer is increased from \SI{10}{\second} to \SI
 These points of discontinuity would present themselves to be suitable targets of optimisation.
 Next, we consider the Twitter application.
 It displays a similar behaviour as the Aupeo application, with multiple points of discontinuity.
-Note that Twitter exhibits a different point of discontinuity, and the \TDCH value of \SI{10}{\second}, which provided good results for Aupeo is not optimal for Twitter.
-Finally, Skype again shows a completely different picture then all the other considered applications.
+Note that Twitter exhibits a different point of discontinuity, and the \TDCH value of \SI{10}{\second}, which provided good results for Aupeo, is not optimal for Twitter.
+Finally, Skype again shows a completely different picture than all the other considered applications.
 First, note that due to the large signalling frequency \gls{SF} of Skype for small values of \TDCH, \(\TDCH = \SI{1}{\second}\) is not displayed in the figure.
 Furthermore, as the \TDCH timer increases above \SI{20}{\second} the signalling frequency \gls{SF} does not decrease any further, and the power drain \gls{PD} remains at the maximum value.
 We observe that there is no common optimal value for all applications which would result in an acceptable tradeoff.
@@ -289,7 +289,7 @@ The Angry Birds application shown in  \reffig{fig:network:network_traces:numeric
 There exist applications, like Twitter and Aupeo, where optimisation by modifying the \TDCH values can provide acceptable results.
 However, these optimisations are only successful if a single application or network model is considered.
 For other applications, like Angry Birds or Skype, this optimisation approach does not seem to be successful.
-A reduction of signalling frequency and power drain is possible, if the application developers are incentivised to optimise their applications in these regards.
+A reduction of signalling frequency and power drain is possible, if the application developers are incentivised to optimise their applications accordingly.
 In \cite{Qian2011a} the authors suggest methods to achieve this optimisation, for example batch transfer of advertisements for applications like Angry Birds or decreasing the refresh rate in applications like Skype.
 However, at the moment application developers are neither receiving incentives to optimise applications in this way, nor do hardware vendors provide interfaces to facilitate such optimisation.
 Such interfaces would allow application developers to schedule their data transmissions in such a way that both signalling and battery drain would be reduced.
@@ -301,9 +301,9 @@ If the data is being sent as a regular update while the application is running i
 So far we have discussed only power drain as a \gls{QoE} influence factor.
 For applications like web browsing, one relevant QoE influence factor are page load times.
 Therefore, we consider a web QoE model which quantifies the impact of page load times on mean opinion scores \cite{egger2012a}.
-We distinguish here between \emph{web \gls{QoE}} and \emph{\gls{QoE}}, as no \gls{QoE} models are currently existing which consider page load times as well as power drain.
+Here we distinguish between \emph{web \gls{QoE}} and \emph{\gls{QoE}}, as no \gls{QoE} models are currently existing which consider page load times as well as power drain.
 In this section, we study the impact of background traffic as well as network timer settings on the page load time of an image and the resulting \gls{MOS}.
-For this study, we only consider the Three State Model, but the results can be applied to the 2-state model as well.
+For this study, we only consider the Three State Model, but the results can be applied to the Two State Model as well.
 
 We assume a scenario, where a user is running a background application like Twitter or Skype.
 Then, while the application is in the background, the user begins to download an image from a website.
@@ -342,7 +342,7 @@ This allows us to give an expected \gls{MOS} for downloading pictures while a ba
 
 Using this methodology, we study the influence of background traffic on the \gls{QoE} for two background applications with different traffic characteristics.
 In \reffig{fig:network:network_traces:numerical_results:web_qoe:twitter} we assume that the user is running the Twitter application as a background process.
-The application is set to update the users status feed every \SI{300}{\second}.
+The application is set to update the user's status feed every \SI{300}{\second}.
 In \reffig{fig:network:network_traces:numerical_results:web_qoe:skype} the user is running the Skype application as a background application.
 This application sends keep alive messages every \SI{20}{\second}.
 For each application, we assume the Three State Model with \TDCH settings of \SIlist{1;4;8;16}{\second}.
@@ -352,7 +352,7 @@ We assume \SI{0.1}{\second} as a lower bound, as page load times lower than \SI{
 The calculated \gls{MOS} values are given on the y-axis.
 
 The picture downloads with the background traffic generated by the Twitter application result in \gls{MOS} values beginning at \(3.15\) for \(\TDCH = \SI{1}{\second}\), \(3.18\) for \(\TDCH = \SI{4}{\second}\), \(3.21\) for \(\TDCH = \SI{8}{\second}\), and \(3.27\) for \(\TDCH = \SI{16}{\second}\) respectively.
-With increasing page load time, the \gls{MOS} again decreases.
+With increasing page load time, the \gls{MOS} decreases again.
 This behaviour is due to the fact that the Twitter application periodically sends traffic every \SI{300}{\second}.
 Then, no further activity occurs until the next refresh occurs.
 In this time, the \gls{UE} transitions to \gls{RRC_idle} state.
@@ -360,11 +360,11 @@ This traffic characteristic causes a high probability of a user encountering the
 Additionally, the traffic characteristics of the background application show that different \TDCH settings impact the web \gls{QoE} only marginally, resulting in the lines in the graph being grouped close together.
 
 In contrast, downloading pictures with the Skype application generating background traffic, causes different \gls{MOS} values.
-For a page load time \(t\) of \SI{0.2}{\second} the \gls{MOS} value with \(\TDCH = \SI{1}{\second}\) is \(3.49\) with \(\TDCH = \SI{4}{\second}\) we get \(3.99\) for \(\TDCH = \SI{8}{\second}\) we get a \gls{MOS} value of \(4.44\) and finally for \(\TDCH = \SI{16}{\second}\) we get \(4.99\) respectively.
-For increasing page load times, the \gls{MOS} decreases.
-This increased \gls{MOS} values occur due to the high frequency of traffic sent by the Skype application.
+For a page load time \(t\) of \SI{0.2}{\second} the \gls{MOS} value with \(\TDCH = \SI{1}{\second}\) is \(3.49\), with \(\TDCH = \SI{4}{\second}\) we get \(3.99\), for \(\TDCH = \SI{8}{\second}\) we get a \gls{MOS} value of \(4.44\), and finally for \(\TDCH = \SI{16}{\second}\) we get \(4.99\) respectively.
+We observe, that for increased page load times, the \gls{MOS} decreases.
+Further, due to the high frequency of traffic sent by the Skype application  increased \gls{MOS} values occur when compared to those of the Twitter scenario.
 Here, every \SI{20}{\second} traffic is sent.
 This means that even for relatively low values of \(\TDCH\) the user has a high probability of encountering a state where no promotion delay is required before the actual page load time \(t\) can begin.
 
-From these studies we can conclude that, when considering \gls{QoE} on mobile devices, not only the page load time \(t\) caused by the network but also additional delays caused by the state of the device should be considered.
+From these studies we can conclude that, when considering the \gls{QoE} on mobile devices, not only the page load time \(t\) caused by the network but also additional delays caused by the state of the device should be considered.
 As shown on two examples, this state can be affected by other applications which are running in the background and generate traffic.

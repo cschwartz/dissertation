@@ -22,7 +22,7 @@
 			<key>Font</key>
 			<string>Helvetica</string>
 			<key>Size</key>
-			<real>8</real>
+			<real>7</real>
 		</dict>
 		<key>ID</key>
 		<integer>2</integer>
@@ -1376,7 +1376,7 @@ Equipment}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-12-11 06:24:34 +0000</string>
+	<string>2016-01-21 04:14:57 +0000</string>
 	<key>Modifier</key>
 	<string>Christian Schwartz</string>
 	<key>NotesVisible</key>
@@ -1457,7 +1457,7 @@ Equipment}</string>
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{4, 0}, {1436, 877}}</string>
+		<string>{{-3, -713}, {1402, 877}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
@@ -1471,7 +1471,7 @@ Equipment}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{0, 9.75}, {162.625, 91.875}}</string>
+		<string>{{111.5, 9.625}, {158.375, 91.875}}</string>
 		<key>Zoom</key>
 		<real>8</real>
 		<key>ZoomValues</key>

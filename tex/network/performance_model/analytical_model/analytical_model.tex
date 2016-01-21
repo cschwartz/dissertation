@@ -4,14 +4,14 @@ The model allows researchers and application developers to evaluate analytical a
 
 After presenting the system description, we derive the state distribution and the average frequency of state transitions for a Two State Model, e.g. for proprietary fast dormancy implementations of smart-phone vendors~\cite{NSN2011}.
 Afterwards, we extend the model to include \gls{RRC_FACH} for regular \gls{3G} networks.
-Finally, we define simple metrics for signalling load and power drain.
+Finally, we define comprehensive metrics for signalling load and power drain.
 
 \newcommand{\PacketIAT}{A\xspace}
 
 \subsubsection*{Mobile \headershortacr{RAN} System Description}\label{sec:network:performance_model:analytical_model:system_description}
 We consider a \gls{UE} which sends and receives a sequence of data packets via a \gls{3G} \gls{UMTS} network.
 As discussed in \refsec{sec:network:background:umts_rrc}, the arrival process of the packet transmissions determines the \gls{RRC} states of the \gls{UE}.
-However, the direction of packets, i.e. whether they originate from the \gls{UE} or the NodeB, has no impact on the \gls{RRC} states, as the states depend solely on traffic activity.
+However, the direction of packets, i.e. whether they originate from the \gls{UE} or the NodeB, has no impact on the \gls{RRC} states, as the states solely depend on traffic activity.
 Due to the high impact of \gls{RRC} states on traffic patterns, we do not consider packet sizes in this model.
 In real \gls{UMTS} networks very small packets might be treated differently for \gls{RRC} states, but we neglect this both for simplicity reasons and as the impact of packet sizes is highly network operator specific~\cite{Qian2010a}.
 Furthermore, \gls{RRC} state transitions are complex procedures depending on implementation details of the \gls{UE}, the specific \gls{UMTS} release, and the configurations by the network operator.
@@ -20,14 +20,14 @@ In order to keep our model simple, but realistic, we reduce the set of standardi
 In a first step we consider the Two State Model: \gls{RRC_idle} and \gls{RRC_DCH} as shown in \reffig{fig:network:background:rrc_state_machines:two_states}.
 The \gls{UE} switches to \gls{RRC_DCH} to transmit or receive data and after an inactivity period of duration \TDCH, it switches back to \gls{RRC_idle}.
 The motivation for the two states \gls{RRC} scenario is twofold.
-First, it serves for illustration purposes.
+First, it serves illustration purposes.
 We derive the model step-by-step in this simple scenario to explain the ideas behind the equations.
 Then, the ideas can be easily transferred to the more complex Three State Model.
 Second, the scenario is of practical relevance since proprietary implementations of the fast dormancy concept can be modelled as the Two State Model, as discussed in \refsec{sec:network:background:umts_rrc}.
 Furthermore, this model is very similar to the one found in \gls{LTE} systems.
 In \gls{LTE}, only a distinction between connected and disconnected states can be found, which maps to the \gls{RRC_idle} and \gls{RRC_DCH} states discussed in this model.
 
-In our model we aggregate both packets sent and received by the \gls{UE} in the packet arrival process, which is assumed to be a renewal process, i.e. a process  with identical and independently distributed inter-arrival times, described by the random variable \(\PacketIAT\) as shown in~\reffig{fig:network:performance_model:system_description:arrival_process}.
+In our model we aggregate both packets sent and received by the \gls{UE} in the packet arrival process, which is assumed to be a renewal process, i.e. a process  with \gls{IID} inter-arrival times, described by the random variable \(\PacketIAT\) as shown in~\reffig{fig:network:performance_model:system_description:arrival_process}.
 Thus, the probability that the time between two consecutive packets is at most \(t\) is \(P(\PacketIAT \leq t) = \PacketIAT(t)\).
 This assumption is validated in \refsec{sec:network:performance_model:validations} using the application measurements obtained in \refsec{sec:network:network_traces:numerical_results}.
 
@@ -52,9 +52,11 @@ The packet arrivals determine the \gls{RRC} state of the \gls{UE} and the corres
 \newcommand{\NormalisationConstant}{c_0\xspace}
 \newcommand{\NObservedPackets}{n_{\text{P}}\xspace}
 
+First, we derive the connection state distribution of the Two State Model and obtain the average frequency of state transitions given a specified packet arrival process.
+
 \paragraph*{Connection State Distribution}
 First, we are interested in the state distribution \(P(\RRCState=\RRCStateRealization)\), i.e., the fraction of time the \gls{UE} spends in state \(\RRCStateRealization\in\{\gls{RRC_idle},\gls{RRC_DCH}\}\) for a given inter-packet time \(\PacketIAT\).
-For this purpose, we define an observation interval \(\ObservationInterval\), depicted in \reffig{fig:network:performance_model:system_description:arrival_process}, which is assumed to be larger in orders of magnitude than the average packet inter-arrival time \(E[\PacketIAT]\).
+For this purpose, we define an observation interval \(\ObservationInterval\), depicted in \reffig{fig:network:performance_model:system_description:arrival_process}, which is assumed to be orders of magnitude larger than the average packet inter-arrival time \(E[\PacketIAT]\).
 In addition, we take the position of an outside observer who observes the state \(\RRCState\) at a random point in time \(\ObservationPoint\), uniformly distributed within the observation interval.
 Then the state distribution \(P(\RRCState=\RRCStateRealization)\) is the probability that the observer encounters the \gls{UE} in state \(\RRCState\) at the time \(\ObservationPoint\).
 
@@ -145,7 +147,7 @@ In this section we consider three states: \gls{RRC_idle}, \gls{RRC_DCH}, and \gl
 Again, we assume that the \gls{UE} switches from \gls{RRC_idle} to \gls{RRC_DCH} whenever it transmits or receives data.
 After an inactivity of \(\TDCH\) the \gls{UE} switches to \gls{RRC_FACH}, and after an additional inactivity of \(\TFACH\), it switches to \gls{RRC_idle}, as depicted in \reffig{fig:network:background:rrc_state_machines:three_states}.
 This scenario usually occurs when the network controls the \gls{RRC} state of the \gls{UE} without proprietary connection tear-down mechanisms implemented on the \gls{UE}.
-In today's network some operator transition the \gls{UE} to a state with a paging channel \texttt{URA\_PCH} instead of the \gls{RRC_idle}, but the resource consumptions in both states are very similar and we therefore neglect the \texttt{URA\_PCH} state for simplicity reasons.
+In today's network some operator transition the \gls{UE} to a state with a paging channel \texttt{URA\_PCH} instead of the \gls{RRC_idle}, but the resource consumptions in both states are very similar and we therefore omit the \texttt{URA\_PCH} state for the sake of simplicity.
 
 \paragraph*{Connection State Distribution}
 The state distribution \(P(\RRCState=\RRCStateRealization)\) for the three states \(\RRCStateRealization\in\{\gls{RRC_idle},\gls{RRC_FACH},\gls{RRC_DCH}\}\) can be derived in the same way as for the scenario with two states.
@@ -183,7 +185,7 @@ In contrast to the Two State Model, we have to consider a larger number of state
 These are the transitions from \gls{RRC_idle} to \gls{RRC_DCH}, from \gls{RRC_DCH} to \gls{RRC_FACH}, from \gls{RRC_FACH} to \gls{RRC_DCH}, and from \gls{RRC_FACH} to \gls{RRC_idle}.
 Other transitions do not occur.
 We first calculate the frequency of state transitions from \gls{RRC_DCH} to \gls{RRC_FACH}.
-This transition happens every time when the inter-packet time \(\PacketIAT\) exceeds the timer \(\TDCH\).
+This transition happens every time the inter-packet time \(\PacketIAT\) exceeds the timer \(\TDCH\).
 Therefore, the derivation is the same as presented above:
 \begin{equation*}
 E[\fStateTransitionsDCHToFACH]=\frac{1-\PacketIAT(\TDCH)}{E[\PacketIAT]},
@@ -216,7 +218,7 @@ where \(\fStateTransitions\) is the sum of all state transitions.
 Consequently, \(\gls{SI} \in ]0,2]\) for the Two State Model since every packet can at most cause two state transitions, in the Three State Model \(\gls{SI} \in]0,3]\) holds.
 This metric is intended to quantify the relation between transmitted data packets and the involved \gls{RRC} state transitions, which all incur mobile network signalling.
 The metric can be extended to capture more details, e.g. the number and type of signalling messages exchanged for a specific state transition, as discussed in \refsec{sec:network:network_traces:calculating_metrics}.
-Since we will use this metric for more qualitative analysis of source traffic produced by smart-phone applications, we stick to the definition above allowing for an illustrative understanding of the numerical results.
+Since we will use this metric for a more qualitative analysis of source traffic produced by smart-phone applications, we stick to the definition above allowing for an illustrative understanding of the numerical results.
 
 Next, we model the \gls{PD} of the \gls{UE} due to the \gls{UMTS} transmission unit.
 We assume three power levels \(\gls{PD}_{\RRCState}\), one for every state \(\RRCStateRealization\) and calculate the average power drain \(\gls{PD}\) based on the state distribution, which in turn depends on the packet arrival process \(\PacketIAT\).
