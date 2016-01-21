@@ -44,7 +44,7 @@ Each of these is less powerful than the traditional \gls{GGSN}, having a tunnel 
 In its initial state, for efficiency, all but a small portion of the server instances are considered to be disabled.
 Only, when a certain condition is reached, a new server instance is provisioned.
 As a simple example, one instance could be kept in reserve for upcoming requests and an additional would be provisioned as soon as the reserve is used.
-Similar rules should apply in the shut-down of servers and form a hysteresis with the boot condition.
+Similar rules should apply to the shut-down of servers and form a hysteresis with the boot condition.
 For example it would be possible to keep at least one server in reserve but never more than two.
 
 If these conditions are not carefully selected and are in tune with the expected boot time of an instance, additional blocking can occur.

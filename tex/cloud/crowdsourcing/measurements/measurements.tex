@@ -3,12 +3,12 @@ In this section we analyse a large dataset from a commercial crowdsourcing platf
 
 \subsubsection*{Deriving Realistic Model Parameters}
 Our analysis is based on a large dataset from the commercial micro-tasking platform Microworkers.com.
-The dataset contains information about more then 160.000 campaigns submitted to the platform between May 2009 and Jan 2015, including the number of tasks per campaign as well as the time of the submission of the campaign.
+The dataset contains information about more than 160.000 campaigns submitted to the platform between May 2009 and Jan 2015, including the number of tasks per campaign as well as the time of the submission of the campaign.
 
 \paragraph*{Inter-arrival Times:} First, we study the inter-arrival times of the campaigns.
 During the observation period, the platform faced some downtime due to software update or changes of the technical infrastructure.
 During this time, no campaigns could be submitted resulting in relatively large campaign inter-arrival times.
-In our model we only consider the regular operation of the platform, therefore we removed all inter-arrival times larger then \SI{97.5}{\percent} quantile of all observed values, which affects about \SI{2.5}{\percent} of all values.
+In our model we only consider the regular operation of the platform, therefore we removed all inter-arrival times larger than \SI{97.5}{\percent} quantile of all observed values, which affects about \SI{2.5}{\percent} of all values.
 
 \begin{figure}
   \centering
@@ -45,7 +45,7 @@ The \gls{CDF} of the campaign sizes \campaignSize is depicted in \reffig{fig:clo
 Due to the platform restrictions mentioned above, the campaign sizes start with a minimum value of \(30\) tasks.
 We observe that a very high share, i.e. \SI{35}{\percent}, of campaigns has only this minimum size.
 Further, campaign sizes which are a multiple of \(10\) or a multiple of \(100\) are quite frequent.
-This is caused by the fact that most task on Microworkers.com are repetitive and the employers choose the required number of repetitions and thus are more likely to round the number of repetitions to the nearest multiple of \(10\) or \(100\).
+This is caused by the fact that most tasks on Microworkers.com are repetitive and the employers choose the required number of repetitions and thus are more likely to round the number of repetitions to the nearest multiple of \(10\) or \(100\).
 
 In order to obtain a suitable analytic distribution for the empiric values, we normalise the observed values and use the following piecewise defined distribution.
 \begin{equation*}
@@ -60,7 +60,7 @@ with
 \begin{equation*}
 GEOM(s) = {(1-p)}^s p.
 \end{equation*}
-The minimum campaign size \(s_{\min}\) is observed with a fixed probability \(p_{s_{\min}}\), while all campaign sizes larger then \(s_{\min}\) follow a shifted and scaled geometric distribution.
+The minimum campaign size \(s_{\min}\) is observed with a fixed probability \(p_{s_{\min}}\), while all campaign sizes larger than \(s_{\min}\) follow a shifted and scaled geometric distribution.
 
 Due to the relatively high frequencies of campaign sizes being multiples of \(10\) and \(100\), it is only possible to achieve a good fitting either for the lower or the higher region of the geometric part.
 As an overestimation of the campaign size will give us an upper bound of the platform work load, we decided to put a stronger emphasis on correct fitting of the larger campaign sizes.
