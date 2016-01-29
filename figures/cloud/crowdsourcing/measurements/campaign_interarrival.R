@@ -1,7 +1,7 @@
 data <- read.csv('campaign_interarrival.csv')
 data$type <- factor(data$type, labels = c('Measurement','Fitting'))
 
-p <- ggplot(data %>% sample_frac(0.2), aes(x, color=type)) +
+p <- ggplot(data %>% sample_frac(0.05), aes(x, color=type)) +
   stat_ecdf() + 
   scale_x_continuous(limits = c(0,2)) +
   scale_y_continuous() +
