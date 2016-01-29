@@ -42,7 +42,7 @@ By increasing the rate for the same shape the tightness of the distribution is m
 For rate parameters \(\alpha < 1\) this results in a distribution with a long tail.
 The increase of the rate decreases the breadth of the distribution.
 Transferred to the campaign inter-arrival process \campaignIAT different shape and rate settings can be used to model different task types and varying the business of the platform.
-The range of the inter-arrival times is given by the rate and the shape defines the weighting of the different times.
+The range of the inter-arrival times is given by the rate and the shape defines the weighing of the different times.
 A lower shape means more campaigns arrive in bursts in combination with longer time periods without any campaign arrival.
 
 Next, we use our simulation model introduced in \refsec{sec:cloud:crowdsourcing:model} with the campaign size distribution \campaignSize and task completion times \taskDuration obtained in \refsec{sec:cloud:crowdsourcing:measurements} for different campaign inter-arrival times to study the impact on the utilisation.
@@ -114,4 +114,4 @@ Independent of the considered task duration \taskDuration, we observe that incre
 However, this decrease is not linear.
 This means that a small increase of the number of workers \numberOfWorkers reduces the utilisation \workerUtilization, which is generally not desired.
 However, this small degradation of the utilisation \workerUtilization results in an over-proportional reduction of the mean task pre-processing delay \preTaskProcessingDelay.
-Thus, it is advisable to sightly overdimension the number of workers \numberOfWorkers to optimise the tradeoff between utilisation \workerUtilization and mean task pre-processing delay \preTaskProcessingDelay.
+Thus, it is advisable to slightly overdimension the number of workers \numberOfWorkers to optimise the tradeoff between utilisation \workerUtilization and mean task pre-processing delay \preTaskProcessingDelay.

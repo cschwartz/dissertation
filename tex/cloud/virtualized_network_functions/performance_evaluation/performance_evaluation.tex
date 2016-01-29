@@ -39,23 +39,23 @@ For this reason, the number of active servers \(I\) is a relevant performance me
 \tabcolsep=0.11cm
 \begin{tabular}{lccccc}
 \toprule
-& \(F(2,1275)\) & \(\eta^2_p\) & \(p\) & Cohen's & Cohen's\\ 
-&  & & & \(f^2\) & \(\hat{\omega}^2\) \\ 
+& \(F(2,1275)\) & \(\eta^2_p\) & \(p\) & Cohen's & Cohen's\\
+&  & & & \(f^2\) & \(\hat{\omega}^2\) \\
 \midrule
-\emph{blocking probability} \(\blockingprobability\)  & & & & &\\ 
-maxTunnels \(n\)&  15601.53 & \textcolor{red}{0.993} & $<0.001$ & \textcolor{red}{26.73} & 0.96\\ 
-maxInstances \(\maxServers\)&  10218.17 & \textcolor{red}{0.986} & $<0.001$ & \textcolor{red}{1.06} & 0.51\\ 
-startstopDuration \(d\) &  0.86 & \textcolor{black}{0.003} & $0.482$ & \textcolor{black}{0.00} & 0.00\\ 
+\emph{blocking probability} \(\blockingprobability\)  & & & & &\\
+maxTunnels \(n\)&  15601.53 & \textcolor{red}{0.993} & $<0.001$ & \textcolor{red}{26.73} & 0.96\\
+maxInstances \(\maxServers\)&  10218.17 & \textcolor{red}{0.986} & $<0.001$ & \textcolor{red}{1.06} & 0.51\\
+startstopDuration \(d\) &  0.86 & \textcolor{black}{0.003} & $0.482$ & \textcolor{black}{0.00} & 0.00\\
 \midrule
-\emph{mean tunnel count} \(n_A\) & & & & &\\ 
-maxTunnels \(n\)&  20448.34 & \textcolor{red}{0.994} & $<0.001$ & \textcolor{red}{27.71} & 0.96\\ 
-maxInstances \(\maxServers\)&  13348.25 & \textcolor{red}{0.989} & $<0.001$ & \textcolor{red}{1.06} & 0.51\\ 
-startstopDuration \(d\) &  2.87 & \textcolor{black}{0.009} & $0.022$ & \textcolor{black}{0.00} & 0.00\\ 
+\emph{mean tunnel count} \(n_A\) & & & & &\\
+maxTunnels \(n\)&  20448.34 & \textcolor{red}{0.994} & $<0.001$ & \textcolor{red}{27.71} & 0.96\\
+maxInstances \(\maxServers\)&  13348.25 & \textcolor{red}{0.989} & $<0.001$ & \textcolor{red}{1.06} & 0.51\\
+startstopDuration \(d\) &  2.87 & \textcolor{black}{0.009} & $0.022$ & \textcolor{black}{0.00} & 0.00\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-For the analysis of the influence of different model parameters on the performance metrics, we perform a one-way ANOVA analysis with the results in \reftab{tab:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn:manipulation}.
+For the analysis of the influence of different model parameters on the performance metrics, we perform a one-way ANOVA with the results in \reftab{tab:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn:manipulation}.
 High values for the effect size estimators \(\eta_p^2\) and Cohen's \(f^2\)\cite{Ellis2010} indicate that the main influence for both blocking probability \(\blockingprobability\) and mean number of tunnels \(n_A\) is the maximum number of tunnels \(n\) and virtual \gls{GGSN} instances \(\maxServers\), i.e. the total number of possible concurrent tunnels in the system.
 Therefore, we study these parameters first.
 
@@ -67,7 +67,7 @@ Therefore, we study these parameters first.
 \end{figure}
 
 In \reffig{fig:cloud:virtualized_network_functions:performance_evaluation:virtual_ggsn:instanceuse_multiserver} the \gls{CDF} of the number of active servers for four different virtual \gls{GGSN} configurations is displayed.
-We study the behaviour of a virtual \gls{GGSN} with \(\maxServers = 30\) servers, where each server can support \(n = 100\) or \(n = 150\) tunnels.  
+We study the behaviour of a virtual \gls{GGSN} with \(\maxServers = 30\) servers, where each server can support \(n = 100\) or \(n = 150\) tunnels.
 Then, we compare this with a virtual \gls{GGSN} with \(\maxServers = 50\) servers and again \(n = 75\) or \(n = 150\) tunnels.
 We observe that increasing the number of supported tunnels \(n\) per server allows a larger percentage of servers to be shut-down or used for other tasks. This demonstrates the scaling capability of the virtualised model quite well.
 Note that both the scenario with \(30\) servers \maxServers and \(150\) maximum tunnels \(n\) per server as well as the scenario with \(60\) servers \maxServers and \(75\) maximum tunnels per server sharing the same maximum amount of tunnels, i.e. \(4500\), being right at the centre of the interesting range of candidates.
@@ -110,7 +110,7 @@ In addition to the previous effects, we notice that a higher start-up and shut-d
   \caption{Influence of start-up and shut-down time \(d\) on blocking probability \(p_B\) with regard to different numbers of supported tunnels per instance \(n\).}
   \label{fig:cloud_virtualized_network_functions:startup_shutdown:compare_maxinstances_block}
 \end{figure}
- 
+
 We focus on a specific scenario in \reffig{fig:cloud_virtualized_network_functions:startup_shutdown:compare_maxinstances_block}, where \(5000\) total tunnels should be supported by the system, to study this behaviour in more detail.
 To achieve this goal, we consider three types of instances, with the server capacity \(n\) varying between \(50\) and \(500\).
 In each case we change the start-up and shut-down time \(d\) between \(20\) and \(\SI{300}{\second}\).
