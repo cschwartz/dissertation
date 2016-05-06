@@ -9,7 +9,7 @@ p <- ggplot(data,
   geom_line() +
   geom_point(data = subset(data, data$number.of.stalling.events %in% seq(0, 6))) +
   scale_colour_manual(values = color.palette) +
-  scale_y_continuous(breaks = seq(1, 5), labels = seq(1, 5), limits = c(1, 5)) +
+  scale_y_continuous(breaks = seq(1, 5), labels = seq(1, 5), limits = c(1, 6)) +
   scale_x_continuous(breaks = seq(0, 6)) +
   labs(x = label.number.of.stalling.events, 
        y = label.qoe, 

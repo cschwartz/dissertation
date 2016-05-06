@@ -14,8 +14,11 @@ JUNK_FILES = FileList.new(['tex/**/*.log', 'tex/**/*.bbl', 'tex/**/*.blg', 'tex/
 GRAFFLE_FILES = Rake::FileList.new('figures/**/*.graffle')
 PLOT_FILES = Rake::FileList.new('figures/**/*.R').exclude('figures/**/plot_settings.R').exclude { |f| 
   File.basename(f).start_with? '_'
-}
+}.exclude { |f|
+  File.basename(f).end_with?('_deutsch.R')
+}.exclude('figures/plot_vortrag_de.R')
 
+p PLOT_FILES
 GENERATED_FIGURE_FILES = Rake::FileList.new('tex/**/figures/*.pdf').exclude('tex/figures/*.pdf')
 
 OMNIGRAFFLE =  "OmniGraffle Professional 5"

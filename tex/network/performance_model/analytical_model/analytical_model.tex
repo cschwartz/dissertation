@@ -211,7 +211,7 @@ We assume that every state transition involves signalling traffic.
 In order to quantify signalling load on an abstract level, we define the \gls{SI} of an application, i.e. of a given distribution for \(\PacketIAT\), as the average number of state transitions required for the transmission of a single data packet.
 \begin{equation}
 \gls{SI} = \frac{\fStateTransitions \cdot \ObservationInterval}{E[\NObservedPackets]}\\
-= \fStateTransitions {E[f_{ST}] }\cdot E[\PacketIAT]
+= \fStateTransitions \cdot E[\PacketIAT]
 \label{eq::sigIntensity}
 \end{equation}
 where \(\fStateTransitions\) is the sum of all state transitions.
@@ -227,5 +227,5 @@ We obtain
 \gls{PD} = \sum_{\RRCStateRealization\in\RRCState} \gls{PD}_{\RRCStateRealization} \cdot P(\RRCState=\RRCStateRealization)
 \label{eq::powerdrain}
 \end{equation}
-with \(\RRCState = \{\gls{RRC_idle},\gls{RRC_DCH}\}\) or \(\RRCState = \{\gls{RRC_idle},\gls{RRC_FACH},\gls{RRC_DCH}\}\) depending on whether the Two State Model or the Three State Model is considered.
+with \(\RRCState = \{\gls{RRC_idle},\gls{RRC_FACH},\gls{RRC_DCH}\}\) for the Three State Model or \(\RRCState = \{\gls{RRC_idle},\gls{RRC_DCH}\}\) if the Two State Model is considered.
 This is a user-centric metric and gives insights into how efficient the transmission process uses the battery.

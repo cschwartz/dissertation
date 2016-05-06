@@ -11,7 +11,6 @@ library('reshape2')
 library('dplyr')
 library('Cairo')
 
-annotation.font <- 'Linux Biolinum O'
 
 color.palette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 color.low <- color.palette[7]
@@ -85,6 +84,8 @@ label.alpha <- expression(paste("Duration Parameter ", alpha))
 label.beta <- expression(paste("Interruption Parameter ", beta)) 
 label.prebuffering.sensitivity <- expression(paste("Pre-buffering Parameter ", gamma))
 label.normalized.video.buffer <- expression(paste('Normalized Video Buffer ', d^'*', ' (s)'))
+label.stalling <- 'Stalling'
+label.playing <- 'Playing'
 
 # 4.2, done
 label.power <- 'Power drain E (kW)'
@@ -130,7 +131,11 @@ unit.labeller <- function(unit) {
 }
 
 font.size <- 8
+#font.size <- 10
 annotation.font.size <- (4/15) * font.size
+font.family <- 'Linux Biolinum O'
+#font.family <- 'Helvetica'
+annotation.font <- font.family
 
 plot_options = theme(
   plot.margin = unit(c(0.2, 0, 0, 0), "cm"),
@@ -139,9 +144,9 @@ plot_options = theme(
   legend.box = "vertical",
   legend.key.height = unit(0.4, "cm"),
   legend.margin = unit(0.0, "cm"),
-  text         = element_text(family="Linux Biolinum O", size = font.size),
-  axis.title.x = element_text(family="Linux Biolinum O", size = font.size),
-  axis.title.y = element_text(family="Linux Biolinum O", size = font.size)
+  text         = element_text(family=font.family, size = font.size),
+  axis.title.x = element_text(family=font.family, size = font.size),
+  axis.title.y = element_text(family=font.family, size = font.size)
 )
 
 units <- "cm"

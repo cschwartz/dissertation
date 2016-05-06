@@ -116,7 +116,6 @@ The number of connections is shown on the y-axis, the x-axis in \reffig{fig:appl
 We observe a similar behaviour as in the previous evaluations, the average number of connection \connectionCount for the \algointerval and the \algoimmediate algorithms is the same in \reffig{fig:application:cloud_file_synchronisation:numerical_evaluation:connection:connection:interval}, if the interval lengths \thresholdInterval are smaller then \SI{4}{\second}.
 With increasing interval lengths \thresholdInterval the connection count \connectionCount also increases and reaches a maximum for an interval length of \SI{32}{\second}.
 
-%TODO: check SI containing variables
 In order to explain this behaviour we make the following considerations.
 The maximum amount of data \(s_x\) which can be send from the camera to the mobile client during an intervals \thresholdInterval of length \(x~\si{\second}\) is given by
 \[s_x=x \cdot \panTransferRate = x \cdot \SI{1 / 2}{\mega\byte}.\]

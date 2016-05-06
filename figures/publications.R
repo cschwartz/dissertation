@@ -13,8 +13,8 @@ p <- ggplot(data, aes(x = area,
                       y = methodology,
                       color = chapter,
                       group = reference)) +
-  geom_text(aes(label=as.character(sprintf("[%d]", reference))), size = 2, show_guide = F) +
-  geom_point(y = 0.2, size = 0) +
+  geom_text(aes(label=as.character(sprintf("[%d]", reference))), size = 2, show_guide = F, family=font.family) +
+  geom_point(y = -0.2, size = 0) +
   scale_x_continuous(breaks = c(0.5, 1.5, 2.5),
                      minor_breaks = c(1, 2),
                      labels = breaks.area) +

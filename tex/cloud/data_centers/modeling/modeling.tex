@@ -12,7 +12,6 @@ If less than \(i < n\) jobs are currently in the system, then \(i\) servers are 
 If \(i \geq n\) jobs are in the system all servers are busy and consume \(n\cdot e_\text{busy}\) \si{\watt} in total.
 
 For stationary state probabilities \(x(i)\), we obtain the mean power drain as
-%TODO rename this
 \begin{equation}\label{sec:cloud:data_centers:modeling:default:emax}
 E_\text{max} = \sum_{i=0}^{n} x(i) (i e_\text{busy} + (n-i) e_\text{idle}) + ne_\text{busy} \sum_{i=n + 1}^{+ \infty} x(i).
 \end{equation}
@@ -77,7 +76,6 @@ Based on the state probabilities we can derive the required performance metrics 
 
 The carried traffic and utilisation is given by
 \begin{equation*}
-%TODO anders, evtl 2 zeilen?
 a = \frac{\lambda}{\mu} \text{\quad and\quad} \rho=\frac{\lambda}{\mu(n+m)}.
 \end{equation*}
 

@@ -2,7 +2,7 @@ data <- data.frame(phase.start = c(0, 1, 3, 4, 8, 8.5),
                    phase.end = c(1, 3, 4, 6, 8.5, 9.16),
                    buffer.start = c(0, 1, 3, 1, 3, 2), 
                    buffer.end = c(1, 3, 1, 3, 2, 0),
-                   status = c('Stalling', 'Stalling', 'Playing', 'Stalling', 'Playing', 'Playing'))
+                   status = c(label.stalling, label.stalling, label.playing, label.stalling, label.playing, label.playing))
 
 data$status <- factor(data$status)
 
